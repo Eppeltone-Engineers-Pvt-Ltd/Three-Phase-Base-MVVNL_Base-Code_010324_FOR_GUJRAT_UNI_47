@@ -1,0 +1,2492 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  #CC-RL Compiler RL78 Assembler Source
+00000000                        2  #@  CC-RL Version : V1.12.01  [12 Jun 2023]
+00000000                        3  #@  Commmand :
+00000000                        4  #@   rl78i1c\application\dlms\objects\r_dlms_obis.c
+00000000                        5  #@   -cpu=S3
+00000000                        6  #@   -cref=Build/Release_BQFR\r_dlms_obis.cref
+00000000                        7  #@   -o Build/Release_BQFR\r_dlms_obis.obj
+00000000                        8  #@   -no_warning_num=20177,20550,20494,20174
+00000000                        9  #@   -dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+00000000                       10  #@   -g
+00000000                       11  #@   -Onothing
+00000000                       12  #@   -goptimize
+00000000                       13  #@   -I Release_BQFR
+00000000                       14  #@   -I rl78i1c\application\dlms\physical
+00000000                       15  #@   -I rl78i1c\application\dlms\objects
+00000000                       16  #@   -I rl78i1c\application\dlms\meter_app\hash
+00000000                       17  #@   -I rl78i1c\application\dlms\meter_app\aes
+00000000                       18  #@   -I rl78i1c\application\dlms\meter_app
+00000000                       19  #@   -I rl78i1c\application\dlms
+00000000                       20  #@   -I rl78i1c\application
+00000000                       21  #@   -I rl78i1c\application\debug\loadtest
+00000000                       22  #@   -I rl78i1c\application\services\64bit_process
+00000000                       23  #@   -I .
+00000000                       24  #@   -I rl78i1c\wrapper\core\sw\filter\config
+00000000                       25  #@   -I rl78i1c\wrapper\core\sw\filter\include
+00000000                       26  #@   -I rl78i1c\application\powermgmt
+00000000                       27  #@   -I rl78i1c\application\storage\meterdata
+00000000                       28  #@   -I rl78i1c\application\storage\config
+00000000                       29  #@   -I rl78i1c\application\dataflash\fdl\incrl78
+00000000                       30  #@   -I rl78i1c\application\dataflash
+00000000                       31  #@   -I rl78i1c\application\services
+00000000                       32  #@   -I rl78i1c\application\interpreter\mlsHeaders
+00000000                       33  #@   -I rl78i1c\application\interpreter\mlsCIHandler
+00000000                       34  #@   -I rl78i1c\application\interpreter\mlsCIEng
+00000000                       35  #@   -I rl78i1c\application\interpreter\mlsCIComm
+00000000                       36  #@   -I rl78i1c\application\interpreter\mlsCIApp
+00000000                       37  #@   -I rl78i1c\driver\mcu
+00000000                       38  #@   -I rl78i1c\application\calibration
+00000000                       39  #@   -I rl78i1c\application\debug
+00000000                       40  #@   -I rl78i1c\application\display&button
+00000000                       41  #@   -I rl78i1c\application\display&button\lcd
+00000000                       42  #@   -I rl78i1c\application\eeprom
+00000000                       43  #@   -I rl78i1c\application\event
+00000000                       44  #@   -I rl78i1c\application\startup
+00000000                       45  #@   -I rl78i1c\application\storage
+00000000                       46  #@   -I rl78i1c\middleware\headers
+00000000                       47  #@   -I rl78i1c\middleware\plugin
+00000000                       48  #@   -I rl78i1c\wrapper\user
+00000000                       49  #@   -I rl78i1c\wrapper\core\sw
+00000000                       50  #@   -I rl78i1c\wrapper\core\shared
+00000000                       51  #@   -I .\
+00000000                       52  #@   -D __BOARD_REVISION=2,FEATURES_BQFR
+00000000                       53  #@   -refs_without_declaration
+00000000                       54  #@   -signed_char
+00000000                       55  #@   -merge_string
+00000000                       56  #@   -asmopt=-prn_path=Release_BQFR
+00000000                       57  #@   -convert_cc=ca78k0r
+00000000                       58  #@   -c
+00000000                       59  #@  compiled at Thu Apr 04 17:44:26 2024
+00000000                       60  
+00000000                       61  	.EXTERN _OBIS_DataLength
+00000000                       62  	$mirror _g_ChildTableClass01
+00000000                       63  	$mirror _g_ChildTableClass03
+00000000                       64  	$mirror _g_ChildTableClass04
+00000000                       65  	$mirror _g_ChildTableClass07
+00000000                       66  	$mirror _g_ChildTableClass08
+00000000                       67  	$mirror _g_ChildTableClass09
+00000000                       68  	$mirror _g_ChildTableClass15
+00000000                       69  	$mirror _g_ChildTableClass17
+00000000                       70  	$mirror _g_ChildTableClass20
+00000000                       71  	$mirror _g_ChildTableClass22
+00000000                       72  	$mirror _g_ChildTableClass23
+00000000                       73  	$mirror _g_ChildTableLengthClass01
+00000000                       74  	$mirror _g_ChildTableLengthClass03
+00000000                       75  	$mirror _g_ChildTableLengthClass04
+00000000                       76  	$mirror _g_ChildTableLengthClass07
+00000000                       77  	$mirror _g_ChildTableLengthClass08
+00000000                       78  	$mirror _g_ChildTableLengthClass09
+00000000                       79  	$mirror _g_ChildTableLengthClass15
+00000000                       80  	$mirror _g_ChildTableLengthClass17
+00000000                       81  	$mirror _g_ChildTableLengthClass20
+00000000                       82  	$mirror _g_ChildTableLengthClass22
+00000000                       83  	$mirror _g_ChildTableLengthClass23
+00000000                       84  	.PUBLIC _g_ServiceBuffer
+00000000                       85  	.PUBLIC _g_TotalNumberObjects
+00000000                       86  	.PUBLIC _g_TotalNumberObjectsOfAssociation
+00000000                       87  	.PUBLIC _g_MasterTable
+00000000                       88  	.PUBLIC _g_TotalMasterTableElements
+00000000                       89  	.PUBLIC _result_u8
+00000000                       90  	.EXTERN _R_OBIS_DistributeDataClass
+00000000                       91  	.EXTERN _R_OBIS_DistributeRegisterClass
+00000000                       92  	.EXTERN _R_OBIS_DistributeXRegisterClass
+00000000                       93  	.EXTERN _R_OBIS_DistributeProfileGenericClass
+00000000                       94  	.EXTERN _R_OBIS_DistributeClockClass
+00000000                       95  	.EXTERN _R_OBIS_DistributeScriptTableClass
+00000000                       96  	.EXTERN _R_OBIS_DistributeAssociationLNClass
+00000000                       97  	.EXTERN _R_OBIS_DistributeSAPassignmentClass
+00000000                       98  	.EXTERN _R_OBIS_DistributeActivityCalendarClass
+00000000                       99  	.EXTERN _R_OBIS_DistributeSingleActionScheduleClass
+00000000                      100  	.EXTERN _R_OBIS_DistributeIECHDLCSetupClass
+00000000                      101  	.PUBLIC _R_OBIS_ObjectLayerInit
+00000000                      102  	.PUBLIC _R_OBIS_CompareObisCode
+00000000                      103  	.PUBLIC _R_OBIS_FindChildRecordByIndex
+00000000                      104  	.PUBLIC _R_OBIS_CheckObjectVisibility
+00000000                      105  	.PUBLIC _R_OBIS_GetAccessRightValue
+00000000                      106  	.PUBLIC _R_OBIS_GetConnectedAssociation
+00000000                      107  	.EXTERN _COSEMOpenGetConnectedAssociation
+00000000                      108  	.PUBLIC _R_OBIS_DecodeObject
+00000000                      109  	.PUBLIC _COSEM_Getinfo
+00000000                      110  	.PUBLIC _COSEM_Setinfo
+00000000                      111  
+00000000                      112  	.SECTION .textf,TEXTF
+00000000                      113  	.TYPE _R_OBIS_ObjectLayerInit,function,.LFE1-_R_OBIS_ObjectLayerInit
+00000000                      114  _R_OBIS_ObjectLayerInit:
+00000000                      115  	.STACK _R_OBIS_ObjectLayerInit = 14
+00000000                      116  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1184
+00000000 200A                 117  	subw sp, #0x0A
+00000002 F6                   118  	clrw ax
+00000003                      119  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1191
+00000003 BF0000               120  	movw !LOWW(_g_TotalNumberObjects), ax
+00000006                      121  .BB@LABEL@1_1:	; entry.split
+00000006                      122  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1194
+00000006 C80200               123  	mov [sp+0x02], #0x00
+00000009 EE0000               124  	br $!.BB@LABEL@1_28
+0000000C                      125  .BB@LABEL@1_2:	; bb
+0000000C F6                   126  	clrw ax
+0000000D                      127  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1197
+0000000D B800                 128  	movw [sp+0x00], ax
+0000000F                      129  .BB@LABEL@1_3:	; bb.split
+0000000F                      130  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1198
+0000000F B808                 131  	movw [sp+0x08], ax
+00000011 EE0000               132  	br $!.BB@LABEL@1_26
+00000014                      133  .BB@LABEL@1_4:	; bb5
+00000014                      134  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1204
+00000014 A800                 135  	movw ax, [sp+0x00]
+00000016 320E00               136  	movw bc, #0x000E
+00000019 CEFB02               137  	mulh
+0000001C 040000               138  	addw ax, #SMRLW(_g_MasterTable+0x0000A)
+0000001F 14                   139  	movw de, ax
+00000020 A9                   140  	movw ax, [de]
+00000021 6168                 141  	or a, x
+00000023 DD00                 142  	bz $.BB@LABEL@1_6
+00000025                      143  .BB@LABEL@1_5:	; bb12
+00000025 A800                 144  	movw ax, [sp+0x00]
+00000027 320E00               145  	movw bc, #0x000E
+0000002A CEFB02               146  	mulh
+0000002D 040000               147  	addw ax, #SMRLW(_g_MasterTable+0x00008)
+00000030 14                   148  	movw de, ax
+00000031 A9                   149  	movw ax, [de]
+00000032 6168                 150  	or a, x
+00000034 DF00                 151  	bnz $.BB@LABEL@1_7
+00000036                      152  .BB@LABEL@1_6:	; bb20
+00000036 E6                   153  	onew ax
+00000037 B804                 154  	movw [sp+0x04], ax
+00000039 EF00                 155  	br $.BB@LABEL@1_8
+0000003B                      156  .BB@LABEL@1_7:	; bb21
+0000003B F6                   157  	clrw ax
+0000003C B804                 158  	movw [sp+0x04], ax
+0000003E                      159  .BB@LABEL@1_8:	; bb22
+0000003E A804                 160  	movw ax, [sp+0x04]
+00000040 6168                 161  	or a, x
+00000042 DF00                 162  	bnz $.BB@LABEL@1_14
+00000044                      163  .BB@LABEL@1_9:	; bb25
+00000044 A800                 164  	movw ax, [sp+0x00]
+00000046 320E00               165  	movw bc, #0x000E
+00000049 CEFB02               166  	mulh
+0000004C 040000               167  	addw ax, #SMRLW(_g_MasterTable+0x00008)
+0000004F 14                   168  	movw de, ax
+00000050 A9                   169  	movw ax, [de]
+00000051 6168                 170  	or a, x
+00000053 DD00                 171  	bz $.BB@LABEL@1_12
+00000055                      172  .BB@LABEL@1_10:	; bb33
+00000055 A800                 173  	movw ax, [sp+0x00]
+00000057 320E00               174  	movw bc, #0x000E
+0000005A CEFB02               175  	mulh
+0000005D 040000               176  	addw ax, #SMRLW(_g_MasterTable+0x00008)
+00000060 14                   177  	movw de, ax
+00000061 A9                   178  	movw ax, [de]
+00000062 14                   179  	movw de, ax
+00000063 A9                   180  	movw ax, [de]
+00000064 6168                 181  	or a, x
+00000066 DF00                 182  	bnz $.BB@LABEL@1_12
+00000068                      183  .BB@LABEL@1_11:	; bb42
+00000068 E6                   184  	onew ax
+00000069 B804                 185  	movw [sp+0x04], ax
+0000006B EF00                 186  	br $.BB@LABEL@1_13
+0000006D                      187  .BB@LABEL@1_12:	; bb43
+0000006D F6                   188  	clrw ax
+0000006E B804                 189  	movw [sp+0x04], ax
+00000070                      190  .BB@LABEL@1_13:	; bb44
+00000070 A804                 191  	movw ax, [sp+0x04]
+00000072 6168                 192  	or a, x
+00000074 DD00                 193  	bz $.BB@LABEL@1_15
+00000076                      194  .BB@LABEL@1_14:	; bb48
+00000076 E6                   195  	onew ax
+00000077 B804                 196  	movw [sp+0x04], ax
+00000079 EF00                 197  	br $.BB@LABEL@1_16
+0000007B                      198  .BB@LABEL@1_15:	; bb49
+0000007B F6                   199  	clrw ax
+0000007C B804                 200  	movw [sp+0x04], ax
+0000007E                      201  .BB@LABEL@1_16:	; bb50
+0000007E A804                 202  	movw ax, [sp+0x04]
+00000080 6168                 203  	or a, x
+00000082 DD00                 204  	bz $.BB@LABEL@1_18
+00000084                      205  .BB@LABEL@1_17:	; if_then_bb
+00000084                      206  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1209
+00000084 A800                 207  	movw ax, [sp+0x00]
+00000086 A1                   208  	incw ax
+00000087 B800                 209  	movw [sp+0x00], ax
+00000089 EF00                 210  	br $.BB@LABEL@1_26
+0000008B                      211  .BB@LABEL@1_18:	; if_break_bb
+0000008B                      212  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1214
+0000008B 8802                 213  	mov a, [sp+0x02]
+0000008D D1                   214  	cmp0 a
+0000008E DF00                 215  	bnz $.BB@LABEL@1_20
+00000090                      216  .BB@LABEL@1_19:	; if_then_bb63
+00000090                      217  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1216
+00000090 A800                 218  	movw ax, [sp+0x00]
+00000092 320E00               219  	movw bc, #0x000E
+00000095 CEFB02               220  	mulh
+00000098 040000               221  	addw ax, #SMRLW(_g_MasterTable+0x00008)
+0000009B 14                   222  	movw de, ax
+0000009C A9                   223  	movw ax, [de]
+0000009D 14                   224  	movw de, ax
+0000009E A9                   225  	movw ax, [de]
+0000009F 020000               226  	addw ax, !LOWW(_g_TotalNumberObjects)
+000000A2 BF0000               227  	movw !LOWW(_g_TotalNumberObjects), ax
+000000A5                      228  .BB@LABEL@1_20:	; if_break_bb72
+000000A5 F6                   229  	clrw ax
+000000A6                      230  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1222
+000000A6 B806                 231  	movw [sp+0x06], ax
+000000A8 EF00                 232  	br $.BB@LABEL@1_24
+000000AA                      233  .BB@LABEL@1_21:	; bb73
+000000AA                      234  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1227
+000000AA A806                 235  	movw ax, [sp+0x06]
+000000AC 14                   236  	movw de, ax
+000000AD A800                 237  	movw ax, [sp+0x00]
+000000AF 12                   238  	movw bc, ax
+000000B0 8802                 239  	mov a, [sp+0x02]
+000000B2 318E                 240  	shrw ax, 8+0x00000
+000000B4 FE0000               241  	call $!_R_OBIS_CheckObjectVisibility
+000000B7 91                   242  	dec a
+000000B8 DF00                 243  	bnz $.BB@LABEL@1_23
+000000BA                      244  .BB@LABEL@1_22:	; if_then_bb83
+000000BA                      245  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1233
+000000BA A808                 246  	movw ax, [sp+0x08]
+000000BC A1                   247  	incw ax
+000000BD B808                 248  	movw [sp+0x08], ax
+000000BF                      249  .BB@LABEL@1_23:	; if_break_bb86
+000000BF A806                 250  	movw ax, [sp+0x06]
+000000C1 A1                   251  	incw ax
+000000C2 B806                 252  	movw [sp+0x06], ax
+000000C4                      253  .BB@LABEL@1_24:	; bb89
+000000C4                      254  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1222
+000000C4 A800                 255  	movw ax, [sp+0x00]
+000000C6 320E00               256  	movw bc, #0x000E
+000000C9 CEFB02               257  	mulh
+000000CC 040000               258  	addw ax, #SMRLW(_g_MasterTable+0x00008)
+000000CF 14                   259  	movw de, ax
+000000D0 A9                   260  	movw ax, [de]
+000000D1 16                   261  	movw hl, ax
+000000D2 A806                 262  	movw ax, [sp+0x06]
+000000D4 614900               263  	cmpw ax, [hl+0x00]
+000000D7 DC00                 264  	bc $.BB@LABEL@1_21
+000000D9                      265  .BB@LABEL@1_25:	; bb100
+000000D9                      266  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1238
+000000D9 A800                 267  	movw ax, [sp+0x00]
+000000DB A1                   268  	incw ax
+000000DC B800                 269  	movw [sp+0x00], ax
+000000DE                      270  .BB@LABEL@1_26:	; bb104
+000000DE                      271  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1201
+000000DE A800                 272  	movw ax, [sp+0x00]
+000000E0 420000               273  	cmpw ax, !SMRLW(_g_TotalMasterTableElements)
+000000E3                      274  	.bc $!.BB@LABEL@1_4
+000000E3 61D8                    	 -- Skncond
+000000E5 EE0000                  	 -- br	**.target1
+000000E8                      275  .BB@LABEL@1_27:	; bb110
+000000E8                      276  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1242
+000000E8 8802                 277  	mov a, [sp+0x02]
+000000EA 5002                 278  	mov x, #0x02
+000000EC D6                   279  	mulu x
+000000ED 12                   280  	movw bc, ax
+000000EE A808                 281  	movw ax, [sp+0x08]
+000000F0 780000               282  	movw LOWW(_g_TotalNumberObjectsOfAssociation)[bc], ax
+000000F3 8802                 283  	mov a, [sp+0x02]
+000000F5 81                   284  	inc a
+000000F6 9802                 285  	mov [sp+0x02], a
+000000F8                      286  .BB@LABEL@1_28:	; bb117
+000000F8                      287  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1194
+000000F8 8802                 288  	mov a, [sp+0x02]
+000000FA 318E                 289  	shrw ax, 8+0x00000
+000000FC 440300               290  	cmpw ax, #0x0003
+000000FF                      291  	.bc $!.BB@LABEL@1_2
+000000FF 61D8                    	 -- Skncond
+00000101 EE0000                  	 -- br	**.target1
+00000104                      292  .BB@LABEL@1_29:	; return
+00000104                      293  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1245
+00000104 100A                 294  	addw sp, #0x0A
+00000106 D7                   295  	ret
+00000107                      296  .LFE1:
+00000107                      297  	.TYPE _R_OBIS_IsAccessible@1,function,.LFE2-_R_OBIS_IsAccessible@1
+00000107                      298  _R_OBIS_IsAccessible@1:
+00000107                      299  	.STACK _R_OBIS_IsAccessible@1 = 10
+00000107                      300  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1263
+00000107 2006                 301  	subw sp, #0x06
+00000109 9802                 302  	mov [sp+0x02], a
+0000010B 60                   303  	mov a, x
+0000010C 9800                 304  	mov [sp+0x00], a
+0000010E                      305  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1265
+0000010E 8802                 306  	mov a, [sp+0x02]
+00000110 318F                 307  	sarw ax, 8+0x00000
+00000112 6168                 308  	or a, x
+00000114 DF00                 309  	bnz $.BB@LABEL@2_6
+00000116                      310  .BB@LABEL@2_1:	; if_then_bb
+00000116                      311  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1267
+00000116 8800                 312  	mov a, [sp+0x00]
+00000118 91                   313  	dec a
+00000119 DD00                 314  	bz $.BB@LABEL@2_3
+0000011B                      315  .BB@LABEL@2_2:	; bb
+0000011B 8800                 316  	mov a, [sp+0x00]
+0000011D 4C03                 317  	cmp a, #0x03
+0000011F DF00                 318  	bnz $.BB@LABEL@2_4
+00000121                      319  .BB@LABEL@2_3:	; bb15
+00000121 E6                   320  	onew ax
+00000122 B804                 321  	movw [sp+0x04], ax
+00000124 EF00                 322  	br $.BB@LABEL@2_5
+00000126                      323  .BB@LABEL@2_4:	; bb16
+00000126 F6                   324  	clrw ax
+00000127 B804                 325  	movw [sp+0x04], ax
+00000129                      326  .BB@LABEL@2_5:	; bb17
+00000129 8804                 327  	mov a, [sp+0x04]
+0000012B 9801                 328  	mov [sp+0x01], a
+0000012D EF00                 329  	br $.BB@LABEL@2_17
+0000012F                      330  .BB@LABEL@2_6:	; if_else_bb
+0000012F                      331  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1270
+0000012F 8802                 332  	mov a, [sp+0x02]
+00000131 318F                 333  	sarw ax, 8+0x00000
+00000133 440100               334  	cmpw ax, #0x0001
+00000136 DF00                 335  	bnz $.BB@LABEL@2_12
+00000138                      336  .BB@LABEL@2_7:	; if_then_bb28
+00000138                      337  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1272
+00000138 8800                 338  	mov a, [sp+0x00]
+0000013A 4C02                 339  	cmp a, #0x02
+0000013C DD00                 340  	bz $.BB@LABEL@2_9
+0000013E                      341  .BB@LABEL@2_8:	; bb33
+0000013E 8800                 342  	mov a, [sp+0x00]
+00000140 4C03                 343  	cmp a, #0x03
+00000142 DF00                 344  	bnz $.BB@LABEL@2_10
+00000144                      345  .BB@LABEL@2_9:	; bb39
+00000144 E6                   346  	onew ax
+00000145 B804                 347  	movw [sp+0x04], ax
+00000147 EF00                 348  	br $.BB@LABEL@2_11
+00000149                      349  .BB@LABEL@2_10:	; bb40
+00000149 F6                   350  	clrw ax
+0000014A B804                 351  	movw [sp+0x04], ax
+0000014C                      352  .BB@LABEL@2_11:	; bb41
+0000014C 8804                 353  	mov a, [sp+0x04]
+0000014E 9801                 354  	mov [sp+0x01], a
+00000150 EF00                 355  	br $.BB@LABEL@2_17
+00000152                      356  .BB@LABEL@2_12:	; if_else_bb47
+00000152                      357  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1275
+00000152 8802                 358  	mov a, [sp+0x02]
+00000154 318F                 359  	sarw ax, 8+0x00000
+00000156 440200               360  	cmpw ax, #0x0002
+00000159 DF00                 361  	bnz $.BB@LABEL@2_16
+0000015B                      362  .BB@LABEL@2_13:	; if_then_bb53
+0000015B                      363  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1277
+0000015B 8800                 364  	mov a, [sp+0x00]
+0000015D 91                   365  	dec a
+0000015E E1                   366  	oneb a
+0000015F 61E8                 367  	skz
+00000161                      368  .BB@LABEL@2_14:	; if_then_bb53
+00000161 F1                   369  	clrb a
+00000162                      370  .BB@LABEL@2_15:	; if_then_bb53
+00000162 9801                 371  	mov [sp+0x01], a
+00000164 EF00                 372  	br $.BB@LABEL@2_17
+00000166                      373  .BB@LABEL@2_16:	; if_break_bb61
+00000166                      374  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1280
+00000166 C80100               375  	mov [sp+0x01], #0x00
+00000169                      376  .BB@LABEL@2_17:	; bb63
+00000169 8801                 377  	mov a, [sp+0x01]
+0000016B 9803                 378  	mov [sp+0x03], a
+0000016D                      379  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1281
+0000016D 1006                 380  	addw sp, #0x06
+0000016F D7                   381  	ret
+00000170                      382  .LFE2:
+00000170                      383  	.TYPE _R_OBIS_CheckAccessRight@1,function,.LFE3-_R_OBIS_CheckAccessRight@1
+00000170                      384  _R_OBIS_CheckAccessRight@1:
+00000170                      385  	.STACK _R_OBIS_CheckAccessRight@1 = 12
+00000170                      386  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1302
+00000170 2008                 387  	subw sp, #0x08
+00000172 9802                 388  	mov [sp+0x02], a
+00000174 60                   389  	mov a, x
+00000175 9801                 390  	mov [sp+0x01], a
+00000177 13                   391  	movw ax, bc
+00000178 B804                 392  	movw [sp+0x04], ax
+0000017A                      393  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1314
+0000017A 8801                 394  	mov a, [sp+0x01]
+0000017C 318E                 395  	shrw ax, 8+0x00000
+0000017E 441100               396  	cmpw ax, #0x0011
+00000181 DC00                 397  	bc $.BB@LABEL@3_2
+00000183                      398  .BB@LABEL@3_1:	; if_then_bb
+00000183                      399  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1316
+00000183 C80000               400  	mov [sp+0x00], #0x00
+00000186 EF00                 401  	br $.BB@LABEL@3_6
+00000188                      402  .BB@LABEL@3_2:	; if_break_bb
+00000188                      403  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1322
+00000188 A804                 404  	movw ax, [sp+0x04]
+0000018A 6168                 405  	or a, x
+0000018C DF00                 406  	bnz $.BB@LABEL@3_4
+0000018E                      407  .BB@LABEL@3_3:	; if_then_bb13
+0000018E                      408  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1324
+0000018E C80001               409  	mov [sp+0x00], #0x01
+00000191 EF00                 410  	br $.BB@LABEL@3_6
+00000193                      411  .BB@LABEL@3_4:	; if_break_bb15
+00000193                      412  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1328
+00000193 A804                 413  	movw ax, [sp+0x04]
+00000195 12                   414  	movw bc, ax
+00000196 8801                 415  	mov a, [sp+0x01]
+00000198 70                   416  	mov x, a
+00000199 8802                 417  	mov a, [sp+0x02]
+0000019B FE0000               418  	call $!_R_OBIS_GetAccessRightValue
+0000019E 9803                 419  	mov [sp+0x03], a
+000001A0                      420  .BB@LABEL@3_5:	; if_break_bb15.split
+000001A0                      421  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1335
+000001A0 8803                 422  	mov a, [sp+0x03]
+000001A2 70                   423  	mov x, a
+000001A3 8802                 424  	mov a, [sp+0x02]
+000001A5 FE0000               425  	call $!_R_OBIS_IsAccessible@1
+000001A8 9800                 426  	mov [sp+0x00], a
+000001AA                      427  .BB@LABEL@3_6:	; bb24
+000001AA 8800                 428  	mov a, [sp+0x00]
+000001AC 9806                 429  	mov [sp+0x06], a
+000001AE                      430  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1336
+000001AE 1008                 431  	addw sp, #0x08
+000001B0 D7                   432  	ret
+000001B1                      433  .LFE3:
+000001B1                      434  	.TYPE _R_OBIS_CompareObisCode,function,.LFE4-_R_OBIS_CompareObisCode
+000001B1                      435  _R_OBIS_CompareObisCode:
+000001B1                      436  	.STACK _R_OBIS_CompareObisCode = 12
+000001B1                      437  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1352
+000001B1 2008                 438  	subw sp, #0x08
+000001B3 B806                 439  	movw [sp+0x06], ax
+000001B5 13                   440  	movw ax, bc
+000001B6 B804                 441  	movw [sp+0x04], ax
+000001B8                      442  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1360
+000001B8 C80100               443  	mov [sp+0x01], #0x00
+000001BB EF00                 444  	br $.BB@LABEL@4_4
+000001BD                      445  .BB@LABEL@4_1:	; bb
+000001BD                      446  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1362
+000001BD A806                 447  	movw ax, [sp+0x06]
+000001BF 14                   448  	movw de, ax
+000001C0 89                   449  	mov a, [de]
+000001C1 9800                 450  	mov [sp+0x00], a
+000001C3 A804                 451  	movw ax, [sp+0x04]
+000001C5 16                   452  	movw hl, ax
+000001C6 8B                   453  	mov a, [hl]
+000001C7 73                   454  	mov b, a
+000001C8 A5                   455  	incw de
+000001C9 15                   456  	movw ax, de
+000001CA B806                 457  	movw [sp+0x06], ax
+000001CC A804                 458  	movw ax, [sp+0x04]
+000001CE A1                   459  	incw ax
+000001CF B804                 460  	movw [sp+0x04], ax
+000001D1 63                   461  	mov a, b
+000001D2 318E                 462  	shrw ax, 8+0x00000
+000001D4 12                   463  	movw bc, ax
+000001D5 8800                 464  	mov a, [sp+0x00]
+000001D7 318E                 465  	shrw ax, 8+0x00000
+000001D9 43                   466  	cmpw ax, bc
+000001DA DD00                 467  	bz $.BB@LABEL@4_3
+000001DC                      468  .BB@LABEL@4_2:	; if_then_bb
+000001DC                      469  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1364
+000001DC C80200               470  	mov [sp+0x02], #0x00
+000001DF EF00                 471  	br $.BB@LABEL@4_6
+000001E1                      472  .BB@LABEL@4_3:	; if_break_bb
+000001E1 8801                 473  	mov a, [sp+0x01]
+000001E3 81                   474  	inc a
+000001E4 9801                 475  	mov [sp+0x01], a
+000001E6                      476  .BB@LABEL@4_4:	; bb19
+000001E6                      477  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1360
+000001E6 8801                 478  	mov a, [sp+0x01]
+000001E8 318E                 479  	shrw ax, 8+0x00000
+000001EA 440500               480  	cmpw ax, #0x0005
+000001ED DC00                 481  	bc $.BB@LABEL@4_1
+000001EF                      482  .BB@LABEL@4_5:	; bb25
+000001EF                      483  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1368
+000001EF C80201               484  	mov [sp+0x02], #0x01
+000001F2                      485  .BB@LABEL@4_6:	; bb27
+000001F2 8802                 486  	mov a, [sp+0x02]
+000001F4 9803                 487  	mov [sp+0x03], a
+000001F6                      488  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1369
+000001F6 1008                 489  	addw sp, #0x08
+000001F8 D7                   490  	ret
+000001F9                      491  .LFE4:
+000001F9                      492  	.TYPE _R_OBIS_FindChildRecordByIndex,function,.LFE5-_R_OBIS_FindChildRecordByIndex
+000001F9                      493  _R_OBIS_FindChildRecordByIndex:
+000001F9                      494  	.STACK _R_OBIS_FindChildRecordByIndex = 18
+000001F9                      495  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1384
+000001F9 200E                 496  	subw sp, #0x0E
+000001FB B808                 497  	movw [sp+0x08], ax
+000001FD 13                   498  	movw ax, bc
+000001FE B806                 499  	movw [sp+0x06], ax
+00000200                      500  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1392
+00000200 A808                 501  	movw ax, [sp+0x08]
+00000202 420000               502  	cmpw ax, !SMRLW(_g_TotalMasterTableElements)
+00000205 DC00                 503  	bc $.BB@LABEL@5_2
+00000207                      504  .BB@LABEL@5_1:	; if_then_bb
+00000207 F6                   505  	clrw ax
+00000208                      506  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1394
+00000208 B804                 507  	movw [sp+0x04], ax
+0000020A EE0000               508  	br $!.BB@LABEL@5_25
+0000020D                      509  .BB@LABEL@5_2:	; if_break_bb
+0000020D                      510  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1401
+0000020D A808                 511  	movw ax, [sp+0x08]
+0000020F 320E00               512  	movw bc, #0x000E
+00000212 CEFB02               513  	mulh
+00000215 040000               514  	addw ax, #SMRLW(_g_MasterTable)
+00000218 B802                 515  	movw [sp+0x02], ax
+0000021A                      516  .BB@LABEL@5_3:	; if_break_bb.split
+0000021A                      517  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1402
+0000021A A802                 518  	movw ax, [sp+0x02]
+0000021C 6168                 519  	or a, x
+0000021E DD00                 520  	bz $.BB@LABEL@5_5
+00000220                      521  .BB@LABEL@5_4:	; bb15
+00000220 A802                 522  	movw ax, [sp+0x02]
+00000222 040800               523  	addw ax, #0x0008
+00000225 14                   524  	movw de, ax
+00000226 A9                   525  	movw ax, [de]
+00000227 6168                 526  	or a, x
+00000229 DF00                 527  	bnz $.BB@LABEL@5_6
+0000022B                      528  .BB@LABEL@5_5:	; bb21
+0000022B E6                   529  	onew ax
+0000022C B800                 530  	movw [sp+0x00], ax
+0000022E EF00                 531  	br $.BB@LABEL@5_7
+00000230                      532  .BB@LABEL@5_6:	; bb22
+00000230 F6                   533  	clrw ax
+00000231 B800                 534  	movw [sp+0x00], ax
+00000233                      535  .BB@LABEL@5_7:	; bb23
+00000233 A800                 536  	movw ax, [sp+0x00]
+00000235 6168                 537  	or a, x
+00000237 DF00                 538  	bnz $.BB@LABEL@5_9
+00000239                      539  .BB@LABEL@5_8:	; bb27
+00000239 A802                 540  	movw ax, [sp+0x02]
+0000023B 040A00               541  	addw ax, #0x000A
+0000023E 14                   542  	movw de, ax
+0000023F A9                   543  	movw ax, [de]
+00000240 6168                 544  	or a, x
+00000242 DF00                 545  	bnz $.BB@LABEL@5_10
+00000244                      546  .BB@LABEL@5_9:	; bb33
+00000244 E6                   547  	onew ax
+00000245 B800                 548  	movw [sp+0x00], ax
+00000247 EF00                 549  	br $.BB@LABEL@5_11
+00000249                      550  .BB@LABEL@5_10:	; bb34
+00000249 F6                   551  	clrw ax
+0000024A B800                 552  	movw [sp+0x00], ax
+0000024C                      553  .BB@LABEL@5_11:	; bb35
+0000024C A800                 554  	movw ax, [sp+0x00]
+0000024E 6168                 555  	or a, x
+00000250 DF00                 556  	bnz $.BB@LABEL@5_17
+00000252                      557  .BB@LABEL@5_12:	; bb39
+00000252 A802                 558  	movw ax, [sp+0x02]
+00000254 040800               559  	addw ax, #0x0008
+00000257 14                   560  	movw de, ax
+00000258 A9                   561  	movw ax, [de]
+00000259 6168                 562  	or a, x
+0000025B DD00                 563  	bz $.BB@LABEL@5_15
+0000025D                      564  .BB@LABEL@5_13:	; bb45
+0000025D A802                 565  	movw ax, [sp+0x02]
+0000025F 040800               566  	addw ax, #0x0008
+00000262 14                   567  	movw de, ax
+00000263 A9                   568  	movw ax, [de]
+00000264 14                   569  	movw de, ax
+00000265 A9                   570  	movw ax, [de]
+00000266 6168                 571  	or a, x
+00000268 DF00                 572  	bnz $.BB@LABEL@5_15
+0000026A                      573  .BB@LABEL@5_14:	; bb52
+0000026A E6                   574  	onew ax
+0000026B B800                 575  	movw [sp+0x00], ax
+0000026D EF00                 576  	br $.BB@LABEL@5_16
+0000026F                      577  .BB@LABEL@5_15:	; bb53
+0000026F F6                   578  	clrw ax
+00000270 B800                 579  	movw [sp+0x00], ax
+00000272                      580  .BB@LABEL@5_16:	; bb54
+00000272 A800                 581  	movw ax, [sp+0x00]
+00000274 6168                 582  	or a, x
+00000276 DD00                 583  	bz $.BB@LABEL@5_18
+00000278                      584  .BB@LABEL@5_17:	; bb58
+00000278 E6                   585  	onew ax
+00000279 B800                 586  	movw [sp+0x00], ax
+0000027B EF00                 587  	br $.BB@LABEL@5_19
+0000027D                      588  .BB@LABEL@5_18:	; bb59
+0000027D F6                   589  	clrw ax
+0000027E B800                 590  	movw [sp+0x00], ax
+00000280                      591  .BB@LABEL@5_19:	; bb60
+00000280 A800                 592  	movw ax, [sp+0x00]
+00000282 6168                 593  	or a, x
+00000284 DD00                 594  	bz $.BB@LABEL@5_21
+00000286                      595  .BB@LABEL@5_20:	; if_then_bb65
+00000286 F6                   596  	clrw ax
+00000287                      597  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1408
+00000287 B804                 598  	movw [sp+0x04], ax
+00000289 EF00                 599  	br $.BB@LABEL@5_25
+0000028B                      600  .BB@LABEL@5_21:	; if_break_bb67
+0000028B                      601  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1414
+0000028B A802                 602  	movw ax, [sp+0x02]
+0000028D 040800               603  	addw ax, #0x0008
+00000290 14                   604  	movw de, ax
+00000291 A9                   605  	movw ax, [de]
+00000292 16                   606  	movw hl, ax
+00000293 A806                 607  	movw ax, [sp+0x06]
+00000295 614900               608  	cmpw ax, [hl+0x00]
+00000298 DC00                 609  	bc $.BB@LABEL@5_23
+0000029A                      610  .BB@LABEL@5_22:	; if_then_bb76
+0000029A F6                   611  	clrw ax
+0000029B                      612  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1416
+0000029B B804                 613  	movw [sp+0x04], ax
+0000029D EF00                 614  	br $.BB@LABEL@5_25
+0000029F                      615  .BB@LABEL@5_23:	; if_break_bb78
+0000029F                      616  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1419
+0000029F A802                 617  	movw ax, [sp+0x02]
+000002A1 16                   618  	movw hl, ax
+000002A2 040C00               619  	addw ax, #0x000C
+000002A5 14                   620  	movw de, ax
+000002A6 A9                   621  	movw ax, [de]
+000002A7 12                   622  	movw bc, ax
+000002A8 A806                 623  	movw ax, [sp+0x06]
+000002AA CEFB02               624  	mulh
+000002AD 12                   625  	movw bc, ax
+000002AE 17                   626  	movw ax, hl
+000002AF 040A00               627  	addw ax, #0x000A
+000002B2 16                   628  	movw hl, ax
+000002B3 13                   629  	movw ax, bc
+000002B4 610900               630  	addw ax, [hl+0x00]
+000002B7 B80A                 631  	movw [sp+0x0A], ax
+000002B9                      632  .BB@LABEL@5_24:	; if_break_bb78.split
+000002B9                      633  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1424
+000002B9 A80A                 634  	movw ax, [sp+0x0A]
+000002BB B804                 635  	movw [sp+0x04], ax
+000002BD                      636  .BB@LABEL@5_25:	; bb93
+000002BD A804                 637  	movw ax, [sp+0x04]
+000002BF B80C                 638  	movw [sp+0x0C], ax
+000002C1                      639  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1425
+000002C1 100E                 640  	addw sp, #0x0E
+000002C3 D7                   641  	ret
+000002C4                      642  .LFE5:
+000002C4                      643  	.TYPE _R_OBIS_CheckObjectVisibility,function,.LFE6-_R_OBIS_CheckObjectVisibility
+000002C4                      644  _R_OBIS_CheckObjectVisibility:
+000002C4                      645  	.STACK _R_OBIS_CheckObjectVisibility = 16
+000002C4                      646  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1446
+000002C4 200C                 647  	subw sp, #0x0C
+000002C6 B806                 648  	movw [sp+0x06], ax
+000002C8 13                   649  	movw ax, bc
+000002C9 B808                 650  	movw [sp+0x08], ax
+000002CB 15                   651  	movw ax, de
+000002CC B80A                 652  	movw [sp+0x0A], ax
+000002CE                      653  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1458
+000002CE 12                   654  	movw bc, ax
+000002CF A808                 655  	movw ax, [sp+0x08]
+000002D1 FE0000               656  	call $!_R_OBIS_FindChildRecordByIndex
+000002D4 B802                 657  	movw [sp+0x02], ax
+000002D6                      658  .BB@LABEL@6_1:	; entry.split
+000002D6                      659  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1459
+000002D6 A802                 660  	movw ax, [sp+0x02]
+000002D8 6168                 661  	or a, x
+000002DA DF00                 662  	bnz $.BB@LABEL@6_3
+000002DC                      663  .BB@LABEL@6_2:	; if_then_bb
+000002DC                      664  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1461
+000002DC C80000               665  	mov [sp+0x00], #0x00
+000002DF EF00                 666  	br $.BB@LABEL@6_13
+000002E1                      667  .BB@LABEL@6_3:	; if_break_bb
+000002E1                      668  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1467
+000002E1 A802                 669  	movw ax, [sp+0x02]
+000002E3 040600               670  	addw ax, #0x0006
+000002E6 14                   671  	movw de, ax
+000002E7 A9                   672  	movw ax, [de]
+000002E8 6168                 673  	or a, x
+000002EA DF00                 674  	bnz $.BB@LABEL@6_5
+000002EC                      675  .BB@LABEL@6_4:	; if_then_bb17
+000002EC                      676  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1469
+000002EC C80001               677  	mov [sp+0x00], #0x01
+000002EF EF00                 678  	br $.BB@LABEL@6_13
+000002F1                      679  .BB@LABEL@6_5:	; if_else_bb
+000002F1                      680  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1471
+000002F1 A806                 681  	movw ax, [sp+0x06]
+000002F3 320600               682  	movw bc, #0x0006
+000002F6 CEFB02               683  	mulh
+000002F9 12                   684  	movw bc, ax
+000002FA A802                 685  	movw ax, [sp+0x02]
+000002FC 040600               686  	addw ax, #0x0006
+000002FF 16                   687  	movw hl, ax
+00000300 13                   688  	movw ax, bc
+00000301 610900               689  	addw ax, [hl+0x00]
+00000304 14                   690  	movw de, ax
+00000305 AA02                 691  	movw ax, [de+0x02]
+00000307 12                   692  	movw bc, ax
+00000308 A9                   693  	movw ax, [de]
+00000309 03                   694  	addw ax, bc
+0000030A DF00                 695  	bnz $.BB@LABEL@6_8
+0000030C                      696  .BB@LABEL@6_6:	; if_else_bb
+0000030C DC00                 697  	bc $.BB@LABEL@6_8
+0000030E                      698  .BB@LABEL@6_7:	; bb29
+0000030E A806                 699  	movw ax, [sp+0x06]
+00000310 320600               700  	movw bc, #0x0006
+00000313 CEFB02               701  	mulh
+00000316 12                   702  	movw bc, ax
+00000317 A802                 703  	movw ax, [sp+0x02]
+00000319 040600               704  	addw ax, #0x0006
+0000031C 16                   705  	movw hl, ax
+0000031D 13                   706  	movw ax, bc
+0000031E 610900               707  	addw ax, [hl+0x00]
+00000321 040400               708  	addw ax, #0x0004
+00000324 14                   709  	movw de, ax
+00000325 A9                   710  	movw ax, [de]
+00000326 6168                 711  	or a, x
+00000328 DD00                 712  	bz $.BB@LABEL@6_9
+0000032A                      713  .BB@LABEL@6_8:	; bb40
+0000032A E6                   714  	onew ax
+0000032B B804                 715  	movw [sp+0x04], ax
+0000032D EF00                 716  	br $.BB@LABEL@6_10
+0000032F                      717  .BB@LABEL@6_9:	; bb41
+0000032F F6                   718  	clrw ax
+00000330 B804                 719  	movw [sp+0x04], ax
+00000332                      720  .BB@LABEL@6_10:	; bb42
+00000332 A804                 721  	movw ax, [sp+0x04]
+00000334 6168                 722  	or a, x
+00000336 DD00                 723  	bz $.BB@LABEL@6_12
+00000338                      724  .BB@LABEL@6_11:	; if_then_bb47
+00000338                      725  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1474
+00000338 C80001               726  	mov [sp+0x00], #0x01
+0000033B EF00                 727  	br $.BB@LABEL@6_13
+0000033D                      728  .BB@LABEL@6_12:	; if_else_bb49
+0000033D                      729  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1478
+0000033D C80000               730  	mov [sp+0x00], #0x00
+00000340                      731  .BB@LABEL@6_13:	; bb53
+00000340 8800                 732  	mov a, [sp+0x00]
+00000342 9801                 733  	mov [sp+0x01], a
+00000344                      734  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1480
+00000344 100C                 735  	addw sp, #0x0C
+00000346 D7                   736  	ret
+00000347                      737  .LFE6:
+00000347                      738  	.TYPE _R_OBIS_GetAccessRightValue,function,.LFE7-_R_OBIS_GetAccessRightValue
+00000347                      739  _R_OBIS_GetAccessRightValue:
+00000347                      740  	.STACK _R_OBIS_GetAccessRightValue = 14
+00000347                      741  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1500
+00000347 200A                 742  	subw sp, #0x0A
+00000349 9804                 743  	mov [sp+0x04], a
+0000034B 60                   744  	mov a, x
+0000034C 9803                 745  	mov [sp+0x03], a
+0000034E 13                   746  	movw ax, bc
+0000034F B806                 747  	movw [sp+0x06], ax
+00000351                      748  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1506
+00000351 C80200               749  	mov [sp+0x02], #0x00
+00000354                      750  .BB@LABEL@7_1:	; entry.split
+00000354                      751  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1509
+00000354 8804                 752  	mov a, [sp+0x04]
+00000356 318F                 753  	sarw ax, 8+0x00000
+00000358 6168                 754  	or a, x
+0000035A DD00                 755  	bz $.BB@LABEL@7_4
+0000035C                      756  .BB@LABEL@7_2:	; bb
+0000035C 8804                 757  	mov a, [sp+0x04]
+0000035E 318F                 758  	sarw ax, 8+0x00000
+00000360 440100               759  	cmpw ax, #0x0001
+00000363 DD00                 760  	bz $.BB@LABEL@7_4
+00000365                      761  .BB@LABEL@7_3:	; bb13
+00000365 E6                   762  	onew ax
+00000366 B800                 763  	movw [sp+0x00], ax
+00000368 EF00                 764  	br $.BB@LABEL@7_5
+0000036A                      765  .BB@LABEL@7_4:	; bb14
+0000036A F6                   766  	clrw ax
+0000036B B800                 767  	movw [sp+0x00], ax
+0000036D                      768  .BB@LABEL@7_5:	; bb15
+0000036D A800                 769  	movw ax, [sp+0x00]
+0000036F 6168                 770  	or a, x
+00000371 DD00                 771  	bz $.BB@LABEL@7_8
+00000373                      772  .BB@LABEL@7_6:	; bb18
+00000373 8804                 773  	mov a, [sp+0x04]
+00000375 318F                 774  	sarw ax, 8+0x00000
+00000377 440200               775  	cmpw ax, #0x0002
+0000037A DD00                 776  	bz $.BB@LABEL@7_8
+0000037C                      777  .BB@LABEL@7_7:	; bb23
+0000037C E6                   778  	onew ax
+0000037D B800                 779  	movw [sp+0x00], ax
+0000037F EF00                 780  	br $.BB@LABEL@7_9
+00000381                      781  .BB@LABEL@7_8:	; bb24
+00000381 F6                   782  	clrw ax
+00000382 B800                 783  	movw [sp+0x00], ax
+00000384                      784  .BB@LABEL@7_9:	; bb25
+00000384 A800                 785  	movw ax, [sp+0x00]
+00000386 6168                 786  	or a, x
+00000388 DD00                 787  	bz $.BB@LABEL@7_11
+0000038A                      788  .BB@LABEL@7_10:	; if_then_bb
+0000038A                      789  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1513
+0000038A C80500               790  	mov [sp+0x05], #0x00
+0000038D EE0000               791  	br $!.BB@LABEL@7_40
+00000390                      792  .BB@LABEL@7_11:	; if_break_bb
+00000390                      793  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1517
+00000390 A806                 794  	movw ax, [sp+0x06]
+00000392 6168                 795  	or a, x
+00000394 DF00                 796  	bnz $.BB@LABEL@7_14
+00000396                      797  .BB@LABEL@7_12:	; bb34
+00000396 8803                 798  	mov a, [sp+0x03]
+00000398 318E                 799  	shrw ax, 8+0x00000
+0000039A 441100               800  	cmpw ax, #0x0011
+0000039D DE00                 801  	bnc $.BB@LABEL@7_14
+0000039F                      802  .BB@LABEL@7_13:	; bb39
+0000039F E6                   803  	onew ax
+000003A0 B800                 804  	movw [sp+0x00], ax
+000003A2 EF00                 805  	br $.BB@LABEL@7_15
+000003A4                      806  .BB@LABEL@7_14:	; bb40
+000003A4 F6                   807  	clrw ax
+000003A5 B800                 808  	movw [sp+0x00], ax
+000003A7                      809  .BB@LABEL@7_15:	; bb41
+000003A7 8804                 810  	mov a, [sp+0x04]
+000003A9 318F                 811  	sarw ax, 8+0x00000
+000003AB 12                   812  	movw bc, ax
+000003AC A800                 813  	movw ax, [sp+0x00]
+000003AE 6168                 814  	or a, x
+000003B0 DD00                 815  	bz $.BB@LABEL@7_20
+000003B2                      816  .BB@LABEL@7_16:	; if_then_bb46
+000003B2 13                   817  	movw ax, bc
+000003B3                      818  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1520
+000003B3 440200               819  	cmpw ax, #0x0002
+000003B6 DF00                 820  	bnz $.BB@LABEL@7_18
+000003B8                      821  .BB@LABEL@7_17:	; bb51
+000003B8 E6                   822  	onew ax
+000003B9 B800                 823  	movw [sp+0x00], ax
+000003BB EF00                 824  	br $.BB@LABEL@7_19
+000003BD                      825  .BB@LABEL@7_18:	; bb52
+000003BD 300300               826  	movw ax, #0x0003
+000003C0 B800                 827  	movw [sp+0x00], ax
+000003C2                      828  .BB@LABEL@7_19:	; bb53
+000003C2 8800                 829  	mov a, [sp+0x00]
+000003C4 9805                 830  	mov [sp+0x05], a
+000003C6 EE0000               831  	br $!.BB@LABEL@7_40
+000003C9                      832  .BB@LABEL@7_20:	; if_break_bb58
+000003C9 13                   833  	movw ax, bc
+000003CA                      834  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1526
+000003CA 6168                 835  	or a, x
+000003CC DD00                 836  	bz $.BB@LABEL@7_22
+000003CE                      837  .BB@LABEL@7_21:	; bb63
+000003CE 8804                 838  	mov a, [sp+0x04]
+000003D0 318F                 839  	sarw ax, 8+0x00000
+000003D2 440100               840  	cmpw ax, #0x0001
+000003D5 DF00                 841  	bnz $.BB@LABEL@7_23
+000003D7                      842  .BB@LABEL@7_22:	; bb68
+000003D7 E6                   843  	onew ax
+000003D8 B800                 844  	movw [sp+0x00], ax
+000003DA EF00                 845  	br $.BB@LABEL@7_24
+000003DC                      846  .BB@LABEL@7_23:	; bb69
+000003DC F6                   847  	clrw ax
+000003DD B800                 848  	movw [sp+0x00], ax
+000003DF                      849  .BB@LABEL@7_24:	; bb70
+000003DF 8803                 850  	mov a, [sp+0x03]
+000003E1 D1                   851  	cmp0 a
+000003E2 E3                   852  	oneb b
+000003E3 61E8                 853  	skz
+000003E5                      854  .BB@LABEL@7_25:	; bb70
+000003E5 F3                   855  	clrb b
+000003E6                      856  .BB@LABEL@7_26:	; bb70
+000003E6 A800                 857  	movw ax, [sp+0x00]
+000003E8 6168                 858  	or a, x
+000003EA DD00                 859  	bz $.BB@LABEL@7_32
+000003EC                      860  .BB@LABEL@7_27:	; if_then_bb75
+000003EC                      861  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1532
+000003EC D3                   862  	cmp0 b
+000003ED DD00                 863  	bz $.BB@LABEL@7_29
+000003EF                      864  .BB@LABEL@7_28:	; if_then_bb81
+000003EF                      865  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1534
+000003EF C80203               866  	mov [sp+0x02], #0x03
+000003F2 EF00                 867  	br $.BB@LABEL@7_39
+000003F4                      868  .BB@LABEL@7_29:	; if_else_bb
+000003F4                      869  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1536
+000003F4 8803                 870  	mov a, [sp+0x03]
+000003F6 318E                 871  	shrw ax, 8+0x00000
+000003F8 441100               872  	cmpw ax, #0x0011
+000003FB DE00                 873  	bnc $.BB@LABEL@7_31
+000003FD                      874  .BB@LABEL@7_30:	; if_then_bb87
+000003FD                      875  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1538
+000003FD A806                 876  	movw ax, [sp+0x06]
+000003FF 16                   877  	movw hl, ax
+00000400 8803                 878  	mov a, [sp+0x03]
+00000402 318E                 879  	shrw ax, 8+0x00000
+00000404 B1                   880  	decw ax
+00000405 01                   881  	addw ax, ax
+00000406 60                   882  	mov a, x
+00000407 74                   883  	mov e, a
+00000408 AC02                 884  	movw ax, [hl+0x02]
+0000040A 12                   885  	movw bc, ax
+0000040B AB                   886  	movw ax, [hl]
+0000040C FC000000             887  	call !!__COM_lshr
+00000410 60                   888  	mov a, x
+00000411 5C03                 889  	and a, #0x03
+00000413 9802                 890  	mov [sp+0x02], a
+00000415 EF00                 891  	br $.BB@LABEL@7_39
+00000417                      892  .BB@LABEL@7_31:	; if_else_bb101
+00000417                      893  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1544
+00000417 C80200               894  	mov [sp+0x02], #0x00
+0000041A EF00                 895  	br $.BB@LABEL@7_39
+0000041C                      896  .BB@LABEL@7_32:	; if_else_bb104
+0000041C                      897  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1552
+0000041C D3                   898  	cmp0 b
+0000041D DD00                 899  	bz $.BB@LABEL@7_34
+0000041F                      900  .BB@LABEL@7_33:	; if_then_bb110
+0000041F                      901  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1554
+0000041F C80200               902  	mov [sp+0x02], #0x00
+00000422 EF00                 903  	br $.BB@LABEL@7_39
+00000424                      904  .BB@LABEL@7_34:	; if_else_bb111
+00000424                      905  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1556
+00000424 8803                 906  	mov a, [sp+0x03]
+00000426 318E                 907  	shrw ax, 8+0x00000
+00000428 441100               908  	cmpw ax, #0x0011
+0000042B DE00                 909  	bnc $.BB@LABEL@7_38
+0000042D                      910  .BB@LABEL@7_35:	; if_then_bb117
+0000042D                      911  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1558
+0000042D 8803                 912  	mov a, [sp+0x03]
+0000042F 73                   913  	mov b, a
+00000430 93                   914  	dec b
+00000431 A806                 915  	movw ax, [sp+0x06]
+00000433 040400               916  	addw ax, #0x0004
+00000436 14                   917  	movw de, ax
+00000437 A9                   918  	movw ax, [de]
+00000438 D3                   919  	cmp0 b
+00000439 DD00                 920  	bz $.BB@LABEL@7_37
+0000043B                      921  .BB@LABEL@7_36:	; if_then_bb117
+0000043B 311E                 922  	shrw ax, 0x01
+0000043D 93                   923  	dec b
+0000043E DF00                 924  	bnz $.BB@LABEL@7_36
+00000440                      925  .BB@LABEL@7_37:	; if_then_bb117
+00000440 60                   926  	mov a, x
+00000441 5C01                 927  	and a, #0x01
+00000443 9802                 928  	mov [sp+0x02], a
+00000445 EF00                 929  	br $.BB@LABEL@7_39
+00000447                      930  .BB@LABEL@7_38:	; if_else_bb129
+00000447                      931  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1564
+00000447 C80200               932  	mov [sp+0x02], #0x00
+0000044A                      933  .BB@LABEL@7_39:	; if_break_bb132
+0000044A                      934  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1568
+0000044A 8802                 935  	mov a, [sp+0x02]
+0000044C 9805                 936  	mov [sp+0x05], a
+0000044E                      937  .BB@LABEL@7_40:	; bb135
+0000044E 8805                 938  	mov a, [sp+0x05]
+00000450 9808                 939  	mov [sp+0x08], a
+00000452                      940  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1569
+00000452 100A                 941  	addw sp, #0x0A
+00000454 D7                   942  	ret
+00000455                      943  .LFE7:
+00000455                      944  	.TYPE _R_OBIS_GetConnectedAssociation,function,.LFE8-_R_OBIS_GetConnectedAssociation
+00000455                      945  _R_OBIS_GetConnectedAssociation:
+00000455                      946  	.STACK _R_OBIS_GetConnectedAssociation = 6
+00000455                      947  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1579
+00000455 C7                   948  	push hl
+00000456                      949  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1581
+00000456 FC000000             950  	call !!_COSEMOpenGetConnectedAssociation
+0000045A 9800                 951  	mov [sp+0x00], a
+0000045C                      952  .BB@LABEL@8_1:	; entry.split
+0000045C                      953  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1582
+0000045C C2                   954  	pop bc
+0000045D D7                   955  	ret
+0000045E                      956  .LFE8:
+0000045E                      957  	.TYPE _R_OBIS_DecodeObject,function,.LFE9-_R_OBIS_DecodeObject
+0000045E                      958  _R_OBIS_DecodeObject:
+0000045E                      959  	.STACK _R_OBIS_DecodeObject = 38
+0000045E                      960  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1603
+0000045E 201A                 961  	subw sp, #0x1A
+00000460 B80C                 962  	movw [sp+0x0C], ax
+00000462 13                   963  	movw ax, bc
+00000463 B818                 964  	movw [sp+0x18], ax
+00000465 15                   965  	movw ax, de
+00000466 B810                 966  	movw [sp+0x10], ax
+00000468                      967  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1621
+00000468 A80C                 968  	movw ax, [sp+0x0C]
+0000046A 14                   969  	movw de, ax
+0000046B A1                   970  	incw ax
+0000046C 16                   971  	movw hl, ax
+0000046D 8B                   972  	mov a, [hl]
+0000046E 70                   973  	mov x, a
+0000046F 89                   974  	mov a, [de]
+00000470 B80E                 975  	movw [sp+0x0E], ax
+00000472                      976  .BB@LABEL@9_1:	; entry.split
+00000472                      977  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1631
+00000472 A80E                 978  	movw ax, [sp+0x0E]
+00000474 320E00               979  	movw bc, #0x000E
+00000477 CEFB02               980  	mulh
+0000047A 040000               981  	addw ax, #SMRLW(_g_MasterTable)
+0000047D B806                 982  	movw [sp+0x06], ax
+0000047F                      983  .BB@LABEL@9_2:	; entry.split1
+0000047F                      984  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1632
+0000047F A806                 985  	movw ax, [sp+0x06]
+00000481 6168                 986  	or a, x
+00000483 DD00                 987  	bz $.BB@LABEL@9_4
+00000485                      988  .BB@LABEL@9_3:	; bb
+00000485 A806                 989  	movw ax, [sp+0x06]
+00000487 040800               990  	addw ax, #0x0008
+0000048A 14                   991  	movw de, ax
+0000048B A9                   992  	movw ax, [de]
+0000048C 6168                 993  	or a, x
+0000048E DF00                 994  	bnz $.BB@LABEL@9_5
+00000490                      995  .BB@LABEL@9_4:	; bb38
+00000490 E6                   996  	onew ax
+00000491 B800                 997  	movw [sp+0x00], ax
+00000493 EF00                 998  	br $.BB@LABEL@9_6
+00000495                      999  .BB@LABEL@9_5:	; bb39
+00000495 F6                  1000  	clrw ax
+00000496 B800                1001  	movw [sp+0x00], ax
+00000498                     1002  .BB@LABEL@9_6:	; bb40
+00000498 A800                1003  	movw ax, [sp+0x00]
+0000049A 6168                1004  	or a, x
+0000049C DF00                1005  	bnz $.BB@LABEL@9_8
+0000049E                     1006  .BB@LABEL@9_7:	; bb43
+0000049E A806                1007  	movw ax, [sp+0x06]
+000004A0 040A00              1008  	addw ax, #0x000A
+000004A3 14                  1009  	movw de, ax
+000004A4 A9                  1010  	movw ax, [de]
+000004A5 6168                1011  	or a, x
+000004A7 DF00                1012  	bnz $.BB@LABEL@9_9
+000004A9                     1013  .BB@LABEL@9_8:	; bb49
+000004A9 E6                  1014  	onew ax
+000004AA B800                1015  	movw [sp+0x00], ax
+000004AC EF00                1016  	br $.BB@LABEL@9_10
+000004AE                     1017  .BB@LABEL@9_9:	; bb50
+000004AE F6                  1018  	clrw ax
+000004AF B800                1019  	movw [sp+0x00], ax
+000004B1                     1020  .BB@LABEL@9_10:	; bb51
+000004B1 A800                1021  	movw ax, [sp+0x00]
+000004B3 6168                1022  	or a, x
+000004B5 DF00                1023  	bnz $.BB@LABEL@9_16
+000004B7                     1024  .BB@LABEL@9_11:	; bb55
+000004B7 A806                1025  	movw ax, [sp+0x06]
+000004B9 040800              1026  	addw ax, #0x0008
+000004BC 14                  1027  	movw de, ax
+000004BD A9                  1028  	movw ax, [de]
+000004BE 6168                1029  	or a, x
+000004C0 DD00                1030  	bz $.BB@LABEL@9_14
+000004C2                     1031  .BB@LABEL@9_12:	; bb61
+000004C2 A806                1032  	movw ax, [sp+0x06]
+000004C4 040800              1033  	addw ax, #0x0008
+000004C7 14                  1034  	movw de, ax
+000004C8 A9                  1035  	movw ax, [de]
+000004C9 14                  1036  	movw de, ax
+000004CA A9                  1037  	movw ax, [de]
+000004CB 6168                1038  	or a, x
+000004CD DF00                1039  	bnz $.BB@LABEL@9_14
+000004CF                     1040  .BB@LABEL@9_13:	; bb68
+000004CF E6                  1041  	onew ax
+000004D0 B800                1042  	movw [sp+0x00], ax
+000004D2 EF00                1043  	br $.BB@LABEL@9_15
+000004D4                     1044  .BB@LABEL@9_14:	; bb69
+000004D4 F6                  1045  	clrw ax
+000004D5 B800                1046  	movw [sp+0x00], ax
+000004D7                     1047  .BB@LABEL@9_15:	; bb70
+000004D7 A800                1048  	movw ax, [sp+0x00]
+000004D9 6168                1049  	or a, x
+000004DB DD00                1050  	bz $.BB@LABEL@9_17
+000004DD                     1051  .BB@LABEL@9_16:	; bb74
+000004DD E6                  1052  	onew ax
+000004DE B800                1053  	movw [sp+0x00], ax
+000004E0 EF00                1054  	br $.BB@LABEL@9_18
+000004E2                     1055  .BB@LABEL@9_17:	; bb75
+000004E2 F6                  1056  	clrw ax
+000004E3 B800                1057  	movw [sp+0x00], ax
+000004E5                     1058  .BB@LABEL@9_18:	; bb76
+000004E5 A800                1059  	movw ax, [sp+0x00]
+000004E7 6168                1060  	or a, x
+000004E9 DD00                1061  	bz $.BB@LABEL@9_20
+000004EB                     1062  .BB@LABEL@9_19:	; if_then_bb
+000004EB                     1063  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1638
+000004EB C80204              1064  	mov [sp+0x02], #0x04
+000004EE EE0000              1065  	br $!.BB@LABEL@9_95
+000004F1                     1066  .BB@LABEL@9_20:	; if_break_bb
+000004F1                     1067  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1642
+000004F1 FE0000              1068  	call $!_R_OBIS_GetConnectedAssociation
+000004F4 9803                1069  	mov [sp+0x03], a
+000004F6                     1070  .BB@LABEL@9_21:	; if_break_bb.split
+000004F6                     1071  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1645
+000004F6 A810                1072  	movw ax, [sp+0x10]
+000004F8 318E                1073  	shrw ax, 0x08
+000004FA 0440FF              1074  	addw ax, #0xFF40
+000004FD 440000              1075  	cmpw ax, #0x0000
+00000500 DD00                1076  	bz $.BB@LABEL@9_24
+00000502                     1077  .BB@LABEL@9_22:	; if_break_bb.split
+00000502 B1                  1078  	decw ax
+00000503 440000              1079  	cmpw ax, #0x0000
+00000506 DD00                1080  	bz $.BB@LABEL@9_25
+00000508                     1081  .BB@LABEL@9_23:	; if_break_bb.split
+00000508 440200              1082  	cmpw ax, #0x0002
+0000050B DD00                1083  	bz $.BB@LABEL@9_26
+0000050D EF00                1084  	br $.BB@LABEL@9_27
+0000050F                     1085  .BB@LABEL@9_24:	; switch_clause_bb
+0000050F                     1086  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1648
+0000050F C80500              1087  	mov [sp+0x05], #0x00
+00000512 EF00                1088  	br $.BB@LABEL@9_28
+00000514                     1089  .BB@LABEL@9_25:	; switch_clause_bb85
+00000514                     1090  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1652
+00000514 C80501              1091  	mov [sp+0x05], #0x01
+00000517 EF00                1092  	br $.BB@LABEL@9_28
+00000519                     1093  .BB@LABEL@9_26:	; switch_clause_bb86
+00000519                     1094  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1656
+00000519 C80502              1095  	mov [sp+0x05], #0x02
+0000051C EF00                1096  	br $.BB@LABEL@9_28
+0000051E                     1097  .BB@LABEL@9_27:	; switch_clause_bb87
+0000051E                     1098  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1660
+0000051E C80204              1099  	mov [sp+0x02], #0x04
+00000521 EE0000              1100  	br $!.BB@LABEL@9_95
+00000524                     1101  .BB@LABEL@9_28:	; switch_break_bb
+00000524                     1102  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1665
+00000524 8805                1103  	mov a, [sp+0x05]
+00000526 318F                1104  	sarw ax, 8+0x00000
+00000528 6168                1105  	or a, x
+0000052A DF00                1106  	bnz $.BB@LABEL@9_36
+0000052C                     1107  .BB@LABEL@9_29:	; if_then_bb94
+0000052C                     1108  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1667
+0000052C 8810                1109  	mov a, [sp+0x10]
+0000052E 318E                1110  	shrw ax, 8+0x00000
+00000530 B1                  1111  	decw ax
+00000531 440000              1112  	cmpw ax, #0x0000
+00000534 DD00                1113  	bz $.BB@LABEL@9_32
+00000536                     1114  .BB@LABEL@9_30:	; if_then_bb94
+00000536 B1                  1115  	decw ax
+00000537 440000              1116  	cmpw ax, #0x0000
+0000053A DD00                1117  	bz $.BB@LABEL@9_33
+0000053C                     1118  .BB@LABEL@9_31:	; if_then_bb94
+0000053C 440100              1119  	cmpw ax, #0x0001
+0000053F DD00                1120  	bz $.BB@LABEL@9_34
+00000541 EF00                1121  	br $.BB@LABEL@9_35
+00000543                     1122  .BB@LABEL@9_32:	; switch_clause_bb97
+00000543                     1123  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1670
+00000543 C80A01              1124  	mov [sp+0x0A], #0x01
+00000546 EF00                1125  	br $.BB@LABEL@9_36
+00000548                     1126  .BB@LABEL@9_33:	; switch_clause_bb98
+00000548                     1127  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1674
+00000548 C80A02              1128  	mov [sp+0x0A], #0x02
+0000054B EF00                1129  	br $.BB@LABEL@9_36
+0000054D                     1130  .BB@LABEL@9_34:	; switch_clause_bb99
+0000054D                     1131  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1678
+0000054D C80A03              1132  	mov [sp+0x0A], #0x03
+00000550 EF00                1133  	br $.BB@LABEL@9_36
+00000552                     1134  .BB@LABEL@9_35:	; switch_clause_bb100
+00000552                     1135  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1682
+00000552 C8020D              1136  	mov [sp+0x02], #0x0D
+00000555 EE0000              1137  	br $!.BB@LABEL@9_95
+00000558                     1138  .BB@LABEL@9_36:	; if_break_bb103
+00000558                     1139  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1688
+00000558 A80C                1140  	movw ax, [sp+0x0C]
+0000055A 040200              1141  	addw ax, #0x0002
+0000055D 320000              1142  	movw bc, #SMRLW(.STR@1)
+00000560 FE0000              1143  	call $!_R_OBIS_CompareObisCode
+00000563 91                  1144  	dec a
+00000564 DF00                1145  	bnz $.BB@LABEL@9_39
+00000566                     1146  .BB@LABEL@9_37:	; if_then_bb112
+00000566                     1147  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1694
+00000566 8803                1148  	mov a, [sp+0x03]
+00000568 9804                1149  	mov [sp+0x04], a
+0000056A                     1150  .BB@LABEL@9_38:	; if_then_bb112.split
+0000056A                     1151  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1695
+0000056A A806                1152  	movw ax, [sp+0x06]
+0000056C 16                  1153  	movw hl, ax
+0000056D 040C00              1154  	addw ax, #0x000C
+00000570 14                  1155  	movw de, ax
+00000571 A9                  1156  	movw ax, [de]
+00000572 12                  1157  	movw bc, ax
+00000573 8804                1158  	mov a, [sp+0x04]
+00000575 318E                1159  	shrw ax, 8+0x00000
+00000577 CEFB02              1160  	mulh
+0000057A 12                  1161  	movw bc, ax
+0000057B 17                  1162  	movw ax, hl
+0000057C 040A00              1163  	addw ax, #0x000A
+0000057F 16                  1164  	movw hl, ax
+00000580 13                  1165  	movw ax, bc
+00000581 610900              1166  	addw ax, [hl+0x00]
+00000584 B808                1167  	movw [sp+0x08], ax
+00000586 EE0000              1168  	br $!.BB@LABEL@9_69
+00000589                     1169  .BB@LABEL@9_39:	; if_else_bb
+00000589                     1170  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1706
+00000589 C80400              1171  	mov [sp+0x04], #0x00
+0000058C EE0000              1172  	br $!.BB@LABEL@9_64
+0000058F                     1173  .BB@LABEL@9_40:	; bb127
+0000058F                     1174  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1709
+0000058F A806                1175  	movw ax, [sp+0x06]
+00000591 16                  1176  	movw hl, ax
+00000592 040C00              1177  	addw ax, #0x000C
+00000595 14                  1178  	movw de, ax
+00000596 A9                  1179  	movw ax, [de]
+00000597 12                  1180  	movw bc, ax
+00000598 8804                1181  	mov a, [sp+0x04]
+0000059A 318E                1182  	shrw ax, 8+0x00000
+0000059C CEFB02              1183  	mulh
+0000059F 12                  1184  	movw bc, ax
+000005A0 17                  1185  	movw ax, hl
+000005A1 040A00              1186  	addw ax, #0x000A
+000005A4 16                  1187  	movw hl, ax
+000005A5 13                  1188  	movw ax, bc
+000005A6 610900              1189  	addw ax, [hl+0x00]
+000005A9 B808                1190  	movw [sp+0x08], ax
+000005AB                     1191  .BB@LABEL@9_41:	; bb127.split
+000005AB                     1192  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1717
+000005AB A808                1193  	movw ax, [sp+0x08]
+000005AD 6168                1194  	or a, x
+000005AF DD00                1195  	bz $.BB@LABEL@9_57
+000005B1                     1196  .BB@LABEL@9_42:	; bb144
+000005B1 A808                1197  	movw ax, [sp+0x08]
+000005B3 040600              1198  	addw ax, #0x0006
+000005B6 14                  1199  	movw de, ax
+000005B7 A9                  1200  	movw ax, [de]
+000005B8 6168                1201  	or a, x
+000005BA DD00                1202  	bz $.BB@LABEL@9_53
+000005BC                     1203  .BB@LABEL@9_43:	; bb150
+000005BC A808                1204  	movw ax, [sp+0x08]
+000005BE 040600              1205  	addw ax, #0x0006
+000005C1 14                  1206  	movw de, ax
+000005C2 A9                  1207  	movw ax, [de]
+000005C3 6168                1208  	or a, x
+000005C5 DD00                1209  	bz $.BB@LABEL@9_51
+000005C7                     1210  .BB@LABEL@9_44:	; bb156
+000005C7 8803                1211  	mov a, [sp+0x03]
+000005C9 5006                1212  	mov x, #0x06
+000005CB D6                  1213  	mulu x
+000005CC 12                  1214  	movw bc, ax
+000005CD A808                1215  	movw ax, [sp+0x08]
+000005CF 040600              1216  	addw ax, #0x0006
+000005D2 16                  1217  	movw hl, ax
+000005D3 13                  1218  	movw ax, bc
+000005D4 610900              1219  	addw ax, [hl+0x00]
+000005D7 14                  1220  	movw de, ax
+000005D8 AA02                1221  	movw ax, [de+0x02]
+000005DA 12                  1222  	movw bc, ax
+000005DB A9                  1223  	movw ax, [de]
+000005DC 03                  1224  	addw ax, bc
+000005DD DF00                1225  	bnz $.BB@LABEL@9_47
+000005DF                     1226  .BB@LABEL@9_45:	; bb156
+000005DF DC00                1227  	bc $.BB@LABEL@9_47
+000005E1                     1228  .BB@LABEL@9_46:	; bb167
+000005E1 8803                1229  	mov a, [sp+0x03]
+000005E3 5006                1230  	mov x, #0x06
+000005E5 D6                  1231  	mulu x
+000005E6 12                  1232  	movw bc, ax
+000005E7 A808                1233  	movw ax, [sp+0x08]
+000005E9 040600              1234  	addw ax, #0x0006
+000005EC 16                  1235  	movw hl, ax
+000005ED 13                  1236  	movw ax, bc
+000005EE 610900              1237  	addw ax, [hl+0x00]
+000005F1 040400              1238  	addw ax, #0x0004
+000005F4 14                  1239  	movw de, ax
+000005F5 A9                  1240  	movw ax, [de]
+000005F6 6168                1241  	or a, x
+000005F8 DD00                1242  	bz $.BB@LABEL@9_48
+000005FA                     1243  .BB@LABEL@9_47:	; bb178
+000005FA E6                  1244  	onew ax
+000005FB B800                1245  	movw [sp+0x00], ax
+000005FD EF00                1246  	br $.BB@LABEL@9_49
+000005FF                     1247  .BB@LABEL@9_48:	; bb179
+000005FF F6                  1248  	clrw ax
+00000600 B800                1249  	movw [sp+0x00], ax
+00000602                     1250  .BB@LABEL@9_49:	; bb180
+00000602 A800                1251  	movw ax, [sp+0x00]
+00000604 6168                1252  	or a, x
+00000606 DD00                1253  	bz $.BB@LABEL@9_51
+00000608                     1254  .BB@LABEL@9_50:	; bb184
+00000608 E6                  1255  	onew ax
+00000609 B800                1256  	movw [sp+0x00], ax
+0000060B EF00                1257  	br $.BB@LABEL@9_52
+0000060D                     1258  .BB@LABEL@9_51:	; bb185
+0000060D F6                  1259  	clrw ax
+0000060E B800                1260  	movw [sp+0x00], ax
+00000610                     1261  .BB@LABEL@9_52:	; bb186
+00000610 A800                1262  	movw ax, [sp+0x00]
+00000612 6168                1263  	or a, x
+00000614 DD00                1264  	bz $.BB@LABEL@9_54
+00000616                     1265  .BB@LABEL@9_53:	; bb190
+00000616 E6                  1266  	onew ax
+00000617 B800                1267  	movw [sp+0x00], ax
+00000619 EF00                1268  	br $.BB@LABEL@9_55
+0000061B                     1269  .BB@LABEL@9_54:	; bb191
+0000061B F6                  1270  	clrw ax
+0000061C B800                1271  	movw [sp+0x00], ax
+0000061E                     1272  .BB@LABEL@9_55:	; bb192
+0000061E A800                1273  	movw ax, [sp+0x00]
+00000620 6168                1274  	or a, x
+00000622 DD00                1275  	bz $.BB@LABEL@9_57
+00000624                     1276  .BB@LABEL@9_56:	; bb196
+00000624 E6                  1277  	onew ax
+00000625 B800                1278  	movw [sp+0x00], ax
+00000627 EF00                1279  	br $.BB@LABEL@9_58
+00000629                     1280  .BB@LABEL@9_57:	; bb197
+00000629 F6                  1281  	clrw ax
+0000062A B800                1282  	movw [sp+0x00], ax
+0000062C                     1283  .BB@LABEL@9_58:	; bb198
+0000062C A800                1284  	movw ax, [sp+0x00]
+0000062E 6168                1285  	or a, x
+00000630 DD00                1286  	bz $.BB@LABEL@9_61
+00000632                     1287  .BB@LABEL@9_59:	; bb202
+00000632 A80C                1288  	movw ax, [sp+0x0C]
+00000634 040200              1289  	addw ax, #0x0002
+00000637 12                  1290  	movw bc, ax
+00000638 A808                1291  	movw ax, [sp+0x08]
+0000063A FE0000              1292  	call $!_R_OBIS_CompareObisCode
+0000063D 91                  1293  	dec a
+0000063E DF00                1294  	bnz $.BB@LABEL@9_61
+00000640                     1295  .BB@LABEL@9_60:	; bb213
+00000640 E6                  1296  	onew ax
+00000641 B800                1297  	movw [sp+0x00], ax
+00000643 EF00                1298  	br $.BB@LABEL@9_62
+00000645                     1299  .BB@LABEL@9_61:	; bb214
+00000645 F6                  1300  	clrw ax
+00000646 B800                1301  	movw [sp+0x00], ax
+00000648                     1302  .BB@LABEL@9_62:	; bb215
+00000648 A800                1303  	movw ax, [sp+0x00]
+0000064A 6168                1304  	or a, x
+0000064C DF00                1305  	bnz $.BB@LABEL@9_65
+0000064E                     1306  .BB@LABEL@9_63:	; if_break_bb222
+0000064E 8804                1307  	mov a, [sp+0x04]
+00000650 81                  1308  	inc a
+00000651 9804                1309  	mov [sp+0x04], a
+00000653                     1310  .BB@LABEL@9_64:	; bb225
+00000653                     1311  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1706
+00000653 A806                1312  	movw ax, [sp+0x06]
+00000655 040800              1313  	addw ax, #0x0008
+00000658 14                  1314  	movw de, ax
+00000659 A9                  1315  	movw ax, [de]
+0000065A 16                  1316  	movw hl, ax
+0000065B 8804                1317  	mov a, [sp+0x04]
+0000065D 318E                1318  	shrw ax, 8+0x00000
+0000065F 614900              1319  	cmpw ax, [hl+0x00]
+00000662                     1320  	.bc $!.BB@LABEL@9_40
+00000662 61D8                    	 -- Skncond
+00000664 EE0000                  	 -- br	**.target1
+00000667                     1321  .BB@LABEL@9_65:	; bb236
+00000667                     1322  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1737
+00000667 A806                1323  	movw ax, [sp+0x06]
+00000669 040800              1324  	addw ax, #0x0008
+0000066C 14                  1325  	movw de, ax
+0000066D A9                  1326  	movw ax, [de]
+0000066E 16                  1327  	movw hl, ax
+0000066F 8804                1328  	mov a, [sp+0x04]
+00000671 318E                1329  	shrw ax, 8+0x00000
+00000673 614900              1330  	cmpw ax, [hl+0x00]
+00000676 DC00                1331  	bc $.BB@LABEL@9_67
+00000678                     1332  .BB@LABEL@9_66:	; if_then_bb246
+00000678                     1333  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1739
+00000678 C80204              1334  	mov [sp+0x02], #0x04
+0000067B EE0000              1335  	br $!.BB@LABEL@9_95
+0000067E                     1336  .BB@LABEL@9_67:	; if_break_bb248
+0000067E                     1337  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1745
+0000067E 8803                1338  	mov a, [sp+0x03]
+00000680 5006                1339  	mov x, #0x06
+00000682 D6                  1340  	mulu x
+00000683 12                  1341  	movw bc, ax
+00000684 A808                1342  	movw ax, [sp+0x08]
+00000686 040600              1343  	addw ax, #0x0006
+00000689 16                  1344  	movw hl, ax
+0000068A A80C                1345  	movw ax, [sp+0x0C]
+0000068C 040800              1346  	addw ax, #0x0008
+0000068F 14                  1347  	movw de, ax
+00000690 13                  1348  	movw ax, bc
+00000691 610900              1349  	addw ax, [hl+0x00]
+00000694 12                  1350  	movw bc, ax
+00000695 89                  1351  	mov a, [de]
+00000696 70                  1352  	mov x, a
+00000697 8805                1353  	mov a, [sp+0x05]
+00000699 FE0000              1354  	call $!_R_OBIS_CheckAccessRight@1
+0000069C D1                  1355  	cmp0 a
+0000069D DF00                1356  	bnz $.BB@LABEL@9_69
+0000069F                     1357  .BB@LABEL@9_68:	; if_then_bb265
+0000069F                     1358  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1750
+0000069F C8020D              1359  	mov [sp+0x02], #0x0D
+000006A2 EE0000              1360  	br $!.BB@LABEL@9_95
+000006A5                     1361  .BB@LABEL@9_69:	; if_break_bb268
+000006A5                     1362  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1759
+000006A5 8803                1363  	mov a, [sp+0x03]
+000006A7 501C                1364  	mov x, #0x1C
+000006A9 D6                  1365  	mulu x
+000006AA 040000              1366  	addw ax, #SMRLW(_g_ChildTableClass15+0x0000D)
+000006AD 14                  1367  	movw de, ax
+000006AE 89                  1368  	mov a, [de]
+000006AF 4C02                1369  	cmp a, #0x02
+000006B1 DD00                1370  	bz $.BB@LABEL@9_71
+000006B3                     1371  .BB@LABEL@9_70:	; bb277
+000006B3 8803                1372  	mov a, [sp+0x03]
+000006B5 501C                1373  	mov x, #0x1C
+000006B7 D6                  1374  	mulu x
+000006B8 040000              1375  	addw ax, #SMRLW(_g_ChildTableClass15+0x0000D)
+000006BB 14                  1376  	movw de, ax
+000006BC 89                  1377  	mov a, [de]
+000006BD 4C03                1378  	cmp a, #0x03
+000006BF DF00                1379  	bnz $.BB@LABEL@9_72
+000006C1                     1380  .BB@LABEL@9_71:	; bb286
+000006C1 E6                  1381  	onew ax
+000006C2 B800                1382  	movw [sp+0x00], ax
+000006C4 EF00                1383  	br $.BB@LABEL@9_73
+000006C6                     1384  .BB@LABEL@9_72:	; bb287
+000006C6 F6                  1385  	clrw ax
+000006C7 B800                1386  	movw [sp+0x00], ax
+000006C9                     1387  .BB@LABEL@9_73:	; bb288
+000006C9 A800                1388  	movw ax, [sp+0x00]
+000006CB 6168                1389  	or a, x
+000006CD DF00                1390  	bnz $.BB@LABEL@9_75
+000006CF                     1391  .BB@LABEL@9_74:	; bb292
+000006CF 8803                1392  	mov a, [sp+0x03]
+000006D1 501C                1393  	mov x, #0x1C
+000006D3 D6                  1394  	mulu x
+000006D4 040000              1395  	addw ax, #SMRLW(_g_ChildTableClass15+0x0000D)
+000006D7 14                  1396  	movw de, ax
+000006D8 89                  1397  	mov a, [de]
+000006D9 4C04                1398  	cmp a, #0x04
+000006DB DF00                1399  	bnz $.BB@LABEL@9_76
+000006DD                     1400  .BB@LABEL@9_75:	; bb301
+000006DD E6                  1401  	onew ax
+000006DE B800                1402  	movw [sp+0x00], ax
+000006E0 EF00                1403  	br $.BB@LABEL@9_77
+000006E2                     1404  .BB@LABEL@9_76:	; bb302
+000006E2 F6                  1405  	clrw ax
+000006E3 B800                1406  	movw [sp+0x00], ax
+000006E5                     1407  .BB@LABEL@9_77:	; bb303
+000006E5 A800                1408  	movw ax, [sp+0x00]
+000006E7 6168                1409  	or a, x
+000006E9 DF00                1410  	bnz $.BB@LABEL@9_79
+000006EB                     1411  .BB@LABEL@9_78:	; bb307
+000006EB 8803                1412  	mov a, [sp+0x03]
+000006ED 501C                1413  	mov x, #0x1C
+000006EF D6                  1414  	mulu x
+000006F0 040000              1415  	addw ax, #SMRLW(_g_ChildTableClass15+0x0000D)
+000006F3 14                  1416  	movw de, ax
+000006F4 89                  1417  	mov a, [de]
+000006F5 4C05                1418  	cmp a, #0x05
+000006F7 DF00                1419  	bnz $.BB@LABEL@9_80
+000006F9                     1420  .BB@LABEL@9_79:	; bb316
+000006F9 E6                  1421  	onew ax
+000006FA B800                1422  	movw [sp+0x00], ax
+000006FC EF00                1423  	br $.BB@LABEL@9_81
+000006FE                     1424  .BB@LABEL@9_80:	; bb317
+000006FE F6                  1425  	clrw ax
+000006FF B800                1426  	movw [sp+0x00], ax
+00000701                     1427  .BB@LABEL@9_81:	; bb318
+00000701 A800                1428  	movw ax, [sp+0x00]
+00000703 6168                1429  	or a, x
+00000705 DD00                1430  	bz $.BB@LABEL@9_89
+00000707                     1431  .BB@LABEL@9_82:	; if_then_bb323
+00000707                     1432  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1765
+00000707 8803                1433  	mov a, [sp+0x03]
+00000709 501C                1434  	mov x, #0x1C
+0000070B D6                  1435  	mulu x
+0000070C 040000              1436  	addw ax, #SMRLW(_g_ChildTableClass15+0x00018)
+0000070F 14                  1437  	movw de, ax
+00000710 A9                  1438  	movw ax, [de]
+00000711 6168                1439  	or a, x
+00000713 DF00                1440  	bnz $.BB@LABEL@9_84
+00000715                     1441  .BB@LABEL@9_83:	; if_then_bb332
+00000715                     1442  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1767
+00000715 C8020D              1443  	mov [sp+0x02], #0x0D
+00000718 EE0000              1444  	br $!.BB@LABEL@9_95
+0000071B                     1445  .BB@LABEL@9_84:	; if_break_bb334
+0000071B                     1446  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1771
+0000071B 8803                1447  	mov a, [sp+0x03]
+0000071D 501C                1448  	mov x, #0x1C
+0000071F D6                  1449  	mulu x
+00000720 040000              1450  	addw ax, #SMRLW(_g_ChildTableClass15+0x00018)
+00000723 14                  1451  	movw de, ax
+00000724 A9                  1452  	movw ax, [de]
+00000725 14                  1453  	movw de, ax
+00000726 89                  1454  	mov a, [de]
+00000727 318F                1455  	sarw ax, 8+0x00000
+00000729 440100              1456  	cmpw ax, #0x0001
+0000072C DD00                1457  	bz $.BB@LABEL@9_89
+0000072E                     1458  .BB@LABEL@9_85:	; if_then_bb345
+0000072E                     1459  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1773
+0000072E 8805                1460  	mov a, [sp+0x05]
+00000730 318F                1461  	sarw ax, 8+0x00000
+00000732 440200              1462  	cmpw ax, #0x0002
+00000735 DD00                1463  	bz $.BB@LABEL@9_87
+00000737                     1464  .BB@LABEL@9_86:	; if_then_bb351
+00000737                     1465  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1775
+00000737 C8020D              1466  	mov [sp+0x02], #0x0D
+0000073A EF00                1467  	br $.BB@LABEL@9_95
+0000073C                     1468  .BB@LABEL@9_87:	; if_else_bb353
+0000073C                     1469  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1777
+0000073C A80C                1470  	movw ax, [sp+0x0C]
+0000073E 040800              1471  	addw ax, #0x0008
+00000741 14                  1472  	movw de, ax
+00000742 89                  1473  	mov a, [de]
+00000743 318E                1474  	shrw ax, 8+0x00000
+00000745 440100              1475  	cmpw ax, #0x0001
+00000748 DD00                1476  	bz $.BB@LABEL@9_89
+0000074A                     1477  .BB@LABEL@9_88:	; if_then_bb362
+0000074A                     1478  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1779
+0000074A C8020D              1479  	mov [sp+0x02], #0x0D
+0000074D EF00                1480  	br $.BB@LABEL@9_95
+0000074F                     1481  .BB@LABEL@9_89:	; if_break_bb367
+0000074F                     1482  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1788
+0000074F A806                1483  	movw ax, [sp+0x06]
+00000751 16                  1484  	movw hl, ax
+00000752 040600              1485  	addw ax, #0x0006
+00000755 14                  1486  	movw de, ax
+00000756 89                  1487  	mov a, [de]
+00000757 73                  1488  	mov b, a
+00000758 17                  1489  	movw ax, hl
+00000759 040400              1490  	addw ax, #0x0004
+0000075C 14                  1491  	movw de, ax
+0000075D A9                  1492  	movw ax, [de]
+0000075E B812                1493  	movw [sp+0x12], ax
+00000760 63                  1494  	mov a, b
+00000761 9814                1495  	mov [sp+0x14], a
+00000763                     1496  .BB@LABEL@9_90:	; if_break_bb367.split
+00000763                     1497  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1791
+00000763 8814                1498  	mov a, [sp+0x14]
+00000765 318E                1499  	shrw ax, 8+0x00000
+00000767 12                  1500  	movw bc, ax
+00000768 A812                1501  	movw ax, [sp+0x12]
+0000076A 03                  1502  	addw ax, bc
+0000076B 61F8                1503  	sknz
+0000076D                     1504  .BB@LABEL@9_91:	; if_break_bb367.split
+0000076D DE00                1505  	bnc $.BB@LABEL@9_94
+0000076F                     1506  .BB@LABEL@9_92:	; if_then_bb392
+0000076F                     1507  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1794
+0000076F A818                1508  	movw ax, [sp+0x18]
+00000771 12                  1509  	movw bc, ax
+00000772 A80C                1510  	movw ax, [sp+0x0C]
+00000774 14                  1511  	movw de, ax
+00000775 300000              1512  	movw ax, #LOWW(_OBIS_DataLength)
+00000778 C1                  1513  	push ax
+00000779 300000              1514  	movw ax, #LOWW(_g_ServiceBuffer)
+0000077C C1                  1515  	push ax
+0000077D C3                  1516  	push bc
+0000077E C5                  1517  	push de
+0000077F 881C                1518  	mov a, [sp+0x1C]
+00000781 9EFC                1519  	mov cs, a
+00000783 A81A                1520  	movw ax, [sp+0x1A]
+00000785 16                  1521  	movw hl, ax
+00000786 8812                1522  	mov a, [sp+0x12]
+00000788 75                  1523  	mov d, a
+00000789 880D                1524  	mov a, [sp+0x0D]
+0000078B 74                  1525  	mov e, a
+0000078C 880C                1526  	mov a, [sp+0x0C]
+0000078E 318E                1527  	shrw ax, 8+0x00000
+00000790 12                  1528  	movw bc, ax
+00000791 A816                1529  	movw ax, [sp+0x16]
+00000793 61FA                1530  	call hl
+00000795 1008                1531  	addw sp, #0x08
+00000797 980B                1532  	mov [sp+0x0B], a
+00000799                     1533  .BB@LABEL@9_93:	; if_then_bb392.split
+00000799                     1534  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1810
+00000799 880B                1535  	mov a, [sp+0x0B]
+0000079B 9802                1536  	mov [sp+0x02], a
+0000079D EF00                1537  	br $.BB@LABEL@9_95
+0000079F                     1538  .BB@LABEL@9_94:	; if_else_bb406
+0000079F                     1539  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1807
+0000079F C8020D              1540  	mov [sp+0x02], #0x0D
+000007A2                     1541  .BB@LABEL@9_95:	; bb411
+000007A2 8802                1542  	mov a, [sp+0x02]
+000007A4 9816                1543  	mov [sp+0x16], a
+000007A6                     1544  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1811
+000007A6 101A                1545  	addw sp, #0x1A
+000007A8 D7                  1546  	ret
+000007A9                     1547  .LFE9:
+000007A9                     1548  	.TYPE _COSEM_Getinfo,function,.LFE10-_COSEM_Getinfo
+000007A9                     1549  _COSEM_Getinfo:
+000007A9                     1550  	.STACK _COSEM_Getinfo = 18
+000007A9                     1551  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1829
+000007A9 200E                1552  	subw sp, #0x0E
+000007AB B808                1553  	movw [sp+0x08], ax
+000007AD 13                  1554  	movw ax, bc
+000007AE B802                1555  	movw [sp+0x02], ax
+000007B0 15                  1556  	movw ax, de
+000007B1 B80C                1557  	movw [sp+0x0C], ax
+000007B3                     1558  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1834
+000007B3 B1                  1559  	decw ax
+000007B4 440D00              1560  	cmpw ax, #0x000D
+000007B7                     1561  	.bnc $!.BB@LABEL@10_20
+000007B7 61C8                    	 -- Skncond
+000007B9 EE0000                  	 -- br	**.target1
+000007BC                     1562  .BB@LABEL@10_1:	; entry
+000007BC 12                  1563  	movw bc, ax
+000007BD 490000              1564  	mov a, MIRLW(.SWITCH@LABEL@10_1+0x0001A)[bc]
+000007C0 311C                1565  	shlw bc, 0x01
+000007C2 9EFC                1566  	mov cs, a
+000007C4 790000              1567  	movw ax, MIRLW(.SWITCH@LABEL@10_1)[bc]
+000007C7 61CB                1568  	br ax
+000007C9                     1569  .BB@LABEL@10_2:	; switch_clause_bb
+000007C9                     1570  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1841
+000007C9 FE0000              1571  	call $!_R_OBIS_GetConnectedAssociation
+000007CC 9804                1572  	mov [sp+0x04], a
+000007CE                     1573  .BB@LABEL@10_3:	; switch_clause_bb.split
+000007CE                     1574  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1842
+000007CE 8804                1575  	mov a, [sp+0x04]
+000007D0 318E                1576  	shrw ax, 8+0x00000
+000007D2 420000              1577  	cmpw ax, !SMRLW(_g_ChildTableLengthClass15)
+000007D5 DE00                1578  	bnc $.BB@LABEL@10_6
+000007D7                     1579  .BB@LABEL@10_4:	; bb
+000007D7 8804                1580  	mov a, [sp+0x04]
+000007D9 501C                1581  	mov x, #0x1C
+000007DB D6                  1582  	mulu x
+000007DC 040000              1583  	addw ax, #SMRLW(_g_ChildTableClass15+0x00016)
+000007DF 14                  1584  	movw de, ax
+000007E0 A9                  1585  	movw ax, [de]
+000007E1 6168                1586  	or a, x
+000007E3 DD00                1587  	bz $.BB@LABEL@10_6
+000007E5                     1588  .BB@LABEL@10_5:	; bb19
+000007E5 E6                  1589  	onew ax
+000007E6 B806                1590  	movw [sp+0x06], ax
+000007E8 EF00                1591  	br $.BB@LABEL@10_7
+000007EA                     1592  .BB@LABEL@10_6:	; bb20
+000007EA F6                  1593  	clrw ax
+000007EB B806                1594  	movw [sp+0x06], ax
+000007ED                     1595  .BB@LABEL@10_7:	; bb21
+000007ED A806                1596  	movw ax, [sp+0x06]
+000007EF 6168                1597  	or a, x
+000007F1                     1598  	.bz $!.BB@LABEL@10_20
+000007F1 61F8                    	 -- Skncond
+000007F3 EE0000                  	 -- br	**.target1
+000007F6                     1599  .BB@LABEL@10_8:	; if_then_bb
+000007F6                     1600  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1845
+000007F6 8804                1601  	mov a, [sp+0x04]
+000007F8 501C                1602  	mov x, #0x1C
+000007FA D6                  1603  	mulu x
+000007FB 040000              1604  	addw ax, #SMRLW(_g_ChildTableClass15+0x00016)
+000007FE 14                  1605  	movw de, ax
+000007FF A9                  1606  	movw ax, [de]
+00000800 B800                1607  	movw [sp+0x00], ax
+00000802 EE0000              1608  	br $!.BB@LABEL@10_21
+00000805                     1609  .BB@LABEL@10_9:	; switch_clause_bb31
+00000805                     1610  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1852
+00000805 A802                1611  	movw ax, [sp+0x02]
+00000807 321C00              1612  	movw bc, #0x001C
+0000080A CEFB02              1613  	mulh
+0000080D 040000              1614  	addw ax, #SMRLW(_g_ChildTableClass15+0x00008)
+00000810 B800                1615  	movw [sp+0x00], ax
+00000812 EE0000              1616  	br $!.BB@LABEL@10_21
+00000815                     1617  .BB@LABEL@10_10:	; switch_clause_bb38
+00000815                     1618  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1858
+00000815 300000              1619  	movw ax, #SMRLW(_g_ChildTableLengthClass15)
+00000818 B800                1620  	movw [sp+0x00], ax
+0000081A EE0000              1621  	br $!.BB@LABEL@10_21
+0000081D                     1622  .BB@LABEL@10_11:	; switch_clause_bb40
+0000081D                     1623  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1864
+0000081D A802                1624  	movw ax, [sp+0x02]
+0000081F 321C00              1625  	movw bc, #0x001C
+00000822 CEFB02              1626  	mulh
+00000825 040000              1627  	addw ax, #SMRLW(_g_ChildTableClass15+0x0000C)
+00000828 B800                1628  	movw [sp+0x00], ax
+0000082A EF00                1629  	br $.BB@LABEL@10_21
+0000082C                     1630  .BB@LABEL@10_12:	; switch_clause_bb46
+0000082C                     1631  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1870
+0000082C A802                1632  	movw ax, [sp+0x02]
+0000082E 321C00              1633  	movw bc, #0x001C
+00000831 CEFB02              1634  	mulh
+00000834 040000              1635  	addw ax, #SMRLW(_g_ChildTableClass15+0x0000D)
+00000837 B800                1636  	movw [sp+0x00], ax
+00000839 EF00                1637  	br $.BB@LABEL@10_21
+0000083B                     1638  .BB@LABEL@10_13:	; switch_clause_bb52
+0000083B                     1639  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1876
+0000083B A802                1640  	movw ax, [sp+0x02]
+0000083D 321C00              1641  	movw bc, #0x001C
+00000840 CEFB02              1642  	mulh
+00000843 040000              1643  	addw ax, #SMRLW(_g_ChildTableClass15+0x00012)
+00000846 14                  1644  	movw de, ax
+00000847 A9                  1645  	movw ax, [de]
+00000848 B800                1646  	movw [sp+0x00], ax
+0000084A EF00                1647  	br $.BB@LABEL@10_21
+0000084C                     1648  .BB@LABEL@10_14:	; switch_clause_bb59
+0000084C                     1649  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1881
+0000084C A802                1650  	movw ax, [sp+0x02]
+0000084E 321C00              1651  	movw bc, #0x001C
+00000851 CEFB02              1652  	mulh
+00000854 040000              1653  	addw ax, #SMRLW(_g_ChildTableClass15+0x00014)
+00000857 14                  1654  	movw de, ax
+00000858 A9                  1655  	movw ax, [de]
+00000859 B800                1656  	movw [sp+0x00], ax
+0000085B EF00                1657  	br $.BB@LABEL@10_21
+0000085D                     1658  .BB@LABEL@10_15:	; switch_clause_bb66
+0000085D                     1659  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1886
+0000085D A802                1660  	movw ax, [sp+0x02]
+0000085F 321C00              1661  	movw bc, #0x001C
+00000862 CEFB02              1662  	mulh
+00000865 040000              1663  	addw ax, #SMRLW(_g_ChildTableClass15+0x00011)
+00000868 B800                1664  	movw [sp+0x00], ax
+0000086A EF00                1665  	br $.BB@LABEL@10_21
+0000086C                     1666  .BB@LABEL@10_16:	; switch_clause_bb72
+0000086C                     1667  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1891
+0000086C A802                1668  	movw ax, [sp+0x02]
+0000086E 321C00              1669  	movw bc, #0x001C
+00000871 CEFB02              1670  	mulh
+00000874 040000              1671  	addw ax, #SMRLW(_g_ChildTableClass15+0x0000E)
+00000877 B800                1672  	movw [sp+0x00], ax
+00000879 EF00                1673  	br $.BB@LABEL@10_21
+0000087B                     1674  .BB@LABEL@10_17:	; switch_clause_bb81
+0000087B                     1675  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1896
+0000087B A802                1676  	movw ax, [sp+0x02]
+0000087D 321C00              1677  	movw bc, #0x001C
+00000880 CEFB02              1678  	mulh
+00000883 040000              1679  	addw ax, #SMRLW(_g_ChildTableClass15+0x0000F)
+00000886 B800                1680  	movw [sp+0x00], ax
+00000888 EF00                1681  	br $.BB@LABEL@10_21
+0000088A                     1682  .BB@LABEL@10_18:	; switch_clause_bb89
+0000088A                     1683  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1901
+0000088A A802                1684  	movw ax, [sp+0x02]
+0000088C 321C00              1685  	movw bc, #0x001C
+0000088F CEFB02              1686  	mulh
+00000892 040000              1687  	addw ax, #SMRLW(_g_ChildTableClass15+0x00010)
+00000895 B800                1688  	movw [sp+0x00], ax
+00000897 EF00                1689  	br $.BB@LABEL@10_21
+00000899                     1690  .BB@LABEL@10_19:	; switch_clause_bb97
+00000899                     1691  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1981
+00000899 A802                1692  	movw ax, [sp+0x02]
+0000089B 320E00              1693  	movw bc, #0x000E
+0000089E CEFB02              1694  	mulh
+000008A1 040000              1695  	addw ax, #SMRLW(_g_MasterTable+0x00001)
+000008A4 B800                1696  	movw [sp+0x00], ax
+000008A6 EF00                1697  	br $.BB@LABEL@10_21
+000008A8                     1698  .BB@LABEL@10_20:	; switch_break_bb
+000008A8 F6                  1699  	clrw ax
+000008A9                     1700  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1991
+000008A9 B800                1701  	movw [sp+0x00], ax
+000008AB                     1702  .BB@LABEL@10_21:	; bb105
+000008AB A800                1703  	movw ax, [sp+0x00]
+000008AD B80A                1704  	movw [sp+0x0A], ax
+000008AF                     1705  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 1992
+000008AF 100E                1706  	addw sp, #0x0E
+000008B1 D7                  1707  	ret
+000008B2                     1708  .LFE10:
+000008B2                     1709  	.TYPE _COSEM_Setinfo,function,.LFE11-_COSEM_Setinfo
+000008B2                     1710  _COSEM_Setinfo:
+000008B2                     1711  	.STACK _COSEM_Setinfo = 12
+000008B2                     1712  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 2010
+000008B2 2008                1713  	subw sp, #0x08
+000008B4 B806                1714  	movw [sp+0x06], ax
+000008B6 13                  1715  	movw ax, bc
+000008B7 B800                1716  	movw [sp+0x00], ax
+000008B9 15                  1717  	movw ax, de
+000008BA B804                1718  	movw [sp+0x04], ax
+000008BC 880C                1719  	mov a, [sp+0x0C]
+000008BE 9802                1720  	mov [sp+0x02], a
+000008C0                     1721  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 2013
+000008C0 A804                1722  	movw ax, [sp+0x04]
+000008C2 B1                  1723  	decw ax
+000008C3 440000              1724  	cmpw ax, #0x0000
+000008C6 DD00                1725  	bz $.BB@LABEL@11_2
+000008C8                     1726  .BB@LABEL@11_1:	; entry
+000008C8 440100              1727  	cmpw ax, #0x0001
+000008CB DD00                1728  	bz $.BB@LABEL@11_4
+000008CD EF00                1729  	br $.BB@LABEL@11_6
+000008CF                     1730  .BB@LABEL@11_2:	; switch_clause_bb
+000008CF                     1731  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 2017
+000008CF A800                1732  	movw ax, [sp+0x00]
+000008D1 321C00              1733  	movw bc, #0x001C
+000008D4 CEFB02              1734  	mulh
+000008D7 040000              1735  	addw ax, #SMRLW(_g_ChildTableClass15+0x00016)
+000008DA 14                  1736  	movw de, ax
+000008DB A9                  1737  	movw ax, [de]
+000008DC 6168                1738  	or a, x
+000008DE DD00                1739  	bz $.BB@LABEL@11_6
+000008E0                     1740  .BB@LABEL@11_3:	; if_then_bb
+000008E0                     1741  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 2019
+000008E0 A800                1742  	movw ax, [sp+0x00]
+000008E2 321C00              1743  	movw bc, #0x001C
+000008E5 CEFB02              1744  	mulh
+000008E8 040000              1745  	addw ax, #SMRLW(_g_ChildTableClass15+0x00016)
+000008EB 14                  1746  	movw de, ax
+000008EC A9                  1747  	movw ax, [de]
+000008ED 14                  1748  	movw de, ax
+000008EE 8802                1749  	mov a, [sp+0x02]
+000008F0 99                  1750  	mov [de], a
+000008F1 1008                1751  	addw sp, #0x08
+000008F3 D7                  1752  	ret
+000008F4                     1753  .BB@LABEL@11_4:	; switch_clause_bb18
+000008F4                     1754  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 2025
+000008F4 A800                1755  	movw ax, [sp+0x00]
+000008F6 321C00              1756  	movw bc, #0x001C
+000008F9 CEFB02              1757  	mulh
+000008FC 040000              1758  	addw ax, #SMRLW(_g_ChildTableClass15+0x00018)
+000008FF 14                  1759  	movw de, ax
+00000900 A9                  1760  	movw ax, [de]
+00000901 6168                1761  	or a, x
+00000903 DD00                1762  	bz $.BB@LABEL@11_6
+00000905                     1763  .BB@LABEL@11_5:	; if_then_bb27
+00000905                     1764  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 2027
+00000905 A800                1765  	movw ax, [sp+0x00]
+00000907 321C00              1766  	movw bc, #0x001C
+0000090A CEFB02              1767  	mulh
+0000090D 040000              1768  	addw ax, #SMRLW(_g_ChildTableClass15+0x00018)
+00000910 14                  1769  	movw de, ax
+00000911 A9                  1770  	movw ax, [de]
+00000912 14                  1771  	movw de, ax
+00000913 8802                1772  	mov a, [sp+0x02]
+00000915 99                  1773  	mov [de], a
+00000916 1008                1774  	addw sp, #0x08
+00000918 D7                  1775  	ret
+00000919                     1776  .BB@LABEL@11_6:	; return
+00000919                     1777  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/dlms/objects/r_dlms_obis.c", 2047
+00000919 1008                1778  	addw sp, #0x08
+0000091B D7                  1779  	ret
+0000091C                     1780  .LFE11:
+00000000                     1781  	.SECTION .bss,BSS
+00000000                     1782  	.TYPE _g_ServiceBuffer,object,752
+00000000                     1783  _g_ServiceBuffer:
+00000000                     1784  	.DS (752)
+000002F0                     1785  	.ALIGN 2
+000002F0                     1786  	.TYPE _g_TotalNumberObjects,object,2
+000002F0                     1787  _g_TotalNumberObjects:
+000002F0                     1788  	.DS (2)
+000002F2                     1789  	.ALIGN 2
+000002F2                     1790  	.TYPE _g_TotalNumberObjectsOfAssociation,object,6
+000002F2                     1791  _g_TotalNumberObjectsOfAssociation:
+000002F2                     1792  	.DS (6)
+00000000                     1793  	.SECTION .const,CONST
+00000000                     1794  	.ALIGN 2
+00000000                     1795  	.TYPE _g_MasterTable,object,1484
+00000000                     1796  _g_MasterTable:
+00000000 0000000000000000    1797  	.DS (14)
+00000008 000000000000
+0000000E 00                  1798  	.DS (1)
+0000000F 02                  1799  	.DB 0x02
+00000010 00                  1800  	.DS (1)
+00000011 00                  1801  	.DS (1)
+00000012 0000                1802  	.DB2 LOWW(_R_OBIS_DistributeDataClass)
+00000014 00                  1803  	.DB LOW(HIGHW(_R_OBIS_DistributeDataClass))
+00000015 00                  1804  	.DB 0x00
+00000016 0000                1805  	.DB2 SMRLW(_g_ChildTableLengthClass01)
+00000018 0000                1806  	.DB2 SMRLW(_g_ChildTableClass01)
+0000001A 1200                1807  	.DB2 0x0012
+0000001C 0000000000000000    1808  	.DS (14)
+00000024 000000000000
+0000002A 00                  1809  	.DS (1)
+0000002B 03                  1810  	.DB 0x03
+0000002C 01                  1811  	.DB 0x01
+0000002D 00                  1812  	.DS (1)
+0000002E 0000                1813  	.DB2 LOWW(_R_OBIS_DistributeRegisterClass)
+00000030 00                  1814  	.DB LOW(HIGHW(_R_OBIS_DistributeRegisterClass))
+00000031 00                  1815  	.DB 0x00
+00000032 0000                1816  	.DB2 SMRLW(_g_ChildTableLengthClass03)
+00000034 0000                1817  	.DB2 SMRLW(_g_ChildTableClass03)
+00000036 1400                1818  	.DB2 0x0014
+00000038 00                  1819  	.DS (1)
+00000039 05                  1820  	.DB 0x05
+0000003A 01                  1821  	.DB 0x01
+0000003B 00                  1822  	.DS (1)
+0000003C 0000                1823  	.DB2 LOWW(_R_OBIS_DistributeXRegisterClass)
+0000003E 00                  1824  	.DB LOW(HIGHW(_R_OBIS_DistributeXRegisterClass))
+0000003F 00                  1825  	.DB 0x00
+00000040 0000                1826  	.DB2 SMRLW(_g_ChildTableLengthClass04)
+00000042 0000                1827  	.DB2 SMRLW(_g_ChildTableClass04)
+00000044 2800                1828  	.DB2 0x0028
+00000046 00                  1829  	.DS (1)
+00000047 09                  1830  	.DB 0x09
+00000048 02                  1831  	.DB 0x02
+00000049 00                  1832  	.DS (1)
+0000004A 00000000            1833  	.DS (4)
+0000004E 0000                1834  	.DS (2)
+00000050 0000                1835  	.DS (2)
+00000052 0000                1836  	.DS (2)
+00000054 00                  1837  	.DS (1)
+00000055 04                  1838  	.DB 0x04
+00000056 03                  1839  	.DB 0x03
+00000057 00                  1840  	.DS (1)
+00000058 00000000            1841  	.DS (4)
+0000005C 0000                1842  	.DS (2)
+0000005E 0000                1843  	.DS (2)
+00000060 0000                1844  	.DS (2)
+00000062 01                  1845  	.DB 0x01
+00000063 08                  1846  	.DB 0x08
+00000064 04                  1847  	.DB 0x04
+00000065 00                  1848  	.DS (1)
+00000066 0000                1849  	.DB2 LOWW(_R_OBIS_DistributeProfileGenericClass)
+00000068 00                  1850  	.DB LOW(HIGHW(_R_OBIS_DistributeProfileGenericClass))
+00000069 00                  1851  	.DB 0x00
+0000006A 0000                1852  	.DB2 SMRLW(_g_ChildTableLengthClass07)
+0000006C 0000                1853  	.DB2 SMRLW(_g_ChildTableClass07)
+0000006E 1800                1854  	.DB2 0x0018
+00000070 00                  1855  	.DS (1)
+00000071 09                  1856  	.DB 0x09
+00000072 00                  1857  	.DS (1)
+00000073 00                  1858  	.DS (1)
+00000074 0000                1859  	.DB2 LOWW(_R_OBIS_DistributeClockClass)
+00000076 00                  1860  	.DB LOW(HIGHW(_R_OBIS_DistributeClockClass))
+00000077 00                  1861  	.DB 0x00
+00000078 0000                1862  	.DB2 SMRLW(_g_ChildTableLengthClass08)
+0000007A 0000                1863  	.DB2 SMRLW(_g_ChildTableClass08)
+0000007C 2800                1864  	.DB2 0x0028
+0000007E 00                  1865  	.DS (1)
+0000007F 02                  1866  	.DB 0x02
+00000080 01                  1867  	.DB 0x01
+00000081 00                  1868  	.DS (1)
+00000082 0000                1869  	.DB2 LOWW(_R_OBIS_DistributeScriptTableClass)
+00000084 00                  1870  	.DB LOW(HIGHW(_R_OBIS_DistributeScriptTableClass))
+00000085 00                  1871  	.DB 0x00
+00000086 0000                1872  	.DB2 SMRLW(_g_ChildTableLengthClass09)
+00000088 0000                1873  	.DB2 SMRLW(_g_ChildTableClass09)
+0000008A 0C00                1874  	.DB2 0x000C
+0000008C 00                  1875  	.DS (1)
+0000008D 02                  1876  	.DB 0x02
+0000008E 03                  1877  	.DB 0x03
+0000008F 00                  1878  	.DS (1)
+00000090 00000000            1879  	.DS (4)
+00000094 0000                1880  	.DS (2)
+00000096 0000                1881  	.DS (2)
+00000098 0000                1882  	.DS (2)
+0000009A 00                  1883  	.DS (1)
+0000009B 02                  1884  	.DB 0x02
+0000009C 02                  1885  	.DB 0x02
+0000009D 00                  1886  	.DS (1)
+0000009E 00000000            1887  	.DS (4)
+000000A2 0000                1888  	.DS (2)
+000000A4 0000                1889  	.DS (2)
+000000A6 0000                1890  	.DS (2)
+000000A8 02                  1891  	.DB 0x02
+000000A9 04                  1892  	.DB 0x04
+000000AA 08                  1893  	.DB 0x08
+000000AB 00                  1894  	.DS (1)
+000000AC 00000000            1895  	.DS (4)
+000000B0 0000                1896  	.DS (2)
+000000B2 0000                1897  	.DS (2)
+000000B4 0000                1898  	.DS (2)
+000000B6 0000000000000000    1899  	.DS (14)
+000000BE 000000000000
+000000C4 0000000000000000    1900  	.DS (14)
+000000CC 000000000000
+000000D2 01                  1901  	.DB 0x01
+000000D3 09                  1902  	.DB 0x09
+000000D4 04                  1903  	.DB 0x04
+000000D5 00                  1904  	.DS (1)
+000000D6 0000                1905  	.DB2 LOWW(_R_OBIS_DistributeAssociationLNClass)
+000000D8 00                  1906  	.DB LOW(HIGHW(_R_OBIS_DistributeAssociationLNClass))
+000000D9 00                  1907  	.DB 0x00
+000000DA 0000                1908  	.DB2 SMRLW(_g_ChildTableLengthClass15)
+000000DC 0000                1909  	.DB2 SMRLW(_g_ChildTableClass15)
+000000DE 1C00                1910  	.DB2 0x001C
+000000E0 0000000000000000    1911  	.DS (14)
+000000E8 000000000000
+000000EE 00                  1912  	.DS (1)
+000000EF 02                  1913  	.DB 0x02
+000000F0 01                  1914  	.DB 0x01
+000000F1 00                  1915  	.DS (1)
+000000F2 0000                1916  	.DB2 LOWW(_R_OBIS_DistributeSAPassignmentClass)
+000000F4 00                  1917  	.DB LOW(HIGHW(_R_OBIS_DistributeSAPassignmentClass))
+000000F5 00                  1918  	.DB 0x00
+000000F6 0000                1919  	.DB2 SMRLW(_g_ChildTableLengthClass17)
+000000F8 0000                1920  	.DB2 SMRLW(_g_ChildTableClass17)
+000000FA 0C00                1921  	.DB2 0x000C
+000000FC 00                  1922  	.DS (1)
+000000FD 07                  1923  	.DB 0x07
+000000FE 04                  1924  	.DB 0x04
+000000FF 00                  1925  	.DS (1)
+00000100 00000000            1926  	.DS (4)
+00000104 0000                1927  	.DS (2)
+00000106 0000                1928  	.DS (2)
+00000108 0000                1929  	.DS (2)
+0000010A 01                  1930  	.DB 0x01
+0000010B 09                  1931  	.DB 0x09
+0000010C 00                  1932  	.DS (1)
+0000010D 00                  1933  	.DS (1)
+0000010E 00000000            1934  	.DS (4)
+00000112 0000                1935  	.DS (2)
+00000114 0000                1936  	.DS (2)
+00000116 0000                1937  	.DS (2)
+00000118 00                  1938  	.DS (1)
+00000119 0A                  1939  	.DB 0x0A
+0000011A 01                  1940  	.DB 0x01
+0000011B 00                  1941  	.DS (1)
+0000011C 0000                1942  	.DB2 LOWW(_R_OBIS_DistributeActivityCalendarClass)
+0000011E 00                  1943  	.DB LOW(HIGHW(_R_OBIS_DistributeActivityCalendarClass))
+0000011F 00                  1944  	.DB 0x00
+00000120 0000                1945  	.DB2 SMRLW(_g_ChildTableLengthClass20)
+00000122 0000                1946  	.DB2 SMRLW(_g_ChildTableClass20)
+00000124 2A00                1947  	.DB2 0x002A
+00000126 00                  1948  	.DS (1)
+00000127 04                  1949  	.DB 0x04
+00000128 00                  1950  	.DS (1)
+00000129 00                  1951  	.DS (1)
+0000012A 00000000            1952  	.DS (4)
+0000012E 0000                1953  	.DS (2)
+00000130 0000                1954  	.DS (2)
+00000132 0000                1955  	.DS (2)
+00000134 00                  1956  	.DS (1)
+00000135 04                  1957  	.DB 0x04
+00000136 00                  1958  	.DS (1)
+00000137 00                  1959  	.DS (1)
+00000138 0000                1960  	.DB2 LOWW(_R_OBIS_DistributeSingleActionScheduleClass)
+0000013A 00                  1961  	.DB LOW(HIGHW(_R_OBIS_DistributeSingleActionScheduleClass))
+0000013B 00                  1962  	.DB 0x00
+0000013C 0000                1963  	.DB2 SMRLW(_g_ChildTableLengthClass22)
+0000013E 0000                1964  	.DB2 SMRLW(_g_ChildTableClass22)
+00000140 1000                1965  	.DB2 0x0010
+00000142 01                  1966  	.DB 0x01
+00000143 09                  1967  	.DB 0x09
+00000144 00                  1968  	.DS (1)
+00000145 00                  1969  	.DS (1)
+00000146 0000                1970  	.DB2 LOWW(_R_OBIS_DistributeIECHDLCSetupClass)
+00000148 00                  1971  	.DB LOW(HIGHW(_R_OBIS_DistributeIECHDLCSetupClass))
+00000149 00                  1972  	.DB 0x00
+0000014A 0000                1973  	.DB2 SMRLW(_g_ChildTableLengthClass23)
+0000014C 0000                1974  	.DB2 SMRLW(_g_ChildTableClass23)
+0000014E 1800                1975  	.DB2 0x0018
+00000150 01                  1976  	.DB 0x01
+00000151 05                  1977  	.DB 0x05
+00000152 00                  1978  	.DS (1)
+00000153 00                  1979  	.DS (1)
+00000154 00000000            1980  	.DS (4)
+00000158 0000                1981  	.DS (2)
+0000015A 0000                1982  	.DS (2)
+0000015C 0000                1983  	.DS (2)
+0000015E 00                  1984  	.DS (1)
+0000015F 05                  1985  	.DB 0x05
+00000160 00                  1986  	.DS (1)
+00000161 00                  1987  	.DS (1)
+00000162 00000000            1988  	.DS (4)
+00000166 0000                1989  	.DS (2)
+00000168 0000                1990  	.DS (2)
+0000016A 0000                1991  	.DS (2)
+0000016C 00                  1992  	.DS (1)
+0000016D 04                  1993  	.DB 0x04
+0000016E 00                  1994  	.DS (1)
+0000016F 00                  1995  	.DS (1)
+00000170 00000000            1996  	.DS (4)
+00000174 0000                1997  	.DS (2)
+00000176 0000                1998  	.DS (2)
+00000178 0000                1999  	.DS (2)
+0000017A 01                  2000  	.DB 0x01
+0000017B 04                  2001  	.DB 0x04
+0000017C 00                  2002  	.DS (1)
+0000017D 00                  2003  	.DS (1)
+0000017E 00000000            2004  	.DS (4)
+00000182 0000                2005  	.DS (2)
+00000184 0000                2006  	.DS (2)
+00000186 0000                2007  	.DS (2)
+00000188 02                  2008  	.DB 0x02
+00000189 07                  2009  	.DB 0x07
+0000018A 00                  2010  	.DS (1)
+0000018B 00                  2011  	.DS (1)
+0000018C 00000000            2012  	.DS (4)
+00000190 0000                2013  	.DS (2)
+00000192 0000                2014  	.DS (2)
+00000194 0000                2015  	.DS (2)
+00000196 01                  2016  	.DB 0x01
+00000197 06                  2017  	.DB 0x06
+00000198 00                  2018  	.DS (1)
+00000199 00                  2019  	.DS (1)
+0000019A 00000000            2020  	.DS (4)
+0000019E 0000                2021  	.DS (2)
+000001A0 0000                2022  	.DS (2)
+000001A2 0000                2023  	.DS (2)
+000001A4 0000000000000000    2024  	.DS (14)
+000001AC 000000000000
+000001B2 0000000000000000    2025  	.DS (14)
+000001BA 000000000000
+000001C0 0000000000000000    2026  	.DS (14)
+000001C8 000000000000
+000001CE 0000000000000000    2027  	.DS (14)
+000001D6 000000000000
+000001DC 0000000000000000    2028  	.DS (14)
+000001E4 000000000000
+000001EA 0000000000000000    2029  	.DS (14)
+000001F2 000000000000
+000001F8 0000000000000000    2030  	.DS (14)
+00000200 000000000000
+00000206 0000000000000000    2031  	.DS (14)
+0000020E 000000000000
+00000214 0000000000000000    2032  	.DS (14)
+0000021C 000000000000
+00000222 0000000000000000    2033  	.DS (14)
+0000022A 000000000000
+00000230 0000000000000000    2034  	.DS (14)
+00000238 000000000000
+0000023E 00                  2035  	.DS (1)
+0000023F 06                  2036  	.DB 0x06
+00000240 00                  2037  	.DS (1)
+00000241 00                  2038  	.DS (1)
+00000242 00000000            2039  	.DS (4)
+00000246 0000                2040  	.DS (2)
+00000248 0000                2041  	.DS (2)
+0000024A 0000                2042  	.DS (2)
+0000024C 00                  2043  	.DS (1)
+0000024D 0A                  2044  	.DB 0x0A
+0000024E 03                  2045  	.DB 0x03
+0000024F 00                  2046  	.DS (1)
+00000250 00000000            2047  	.DS (4)
+00000254 0000                2048  	.DS (2)
+00000256 0000                2049  	.DS (2)
+00000258 0000                2050  	.DS (2)
+0000025A 00                  2051  	.DS (1)
+0000025B 02                  2052  	.DB 0x02
+0000025C 00                  2053  	.DS (1)
+0000025D 00                  2054  	.DS (1)
+0000025E 00000000            2055  	.DS (4)
+00000262 0000                2056  	.DS (2)
+00000264 0000                2057  	.DS (2)
+00000266 0000                2058  	.DS (2)
+00000268 00                  2059  	.DS (1)
+00000269 05                  2060  	.DB 0x05
+0000026A 00                  2061  	.DS (1)
+0000026B 00                  2062  	.DS (1)
+0000026C 00000000            2063  	.DS (4)
+00000270 0000                2064  	.DS (2)
+00000272 0000                2065  	.DS (2)
+00000274 0000                2066  	.DS (2)
+00000276 00                  2067  	.DS (1)
+00000277 04                  2068  	.DB 0x04
+00000278 00                  2069  	.DS (1)
+00000279 00                  2070  	.DS (1)
+0000027A 00000000            2071  	.DS (4)
+0000027E 0000                2072  	.DS (2)
+00000280 0000                2073  	.DS (2)
+00000282 0000                2074  	.DS (2)
+00000284 00                  2075  	.DS (1)
+00000285 06                  2076  	.DB 0x06
+00000286 00                  2077  	.DS (1)
+00000287 00                  2078  	.DS (1)
+00000288 00000000            2079  	.DS (4)
+0000028C 0000                2080  	.DS (2)
+0000028E 0000                2081  	.DS (2)
+00000290 0000                2082  	.DS (2)
+00000292 0000000000000000    2083  	.DS (14)
+0000029A 000000000000
+000002A0 00                  2084  	.DS (1)
+000002A1 0A                  2085  	.DB 0x0A
+000002A2 02                  2086  	.DB 0x02
+000002A3 00                  2087  	.DS (1)
+000002A4 00000000            2088  	.DS (4)
+000002A8 0000                2089  	.DS (2)
+000002AA 0000                2090  	.DS (2)
+000002AC 0000                2091  	.DS (2)
+000002AE 0000000000000000    2092  	.DS (14)
+000002B6 000000000000
+000002BC 01                  2093  	.DB 0x01
+000002BD 0F                  2094  	.DB 0x0F
+000002BE 00                  2095  	.DS (1)
+000002BF 00                  2096  	.DS (1)
+000002C0 00000000            2097  	.DS (4)
+000002C4 0000                2098  	.DS (2)
+000002C6 0000                2099  	.DS (2)
+000002C8 0000                2100  	.DS (2)
+000002CA 00                  2101  	.DS (1)
+000002CB 02                  2102  	.DB 0x02
+000002CC 01                  2103  	.DB 0x01
+000002CD 00                  2104  	.DS (1)
+000002CE 00000000            2105  	.DS (4)
+000002D2 0000                2106  	.DS (2)
+000002D4 0000                2107  	.DS (2)
+000002D6 0000                2108  	.DS (2)
+000002D8 00                  2109  	.DS (1)
+000002D9 05                  2110  	.DB 0x05
+000002DA 00                  2111  	.DS (1)
+000002DB 00                  2112  	.DS (1)
+000002DC 00000000            2113  	.DS (4)
+000002E0 0000                2114  	.DS (2)
+000002E2 0000                2115  	.DS (2)
+000002E4 0000                2116  	.DS (2)
+000002E6 00                  2117  	.DS (1)
+000002E7 08                  2118  	.DB 0x08
+000002E8 01                  2119  	.DB 0x01
+000002E9 00                  2120  	.DS (1)
+000002EA 00000000            2121  	.DS (4)
+000002EE 0000                2122  	.DS (2)
+000002F0 0000                2123  	.DS (2)
+000002F2 0000                2124  	.DS (2)
+000002F4 0000000000000000    2125  	.DS (14)
+000002FC 000000000000
+00000302 01                  2126  	.DB 0x01
+00000303 03                  2127  	.DB 0x03
+00000304 00                  2128  	.DS (1)
+00000305 00                  2129  	.DS (1)
+00000306 00000000            2130  	.DS (4)
+0000030A 0000                2131  	.DS (2)
+0000030C 0000                2132  	.DS (2)
+0000030E 0000                2133  	.DS (2)
+00000310 00                  2134  	.DS (1)
+00000311 02                  2135  	.DB 0x02
+00000312 00                  2136  	.DS (1)
+00000313 00                  2137  	.DS (1)
+00000314 00000000            2138  	.DS (4)
+00000318 0000                2139  	.DS (2)
+0000031A 0000                2140  	.DS (2)
+0000031C 0000                2141  	.DS (2)
+0000031E 00                  2142  	.DS (1)
+0000031F 02                  2143  	.DB 0x02
+00000320 00                  2144  	.DS (1)
+00000321 00                  2145  	.DS (1)
+00000322 00000000            2146  	.DS (4)
+00000326 0000                2147  	.DS (2)
+00000328 0000                2148  	.DS (2)
+0000032A 0000                2149  	.DS (2)
+0000032C 00                  2150  	.DS (1)
+0000032D 09                  2151  	.DB 0x09
+0000032E 00                  2152  	.DS (1)
+0000032F 00                  2153  	.DS (1)
+00000330 00000000            2154  	.DS (4)
+00000334 0000                2155  	.DS (2)
+00000336 0000                2156  	.DS (2)
+00000338 0000                2157  	.DS (2)
+0000033A 00                  2158  	.DS (1)
+0000033B 06                  2159  	.DB 0x06
+0000033C 00                  2160  	.DS (1)
+0000033D 00                  2161  	.DS (1)
+0000033E 00000000            2162  	.DS (4)
+00000342 0000                2163  	.DS (2)
+00000344 0000                2164  	.DS (2)
+00000346 0000                2165  	.DS (2)
+00000348 0000000000000000    2166  	.DS (14)
+00000350 000000000000
+00000356 00                  2167  	.DS (1)
+00000357 04                  2168  	.DB 0x04
+00000358 02                  2169  	.DB 0x02
+00000359 00                  2170  	.DS (1)
+0000035A 00000000            2171  	.DS (4)
+0000035E 0000                2172  	.DS (2)
+00000360 0000                2173  	.DS (2)
+00000362 0000                2174  	.DS (2)
+00000364 0000000000000000    2175  	.DS (14)
+0000036C 000000000000
+00000372 00                  2176  	.DS (1)
+00000373 03                  2177  	.DB 0x03
+00000374 00                  2178  	.DS (1)
+00000375 00                  2179  	.DS (1)
+00000376 00000000            2180  	.DS (4)
+0000037A 0000                2181  	.DS (2)
+0000037C 0000                2182  	.DS (2)
+0000037E 0000                2183  	.DS (2)
+00000380 00                  2184  	.DS (1)
+00000381 05                  2185  	.DB 0x05
+00000382 02                  2186  	.DB 0x02
+00000383 00                  2187  	.DS (1)
+00000384 00000000            2188  	.DS (4)
+00000388 0000                2189  	.DS (2)
+0000038A 0000                2190  	.DS (2)
+0000038C 0000                2191  	.DS (2)
+0000038E 0000000000000000    2192  	.DS (14)
+00000396 000000000000
+0000039C 0000000000000000    2193  	.DS (14)
+000003A4 000000000000
+000003AA 00                  2194  	.DS (1)
+000003AB 0F                  2195  	.DB 0x0F
+000003AC 01                  2196  	.DB 0x01
+000003AD 00                  2197  	.DS (1)
+000003AE 00000000            2198  	.DS (4)
+000003B2 0000                2199  	.DS (2)
+000003B4 0000                2200  	.DS (2)
+000003B6 0000                2201  	.DS (2)
+000003B8 0000000000000000    2202  	.DS (14)
+000003C0 000000000000
+000003C6 0000000000000000    2203  	.DS (14)
+000003CE 000000000000
+000003D4 00                  2204  	.DS (1)
+000003D5 04                  2205  	.DB 0x04
+000003D6 02                  2206  	.DB 0x02
+000003D7 00                  2207  	.DS (1)
+000003D8 00000000            2208  	.DS (4)
+000003DC 0000                2209  	.DS (2)
+000003DE 0000                2210  	.DS (2)
+000003E0 0000                2211  	.DS (2)
+000003E2 00                  2212  	.DS (1)
+000003E3 0B                  2213  	.DB 0x0B
+000003E4 00                  2214  	.DS (1)
+000003E5 00                  2215  	.DS (1)
+000003E6 00000000            2216  	.DS (4)
+000003EA 0000                2217  	.DS (2)
+000003EC 0000                2218  	.DS (2)
+000003EE 0000                2219  	.DS (2)
+000003F0 00                  2220  	.DS (1)
+000003F1 0C                  2221  	.DB 0x0C
+000003F2 08                  2222  	.DB 0x08
+000003F3 00                  2223  	.DS (1)
+000003F4 00000000            2224  	.DS (4)
+000003F8 0000                2225  	.DS (2)
+000003FA 0000                2226  	.DS (2)
+000003FC 0000                2227  	.DS (2)
+000003FE 01                  2228  	.DB 0x01
+000003FF 04                  2229  	.DB 0x04
+00000400 00                  2230  	.DS (1)
+00000401 00                  2231  	.DS (1)
+00000402 00000000            2232  	.DS (4)
+00000406 0000                2233  	.DS (2)
+00000408 0000                2234  	.DS (2)
+0000040A 0000                2235  	.DS (2)
+0000040C 00                  2236  	.DS (1)
+0000040D 02                  2237  	.DB 0x02
+0000040E 00                  2238  	.DS (1)
+0000040F 00                  2239  	.DS (1)
+00000410 00000000            2240  	.DS (4)
+00000414 0000                2241  	.DS (2)
+00000416 0000                2242  	.DS (2)
+00000418 0000                2243  	.DS (2)
+0000041A 0000000000000000    2244  	.DS (14)
+00000422 000000000000
+00000428 0000000000000000    2245  	.DS (14)
+00000430 000000000000
+00000436 0000000000000000    2246  	.DS (14)
+0000043E 000000000000
+00000444 0000000000000000    2247  	.DS (14)
+0000044C 000000000000
+00000452 0000000000000000    2248  	.DS (14)
+0000045A 000000000000
+00000460 00                  2249  	.DS (1)
+00000461 03                  2250  	.DB 0x03
+00000462 01                  2251  	.DB 0x01
+00000463 00                  2252  	.DS (1)
+00000464 00000000            2253  	.DS (4)
+00000468 0000                2254  	.DS (2)
+0000046A 0000                2255  	.DS (2)
+0000046C 0000                2256  	.DS (2)
+0000046E 00                  2257  	.DS (1)
+0000046F 05                  2258  	.DB 0x05
+00000470 01                  2259  	.DB 0x01
+00000471 00                  2260  	.DS (1)
+00000472 00000000            2261  	.DS (4)
+00000476 0000                2262  	.DS (2)
+00000478 0000                2263  	.DS (2)
+0000047A 0000                2264  	.DS (2)
+0000047C 00                  2265  	.DS (1)
+0000047D 08                  2266  	.DB 0x08
+0000047E 00                  2267  	.DS (1)
+0000047F 00                  2268  	.DS (1)
+00000480 00000000            2269  	.DS (4)
+00000484 0000                2270  	.DS (2)
+00000486 0000                2271  	.DS (2)
+00000488 0000                2272  	.DS (2)
+0000048A 00                  2273  	.DS (1)
+0000048B 0E                  2274  	.DB 0x0E
+0000048C 00                  2275  	.DS (1)
+0000048D 00                  2276  	.DS (1)
+0000048E 00000000            2277  	.DS (4)
+00000492 0000                2278  	.DS (2)
+00000494 0000                2279  	.DS (2)
+00000496 0000                2280  	.DS (2)
+00000498 00                  2281  	.DS (1)
+00000499 07                  2282  	.DB 0x07
+0000049A 01                  2283  	.DB 0x01
+0000049B 00                  2284  	.DS (1)
+0000049C 00000000            2285  	.DS (4)
+000004A0 0000                2286  	.DS (2)
+000004A2 0000                2287  	.DS (2)
+000004A4 0000                2288  	.DS (2)
+000004A6 00                  2289  	.DS (1)
+000004A7 06                  2290  	.DB 0x06
+000004A8 01                  2291  	.DB 0x01
+000004A9 00                  2292  	.DS (1)
+000004AA 00000000            2293  	.DS (4)
+000004AE 0000                2294  	.DS (2)
+000004B0 0000                2295  	.DS (2)
+000004B2 0000                2296  	.DS (2)
+000004B4 00                  2297  	.DS (1)
+000004B5 04                  2298  	.DB 0x04
+000004B6 00                  2299  	.DS (1)
+000004B7 00                  2300  	.DS (1)
+000004B8 00000000            2301  	.DS (4)
+000004BC 0000                2302  	.DS (2)
+000004BE 0000                2303  	.DS (2)
+000004C0 0000                2304  	.DS (2)
+000004C2 0000000000000000    2305  	.DS (14)
+000004CA 000000000000
+000004D0 0000000000000000    2306  	.DS (14)
+000004D8 000000000000
+000004DE 0000000000000000    2307  	.DS (14)
+000004E6 000000000000
+000004EC 00                  2308  	.DS (1)
+000004ED 0A                  2309  	.DB 0x0A
+000004EE 01                  2310  	.DB 0x01
+000004EF 00                  2311  	.DS (1)
+000004F0 00000000            2312  	.DS (4)
+000004F4 0000                2313  	.DS (2)
+000004F6 0000                2314  	.DS (2)
+000004F8 0000                2315  	.DS (2)
+000004FA 00                  2316  	.DS (1)
+000004FB 0B                  2317  	.DB 0x0B
+000004FC 01                  2318  	.DB 0x01
+000004FD 00                  2319  	.DS (1)
+000004FE 00000000            2320  	.DS (4)
+00000502 0000                2321  	.DS (2)
+00000504 0000                2322  	.DS (2)
+00000506 0000                2323  	.DS (2)
+00000508 00                  2324  	.DS (1)
+00000509 10                  2325  	.DB 0x10
+0000050A 00                  2326  	.DS (1)
+0000050B 00                  2327  	.DS (1)
+0000050C 00000000            2328  	.DS (4)
+00000510 0000                2329  	.DS (2)
+00000512 0000                2330  	.DS (2)
+00000514 0000                2331  	.DS (2)
+00000516 0000000000000000    2332  	.DS (14)
+0000051E 000000000000
+00000524 0000000000000000    2333  	.DS (14)
+0000052C 000000000000
+00000532 0000000000000000    2334  	.DS (14)
+0000053A 000000000000
+00000540 0000000000000000    2335  	.DS (14)
+00000548 000000000000
+0000054E 0000000000000000    2336  	.DS (14)
+00000556 000000000000
+0000055C 0000000000000000    2337  	.DS (14)
+00000564 000000000000
+0000056A 0000000000000000    2338  	.DS (14)
+00000572 000000000000
+00000578 0000000000000000    2339  	.DS (14)
+00000580 000000000000
+00000586 00                  2340  	.DS (1)
+00000587 0C                  2341  	.DB 0x0C
+00000588 00                  2342  	.DS (1)
+00000589 00                  2343  	.DS (1)
+0000058A 00000000            2344  	.DS (4)
+0000058E 0000                2345  	.DS (2)
+00000590 0000                2346  	.DS (2)
+00000592 0000                2347  	.DS (2)
+00000594 00                  2348  	.DS (1)
+00000595 05                  2349  	.DB 0x05
+00000596 00                  2350  	.DS (1)
+00000597 00                  2351  	.DS (1)
+00000598 00000000            2352  	.DS (4)
+0000059C 0000                2353  	.DS (2)
+0000059E 0000                2354  	.DS (2)
+000005A0 0000                2355  	.DS (2)
+000005A2 00                  2356  	.DS (1)
+000005A3 03                  2357  	.DB 0x03
+000005A4 00                  2358  	.DS (1)
+000005A5 00                  2359  	.DS (1)
+000005A6 00000000            2360  	.DS (4)
+000005AA 0000                2361  	.DS (2)
+000005AC 0000                2362  	.DS (2)
+000005AE 0000                2363  	.DS (2)
+000005B0 00                  2364  	.DS (1)
+000005B1 04                  2365  	.DB 0x04
+000005B2 0B                  2366  	.DB 0x0B
+000005B3 00                  2367  	.DS (1)
+000005B4 00000000            2368  	.DS (4)
+000005B8 0000                2369  	.DS (2)
+000005BA 0000                2370  	.DS (2)
+000005BC 0000                2371  	.DS (2)
+000005BE 00                  2372  	.DS (1)
+000005BF 05                  2373  	.DB 0x05
+000005C0 00                  2374  	.DS (1)
+000005C1 00                  2375  	.DS (1)
+000005C2 00000000            2376  	.DS (4)
+000005C6 0000                2377  	.DS (2)
+000005C8 0000                2378  	.DS (2)
+000005CA 0000                2379  	.DS (2)
+000005CC                     2380  	.ALIGN 2
+000005CC                     2381  	.TYPE _g_TotalMasterTableElements,object,2
+000005CC                     2382  _g_TotalMasterTableElements:
+000005CC 6A00                2383  	.DB2 0x006A
+000005CE                     2384  .STR@1:
+000005CE 0000                2385  	.DS (2)
+000005D0 28                  2386  	.DB 0x28
+000005D1 0000                2387  	.DS (2)
+000005D3 FF                  2388  	.DB 0xFF
+000005D4 00                  2389  	.DS (1)
+00000000                     2390  	.SECTION .data,DATA
+00000000                     2391  	.TYPE _result_u8,object,1
+00000000                     2392  _result_u8:
+00000000 00                  2393  	.DS (1)
+000005D5                     2394  	.SECTION .const, CONST
+000005D5 00                  2395  	.ALIGN 2
+000005D6                     2396  .SWITCH@LABEL@10_1:
+000005D6 0000                2397  	.DB2 LOWW(.BB@LABEL@10_2)
+000005D8 0000                2398  	.DB2 LOWW(.BB@LABEL@10_20)
+000005DA 0000                2399  	.DB2 LOWW(.BB@LABEL@10_9)
+000005DC 0000                2400  	.DB2 LOWW(.BB@LABEL@10_10)
+000005DE 0000                2401  	.DB2 LOWW(.BB@LABEL@10_11)
+000005E0 0000                2402  	.DB2 LOWW(.BB@LABEL@10_12)
+000005E2 0000                2403  	.DB2 LOWW(.BB@LABEL@10_13)
+000005E4 0000                2404  	.DB2 LOWW(.BB@LABEL@10_14)
+000005E6 0000                2405  	.DB2 LOWW(.BB@LABEL@10_15)
+000005E8 0000                2406  	.DB2 LOWW(.BB@LABEL@10_16)
+000005EA 0000                2407  	.DB2 LOWW(.BB@LABEL@10_17)
+000005EC 0000                2408  	.DB2 LOWW(.BB@LABEL@10_18)
+000005EE 0000                2409  	.DB2 LOWW(.BB@LABEL@10_19)
+000005F0 00                  2410  	.DB LOW(HIGHW(.BB@LABEL@10_2))
+000005F1 00                  2411  	.DB LOW(HIGHW(.BB@LABEL@10_20))
+000005F2 00                  2412  	.DB LOW(HIGHW(.BB@LABEL@10_9))
+000005F3 00                  2413  	.DB LOW(HIGHW(.BB@LABEL@10_10))
+000005F4 00                  2414  	.DB LOW(HIGHW(.BB@LABEL@10_11))
+000005F5 00                  2415  	.DB LOW(HIGHW(.BB@LABEL@10_12))
+000005F6 00                  2416  	.DB LOW(HIGHW(.BB@LABEL@10_13))
+000005F7 00                  2417  	.DB LOW(HIGHW(.BB@LABEL@10_14))
+000005F8 00                  2418  	.DB LOW(HIGHW(.BB@LABEL@10_15))
+000005F9 00                  2419  	.DB LOW(HIGHW(.BB@LABEL@10_16))
+000005FA 00                  2420  	.DB LOW(HIGHW(.BB@LABEL@10_17))
+000005FB 00                  2421  	.DB LOW(HIGHW(.BB@LABEL@10_18))
+000005FC 00                  2422  	.DB LOW(HIGHW(.BB@LABEL@10_19))
+
+Section List
+Attr     Size                Name
+
+TEXTF              2332 (0000091C) .textf
+CONST              1533 (000005FD) .const
+DATA                  1 (00000001) .data
+BSS                 760 (000002F8) .bss
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\asrl.exe" @C:\Users\HP\AppData\Local\Temp\$ccrl001\r_dlms_obis.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120100 -cpu=S3 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Release_BQFR -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\physical -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\objects -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app\hash -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app\aes -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\debug\loadtest -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\services\64bit_process -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\config -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\include -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\powermgmt -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage\meterdata -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage\config -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dataflash\fdl\incrl78 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dataflash -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\services -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsHeaders -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIHandler -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIEng -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIComm -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIApp -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\driver\mcu -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\calibration -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\debug -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\display&button -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\display&button\lcd -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\eeprom -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\event -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\startup -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\middleware\headers -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\middleware\plugin -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\user -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\shared -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\ -character_set=none -goptimize -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -output=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Build\Release_BQFR\r_dlms_obis.obj C:\Users\HP\AppData\Local\Temp\$ccrl001\r_dlms_obis.asm 
+

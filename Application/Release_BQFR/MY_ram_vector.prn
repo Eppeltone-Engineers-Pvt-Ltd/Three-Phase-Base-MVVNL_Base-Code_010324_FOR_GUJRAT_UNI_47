@@ -1,0 +1,353 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  #CC-RL Compiler RL78 Assembler Source
+00000000                        2  #@  CC-RL Version : V1.12.01  [12 Jun 2023]
+00000000                        3  #@  Commmand :
+00000000                        4  #@   MY_ram_vector.c
+00000000                        5  #@   -cpu=S3
+00000000                        6  #@   -cref=Build/Release_BQFR\MY_ram_vector.cref
+00000000                        7  #@   -o Build/Release_BQFR\MY_ram_vector.obj
+00000000                        8  #@   -no_warning_num=20177,20550,20494,20174
+00000000                        9  #@   -dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+00000000                       10  #@   -g
+00000000                       11  #@   -Onothing
+00000000                       12  #@   -goptimize
+00000000                       13  #@   -I Release_BQFR
+00000000                       14  #@   -I rl78i1c\application\dlms\physical
+00000000                       15  #@   -I rl78i1c\application\dlms\objects
+00000000                       16  #@   -I rl78i1c\application\dlms\meter_app\hash
+00000000                       17  #@   -I rl78i1c\application\dlms\meter_app\aes
+00000000                       18  #@   -I rl78i1c\application\dlms\meter_app
+00000000                       19  #@   -I rl78i1c\application\dlms
+00000000                       20  #@   -I rl78i1c\application
+00000000                       21  #@   -I rl78i1c\application\debug\loadtest
+00000000                       22  #@   -I rl78i1c\application\services\64bit_process
+00000000                       23  #@   -I .
+00000000                       24  #@   -I rl78i1c\wrapper\core\sw\filter\config
+00000000                       25  #@   -I rl78i1c\wrapper\core\sw\filter\include
+00000000                       26  #@   -I rl78i1c\application\powermgmt
+00000000                       27  #@   -I rl78i1c\application\storage\meterdata
+00000000                       28  #@   -I rl78i1c\application\storage\config
+00000000                       29  #@   -I rl78i1c\application\dataflash\fdl\incrl78
+00000000                       30  #@   -I rl78i1c\application\dataflash
+00000000                       31  #@   -I rl78i1c\application\services
+00000000                       32  #@   -I rl78i1c\application\interpreter\mlsHeaders
+00000000                       33  #@   -I rl78i1c\application\interpreter\mlsCIHandler
+00000000                       34  #@   -I rl78i1c\application\interpreter\mlsCIEng
+00000000                       35  #@   -I rl78i1c\application\interpreter\mlsCIComm
+00000000                       36  #@   -I rl78i1c\application\interpreter\mlsCIApp
+00000000                       37  #@   -I rl78i1c\driver\mcu
+00000000                       38  #@   -I rl78i1c\application\calibration
+00000000                       39  #@   -I rl78i1c\application\debug
+00000000                       40  #@   -I rl78i1c\application\display&button
+00000000                       41  #@   -I rl78i1c\application\display&button\lcd
+00000000                       42  #@   -I rl78i1c\application\eeprom
+00000000                       43  #@   -I rl78i1c\application\event
+00000000                       44  #@   -I rl78i1c\application\startup
+00000000                       45  #@   -I rl78i1c\application\storage
+00000000                       46  #@   -I rl78i1c\middleware\headers
+00000000                       47  #@   -I rl78i1c\middleware\plugin
+00000000                       48  #@   -I rl78i1c\wrapper\user
+00000000                       49  #@   -I rl78i1c\wrapper\core\sw
+00000000                       50  #@   -I rl78i1c\wrapper\core\shared
+00000000                       51  #@   -I .\
+00000000                       52  #@   -D __BOARD_REVISION=2,FEATURES_BQFR
+00000000                       53  #@   -refs_without_declaration
+00000000                       54  #@   -signed_char
+00000000                       55  #@   -merge_string
+00000000                       56  #@   -asmopt=-prn_path=Release_BQFR
+00000000                       57  #@   -convert_cc=ca78k0r
+00000000                       58  #@   -c
+00000000                       59  #@  compiled at Thu Apr 04 17:44:06 2024
+00000000                       60  
+00000000                       61  	.PUBLIC _RAM_INTWDTI_ISR
+00000000                       62  	.PUBLIC _RAM_INTLVI_ISR
+00000000                       63  	.PUBLIC _RAM_INTP0_ISR
+00000000                       64  	.PUBLIC _RAM_INTP1_ISR
+00000000                       65  	.PUBLIC _RAM_INTP2_ISR
+00000000                       66  	.PUBLIC _RAM_INTP3_ISR
+00000000                       67  	.PUBLIC _RAM_INTP4_ISR
+00000000                       68  	.PUBLIC _RAM_INTP5_ISR
+00000000                       69  	.PUBLIC _RAM_INTST2_ISR
+00000000                       70  	.PUBLIC _RAM_INTSR2_ISR
+00000000                       71  	.PUBLIC _RAM_INTSRE2_ISR
+00000000                       72  	.PUBLIC _RAM_INTCR_ISR
+00000000                       73  	.PUBLIC _RAM_INTAES_ISR
+00000000                       74  	.PUBLIC _RAM_INTST0_ISR
+00000000                       75  	.PUBLIC _RAM_INTIICA0_ISR
+00000000                       76  	.PUBLIC _RAM_INTSR0_ISR
+00000000                       77  	.PUBLIC _RAM_INTSRE0_ISR
+00000000                       78  	.PUBLIC _RAM_INTST1_ISR
+00000000                       79  	.PUBLIC _RAM_INTSR1_ISR
+00000000                       80  	.PUBLIC _RAM_INTSRE1_ISR
+00000000                       81  	.PUBLIC _RAM_INTTM00_ISR
+00000000                       82  	.PUBLIC _RAM_INTFM_ISR
+00000000                       83  	.PUBLIC _RAM_INTTM01_ISR
+00000000                       84  	.PUBLIC _RAM_INTTM02_ISR
+00000000                       85  	.PUBLIC _RAM_INTTM03_ISR
+00000000                       86  	.PUBLIC _RAM_INTAD_ISR
+00000000                       87  	.PUBLIC _RAM_INTRTCRPD_ISR
+00000000                       88  	.PUBLIC _RAM_INTIT_ISR
+00000000                       89  	.PUBLIC _RAM_INTKR_ISR
+00000000                       90  	.PUBLIC _RAM_INTST3_ISR
+00000000                       91  	.PUBLIC _RAM_INTSR3_ISR
+00000000                       92  	.PUBLIC _RAM_INTDSAD_ISR
+00000000                       93  	.PUBLIC _RAM_INTTM04_ISR
+00000000                       94  	.PUBLIC _RAM_INTTM05_ISR
+00000000                       95  	.PUBLIC _RAM_INTP6_ISR
+00000000                       96  	.PUBLIC _RAM_INTP7_ISR
+00000000                       97  	.PUBLIC _RAM_INTRTCIC0_ISR
+00000000                       98  	.PUBLIC _RAM_INTRTCIC1_ISR
+00000000                       99  	.PUBLIC _RAM_INTRTCIC2_ISR
+00000000                      100  	.PUBLIC _RAM_INTTM06_ISR
+00000000                      101  	.PUBLIC _RAM_INTTM07_ISR
+00000000                      102  	.PUBLIC _RAM_INTIT00_ISR
+00000000                      103  	.PUBLIC _RAM_INTIT01_ISR
+00000000                      104  	.PUBLIC _RAM_INTSRE3_ISR
+00000000                      105  	.PUBLIC _RAM_INTMACLOF_ISR
+00000000                      106  	.PUBLIC _RAM_INTOSDC_ISR
+00000000                      107  	.PUBLIC _RAM_INTFL_ISR
+00000000                      108  	.PUBLIC _RAM_INTDSADZC0_ISR
+00000000                      109  	.PUBLIC _RAM_INTDSADZC1_ISR
+00000000                      110  	.PUBLIC _RAM_INTIT10_ISR
+00000000                      111  	.PUBLIC _RAM_INTIT11_ISR
+00000000                      112  	.PUBLIC _RAM_INTLVDVDD_ISR
+00000000                      113  	.PUBLIC _RAM_INTLVDVBAT_ISR
+00000000                      114  	.PUBLIC _RAM_INTLVDVRTC_ISR
+00000000                      115  	.PUBLIC _RAM_INTLVDEXLVD_ISR
+00000000                      116  
+00000000                      117  	.SECTION .ramvect_n,BSS
+00000000                      118  	.ALIGN 2
+00000000                      119  	.TYPE _RAM_INTWDTI_ISR,object,4
+00000000                      120  _RAM_INTWDTI_ISR:
+00000000                      121  	.DS (4)
+00000004                      122  	.ALIGN 2
+00000004                      123  	.TYPE _RAM_INTLVI_ISR,object,4
+00000004                      124  _RAM_INTLVI_ISR:
+00000004                      125  	.DS (4)
+00000008                      126  	.ALIGN 2
+00000008                      127  	.TYPE _RAM_INTP0_ISR,object,4
+00000008                      128  _RAM_INTP0_ISR:
+00000008                      129  	.DS (4)
+0000000C                      130  	.ALIGN 2
+0000000C                      131  	.TYPE _RAM_INTP1_ISR,object,4
+0000000C                      132  _RAM_INTP1_ISR:
+0000000C                      133  	.DS (4)
+00000010                      134  	.ALIGN 2
+00000010                      135  	.TYPE _RAM_INTP2_ISR,object,4
+00000010                      136  _RAM_INTP2_ISR:
+00000010                      137  	.DS (4)
+00000014                      138  	.ALIGN 2
+00000014                      139  	.TYPE _RAM_INTP3_ISR,object,4
+00000014                      140  _RAM_INTP3_ISR:
+00000014                      141  	.DS (4)
+00000018                      142  	.ALIGN 2
+00000018                      143  	.TYPE _RAM_INTP4_ISR,object,4
+00000018                      144  _RAM_INTP4_ISR:
+00000018                      145  	.DS (4)
+0000001C                      146  	.ALIGN 2
+0000001C                      147  	.TYPE _RAM_INTP5_ISR,object,4
+0000001C                      148  _RAM_INTP5_ISR:
+0000001C                      149  	.DS (4)
+00000020                      150  	.ALIGN 2
+00000020                      151  	.TYPE _RAM_INTST2_ISR,object,4
+00000020                      152  _RAM_INTST2_ISR:
+00000020                      153  	.DS (4)
+00000024                      154  	.ALIGN 2
+00000024                      155  	.TYPE _RAM_INTSR2_ISR,object,4
+00000024                      156  _RAM_INTSR2_ISR:
+00000024                      157  	.DS (4)
+00000028                      158  	.ALIGN 2
+00000028                      159  	.TYPE _RAM_INTSRE2_ISR,object,4
+00000028                      160  _RAM_INTSRE2_ISR:
+00000028                      161  	.DS (4)
+0000002C                      162  	.ALIGN 2
+0000002C                      163  	.TYPE _RAM_INTCR_ISR,object,4
+0000002C                      164  _RAM_INTCR_ISR:
+0000002C                      165  	.DS (4)
+00000030                      166  	.ALIGN 2
+00000030                      167  	.TYPE _RAM_INTAES_ISR,object,4
+00000030                      168  _RAM_INTAES_ISR:
+00000030                      169  	.DS (4)
+00000034                      170  	.ALIGN 2
+00000034                      171  	.TYPE _RAM_INTST0_ISR,object,4
+00000034                      172  _RAM_INTST0_ISR:
+00000034                      173  	.DS (4)
+00000038                      174  	.ALIGN 2
+00000038                      175  	.TYPE _RAM_INTIICA0_ISR,object,4
+00000038                      176  _RAM_INTIICA0_ISR:
+00000038                      177  	.DS (4)
+0000003C                      178  	.ALIGN 2
+0000003C                      179  	.TYPE _RAM_INTSR0_ISR,object,4
+0000003C                      180  _RAM_INTSR0_ISR:
+0000003C                      181  	.DS (4)
+00000040                      182  	.ALIGN 2
+00000040                      183  	.TYPE _RAM_INTSRE0_ISR,object,4
+00000040                      184  _RAM_INTSRE0_ISR:
+00000040                      185  	.DS (4)
+00000044                      186  	.ALIGN 2
+00000044                      187  	.TYPE _RAM_INTST1_ISR,object,4
+00000044                      188  _RAM_INTST1_ISR:
+00000044                      189  	.DS (4)
+00000048                      190  	.ALIGN 2
+00000048                      191  	.TYPE _RAM_INTSR1_ISR,object,4
+00000048                      192  _RAM_INTSR1_ISR:
+00000048                      193  	.DS (4)
+0000004C                      194  	.ALIGN 2
+0000004C                      195  	.TYPE _RAM_INTSRE1_ISR,object,4
+0000004C                      196  _RAM_INTSRE1_ISR:
+0000004C                      197  	.DS (4)
+00000050                      198  	.ALIGN 2
+00000050                      199  	.TYPE _RAM_INTTM00_ISR,object,4
+00000050                      200  _RAM_INTTM00_ISR:
+00000050                      201  	.DS (4)
+00000054                      202  	.ALIGN 2
+00000054                      203  	.TYPE _RAM_INTFM_ISR,object,4
+00000054                      204  _RAM_INTFM_ISR:
+00000054                      205  	.DS (4)
+00000058                      206  	.ALIGN 2
+00000058                      207  	.TYPE _RAM_INTTM01_ISR,object,4
+00000058                      208  _RAM_INTTM01_ISR:
+00000058                      209  	.DS (4)
+0000005C                      210  	.ALIGN 2
+0000005C                      211  	.TYPE _RAM_INTTM02_ISR,object,4
+0000005C                      212  _RAM_INTTM02_ISR:
+0000005C                      213  	.DS (4)
+00000060                      214  	.ALIGN 2
+00000060                      215  	.TYPE _RAM_INTTM03_ISR,object,4
+00000060                      216  _RAM_INTTM03_ISR:
+00000060                      217  	.DS (4)
+00000064                      218  	.ALIGN 2
+00000064                      219  	.TYPE _RAM_INTAD_ISR,object,4
+00000064                      220  _RAM_INTAD_ISR:
+00000064                      221  	.DS (4)
+00000068                      222  	.ALIGN 2
+00000068                      223  	.TYPE _RAM_INTRTCRPD_ISR,object,4
+00000068                      224  _RAM_INTRTCRPD_ISR:
+00000068                      225  	.DS (4)
+0000006C                      226  	.ALIGN 2
+0000006C                      227  	.TYPE _RAM_INTIT_ISR,object,4
+0000006C                      228  _RAM_INTIT_ISR:
+0000006C                      229  	.DS (4)
+00000070                      230  	.ALIGN 2
+00000070                      231  	.TYPE _RAM_INTKR_ISR,object,4
+00000070                      232  _RAM_INTKR_ISR:
+00000070                      233  	.DS (4)
+00000074                      234  	.ALIGN 2
+00000074                      235  	.TYPE _RAM_INTST3_ISR,object,4
+00000074                      236  _RAM_INTST3_ISR:
+00000074                      237  	.DS (4)
+00000078                      238  	.ALIGN 2
+00000078                      239  	.TYPE _RAM_INTSR3_ISR,object,4
+00000078                      240  _RAM_INTSR3_ISR:
+00000078                      241  	.DS (4)
+0000007C                      242  	.ALIGN 2
+0000007C                      243  	.TYPE _RAM_INTDSAD_ISR,object,4
+0000007C                      244  _RAM_INTDSAD_ISR:
+0000007C                      245  	.DS (4)
+00000080                      246  	.ALIGN 2
+00000080                      247  	.TYPE _RAM_INTTM04_ISR,object,4
+00000080                      248  _RAM_INTTM04_ISR:
+00000080                      249  	.DS (4)
+00000084                      250  	.ALIGN 2
+00000084                      251  	.TYPE _RAM_INTTM05_ISR,object,4
+00000084                      252  _RAM_INTTM05_ISR:
+00000084                      253  	.DS (4)
+00000088                      254  	.ALIGN 2
+00000088                      255  	.TYPE _RAM_INTP6_ISR,object,4
+00000088                      256  _RAM_INTP6_ISR:
+00000088                      257  	.DS (4)
+0000008C                      258  	.ALIGN 2
+0000008C                      259  	.TYPE _RAM_INTP7_ISR,object,4
+0000008C                      260  _RAM_INTP7_ISR:
+0000008C                      261  	.DS (4)
+00000090                      262  	.ALIGN 2
+00000090                      263  	.TYPE _RAM_INTRTCIC0_ISR,object,4
+00000090                      264  _RAM_INTRTCIC0_ISR:
+00000090                      265  	.DS (4)
+00000094                      266  	.ALIGN 2
+00000094                      267  	.TYPE _RAM_INTRTCIC1_ISR,object,4
+00000094                      268  _RAM_INTRTCIC1_ISR:
+00000094                      269  	.DS (4)
+00000098                      270  	.ALIGN 2
+00000098                      271  	.TYPE _RAM_INTRTCIC2_ISR,object,4
+00000098                      272  _RAM_INTRTCIC2_ISR:
+00000098                      273  	.DS (4)
+0000009C                      274  	.ALIGN 2
+0000009C                      275  	.TYPE _RAM_INTTM06_ISR,object,4
+0000009C                      276  _RAM_INTTM06_ISR:
+0000009C                      277  	.DS (4)
+000000A0                      278  	.ALIGN 2
+000000A0                      279  	.TYPE _RAM_INTTM07_ISR,object,4
+000000A0                      280  _RAM_INTTM07_ISR:
+000000A0                      281  	.DS (4)
+000000A4                      282  	.ALIGN 2
+000000A4                      283  	.TYPE _RAM_INTIT00_ISR,object,4
+000000A4                      284  _RAM_INTIT00_ISR:
+000000A4                      285  	.DS (4)
+000000A8                      286  	.ALIGN 2
+000000A8                      287  	.TYPE _RAM_INTIT01_ISR,object,4
+000000A8                      288  _RAM_INTIT01_ISR:
+000000A8                      289  	.DS (4)
+000000AC                      290  	.ALIGN 2
+000000AC                      291  	.TYPE _RAM_INTSRE3_ISR,object,4
+000000AC                      292  _RAM_INTSRE3_ISR:
+000000AC                      293  	.DS (4)
+000000B0                      294  	.ALIGN 2
+000000B0                      295  	.TYPE _RAM_INTMACLOF_ISR,object,4
+000000B0                      296  _RAM_INTMACLOF_ISR:
+000000B0                      297  	.DS (4)
+000000B4                      298  	.ALIGN 2
+000000B4                      299  	.TYPE _RAM_INTOSDC_ISR,object,4
+000000B4                      300  _RAM_INTOSDC_ISR:
+000000B4                      301  	.DS (4)
+000000B8                      302  	.ALIGN 2
+000000B8                      303  	.TYPE _RAM_INTFL_ISR,object,4
+000000B8                      304  _RAM_INTFL_ISR:
+000000B8                      305  	.DS (4)
+000000BC                      306  	.ALIGN 2
+000000BC                      307  	.TYPE _RAM_INTDSADZC0_ISR,object,4
+000000BC                      308  _RAM_INTDSADZC0_ISR:
+000000BC                      309  	.DS (4)
+000000C0                      310  	.ALIGN 2
+000000C0                      311  	.TYPE _RAM_INTDSADZC1_ISR,object,4
+000000C0                      312  _RAM_INTDSADZC1_ISR:
+000000C0                      313  	.DS (4)
+000000C4                      314  	.ALIGN 2
+000000C4                      315  	.TYPE _RAM_INTIT10_ISR,object,4
+000000C4                      316  _RAM_INTIT10_ISR:
+000000C4                      317  	.DS (4)
+000000C8                      318  	.ALIGN 2
+000000C8                      319  	.TYPE _RAM_INTIT11_ISR,object,4
+000000C8                      320  _RAM_INTIT11_ISR:
+000000C8                      321  	.DS (4)
+000000CC                      322  	.ALIGN 2
+000000CC                      323  	.TYPE _RAM_INTLVDVDD_ISR,object,4
+000000CC                      324  _RAM_INTLVDVDD_ISR:
+000000CC                      325  	.DS (4)
+000000D0                      326  	.ALIGN 2
+000000D0                      327  	.TYPE _RAM_INTLVDVBAT_ISR,object,4
+000000D0                      328  _RAM_INTLVDVBAT_ISR:
+000000D0                      329  	.DS (4)
+000000D4                      330  	.ALIGN 2
+000000D4                      331  	.TYPE _RAM_INTLVDVRTC_ISR,object,4
+000000D4                      332  _RAM_INTLVDVRTC_ISR:
+000000D4                      333  	.DS (4)
+000000D8                      334  	.ALIGN 2
+000000D8                      335  	.TYPE _RAM_INTLVDEXLVD_ISR,object,4
+000000D8                      336  _RAM_INTLVDEXLVD_ISR:
+000000D8                      337  	.DS (4)
+
+Section List
+Attr     Size                Name
+
+BSS                 220 (000000DC) .ramvect_n
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\asrl.exe" @C:\Users\HP\AppData\Local\Temp\$ccrl000\MY_ram_vector.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120100 -cpu=S3 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Release_BQFR -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\physical -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\objects -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app\hash -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app\aes -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\debug\loadtest -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\services\64bit_process -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\config -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\include -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\powermgmt -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage\meterdata -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage\config -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dataflash\fdl\incrl78 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dataflash -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\services -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsHeaders -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIHandler -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIEng -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIComm -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIApp -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\driver\mcu -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\calibration -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\debug -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\display&button -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\display&button\lcd -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\eeprom -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\event -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\startup -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\middleware\headers -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\middleware\plugin -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\user -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\shared -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\ -character_set=none -goptimize -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -output=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Build\Release_BQFR\MY_ram_vector.obj C:\Users\HP\AppData\Local\Temp\$ccrl000\MY_ram_vector.asm 
+

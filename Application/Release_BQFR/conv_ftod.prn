@@ -1,0 +1,107 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  .PUBLIC _CONV_ftod_asm
+00000000                        2  
+00000000                        3  _CONV_ftod_asm:
+00000000                        4  	;Register and stack allocation as below
+00000000                        5  	;AX		: void *d
+00000000                        6  	;BC		: f low (B LSB)
+00000000                        7  	;DE		: f high (D LSB)
+00000000                        8  		
+00000000                        9  	;Assign HL address of d
+00000000 16                    10  	MOVW	HL, AX
+00000001 F6                    11  	CLRW	AX
+00000002 BC00                  12  	MOVW	[HL+0x00], AX
+00000004                       13  	
+00000004                       14  	;Shift all 4 bytes left 1 bit to get exponent into 1 byte and store sign bit.
+00000004 35                    15  	XCHW	AX, DE
+00000005 311C                  16  	SHLW	BC, 1				;Shift low-part
+00000007 61EE                  17  	ROLWC	AX, 1				;Shift high-part
+00000009 61D8                  18  	SKNC						
+0000000B 5580                  19  	MOV		D, #0x80			;Store sign bit to D
+0000000D                       20  	
+0000000D                       21  	;All zeros cases:
+0000000D                       22  ALL_ZERO_CHECK:
+0000000D 23                    23  	SUBW	AX, BC				;Check if there's all zeros
+0000000E 61E8                  24  	SKZ
+00000010 EC000000              25  	BR		!!INFINITY_CHECK
+00000014 BC02                  26  	MOVW	[HL+0x02], AX
+00000016 BC04                  27  	MOVW	[HL+0x04], AX
+00000018 BC06                  28  	MOVW	[HL+0x06], AX
+0000001A D7                    29  	RET
+0000001B                       30  	
+0000001B                       31  	;If exp=7f ==> infinity
+0000001B                       32  INFINITY_CHECK:
+0000001B 03                    33  	ADDW	AX, BC				;Restore result of AX
+0000001C 2CFF                  34  	SUB		A, #0xFF			;Check 0xFF
+0000001E                       35  	
+0000001E 61E8                  36  	SKZ
+00000020 EC000000              37  	BR		!!DENORMAL_CHECK
+00000024 BC02                  38  	MOVW	[HL+0x02], AX
+00000026 BC04                  39  	MOVW	[HL+0x04], AX
+00000028 30F07F                40  	MOVW	AX, #0x7FF0
+0000002B 616D                  41  	OR 		A, D
+0000002D BC06                  42  	MOVW	[HL+0x06], AX
+0000002F D7                    43  	RET
+00000030                       44  	
+00000030                       45  	;If exp=00 ==> DENORMAL value, special handling before go to normal handling
+00000030                       46  DENORMAL_CHECK:
+00000030 0CFF                  47  	ADD		A, #0xFF				;Restore result of A
+00000032 D1                    48  	CMP0	A
+00000033 61E8                  49  	SKZ
+00000035 EC000000              50  	BR		!!FTOD_CONVERSION
+00000039                       51  	
+00000039                       52  	;EXPLAIN THE LOOP PROCESS....
+00000039                       53  	
+00000039 08                    54  	XCH		A, X					;8 high bits of fraction --> A
+0000003A                       55  DENORMAL_LOOP:	
+0000003A 311C                  56  	SHLW	BC, 0x01
+0000003C 61DC                  57  	ROLC	A, 1
+0000003E 61D8                  58  	SKNC
+00000040 EC000000              59  	BR		!!EXIT_DENORMAL_LOOP
+00000044 90                    60  	DEC		X						;exponent--
+00000045 EC000000              61  	BR		!!DENORMAL_LOOP
+00000049                       62  	
+00000049                       63  EXIT_DENORMAL_LOOP:
+00000049 08                    64  	XCH		A, X					;If exponent != 0 ==> 4 high exponent bit is 1s
+0000004A D1                    65  	CMP0	A
+0000004B 61E8                  66  	SKZ
+0000004D 54F0                  67  	MOV		E, #0xF0
+0000004F                       68  	
+0000004F                       69  	;NORMALIZED value conversion
+0000004F                       70  FTOD_CONVERSION:
+0000004F C1                    71  	PUSH	AX						;Backup, high
+00000050 C3                    72  	PUSH	BC						;Backup, low
+00000051                       73  
+00000051 33                    74  	XCHW	AX, BC					;Move f 4 last nibbles to d byte #2, 3, BC high
+00000052 31CD                  75  	SHLW	AX, 0x0C				;Note: f shift left before for this purpose
+00000054 BC02                  76  	MOVW	[HL+0x02], AX	
+00000056                       77  	
+00000056 C0                    78  	POP		AX						;Restore backup BC-->AX
+00000057 314E                  79  	SHRW	AX, 0x04				; low >> 4 | high << 12
+00000059 31CC                  80  	SHLW	BC, 0x0C
+0000005B 03                    81  	ADDW	AX, BC
+0000005C BC04                  82  	MOVW	[HL+0x04], AX
+0000005E                       83  	
+0000005E C0                    84  	POP		AX						;Restore backup AX-->AX
+0000005F 314E                  85  	SHRW	AX, 0x04
+00000061 616C                  86  	OR		A, E					;From denormal processing
+00000063 0C38                  87  	ADD		A, #0x38
+00000065 616D                  88  	OR		A, D
+00000067 BC06                  89  	MOVW	[HL+0x06], AX
+00000069                       90  	
+00000069 D7                    91  	RET
+
+Section List
+Attr     Size                Name
+
+TEXT                106 (0000006A) .text
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\asrl.exe" @C:\Users\HP\AppData\Local\Temp\$ccrl002\conv_ftod.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120100 -cpu=S3 -character_set=none -goptimize -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -convert_asm -debug -output=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Build\Release_BQFR\conv_ftod.obj rl78i1c\application\services\64bit_process\conv_ftod.asm 
+

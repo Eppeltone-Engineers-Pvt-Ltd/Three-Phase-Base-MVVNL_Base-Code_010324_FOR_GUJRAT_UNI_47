@@ -1,0 +1,297 @@
+****rl78i1c\application\debug\cmd.c
+v2 
+:1710160902
+#1
+F "__DI" N I!1 T!2 ?18-2 
+T "void" KBV I!2 0x0 
+F "__EI" N I!3 T!2 ?19-2 
+F "__halt" N I!4 T!2 ?20-2 
+F "__stop" N I!5 T!2 ?21-2 
+F "__brk" N I!6 T!2 ?22-2 
+F "__nop" N I!7 T!2 ?23-2 
+F "__rolb" N I!8 T!9 ?25-2 P!10 P!11 
+T "unsigned char" KBU I!9 0x1 
+V "" N I!10 O!8 T!9 .1 0x1 
+V "" N I!11 O!8 T!9 .1 0x1 
+F "__rorb" N I!12 T!9 ?26-2 P!13 P!14 
+V "" N I!13 O!12 T!9 .1 0x1 
+V "" N I!14 O!12 T!9 .1 0x1 
+F "__rolw" N I!15 T!16 ?27-2 P!17 P!18 
+T "unsigned int" KBU I!16 0x2 
+V "" N I!17 O!15 T!16 .2 0x2 
+V "" N I!18 O!15 T!9 .1 0x1 
+F "__rorw" N I!19 T!16 ?28-2 P!20 P!21 
+V "" N I!20 O!19 T!16 .2 0x2 
+V "" N I!21 O!19 T!9 .1 0x1 
+F "__mulu" N I!22 T!16 ?30-2 P!23 P!24 
+V "" N I!23 O!22 T!9 .1 0x1 
+V "" N I!24 O!22 T!9 .1 0x1 
+F "__mului" N I!25 T!26 ?32-2 P!27 P!28 
+T "unsigned long" KBU I!26 0x4 
+V "" N I!27 O!25 T!16 .2 0x2 
+V "" N I!28 O!25 T!16 .2 0x2 
+F "__mulsi" N I!29 T!30 ?33-2 P!31 P!33 
+T "long" KBS I!30 0x4 
+V "" N I!31 O!29 T!32 .2 0x2 
+T "int" KBS I!32 0x2 
+V "" N I!33 O!29 T!32 .2 0x2 
+F "_COM_mulul" F I!34 T!35 ?42-2 P!36 P!37 
+T "unsigned long long" KBU I!35 0x8 
+V "" N I!36 O!34 T!26 .2 0x4 
+V "" N I!37 O!34 T!26 .2 0x4 
+F "_COM_mulsl" F I!38 T!39 ?43-2 P!40 P!41 
+T "long long" KBS I!39 0x8 
+V "" N I!40 O!38 T!30 .2 0x4 
+V "" N I!41 O!38 T!30 .2 0x4 
+F "_COM_divui" F I!42 T!16 ?48-2 P!43 P!44 
+V "" N I!43 O!42 T!16 .2 0x2 
+V "" N I!44 O!42 T!9 .1 0x1 
+F "_COM_divul" F I!45 T!26 ?49-2 P!46 P!47 
+V "" N I!46 O!45 T!26 .2 0x4 
+V "" N I!47 O!45 T!16 .2 0x2 
+F "_COM_remui" F I!48 T!9 ?53-2 P!49 P!50 
+V "" N I!49 O!48 T!16 .2 0x2 
+V "" N I!50 O!48 T!9 .1 0x1 
+F "_COM_remul" F I!51 T!16 ?54-2 P!52 P!53 
+V "" N I!52 O!51 T!26 .2 0x4 
+V "" N I!53 O!51 T!16 .2 0x2 
+F "_COM_macui" F I!54 T!26 ?58-2 P!55 P!56 P!57 
+V "" N I!55 O!54 T!16 .2 0x2 
+V "" N I!56 O!54 T!16 .2 0x2 
+V "" N I!57 O!54 T!26 .2 0x4 
+F "_COM_macsi" F I!58 T!30 ?59-2 P!59 P!60 P!61 
+V "" N I!59 O!58 T!32 .2 0x2 
+V "" N I!60 O!58 T!32 .2 0x2 
+V "" N I!61 O!58 T!30 .2 0x4 
+F "__get_psw" N I!62 T!9 ?63-2 
+F "__set_psw" N I!63 T!2 ?64-2 P!64 
+V "" N I!64 O!63 T!9 .1 0x1 
+F "__set1" N I!65 T!2 ?66-2 P!66 P!68 
+V "" N I!66 O!65 T!67 .2 0x2 
+T "" KP I!67 T!9 0x2 
+V "" N I!68 O!65 T!9 .1 0x1 
+F "__clr1" N I!69 T!2 ?67-2 P!70 P!71 
+V "" N I!70 O!69 T!67 .2 0x2 
+V "" N I!71 O!69 T!9 .1 0x1 
+F "__not1" N I!72 T!2 ?68-2 P!73 P!74 
+V "" N I!73 O!72 T!67 .2 0x2 
+V "" N I!74 O!72 T!9 .1 0x1 
+T "" KS I!75 !39-3 0x1 VM!76 VM!77 VM!78 VM!79 VM!80 VM!81 VM!82 VM!83 
+V "no0" - I!76 O!75 T!9 !40-3 .1 0x1 BO0 BIS1 
+V "no1" - I!77 O!75 T!9 !41-3 .1 0x1 BO1 BIS1 
+V "no2" - I!78 O!75 T!9 !42-3 .1 0x1 BO2 BIS1 
+V "no3" - I!79 O!75 T!9 !43-3 .1 0x1 BO3 BIS1 
+V "no4" - I!80 O!75 T!9 !44-3 .1 0x1 BO4 BIS1 
+V "no5" - I!81 O!75 T!9 !45-3 .1 0x1 BO5 BIS1 
+V "no6" - I!82 O!75 T!9 !46-3 .1 0x1 BO6 BIS1 
+V "no7" - I!83 O!75 T!9 !47-3 .1 0x1 BO7 BIS1 
+T "__bitf_T" KT I!84 T!75 !48-3 0x1 
+T "" KS I!85 !51-3 0x2 VM!86 VM!87 VM!88 VM!89 VM!90 VM!91 VM!92 VM!93 VM!94 VM!95 VM!96 VM!97 VM!98 VM!99 VM!100 VM!101 
+V "no0" - I!86 O!85 T!9 !52-3 .1 0x1 BO0 BIS1 
+V "no1" - I!87 O!85 T!9 !53-3 .1 0x1 BO1 BIS1 
+V "no2" - I!88 O!85 T!9 !54-3 .1 0x1 BO2 BIS1 
+V "no3" - I!89 O!85 T!9 !55-3 .1 0x1 BO3 BIS1 
+V "no4" - I!90 O!85 T!9 !56-3 .1 0x1 BO4 BIS1 
+V "no5" - I!91 O!85 T!9 !57-3 .1 0x1 BO5 BIS1 
+V "no6" - I!92 O!85 T!9 !58-3 .1 0x1 BO6 BIS1 
+V "no7" - I!93 O!85 T!9 !59-3 .1 0x1 BO7 BIS1 
+V "no8" - I!94 O!85 T!9 !60-3 .1 0x1 BO8 BIS1 
+V "no9" - I!95 O!85 T!9 !61-3 .1 0x1 BO9 BIS1 
+V "no10" - I!96 O!85 T!9 !62-3 .1 0x1 BO10 BIS1 
+V "no11" - I!97 O!85 T!9 !63-3 .1 0x1 BO11 BIS1 
+V "no12" - I!98 O!85 T!9 !64-3 .1 0x1 BO12 BIS1 
+V "no13" - I!99 O!85 T!9 !65-3 .1 0x1 BO13 BIS1 
+V "no14" - I!100 O!85 T!9 !66-3 .1 0x1 BO14 BIS1 
+V "no15" - I!101 O!85 T!9 !67-3 .1 0x1 BO15 BIS1 
+T "__bitf_T2" KT I!102 T!85 !68-3 0x2 
+T "int8_t" KT I!103 T!104 !47-4 0x1 
+T "signed char" KBS I!104 0x1 
+T "uint8_t" KT I!105 T!9 !48-4 0x1 
+T "int16_t" KT I!106 T!107 !49-4 0x2 
+T "short" KBS I!107 0x2 
+T "uint16_t" KT I!108 T!109 !50-4 0x2 
+T "unsigned short" KBU I!109 0x2 
+T "int32_t" KT I!110 T!30 !51-4 0x4 
+T "uint32_t" KT I!111 T!26 !52-4 0x4 
+T "int64_t" KT I!112 T!39 !53-4 0x8 
+T "uint64_t" KT I!113 T!35 !54-4 0x8 
+T "MD_STATUS" KT I!114 T!109 !55-4 0x2 
+F "R_WDT_Create" F I!115 T!2 ?28-6 
+F "R_WDT_Restart" F I!116 T!2 ?29-6 
+T "double64_t" KT I!117 T!113 !40-7 0x8 
+T "float32_t" KT I!118 T!119 !41-7 0x4 
+T "float" KBF I!119 0x4 
+F "WRP_UART0_Init" F I!120 T!2 ?119-8 
+F "WRP_UART2_Init" F I!121 T!2 ?120-8 
+F "WRP_UART3_Init" F I!122 T!2 ?121-8 
+F "WRP_UART0_Start" F I!123 T!2 ?123-8 
+F "WRP_UART2_Start" F I!124 T!2 ?124-8 
+F "WRP_UART3_Start" F I!125 T!2 ?125-8 
+F "WRP_UART0_Stop" F I!126 T!2 ?127-8 
+F "WRP_UART2_Stop" F I!127 T!2 ?128-8 
+F "WRP_UART3_Stop" F I!128 T!2 ?129-8 
+F "WRP_UART0_SendData" F I!129 T!105 ?131-8 P!130 P!132 
+V "" N I!130 O!129 T!131 .2 0x2 
+T "" KP I!131 T!105 0x2 
+V "" N I!132 O!129 T!108 .2 0x2 
+F "WRP_UART2_SendData" F I!133 T!105 ?132-8 P!134 P!135 
+V "" N I!134 O!133 T!131 .2 0x2 
+V "" N I!135 O!133 T!108 .2 0x2 
+F "WRP_UART3_SendData" F I!136 T!105 ?133-8 P!137 P!138 
+V "" N I!137 O!136 T!131 .2 0x2 
+V "" N I!138 O!136 T!108 .2 0x2 
+F "WRP_UART0_ReceiveData" F I!139 T!105 ?135-8 P!140 P!141 
+V "" N I!140 O!139 T!131 .2 0x2 
+V "" N I!141 O!139 T!108 .2 0x2 
+F "WRP_UART2_ReceiveData" F I!142 T!105 ?136-8 P!143 P!144 
+V "" N I!143 O!142 T!131 .2 0x2 
+V "" N I!144 O!142 T!108 .2 0x2 
+F "WRP_UART3_ReceiveData" F I!145 T!105 ?137-8 P!146 P!147 
+V "" N I!146 O!145 T!131 .2 0x2 
+V "" N I!147 O!145 T!108 .2 0x2 
+F "WRP_UART0_SendEndCallback" F I!148 T!2 ?145-8 
+F "WRP_UART2_SendEndCallback" F I!149 T!2 ?146-8 
+F "WRP_UART3_SendEndCallback" F I!150 T!2 ?147-8 
+F "WRP_UART0_ReceiveEndCallback" F I!151 T!2 ?149-8 
+F "WRP_UART2_ReceiveEndCallback" F I!152 T!2 ?150-8 
+F "WRP_UART3_ReceiveEndCallback" F I!153 T!2 ?151-8 
+F "WRP_UART0_ChangeBaudRate" F I!154 T!2 ?153-8 P!155 
+V "" N I!155 O!154 T!105 .1 0x1 
+F "WRP_UART0_ConfigHDLCProtocol" F I!156 T!2 ?154-8 
+F "WRP_UART0_ConfigIECProtocol" F I!157 T!2 ?155-8 
+F "WRP_UART2_ChangeBaudRate" F I!158 T!2 ?157-8 P!159 
+V "" N I!159 O!158 T!105 .1 0x1 
+F "WRP_UART2_ConfigHDLCProtocol" F I!160 T!2 ?158-8 
+F "WRP_UART2_ConfigIECProtocol" F I!161 T!2 ?159-8 
+F "WRP_UART3_ChangeBaudRate" F I!162 T!2 ?161-8 P!163 
+V "" N I!163 O!162 T!105 .1 0x1 
+F "WRP_UART3_ConfigHDLCProtocol" F I!164 T!2 ?162-8 
+F "WRP_UART3_ConfigIECProtocol" F I!165 T!2 ?163-8 
+F "EM_WDT_Init" F I!166 T!2 ?32-9 
+F "EM_WDT_Start" F I!167 T!2 ?33-9 
+F "EM_WDT_Stop" F I!168 T!2 ?34-9 
+F "EM_WDT_Restart" F I!169 T!2 ?35-9 
+T "tagCMDMode" KE I!170 T!171 !21-10 0x1 EM0:"CMD_MODE_COMMAND" EM1:"CMD_MODE_RECEIVE_DATA" 
+T "char" KBCS I!171 0x1 
+T "CMD_MODE" KT I!172 T!170 !25-10 0x1 
+F "CMD_Init" F I!173 T!2 ?44-10 
+F "CMD_Start" F I!174 T!2 ?45-10 
+F "CMD_Stop" F I!175 T!2 ?46-10 
+F "CMD_ChangeMode" F I!176 T!105 ?47-10 P!177 
+V "" N I!177 O!176 T!172 .1 0x1 
+F "CMD_GetReceivedByte" F I!178 T!105 ?48-10 P!179 
+V "" N I!179 O!178 T!131 .2 0x2 
+F "CMD_IsCmdReceived" F I!180 T!105 ?49-10 
+F "CMD_AckCmdReceived" F I!181 T!2 ?50-10 
+F "CMD_IsCtrlKeyReceived" F I!182 T!105 ?51-10 
+F "CMD_AckCtrlKeyReceived" F I!183 T!2 ?52-10 
+F "CMD_RegisterSuggestion" F I!184 T!2 ?53-10 P!185 P!187 
+V "" N I!185 O!184 T!186 .2 0x2 
+T "" KP I!186 T!2 0x2 
+V "" N I!187 O!184 T!108 .2 0x2 
+F "CMD_Get" F I!188 T!131 ?58-10 
+F "CMD_SendString" F I!189 T!2 ?61-10 P!190 
+V "" N I!190 O!189 T!131 .2 0x2 
+F "CMD_SendStringA" F I!191 T!2 ?62-10 P!192 P!193 
+V "" N I!192 O!191 T!131 .2 0x2 
+V "" N I!193 O!191 T!105 .1 0x1 
+F "CMD_Printf" F I!194 T!2 ?63-10 P!195 VARARG 
+V "" N I!195 O!194 T!131 .2 0x2 
+F "CMD_SendEndCallback" F I!196 T!2 ?66-10 
+F "CMD_ReceiveEndCallback" F I!197 T!2 ?67-10 P!198 
+V "" N I!198 O!197 T!105 .1 0x1 
+F "CMD_AckCmdReceivedNoHeader" F I!199 T!2 ?72-10 
+T "ptrdiff_t" KT I!200 T!32 !18-12 0x2 
+T "size_t" KT I!201 T!16 !19-12 0x2 
+T "va_list" KT I!202 T!203 !22-13 0x2 
+T "" KP I!203 T!171 0x2 
+F "__builtin_va_start" N I!204 T!2 ?23-13 P!205 
+V "" N I!205 O!204 T!202 .2 0x2 
+F "printf" F I!206 T!32 ?36-11 P!207 VARARG 
+V "" N I!207 O!206 T!208 .2 0x4 
+T "" MOD"C" KP I!208 T!171 0x4 
+F "printf_tiny" F I!209 T!32 ?37-11 P!210 VARARG 
+V "" N I!210 O!209 T!208 .2 0x4 
+F "scanf" F I!211 T!32 ?38-11 P!212 VARARG 
+V "" N I!212 O!211 T!208 .2 0x4 
+F "sprintf" F I!213 T!32 ?39-11 P!214 P!216 VARARG 
+V "" N I!214 O!213 T!215 .2 0x4 
+T "" KP I!215 T!171 0x4 
+V "" N I!216 O!213 T!208 .2 0x4 
+F "sprintf_tiny" F I!217 T!32 ?40-11 P!218 P!219 VARARG 
+V "" N I!218 O!217 T!215 .2 0x4 
+V "" N I!219 O!217 T!208 .2 0x4 
+F "sscanf" F I!220 T!32 ?41-11 P!221 P!222 VARARG 
+V "" N I!221 O!220 T!208 .2 0x4 
+V "" N I!222 O!220 T!208 .2 0x4 
+F "vprintf" F I!223 T!32 ?42-11 P!224 P!225 
+V "" N I!224 O!223 T!208 .2 0x4 
+V "" N I!225 O!223 T!202 .2 0x2 
+F "vsprintf" F I!226 T!32 ?43-11 P!227 P!228 P!229 
+V "" N I!227 O!226 T!215 .2 0x4 
+V "" N I!228 O!226 T!208 .2 0x4 
+V "" N I!229 O!226 T!202 .2 0x2 
+F "getchar" F I!230 T!32 ?46-11 
+F "gets" F I!231 T!203 ?47-11 P!232 
+V "" N I!232 O!231 T!203 .2 0x2 
+F "_COM_gets_f" F I!233 T!215 ?48-11 P!234 
+V "" N I!234 O!233 T!215 .2 0x4 
+F "putchar" F I!235 T!32 ?50-11 P!236 
+V "" N I!236 O!235 T!32 .2 0x2 
+F "puts" F I!237 T!32 ?51-11 P!238 
+V "" N I!238 O!237 T!239 .2 0x2 
+T "" MOD"C" KP I!239 T!171 0x2 
+F "_COM_puts_f" F I!240 T!32 ?52-11 P!241 
+V "" N I!241 O!240 T!208 .2 0x4 
+F "perror" F I!242 T!2 ?54-11 P!243 
+V "" N I!243 O!242 T!239 .2 0x2 
+F "_COM_perror_f" F I!244 T!2 ?55-11 P!245 
+V "" N I!245 O!244 T!208 .2 0x4 
+****%CxSystemPath%\inc\builtin.h
+v2 
+:1710160902
+#2
+****iodefine.h
+v2 
+:1710160902
+#3
+****rl78i1c\driver\mcu\r_cg_macrodriver.h
+v2 
+:1710160902
+#4
+****rl78i1c\driver\mcu\r_cg_userdefine.h
+v2 
+:1710160902
+#5
+****rl78i1c\driver\mcu\r_cg_wdt.h
+v2 
+:1710160902
+#6
+****typedef.h
+v2 
+:1710160902
+#7
+****rl78i1c\wrapper\user\wrp_user_uart.h
+v2 
+:1710160902
+#8
+****rl78i1c\wrapper\core\shared\wrp_em_wdt.h
+v2 
+:1710160902
+#9
+****rl78i1c\application\debug\cmd.h
+v2 
+:1710160902
+#10
+****%CxSystemPath%\inc\stdio.h
+v2 
+:1710160902
+#11
+****%CxSystemPath%\inc\stddef.h
+v2 
+:1710160902
+#12
+****%CxSystemPath%\inc\stdarg.h
+v2 
+:1710160902
+#13

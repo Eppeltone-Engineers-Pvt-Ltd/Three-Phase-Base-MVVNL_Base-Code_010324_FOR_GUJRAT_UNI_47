@@ -1,0 +1,203 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  #CC-RL Compiler RL78 Assembler Source
+00000000                        2  #@  CC-RL Version : V1.12.01  [12 Jun 2023]
+00000000                        3  #@  Commmand :
+00000000                        4  #@   rl78i1c\application\startup\platform.c
+00000000                        5  #@   -cpu=S3
+00000000                        6  #@   -cref=Build/Release_BQFR\platform.cref
+00000000                        7  #@   -o Build/Release_BQFR\platform.obj
+00000000                        8  #@   -no_warning_num=20177,20550,20494,20174
+00000000                        9  #@   -dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+00000000                       10  #@   -g
+00000000                       11  #@   -Onothing
+00000000                       12  #@   -goptimize
+00000000                       13  #@   -I Release_BQFR
+00000000                       14  #@   -I rl78i1c\application\dlms\physical
+00000000                       15  #@   -I rl78i1c\application\dlms\objects
+00000000                       16  #@   -I rl78i1c\application\dlms\meter_app\hash
+00000000                       17  #@   -I rl78i1c\application\dlms\meter_app\aes
+00000000                       18  #@   -I rl78i1c\application\dlms\meter_app
+00000000                       19  #@   -I rl78i1c\application\dlms
+00000000                       20  #@   -I rl78i1c\application
+00000000                       21  #@   -I rl78i1c\application\debug\loadtest
+00000000                       22  #@   -I rl78i1c\application\services\64bit_process
+00000000                       23  #@   -I .
+00000000                       24  #@   -I rl78i1c\wrapper\core\sw\filter\config
+00000000                       25  #@   -I rl78i1c\wrapper\core\sw\filter\include
+00000000                       26  #@   -I rl78i1c\application\powermgmt
+00000000                       27  #@   -I rl78i1c\application\storage\meterdata
+00000000                       28  #@   -I rl78i1c\application\storage\config
+00000000                       29  #@   -I rl78i1c\application\dataflash\fdl\incrl78
+00000000                       30  #@   -I rl78i1c\application\dataflash
+00000000                       31  #@   -I rl78i1c\application\services
+00000000                       32  #@   -I rl78i1c\application\interpreter\mlsHeaders
+00000000                       33  #@   -I rl78i1c\application\interpreter\mlsCIHandler
+00000000                       34  #@   -I rl78i1c\application\interpreter\mlsCIEng
+00000000                       35  #@   -I rl78i1c\application\interpreter\mlsCIComm
+00000000                       36  #@   -I rl78i1c\application\interpreter\mlsCIApp
+00000000                       37  #@   -I rl78i1c\driver\mcu
+00000000                       38  #@   -I rl78i1c\application\calibration
+00000000                       39  #@   -I rl78i1c\application\debug
+00000000                       40  #@   -I rl78i1c\application\display&button
+00000000                       41  #@   -I rl78i1c\application\display&button\lcd
+00000000                       42  #@   -I rl78i1c\application\eeprom
+00000000                       43  #@   -I rl78i1c\application\event
+00000000                       44  #@   -I rl78i1c\application\startup
+00000000                       45  #@   -I rl78i1c\application\storage
+00000000                       46  #@   -I rl78i1c\middleware\headers
+00000000                       47  #@   -I rl78i1c\middleware\plugin
+00000000                       48  #@   -I rl78i1c\wrapper\user
+00000000                       49  #@   -I rl78i1c\wrapper\core\sw
+00000000                       50  #@   -I rl78i1c\wrapper\core\shared
+00000000                       51  #@   -I .\
+00000000                       52  #@   -D __BOARD_REVISION=2,FEATURES_BQFR
+00000000                       53  #@   -refs_without_declaration
+00000000                       54  #@   -signed_char
+00000000                       55  #@   -merge_string
+00000000                       56  #@   -asmopt=-prn_path=Release_BQFR
+00000000                       57  #@   -convert_cc=ca78k0r
+00000000                       58  #@   -c
+00000000                       59  #@  compiled at Thu Apr 04 17:44:23 2024
+00000000                       60  
+00000000                       61  	.PUBLIC _g_EM_DefaultProperty
+00000000                       62  	.PUBLIC _g_EM_ConfigDefaultTimeSlot
+00000000                       63  	.PUBLIC _g_EM_DefaultConfig
+00000000                       64  	.PUBLIC _g_EM_DefaultCalibPhaseAngleList_Phase_R
+00000000                       65  	.PUBLIC _g_EM_DefaultCalibPhaseAngleList_Phase_Y
+00000000                       66  	.PUBLIC _g_EM_DefaultCalibPhaseAngleList_Phase_B
+00000000                       67  	.PUBLIC _g_EM_DefaultCalibPhaseGainValueList_Phase_R
+00000000                       68  	.PUBLIC _g_EM_DefaultCalibPhaseGainValueList_Phase_Y
+00000000                       69  	.PUBLIC _g_EM_DefaultCalibPhaseGainValueList_Phase_B
+00000000                       70  	.PUBLIC _g_EM_DefaultCalibration
+00000000                       71  
+00000000                       72  	.SECTION .const,CONST
+00000000                       73  	.TYPE _g_EM_DefaultProperty,object,2
+00000000                       74  _g_EM_DefaultProperty:
+00000000 32                    75  	.DB 0x32
+00000001 00                    76  	.DS (1)
+00000002                       77  	.TYPE _g_EM_ConfigDefaultTimeSlot,object,24
+00000002                       78  _g_EM_ConfigDefaultTimeSlot:
+00000002 00000000              79  	.DS (4)
+00000006 04                    80  	.DB 0x04
+00000007 00                    81  	.DS (1)
+00000008 01                    82  	.DB 0x01
+00000009 00                    83  	.DS (1)
+0000000A 08                    84  	.DB 0x08
+0000000B 00                    85  	.DS (1)
+0000000C 02                    86  	.DB 0x02
+0000000D 00                    87  	.DS (1)
+0000000E 0C                    88  	.DB 0x0C
+0000000F 00                    89  	.DS (1)
+00000010 03                    90  	.DB 0x03
+00000011 00                    91  	.DS (1)
+00000012 10                    92  	.DB 0x10
+00000013 00                    93  	.DS (1)
+00000014 04                    94  	.DB 0x04
+00000015 00                    95  	.DS (1)
+00000016 12                    96  	.DB 0x12
+00000017 00                    97  	.DS (1)
+00000018 05                    98  	.DB 0x05
+00000019 00                    99  	.DS (1)
+0000001A                      100  	.ALIGN 2
+0000001A                      101  	.TYPE _g_EM_DefaultConfig,object,22
+0000001A                      102  _g_EM_DefaultConfig:
+0000001A 3200                 103  	.DB2 0x0032
+0000001C 1801                 104  	.DB2 0x0118
+0000001E 28                   105  	.DB 0x28
+0000001F 2F                   106  	.DB 0x2F
+00000020 35                   107  	.DB 0x35
+00000021 1E                   108  	.DB 0x1E
+00000022 00                   109  	.DS (1)
+00000023 00                   110  	.DS (1)
+00000024 00                   111  	.DS (1)
+00000025 01                   112  	.DB 0x01
+00000026 00                   113  	.DS (1)
+00000027 02                   114  	.DB 0x02
+00000028 00                   115  	.DS (1)
+00000029 04                   116  	.DB 0x04
+0000002A 01                   117  	.DB 0x01
+0000002B 04                   118  	.DB 0x04
+0000002C 06                   119  	.DB 0x06
+0000002D 06                   120  	.DB 0x06
+0000002E 0000                 121  	.DB2 SMRLW(_g_EM_ConfigDefaultTimeSlot)
+00000030                      122  	.ALIGN 2
+00000030                      123  	.TYPE _g_EM_DefaultCalibPhaseAngleList_Phase_R,object,8
+00000030                      124  _g_EM_DefaultCalibPhaseAngleList_Phase_R:
+00000030 0000A0C0             125  	.DB4 0xC0A00000	; float -5
+00000034 00000000             126  	.DS (4)
+00000038                      127  	.ALIGN 2
+00000038                      128  	.TYPE _g_EM_DefaultCalibPhaseAngleList_Phase_Y,object,8
+00000038                      129  _g_EM_DefaultCalibPhaseAngleList_Phase_Y:
+00000038 C3F598C0             130  	.DB4 0xC098F5C3	; float -4.78
+0000003C 00000000             131  	.DS (4)
+00000040                      132  	.ALIGN 2
+00000040                      133  	.TYPE _g_EM_DefaultCalibPhaseAngleList_Phase_B,object,8
+00000040                      134  _g_EM_DefaultCalibPhaseAngleList_Phase_B:
+00000040 C3F598C0             135  	.DB4 0xC098F5C3	; float -4.78
+00000044 00000000             136  	.DS (4)
+00000048                      137  	.ALIGN 2
+00000048                      138  	.TYPE _g_EM_DefaultCalibPhaseGainValueList_Phase_R,object,8
+00000048                      139  _g_EM_DefaultCalibPhaseGainValueList_Phase_R:
+00000048 0000803F             140  	.DB4 0x3F800000,0x408028F6	; float 1,4.005
+0000004C F6288040        
+00000050                      141  	.ALIGN 2
+00000050                      142  	.TYPE _g_EM_DefaultCalibPhaseGainValueList_Phase_Y,object,8
+00000050                      143  _g_EM_DefaultCalibPhaseGainValueList_Phase_Y:
+00000050 0000803F             144  	.DB4 0x3F800000,0x407FCED9	; float 1,3.997
+00000054 D9CE7F40        
+00000058                      145  	.ALIGN 2
+00000058                      146  	.TYPE _g_EM_DefaultCalibPhaseGainValueList_Phase_B,object,8
+00000058                      147  _g_EM_DefaultCalibPhaseGainValueList_Phase_B:
+00000058 0000803F             148  	.DB4 0x3F800000,0x40801893	; float 1,4.003
+0000005C 93188040        
+00000060                      149  	.ALIGN 2
+00000060                      150  	.TYPE _g_EM_DefaultCalibration,object,114
+00000060                      151  _g_EM_DefaultCalibration:
+00000060 00C07345             152  	.DB4 0x4573C000	; float value: 3900
+00000064 C012                 153  	.DB2 0x12C0
+00000066 4006                 154  	.DB2 0x0640
+00000068 1E00                 155  	.DB2 0x001E
+0000006A 00000000             156  	.DS (4)
+0000006E 16EAB741             157  	.DB4 0x41B7EA16	; float value: 22.9893
+00000072 D246DB46             158  	.DB4 0x46DB46D2	; float value: 28067.4
+00000076 22881D49             159  	.DB4 0x491D8822	; float value: 645250
+0000007A 22881D49             160  	.DB4 0x491D8822	; float value: 645250
+0000007E 22881D49             161  	.DB4 0x491D8822	; float value: 645250
+00000082 16EAB741             162  	.DB4 0x41B7EA16	; float value: 22.9893
+00000086 D246DB46             163  	.DB4 0x46DB46D2	; float value: 28067.4
+0000008A 22881D49             164  	.DB4 0x491D8822	; float value: 645250
+0000008E 22881D49             165  	.DB4 0x491D8822	; float value: 645250
+00000092 22881D49             166  	.DB4 0x491D8822	; float value: 645250
+00000096 16EAB741             167  	.DB4 0x41B7EA16	; float value: 22.9893
+0000009A D246DB46             168  	.DB4 0x46DB46D2	; float value: 28067.4
+0000009E 22881D49             169  	.DB4 0x491D8822	; float value: 645250
+000000A2 22881D49             170  	.DB4 0x491D8822	; float value: 645250
+000000A6 22881D49             171  	.DB4 0x491D8822	; float value: 645250
+000000AA D246DB46             172  	.DB4 0x46DB46D2	; float value: 28067.4
+000000AE 67480000             173  	.DB4 0x00004867
+000000B2 0A000000             174  	.DB4 0x0000000A
+000000B6 68480000             175  	.DB4 0x00004868
+000000BA 0A000000             176  	.DB4 0x0000000A
+000000BE 6B480000             177  	.DB4 0x0000486B
+000000C2 0A000000             178  	.DB4 0x0000000A
+000000C6 0000                 179  	.DB2 SMRLW(_g_EM_DefaultCalibPhaseAngleList_Phase_R)
+000000C8 0000                 180  	.DB2 SMRLW(_g_EM_DefaultCalibPhaseAngleList_Phase_Y)
+000000CA 0000                 181  	.DB2 SMRLW(_g_EM_DefaultCalibPhaseAngleList_Phase_B)
+000000CC 0000                 182  	.DB2 SMRLW(_g_EM_DefaultCalibPhaseGainValueList_Phase_R)
+000000CE 0000                 183  	.DB2 SMRLW(_g_EM_DefaultCalibPhaseGainValueList_Phase_Y)
+000000D0 0000                 184  	.DB2 SMRLW(_g_EM_DefaultCalibPhaseGainValueList_Phase_B)
+
+Section List
+Attr     Size                Name
+
+CONST               210 (000000D2) .const
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\asrl.exe" @C:\Users\HP\AppData\Local\Temp\$ccrl002\platform.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120100 -cpu=S3 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Release_BQFR -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\physical -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\objects -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app\hash -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app\aes -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\debug\loadtest -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\services\64bit_process -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\config -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\include -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\powermgmt -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage\meterdata -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage\config -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dataflash\fdl\incrl78 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dataflash -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\services -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsHeaders -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIHandler -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIEng -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIComm -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIApp -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\driver\mcu -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\calibration -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\debug -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\display&button -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\display&button\lcd -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\eeprom -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\event -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\startup -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\middleware\headers -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\middleware\plugin -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\user -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\shared -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\ -character_set=none -goptimize -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -output=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Build\Release_BQFR\platform.obj C:\Users\HP\AppData\Local\Temp\$ccrl002\platform.asm 
+

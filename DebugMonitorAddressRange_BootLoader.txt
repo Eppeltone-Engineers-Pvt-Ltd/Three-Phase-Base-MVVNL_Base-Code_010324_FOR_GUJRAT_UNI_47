@@ -1,0 +1,43 @@
+BootLoader settings:
+
+In the property of CC-Rl Build Tool -> Link Options -> Device
+there is a facility to 
+
+Device
+Set enable/disable on-chip debug by link option : YES
+Set debug monitor area				: Yes(Specify address range)(-DEBUG_MONITOR=<Address Range>
+Range of debug monitor area			: 3DE0 - 3FE0
+Set User Option Byte				: Yes(-USR_OPT_BYTE)
+User Option Byte Value				: 7E39E0
+Control allocation to self RAM area		: No
+Control allocation to control RAM area		: No
+
+If we do not want the On Chip Debug option as WARNED by Renesas in Chapter 37 (ON-CHIP DEBUG FUNCTION)
+
+then it is not sufficient to only set enable/disable on-chip debug by link option to NO
+It is also required that Set debug monitor area be also set to No.
+
+i.e
+Set enable/disable on-chip debug by link option : NO
+Set debug monitor area				: NO
+Set User Option Byte				: Yes(-USR_OPT_BYTE)
+User Option Byte Value				: 7E39E0
+Control allocation to self RAM area		: No
+Control allocation to control RAM area		: No
+
+
+There seems to be some difference in the settings for the Application code (wonder why?)
+Application settings
+
+Set enable/disable on-chip debug by link option : NO
+Set debug monitor area				: NO
+Set User Option Byte				: Yes(-USR_OPT_BYTE)
+User Option Byte Value				: 7E39E0
+Control allocation to self RAM area		: Yes(Error message)(-SELF)
+Control allocation to control RAM area		: No
+
+
+
+
+
+

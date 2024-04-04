@@ -1,0 +1,260 @@
+****rl78i1c\driver\mcu\r_cg_sau_ren.c
+v2 
+:1710160902
+#1
+F "__DI" N I!1 T!2 ?18-2 
+T "void" KBV I!2 0x0 
+F "__EI" N I!3 T!2 ?19-2 
+F "__halt" N I!4 T!2 ?20-2 
+F "__stop" N I!5 T!2 ?21-2 
+F "__brk" N I!6 T!2 ?22-2 
+F "__nop" N I!7 T!2 ?23-2 71-1 72-1 73-1 74-1 225-1 226-1 227-1 228-1 
+F "__rolb" N I!8 T!9 ?25-2 P!10 P!11 
+T "unsigned char" KBU I!9 0x1 
+V "" N I!10 O!8 T!9 .1 0x1 
+V "" N I!11 O!8 T!9 .1 0x1 
+F "__rorb" N I!12 T!9 ?26-2 P!13 P!14 
+V "" N I!13 O!12 T!9 .1 0x1 
+V "" N I!14 O!12 T!9 .1 0x1 
+F "__rolw" N I!15 T!16 ?27-2 P!17 P!18 
+T "unsigned int" KBU I!16 0x2 
+V "" N I!17 O!15 T!16 .2 0x2 
+V "" N I!18 O!15 T!9 .1 0x1 
+F "__rorw" N I!19 T!16 ?28-2 P!20 P!21 
+V "" N I!20 O!19 T!16 .2 0x2 
+V "" N I!21 O!19 T!9 .1 0x1 
+F "__mulu" N I!22 T!16 ?30-2 P!23 P!24 
+V "" N I!23 O!22 T!9 .1 0x1 
+V "" N I!24 O!22 T!9 .1 0x1 
+F "__mului" N I!25 T!26 ?32-2 P!27 P!28 
+T "unsigned long" KBU I!26 0x4 
+V "" N I!27 O!25 T!16 .2 0x2 
+V "" N I!28 O!25 T!16 .2 0x2 
+F "__mulsi" N I!29 T!30 ?33-2 P!31 P!33 
+T "long" KBS I!30 0x4 
+V "" N I!31 O!29 T!32 .2 0x2 
+T "int" KBS I!32 0x2 
+V "" N I!33 O!29 T!32 .2 0x2 
+F "_COM_mulul" F I!34 T!35 ?42-2 P!36 P!37 
+T "unsigned long long" KBU I!35 0x8 
+V "" N I!36 O!34 T!26 .2 0x4 
+V "" N I!37 O!34 T!26 .2 0x4 
+F "_COM_mulsl" F I!38 T!39 ?43-2 P!40 P!41 
+T "long long" KBS I!39 0x8 
+V "" N I!40 O!38 T!30 .2 0x4 
+V "" N I!41 O!38 T!30 .2 0x4 
+F "_COM_divui" F I!42 T!16 ?48-2 P!43 P!44 
+V "" N I!43 O!42 T!16 .2 0x2 
+V "" N I!44 O!42 T!9 .1 0x1 
+F "_COM_divul" F I!45 T!26 ?49-2 P!46 P!47 
+V "" N I!46 O!45 T!26 .2 0x4 
+V "" N I!47 O!45 T!16 .2 0x2 
+F "_COM_remui" F I!48 T!9 ?53-2 P!49 P!50 
+V "" N I!49 O!48 T!16 .2 0x2 
+V "" N I!50 O!48 T!9 .1 0x1 
+F "_COM_remul" F I!51 T!16 ?54-2 P!52 P!53 
+V "" N I!52 O!51 T!26 .2 0x4 
+V "" N I!53 O!51 T!16 .2 0x2 
+F "_COM_macui" F I!54 T!26 ?58-2 P!55 P!56 P!57 
+V "" N I!55 O!54 T!16 .2 0x2 
+V "" N I!56 O!54 T!16 .2 0x2 
+V "" N I!57 O!54 T!26 .2 0x4 
+F "_COM_macsi" F I!58 T!30 ?59-2 P!59 P!60 P!61 
+V "" N I!59 O!58 T!32 .2 0x2 
+V "" N I!60 O!58 T!32 .2 0x2 
+V "" N I!61 O!58 T!30 .2 0x4 
+F "__get_psw" N I!62 T!9 ?63-2 
+F "__set_psw" N I!63 T!2 ?64-2 P!64 
+V "" N I!64 O!63 T!9 .1 0x1 
+F "__set1" N I!65 T!2 ?66-2 P!66 P!68 
+V "" N I!66 O!65 T!67 .2 0x2 
+T "" KP I!67 T!9 0x2 
+V "" N I!68 O!65 T!9 .1 0x1 
+F "__clr1" N I!69 T!2 ?67-2 P!70 P!71 
+V "" N I!70 O!69 T!67 .2 0x2 
+V "" N I!71 O!69 T!9 .1 0x1 
+F "__not1" N I!72 T!2 ?68-2 P!73 P!74 
+V "" N I!73 O!72 T!67 .2 0x2 
+V "" N I!74 O!72 T!9 .1 0x1 
+T "" KS I!75 !39-4 0x1 VM!76 VM!77 VM!78 VM!79 VM!80 VM!81 VM!82 VM!83 
+V "no0" - I!76 O!75 T!9 !40-4 #95-1 #96-1 #245-1 #246-1 #252-1 #253-1 #290-1 #293-1 #303-1 #307-1 #359-1 #363-1 .1 0x1 BO0 BIS1 
+V "no1" - I!77 O!75 T!9 !41-4 #247-1 #248-1 #255-1 #256-1 #291-1 #292-1 #304-1 #308-1 .1 0x1 BO1 BIS1 
+V "no2" - I!78 O!75 T!9 !42-4 #70-1 #249-1 #250-1 .1 0x1 BO2 BIS1 
+V "no3" - I!79 O!75 T!9 !43-4 #224-1 .1 0x1 BO3 BIS1 
+V "no4" - I!80 O!75 T!9 !44-4 #386-1 #387-1 .1 0x1 BO4 BIS1 
+V "no5" - I!81 O!75 T!9 !45-4 #91-1 #92-1 #98-1 #99-1 #137-1 #140-1 #150-1 #154-1 #206-1 #210-1 .1 0x1 BO5 BIS1 
+V "no6" - I!82 O!75 T!9 !46-4 #382-1 #383-1 #389-1 #390-1 #430-1 #433-1 #443-1 #447-1 #499-1 #503-1 .1 0x1 BO6 BIS1 
+V "no7" - I!83 O!75 T!9 !47-4 #93-1 #94-1 #101-1 #102-1 #138-1 #139-1 #151-1 #155-1 #384-1 #385-1 #392-1 #393-1 #431-1 #432-1 #444-1 #448-1 .1 0x1 BO7 BIS1 
+T "__bitf_T" KT I!84 T!75 !48-4 0x1 
+T "" KS I!85 !51-4 0x2 VM!86 VM!87 VM!88 VM!89 VM!90 VM!91 VM!92 VM!93 VM!94 VM!95 VM!96 VM!97 VM!98 VM!99 VM!100 VM!101 
+V "no0" - I!86 O!85 T!9 !52-4 .1 0x1 BO0 BIS1 
+V "no1" - I!87 O!85 T!9 !53-4 .1 0x1 BO1 BIS1 
+V "no2" - I!88 O!85 T!9 !54-4 .1 0x1 BO2 BIS1 
+V "no3" - I!89 O!85 T!9 !55-4 .1 0x1 BO3 BIS1 
+V "no4" - I!90 O!85 T!9 !56-4 .1 0x1 BO4 BIS1 
+V "no5" - I!91 O!85 T!9 !57-4 .1 0x1 BO5 BIS1 
+V "no6" - I!92 O!85 T!9 !58-4 .1 0x1 BO6 BIS1 
+V "no7" - I!93 O!85 T!9 !59-4 .1 0x1 BO7 BIS1 
+V "no8" - I!94 O!85 T!9 !60-4 .1 0x1 BO8 BIS1 
+V "no9" - I!95 O!85 T!9 !61-4 .1 0x1 BO9 BIS1 
+V "no10" - I!96 O!85 T!9 !62-4 .1 0x1 BO10 BIS1 
+V "no11" - I!97 O!85 T!9 !63-4 .1 0x1 BO11 BIS1 
+V "no12" - I!98 O!85 T!9 !64-4 .1 0x1 BO12 BIS1 
+V "no13" - I!99 O!85 T!9 !65-4 .1 0x1 BO13 BIS1 
+V "no14" - I!100 O!85 T!9 !66-4 .1 0x1 BO14 BIS1 
+V "no15" - I!101 O!85 T!9 !67-4 .1 0x1 BO15 BIS1 
+T "__bitf_T2" KT I!102 T!85 !68-4 0x2 
+T "int8_t" KT I!103 T!104 !47-3 0x1 
+T "signed char" KBS I!104 0x1 
+T "uint8_t" KT I!105 T!9 !48-3 0x1 
+T "int16_t" KT I!106 T!107 !49-3 0x2 
+T "short" KBS I!107 0x2 
+T "uint16_t" KT I!108 T!109 !50-3 0x2 
+T "unsigned short" KBU I!109 0x2 
+T "int32_t" KT I!110 T!30 !51-3 0x4 
+T "uint32_t" KT I!111 T!26 !52-3 0x4 
+T "int64_t" KT I!112 T!39 !53-3 0x8 
+T "uint64_t" KT I!113 T!35 !54-3 0x8 
+T "MD_STATUS" KT I!114 T!109 !55-3 0x2 
+T "tagStdUartBaudRate" KE I!115 T!116 !304-6 0x1 EM0:"SAU_STD_BAUD_RATE_300" EM1:"SAU_STD_BAUD_RATE_600" EM2:"SAU_STD_BAUD_RATE_1200" EM3:"SAU_STD_BAUD_RATE_2400" EM4:"SAU_STD_BAUD_RATE_4800" EM5:"SAU_STD_BAUD_RATE_9600" EM6:"SAU_STD_BAUD_RATE_19200" EM7:"SAU_STD_BAUD_RATE_38400" EM8:"SAU_STD_BAUD_RATE_57600" EM9:"SAU_STD_BAUD_RATE_115200" 
+T "char" KBCS I!116 0x1 
+T "sau_std_baud_rate_t" KT I!117 T!115 !317-6 0x1 
+T "tagStdUartLength" KE I!118 T!116 !319-6 0x1 EM6:"SAU_STD_LENGTH_7" EM7:"SAU_STD_LENGTH_8" EM5:"SAU_STD_LENGTH_9" 
+T "sau_std_length_t" KT I!119 T!118 !324-6 0x1 
+T "tagStdUartParity" KE I!120 T!107 !326-6 0x2 EM0:"SAU_STD_PARITY_NONE" EM768:"SAU_STD_PARITY_ODD" EM512:"SAU_STD_PARITY_EVEN" 
+T "sau_std_parity_t" KT I!121 T!120 !331-6 0x2 
+T "tagStdUartStopBits" KE I!122 T!116 !333-6 0x1 EM16:"SAU_STD_STOPBITS_1" EM32:"SAU_STD_STOPBITS_2" 
+T "sau_std_stopbits_t" KT I!123 T!122 !337-6 0x1 
+F "R_SAU0_Create" F I!124 T!2 #68-1 !69,80-1-1 ?345-6 
+F "R_UART0_Create" F I!125 T!2 #88-1 !89,125-1-1 ?346-6 79-1 
+F "R_UART0_Start" F I!126 T!2 #132-1 !133,141-1-1 ?347-6 
+F "R_UART0_Stop" F I!127 T!2 #148-1 !149,156-1-1 ?348-6 
+F "R_UART0_Send" F I!128 T!114 #194-1 !195,214-1-1 ?349-6 P!226 P!227 
+T "" KP I!130 T!105 0x2 
+F "R_UART0_Receive" F I!132 T!114 #167-1 !168,183-1-1 ?350-6 P!221 P!222 
+F "r_uart0_callback_error" SF I!135 T!2 ?351-6 P!136 
+V "" N I!136 O!135 T!105 .1 0x1 
+F "r_uart0_callback_receiveend" SF I!137 T!2 ?352-6 
+F "r_uart0_callback_sendend" SF I!138 T!2 ?353-6 
+F "r_uart0_callback_softwareoverrun" SF I!139 T!2 ?354-6 P!140 
+V "" N I!140 O!139 T!108 .2 0x2 
+F "R_SAU1_Create" F I!141 T!2 #222-1 !223,234-1-1 ?356-6 
+F "R_UART2_Create" F I!142 T!2 #242-1 !243,277-1-1 ?357-6 232-1 
+F "R_UART2_Start" F I!143 T!2 #285-1 !286,294-1-1 ?358-6 
+F "R_UART2_Stop" F I!144 T!2 #301-1 !302,309-1-1 ?359-6 
+F "R_UART2_Send" F I!145 T!114 #347-1 !348,367-1-1 ?360-6 P!236 P!237 
+F "R_UART2_Receive" F I!148 T!114 #320-1 !321,336-1-1 ?361-6 P!231 P!232 
+F "r_uart2_callback_error" SF I!151 T!2 ?362-6 P!152 
+V "" N I!152 O!151 T!105 .1 0x1 
+F "r_uart2_callback_receiveend" SF I!153 T!2 ?363-6 
+F "r_uart2_callback_sendend" SF I!154 T!2 ?364-6 
+F "r_uart2_callback_softwareoverrun" SF I!155 T!2 ?365-6 P!156 
+V "" N I!156 O!155 T!108 .2 0x2 
+F "R_UART3_Create" F I!157 T!2 #379-1 !380,418-1-1 ?367-6 233-1 
+F "R_UART3_Start" F I!158 T!2 #425-1 !426,434-1-1 ?368-6 
+F "R_UART3_Stop" F I!159 T!2 #441-1 !442,449-1-1 ?369-6 
+F "R_UART3_Send" F I!160 T!114 #487-1 !488,507-1-1 ?370-6 P!246 P!247 
+F "R_UART3_Receive" F I!163 T!114 #460-1 !461,476-1-1 ?371-6 P!241 P!242 
+F "r_uart3_callback_error" SF I!166 T!2 ?372-6 P!167 
+V "" N I!167 O!166 T!105 .1 0x1 
+F "r_uart3_callback_receiveend" SF I!168 T!2 ?373-6 
+F "r_uart3_callback_sendend" SF I!169 T!2 ?374-6 
+F "r_uart3_callback_softwareoverrun" SF I!170 T!2 ?375-6 P!171 
+V "" N I!171 O!170 T!108 .2 0x2 
+F "R_UART0_CheckOperating" F I!172 T!105 #602-1 !603,609-1-1 ?377-6 
+F "R_UART0_SetBaudRate" F I!173 T!2 #619-1 !620,633-1-1 ?378-6 644-1 P!254 
+F "R_UART0_OnHocoChanged" F I!175 T!2 #641-1 !642,645-1-1 ?379-6 
+F "R_UART0_SetConfig" F I!176 T!2 ?380-6 P!177 P!178 P!179 
+V "" N I!177 O!176 T!119 .1 0x1 
+V "" N I!178 O!176 T!121 .2 0x2 
+V "" N I!179 O!176 T!123 .1 0x1 
+F "R_UART2_CheckOperating" F I!180 T!105 #757-1 !758,764-1-1 ?382-6 
+F "R_UART2_SetBaudRate" F I!181 T!2 #774-1 !775,789-1-1 ?383-6 800-1 P!264 
+F "R_UART2_OnHocoChanged" F I!183 T!2 #797-1 !798,801-1-1 ?384-6 
+F "R_UART2_SetConfig" F I!184 T!2 ?385-6 P!185 P!186 P!187 
+V "" N I!185 O!184 T!119 .1 0x1 
+V "" N I!186 O!184 T!121 .2 0x2 
+V "" N I!187 O!184 T!123 .1 0x1 
+F "R_UART3_CheckOperating" F I!188 T!105 #837-1 !838,844-1-1 ?387-6 
+F "R_UART3_SetBaudRate" F I!189 T!2 #854-1 !855,867-1-1 ?388-6 878-1 P!267 
+F "R_UART3_OnHocoChanged" F I!191 T!2 #875-1 !876,879-1-1 ?389-6 
+F "R_UART3_SetConfig" F I!192 T!2 #893-1 !894,897-1-1 ?390-6 P!272 P!273 P!274 
+F "R_UART0_ConfigHDLCProtocol" F I!196 T!2 #664-1 !665,671-1-1 ?392-6 
+F "R_UART2_ConfigHDLCProtocol" F I!197 T!2 #820-1 !821,827-1-1 ?393-6 
+F "R_UART3_ConfigHDLCProtocol" F I!198 T!2 #899-1 !900,906-1-1 ?394-6 
+V "gp_uart0_tx_address" GN I!199 T!200 !28-1 #204-1 #208-1 207-1 208-1 .2 0x2 
+T "" MOD"V" KP I!200 T!105 0x2 
+V "g_uart0_tx_count" GVN I!201 T!108 !29-1 #205-1 #209-1 209-1 .2 0x2 
+V "gp_uart0_rx_address" GN I!202 T!200 !30-1 #179-1 .2 0x2 
+V "g_uart0_rx_count" GVN I!203 T!108 !31-1 #177-1 .2 0x2 
+V "g_uart0_rx_length" GVN I!204 T!108 !32-1 #178-1 .2 0x2 
+V "gp_uart2_tx_address" GN I!205 T!200 !34-1 #357-1 #361-1 360-1 361-1 .2 0x2 
+V "g_uart2_tx_count" GVN I!206 T!108 !35-1 #358-1 #362-1 362-1 .2 0x2 
+V "gp_uart2_rx_address" GN I!207 T!200 !36-1 #332-1 .2 0x2 
+V "g_uart2_rx_count" GVN I!208 T!108 !37-1 #330-1 .2 0x2 
+V "g_uart2_rx_length" GVN I!209 T!108 !38-1 #331-1 .2 0x2 
+V "gp_uart3_tx_address" GN I!210 T!200 !40-1 #497-1 #501-1 500-1 501-1 .2 0x2 
+V "g_uart3_tx_count" GVN I!211 T!108 !41-1 #498-1 #502-1 502-1 .2 0x2 
+V "gp_uart3_rx_address" GN I!212 T!200 !42-1 #472-1 .2 0x2 
+V "g_uart3_rx_count" GVN I!213 T!108 !43-1 #470-1 .2 0x2 
+V "g_uart3_rx_length" GVN I!214 T!108 !44-1 #471-1 .2 0x2 
+V "g_uart1_current_baud_rate" GVN I!215 T!117 !49-1 #706-1 722-1 .1 0x1 
+V "g_uart3_current_baud_rate" GVN I!216 T!117 !50-1 #863-1 878-1 .1 0x1 
+V "g_uart0_current_baud_rate" GVN I!217 T!117 !51-1 #628-1 644-1 .1 0x1 
+V "g_uart2_current_baud_rate" GVN I!218 T!117 !52-1 #784-1 800-1 .1 0x1 
+V "rx_buf" ON I!221 O!132 T!130 !167-1 179-1 .2 0x2 
+V "rx_num" N I!222 O!132 T!108 !167-1 171-1 178-1 .2 0x2 
+V "status" N I!223 O!132 T!114 !169-1 #169-1 #173-1 182-1 .2 0x2 
+V "tx_buf" ON I!226 O!128 T!130 !194-1 204-1 .2 0x2 
+V "tx_num" N I!227 O!128 T!108 !194-1 198-1 205-1 .2 0x2 
+V "status" N I!228 O!128 T!114 !196-1 #196-1 #200-1 213-1 .2 0x2 
+V "rx_buf" ON I!231 O!148 T!130 !320-1 332-1 .2 0x2 
+V "rx_num" N I!232 O!148 T!108 !320-1 324-1 331-1 .2 0x2 
+V "status" N I!233 O!148 T!114 !322-1 #322-1 #326-1 335-1 .2 0x2 
+V "tx_buf" ON I!236 O!145 T!130 !347-1 357-1 .2 0x2 
+V "tx_num" N I!237 O!145 T!108 !347-1 351-1 358-1 .2 0x2 
+V "status" N I!238 O!145 T!114 !349-1 #349-1 #353-1 366-1 .2 0x2 
+V "rx_buf" ON I!241 O!163 T!130 !460-1 472-1 .2 0x2 
+V "rx_num" N I!242 O!163 T!108 !460-1 464-1 471-1 .2 0x2 
+V "status" N I!243 O!163 T!114 !462-1 #462-1 #466-1 475-1 .2 0x2 
+V "tx_buf" ON I!246 O!160 T!130 !487-1 497-1 .2 0x2 
+V "tx_num" N I!247 O!160 T!108 !487-1 491-1 498-1 .2 0x2 
+V "status" N I!248 O!160 T!114 !489-1 #489-1 #493-1 506-1 .2 0x2 
+F "R_UART_CalculateSPS" SF I!249 T!108 #526-1 !527,594-1-1 625-1 703-1 781-1 860-1 P!251 
+V "baud_rate" N I!251 O!249 T!117 !526-1 530-1 .1 0x1 
+V "sps_value" N I!252 O!249 T!108 !528-1 #534-1 #539-1 #544-1 #549-1 #554-1 #560-1 #565-1 #570-1 #578-1 #587-1 #590-1 587-1 593-1 .2 0x2 
+V "new_baud_rate" N I!254 O!173 T!117 !619-1 625-1 628-1 .1 0x1 
+V "sps_value" N I!255 O!173 T!108 !621-1 #625-1 631-1 .2 0x2 
+F "R_UART1_CheckOperating" F I!256 T!105 #680-1 !681,687-1-1 
+F "R_UART1_SetBaudRate" F I!257 T!2 #697-1 !698,711-1-1 722-1 P!259 
+V "new_baud_rate" N I!259 O!257 T!117 !697-1 703-1 706-1 .1 0x1 
+V "sps_value" N I!260 O!257 T!108 !699-1 #703-1 709-1 .2 0x2 
+F "R_UART1_OnHocoChanged" F I!261 T!2 #719-1 !720,723-1-1 
+F "R_UART1_ConfigHDLCProtocol" F I!262 T!2 #742-1 !743,749-1-1 
+V "new_baud_rate" N I!264 O!181 T!117 !774-1 781-1 784-1 .1 0x1 
+V "sps_value" N I!265 O!181 T!108 !776-1 #781-1 787-1 .2 0x2 
+V "new_baud_rate" N I!267 O!189 T!117 !854-1 860-1 863-1 .1 0x1 
+V "sps_value" N I!268 O!189 T!108 !856-1 #860-1 866-1 .2 0x2 
+V "datalen" N I!272 O!192 T!119 !893-1 895-1 896-1 .1 0x1 
+V "parity" N I!273 O!192 T!121 !893-1 895-1 896-1 .2 0x2 
+V "stopbits" N I!274 O!192 T!123 !893-1 895-1 896-1 .1 0x1 
+****%CxSystemPath%\inc\builtin.h
+v2 
+:1710160902
+#2
+****rl78i1c\driver\mcu\r_cg_macrodriver.h
+v2 
+:1710160902
+#3
+****iodefine.h
+v2 
+:1710160902
+#4
+****rl78i1c\driver\mcu\r_cg_userdefine.h
+v2 
+:1710160902
+#5
+****rl78i1c\driver\mcu\r_cg_sau.h
+v2 
+:1710160902
+#6

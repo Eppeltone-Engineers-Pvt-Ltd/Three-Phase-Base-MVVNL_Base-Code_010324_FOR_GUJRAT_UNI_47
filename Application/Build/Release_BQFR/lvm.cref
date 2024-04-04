@@ -1,0 +1,201 @@
+****rl78i1c\application\dataflash\lvm.c
+v2 
+:1712232868
+#1
+F "__DI" N I!1 T!2 ?18-2 
+T "void" KBV I!2 0x0 
+F "__EI" N I!3 T!2 ?19-2 
+F "__halt" N I!4 T!2 ?20-2 
+F "__stop" N I!5 T!2 ?21-2 
+F "__brk" N I!6 T!2 ?22-2 
+F "__nop" N I!7 T!2 ?23-2 
+F "__rolb" N I!8 T!9 ?25-2 P!10 P!11 
+T "unsigned char" KBU I!9 0x1 
+V "" N I!10 O!8 T!9 .1 0x1 
+V "" N I!11 O!8 T!9 .1 0x1 
+F "__rorb" N I!12 T!9 ?26-2 P!13 P!14 
+V "" N I!13 O!12 T!9 .1 0x1 
+V "" N I!14 O!12 T!9 .1 0x1 
+F "__rolw" N I!15 T!16 ?27-2 P!17 P!18 
+T "unsigned int" KBU I!16 0x2 
+V "" N I!17 O!15 T!16 .2 0x2 
+V "" N I!18 O!15 T!9 .1 0x1 
+F "__rorw" N I!19 T!16 ?28-2 P!20 P!21 
+V "" N I!20 O!19 T!16 .2 0x2 
+V "" N I!21 O!19 T!9 .1 0x1 
+F "__mulu" N I!22 T!16 ?30-2 P!23 P!24 
+V "" N I!23 O!22 T!9 .1 0x1 
+V "" N I!24 O!22 T!9 .1 0x1 
+F "__mului" N I!25 T!26 ?32-2 P!27 P!28 
+T "unsigned long" KBU I!26 0x4 
+V "" N I!27 O!25 T!16 .2 0x2 
+V "" N I!28 O!25 T!16 .2 0x2 
+F "__mulsi" N I!29 T!30 ?33-2 P!31 P!33 
+T "long" KBS I!30 0x4 
+V "" N I!31 O!29 T!32 .2 0x2 
+T "int" KBS I!32 0x2 
+V "" N I!33 O!29 T!32 .2 0x2 
+F "_COM_mulul" F I!34 T!35 ?42-2 P!36 P!37 
+T "unsigned long long" KBU I!35 0x8 
+V "" N I!36 O!34 T!26 .2 0x4 
+V "" N I!37 O!34 T!26 .2 0x4 
+F "_COM_mulsl" F I!38 T!39 ?43-2 P!40 P!41 
+T "long long" KBS I!39 0x8 
+V "" N I!40 O!38 T!30 .2 0x4 
+V "" N I!41 O!38 T!30 .2 0x4 
+F "_COM_divui" F I!42 T!16 ?48-2 P!43 P!44 
+V "" N I!43 O!42 T!16 .2 0x2 
+V "" N I!44 O!42 T!9 .1 0x1 
+F "_COM_divul" F I!45 T!26 ?49-2 P!46 P!47 
+V "" N I!46 O!45 T!26 .2 0x4 
+V "" N I!47 O!45 T!16 .2 0x2 
+F "_COM_remui" F I!48 T!9 ?53-2 P!49 P!50 
+V "" N I!49 O!48 T!16 .2 0x2 
+V "" N I!50 O!48 T!9 .1 0x1 
+F "_COM_remul" F I!51 T!16 ?54-2 P!52 P!53 
+V "" N I!52 O!51 T!26 .2 0x4 
+V "" N I!53 O!51 T!16 .2 0x2 
+F "_COM_macui" F I!54 T!26 ?58-2 P!55 P!56 P!57 
+V "" N I!55 O!54 T!16 .2 0x2 
+V "" N I!56 O!54 T!16 .2 0x2 
+V "" N I!57 O!54 T!26 .2 0x4 
+F "_COM_macsi" F I!58 T!30 ?59-2 P!59 P!60 P!61 
+V "" N I!59 O!58 T!32 .2 0x2 
+V "" N I!60 O!58 T!32 .2 0x2 
+V "" N I!61 O!58 T!30 .2 0x4 
+F "__get_psw" N I!62 T!9 ?63-2 
+F "__set_psw" N I!63 T!2 ?64-2 P!64 
+V "" N I!64 O!63 T!9 .1 0x1 
+F "__set1" N I!65 T!2 ?66-2 P!66 P!68 
+V "" N I!66 O!65 T!67 .2 0x2 
+T "" KP I!67 T!9 0x2 
+V "" N I!68 O!65 T!9 .1 0x1 
+F "__clr1" N I!69 T!2 ?67-2 P!70 P!71 
+V "" N I!70 O!69 T!67 .2 0x2 
+V "" N I!71 O!69 T!9 .1 0x1 
+F "__not1" N I!72 T!2 ?68-2 P!73 P!74 
+V "" N I!73 O!72 T!67 .2 0x2 
+V "" N I!74 O!72 T!9 .1 0x1 
+T "" KS I!75 !39-4 0x1 VM!76 VM!77 VM!78 VM!79 VM!80 VM!81 VM!82 VM!83 
+V "no0" - I!76 O!75 T!9 !40-4 .1 0x1 BO0 BIS1 
+V "no1" - I!77 O!75 T!9 !41-4 .1 0x1 BO1 BIS1 
+V "no2" - I!78 O!75 T!9 !42-4 .1 0x1 BO2 BIS1 
+V "no3" - I!79 O!75 T!9 !43-4 .1 0x1 BO3 BIS1 
+V "no4" - I!80 O!75 T!9 !44-4 .1 0x1 BO4 BIS1 
+V "no5" - I!81 O!75 T!9 !45-4 .1 0x1 BO5 BIS1 
+V "no6" - I!82 O!75 T!9 !46-4 .1 0x1 BO6 BIS1 
+V "no7" - I!83 O!75 T!9 !47-4 .1 0x1 BO7 BIS1 
+T "__bitf_T" KT I!84 T!75 !48-4 0x1 
+T "" KS I!85 !51-4 0x2 VM!86 VM!87 VM!88 VM!89 VM!90 VM!91 VM!92 VM!93 VM!94 VM!95 VM!96 VM!97 VM!98 VM!99 VM!100 VM!101 
+V "no0" - I!86 O!85 T!9 !52-4 .1 0x1 BO0 BIS1 
+V "no1" - I!87 O!85 T!9 !53-4 .1 0x1 BO1 BIS1 
+V "no2" - I!88 O!85 T!9 !54-4 .1 0x1 BO2 BIS1 
+V "no3" - I!89 O!85 T!9 !55-4 .1 0x1 BO3 BIS1 
+V "no4" - I!90 O!85 T!9 !56-4 .1 0x1 BO4 BIS1 
+V "no5" - I!91 O!85 T!9 !57-4 .1 0x1 BO5 BIS1 
+V "no6" - I!92 O!85 T!9 !58-4 .1 0x1 BO6 BIS1 
+V "no7" - I!93 O!85 T!9 !59-4 .1 0x1 BO7 BIS1 
+V "no8" - I!94 O!85 T!9 !60-4 .1 0x1 BO8 BIS1 
+V "no9" - I!95 O!85 T!9 !61-4 .1 0x1 BO9 BIS1 
+V "no10" - I!96 O!85 T!9 !62-4 .1 0x1 BO10 BIS1 
+V "no11" - I!97 O!85 T!9 !63-4 .1 0x1 BO11 BIS1 
+V "no12" - I!98 O!85 T!9 !64-4 .1 0x1 BO12 BIS1 
+V "no13" - I!99 O!85 T!9 !65-4 .1 0x1 BO13 BIS1 
+V "no14" - I!100 O!85 T!9 !66-4 .1 0x1 BO14 BIS1 
+V "no15" - I!101 O!85 T!9 !67-4 .1 0x1 BO15 BIS1 
+T "__bitf_T2" KT I!102 T!85 !68-4 0x2 
+T "int8_t" KT I!103 T!104 !47-3 0x1 
+T "signed char" KBS I!104 0x1 
+T "uint8_t" KT I!105 T!9 !48-3 0x1 
+T "int16_t" KT I!106 T!107 !49-3 0x2 
+T "short" KBS I!107 0x2 
+T "uint16_t" KT I!108 T!109 !50-3 0x2 
+T "unsigned short" KBU I!109 0x2 
+T "int32_t" KT I!110 T!30 !51-3 0x4 
+T "uint32_t" KT I!111 T!26 !52-3 0x4 
+T "int64_t" KT I!112 T!39 !53-3 0x8 
+T "uint64_t" KT I!113 T!35 !54-3 0x8 
+T "MD_STATUS" KT I!114 T!109 !55-3 0x2 
+T "double64_t" KT I!115 T!113 !40-6 0x8 
+T "float32_t" KT I!116 T!117 !41-6 0x4 
+T "float" KBF I!117 0x4 
+T "tagDFLBlock" KE I!118 T!119 !22-8 0x1 EM0:"DATAFLASH_BLOCK1" EM1:"DATAFLASH_BLOCK2" 
+T "char" KBCS I!119 0x1 
+F "DATAFLASH_Init" F I!120 T!105 ?50-8 132-1 
+F "DATAFLASH_Read" F I!121 T!105 ?51-8 66-1 109-1 175-1 P!122 P!123 P!125 
+V "" N I!122 O!121 T!111 .2 0x4 
+V "" N I!123 O!121 T!124 .2 0x2 
+T "" KP I!124 T!105 0x2 
+V "" N I!125 O!121 T!108 .2 0x2 
+F "DATAFLASH_Write" F I!126 T!105 ?52-8 84-1 229-1 P!127 P!128 P!129 
+V "" N I!127 O!126 T!111 .2 0x4 
+V "" N I!128 O!126 T!124 .2 0x2 
+V "" N I!129 O!126 T!108 .2 0x2 
+F "DATAFLASH_WriteBlock" F I!130 T!105 ?55-8 115-1 P!131 P!132 
+V "" N I!131 O!130 T!105 .1 0x1 
+V "" N I!132 O!130 T!124 .2 0x2 
+F "DATAFLASH_Format" F I!133 T!105 ?56-8 280-1 285-1 P!134 
+V "" N I!134 O!133 T!105 .1 0x1 
+T "tag_lvm_flag_t" KS I!135 !26-7 0x2 VM!136 VM!137 VM!138 VM!139 VM!140 
+V "is_updating" - I!136 O!135 T!108 !28-7 #212-1 #251-1 #387-1 .2 0x2 BO0 BIS1 
+V "is_bank1_in_use" - I!137 O!135 T!108 !29-7 #211-1 #235-1 #369-1 317-1 323-1 339-1 345-1 346-1 358-1 .2 0x2 BO1 BIS1 
+V "is_bank2_in_use" - I!138 O!135 T!108 !30-7 #236-1 #250-1 #383-1 317-1 323-1 339-1 345-1 346-1 .2 0x2 BO2 BIS1 
+V "reserved" - I!139 O!135 T!108 !31-7 .2 0x2 BO3 BIS5 
+V "code" - I!140 O!135 T!108 !32-7 .2 0x2 BO8 BIS8 
+T "lvm_flag_t" KT I!141 T!135 !33-7 0x2 
+F "LVM_Init" F I!142 T!105 #129-1 !130,144-1-1 ?85-7 
+F "LVM_Read" F I!143 T!105 #158-1 !159,181-1-1 ?86-7 P!175 P!176 P!177 
+F "LVM_Write" F I!147 T!105 #195-1 !196,265-1-1 ?87-7 P!182 P!183 P!184 
+F "LVM_Flag_Restore" SF I!151 T!105 #60-1 !61,72-1-1 ?46-1 205-1 311-1 333-1 P!162 
+T "" KP I!153 T!141 0x2 
+F "LVM_Flag_Backup" SF I!154 T!105 #82-1 !83,90-1-1 ?47-1 214-1 238-1 252-1 290-1 388-1 P!164 
+F "LVM_Format" SF I!156 T!105 #276-1 !277,297-1-1 ?48-1 348-1 
+F "LVM_Bank_Copy" SF I!157 T!105 #100-1 !101,121-1-1 ?49-1 244-1 258-1 327-1 363-1 377-1 P!167 P!168 
+F "LVM_BankCheck" SF I!160 T!105 #305-1 !306,394-1-1 ?50-1 138-1 163-1 201-1 
+V "p_flg" N I!162 O!151 T!153 !60-1 62-1 66-1 .2 0x2 
+V "flg" N I!164 O!154 T!141 !82-1 84-1 .2 0x2 
+V "dest_bank" N I!167 O!157 T!105 !100-1 115-1 .1 0x1 
+V "src_bank" N I!168 O!157 T!105 !100-1 106-1 .1 0x1 
+V "page_buffer" N I!169 O!157 T!170 !105-1 109-1 115-1 .1 0x400 
+T "" KA1024 I!170 T!105 0x400 
+V "src_addr" N I!171 O!157 T!111 !106-1 #106-1 109-1 .2 0x4 
+V "addr" N I!175 O!143 T!111 !158-1 166-1 .2 0x4 
+V "buf" N I!176 O!143 T!124 !158-1 175-1 .2 0x2 
+V "size" N I!177 O!143 T!108 !158-1 169-1 175-1 .2 0x2 
+V "local_addr" N I!178 O!143 T!111 !160-1 #166-1 169-1 175-1 .2 0x4 
+V "addr" N I!182 O!147 T!111 !195-1 220-1 .2 0x4 
+V "buf" N I!183 O!147 T!124 !195-1 229-1 .2 0x2 
+V "size" N I!184 O!147 T!108 !195-1 223-1 229-1 .2 0x2 
+V "flag" N I!185 O!147 T!141 !197-1 #211-1 #212-1 #235-1 #236-1 #250-1 #251-1 205-1 214-1 238-1 252-1 .2 0x2 
+V "local_addr" N I!186 O!147 T!111 !198-1 #220-1 223-1 229-1 .2 0x4 
+V "flag" N I!187 O!156 T!141 !278-1 #278-1 290-1 .2 0x2 
+V "flag" N I!188 O!160 T!141 !307-1 #369-1 #383-1 #387-1 311-1 317-1 317-1 323-1 323-1 333-1 339-1 339-1 345-1 345-1 346-1 346-1 358-1 388-1 .2 0x2 
+V "local_addr" N I!189 O!160 T!111 !308-1 .2 0x4 
+****%CxSystemPath%\inc\builtin.h
+v2 
+:1712232868
+#2
+****rl78i1c\driver\mcu\r_cg_macrodriver.h
+v2 
+:1712232868
+#3
+****iodefine.h
+v2 
+:1712232868
+#4
+****rl78i1c\driver\mcu\r_cg_userdefine.h
+v2 
+:1712232868
+#5
+****typedef.h
+v2 
+:1712232868
+#6
+****rl78i1c\application\dataflash\lvm.h
+v2 
+:1712232868
+#7
+****rl78i1c\application\dataflash\dataflash.h
+v2 
+:1712232868
+#8

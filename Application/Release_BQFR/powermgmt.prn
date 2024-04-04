@@ -1,0 +1,1837 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  #CC-RL Compiler RL78 Assembler Source
+00000000                        2  #@  CC-RL Version : V1.12.01  [12 Jun 2023]
+00000000                        3  #@  Commmand :
+00000000                        4  #@   rl78i1c\application\powermgmt\powermgmt.c
+00000000                        5  #@   -cpu=S3
+00000000                        6  #@   -cref=Build/Release_BQFR\powermgmt.cref
+00000000                        7  #@   -o Build/Release_BQFR\powermgmt.obj
+00000000                        8  #@   -no_warning_num=20177,20550,20494,20174
+00000000                        9  #@   -dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+00000000                       10  #@   -g
+00000000                       11  #@   -Onothing
+00000000                       12  #@   -goptimize
+00000000                       13  #@   -I Release_BQFR
+00000000                       14  #@   -I rl78i1c\application\dlms\physical
+00000000                       15  #@   -I rl78i1c\application\dlms\objects
+00000000                       16  #@   -I rl78i1c\application\dlms\meter_app\hash
+00000000                       17  #@   -I rl78i1c\application\dlms\meter_app\aes
+00000000                       18  #@   -I rl78i1c\application\dlms\meter_app
+00000000                       19  #@   -I rl78i1c\application\dlms
+00000000                       20  #@   -I rl78i1c\application
+00000000                       21  #@   -I rl78i1c\application\debug\loadtest
+00000000                       22  #@   -I rl78i1c\application\services\64bit_process
+00000000                       23  #@   -I .
+00000000                       24  #@   -I rl78i1c\wrapper\core\sw\filter\config
+00000000                       25  #@   -I rl78i1c\wrapper\core\sw\filter\include
+00000000                       26  #@   -I rl78i1c\application\powermgmt
+00000000                       27  #@   -I rl78i1c\application\storage\meterdata
+00000000                       28  #@   -I rl78i1c\application\storage\config
+00000000                       29  #@   -I rl78i1c\application\dataflash\fdl\incrl78
+00000000                       30  #@   -I rl78i1c\application\dataflash
+00000000                       31  #@   -I rl78i1c\application\services
+00000000                       32  #@   -I rl78i1c\application\interpreter\mlsHeaders
+00000000                       33  #@   -I rl78i1c\application\interpreter\mlsCIHandler
+00000000                       34  #@   -I rl78i1c\application\interpreter\mlsCIEng
+00000000                       35  #@   -I rl78i1c\application\interpreter\mlsCIComm
+00000000                       36  #@   -I rl78i1c\application\interpreter\mlsCIApp
+00000000                       37  #@   -I rl78i1c\driver\mcu
+00000000                       38  #@   -I rl78i1c\application\calibration
+00000000                       39  #@   -I rl78i1c\application\debug
+00000000                       40  #@   -I rl78i1c\application\display&button
+00000000                       41  #@   -I rl78i1c\application\display&button\lcd
+00000000                       42  #@   -I rl78i1c\application\eeprom
+00000000                       43  #@   -I rl78i1c\application\event
+00000000                       44  #@   -I rl78i1c\application\startup
+00000000                       45  #@   -I rl78i1c\application\storage
+00000000                       46  #@   -I rl78i1c\middleware\headers
+00000000                       47  #@   -I rl78i1c\middleware\plugin
+00000000                       48  #@   -I rl78i1c\wrapper\user
+00000000                       49  #@   -I rl78i1c\wrapper\core\sw
+00000000                       50  #@   -I rl78i1c\wrapper\core\shared
+00000000                       51  #@   -I .\
+00000000                       52  #@   -D __BOARD_REVISION=2,FEATURES_BQFR
+00000000                       53  #@   -refs_without_declaration
+00000000                       54  #@   -signed_char
+00000000                       55  #@   -merge_string
+00000000                       56  #@   -asmopt=-prn_path=Release_BQFR
+00000000                       57  #@   -convert_cc=ca78k0r
+00000000                       58  #@   -c
+00000000                       59  #@  compiled at Thu Apr 04 17:44:12 2024
+00000000                       60  
+00000000                       61  	.EXTERN _mytmprdata
+00000000                       62  	.EXTERN _rtc
+00000000                       63  	.EXTERN _total_active_power
+00000000                       64  	.EXTERN _total_reactive_power
+00000000                       65  	.EXTERN _e2write_flags
+00000000                       66  	.EXTERN _init_done
+00000000                       67  	.EXTERN _g_TamperStatus
+00000000                       68  	.EXTERN _g_display_mode
+00000000                       69  	.EXTERN _disp_state
+00000000                       70  	.EXTERN _disp_timer
+00000000                       71  	.EXTERN _disp_autoscroll_interval
+00000000                       72  	.EXTERN _sleepCommMode
+00000000                       73  	.EXTERN _autoscrollInButtonMode
+00000000                       74  	.EXTERN _alt_autoscroll_mode
+00000000                       75  	.EXTERN _avoidShowingRepeatParameters
+00000000                       76  	.EXTERN _coverOpenCtr
+00000000                       77  	.EXTERN _gujaratSecondsCounter
+00000000                       78  	.EXTERN _sub_disp_state
+00000000                       79  	.EXTERN _fwdKeyPressed
+00000000                       80  	.EXTERN _revKeyPressed
+00000000                       81  	.EXTERN _someKeyPressed
+00000000                       82  	.EXTERN _fast_display_flag
+00000000                       83  	.EXTERN _pulsesStartedComingFlag
+00000000                       84  	.EXTERN _rtcTestFlag
+00000000                       85  	.EXTERN _total_active_power_pulsing
+00000000                       86  	.EXTERN _total_apparent_power_pulsing
+00000000                       87  	.EXTERN _total_reactive_power_pulsing
+00000000                       88  	.EXTERN _calswitch
+00000000                       89  	$mirror _g_EM_DefaultProperty
+00000000                       90  	$mirror _g_EM_DefaultConfig
+00000000                       91  	$mirror _g_EM_DefaultCalibration
+00000000                       92  	.EXTERN _g_softreset_flag
+00000000                       93  	.PUBLIC _capturedRTC
+00000000                       94  	.EXTERN _calWatt
+00000000                       95  	.EXTERN _calVar
+00000000                       96  	.PUBLIC _g_powermgmt_flag
+00000000                       97  	.EXTERN _stopEM
+00000000                       98  	.EXTERN _R_CGC_OperateAt6MHz
+00000000                       99  	.EXTERN _R_CGC_OperateAt24MHz
+00000000                      100  	.PUBLIC _POWERMGMT_ProcessMode3_Pseudo
+00000000                      101  	.EXTERN _R_UART2_Start
+00000000                      102  	.EXTERN _R_UART3_Start
+00000000                      103  	.PUBLIC _POWERMGMT_DoAfterStop
+00000000                      104  	.EXTERN _setInterruptPointers
+00000000                      105  	.EXTERN _R_UART0_Start
+00000000                      106  	.EXTERN _R_PORT_Create
+00000000                      107  	.EXTERN _R_RTC_Set_ConstPeriodInterruptOn
+00000000                      108  	.EXTERN _R_TAU0_Channel0_Start
+00000000                      109  	.EXTERN _R_TAU0_Channel1_Start
+00000000                      110  	.EXTERN _R_TAU0_Channel2_Start
+00000000                      111  	.EXTERN _CONFIG_Init
+00000000                      112  	.EXTERN _R_DSADC_SetChannelGain
+00000000                      113  	.EXTERN _R_DSADC_GetGainEnumValue
+00000000                      114  	.EXTERN _EM_ADC_SAMP_SetTimerOffset
+00000000                      115  	.EXTERN _R_TAU0_Channel3_Start
+00000000                      116  	.EXTERN _EM_Init
+00000000                      117  	.EXTERN _config_data_load
+00000000                      118  	.EXTERN _CONFIG_Restore
+00000000                      119  	.EXTERN _startEM
+00000000                      120  	.EXTERN _R_INTC0_Start
+00000000                      121  	.EXTERN _R_LCD_PowerOn
+00000000                      122  	.PUBLIC _waitForSupplyToStabilize
+00000000                      123  	.PUBLIC _POWERMGMT_DoBeforeStop
+00000000                      124  	.EXTERN _LCD_ClearAll
+00000000                      125  	.EXTERN _R_LCD_PowerOff
+00000000                      126  	.EXTERN _R_UART0_Stop
+00000000                      127  	.EXTERN _R_UART2_Stop
+00000000                      128  	.EXTERN _R_UART3_Stop
+00000000                      129  	.EXTERN _R_TAU0_Channel0_Stop
+00000000                      130  	.EXTERN _R_TAU0_Channel1_Stop
+00000000                      131  	.EXTERN _R_TAU0_Channel2_Stop
+00000000                      132  	.EXTERN _R_TAU0_Channel3_Stop
+00000000                      133  	.EXTERN _R_RTC_Set_ConstPeriodInterruptOff
+00000000                      134  	.EXTERN _R_PORT_StopCreate
+00000000                      135  	.PUBLIC _POWERMGMT_ProcessMode1
+00000000                      136  	.EXTERN _readRTC
+00000000                      137  	.EXTERN _EM_GetSystemState
+00000000                      138  	.EXTERN _powerUpDataCheck
+00000000                      139  	.EXTERN _do_initial_things
+00000000                      140  	.EXTERN _LCD_DisplayAll
+00000000                      141  	.EXTERN _diffInSecondsBetween
+00000000                      142  	.EXTERN _record_power_fail_event
+00000000                      143  	.EXTERN _clearPersistenceCounters
+00000000                      144  	.PUBLIC _POWERMGMT_ProcessMode2
+00000000                      145  	.PUBLIC _POWERMGMT_ProcessMode3
+00000000                      146  	.PUBLIC _POWERMGMT_ProcessMode4
+00000000                      147  	.EXTERN _wre2rom
+00000000                      148  	.EXTERN _R_WDT_Restart
+00000000                      149  	.EXTERN _EM_Stop
+00000000                      150  	.EXTERN _calcChecksum
+00000000                      151  	.PUBLIC _POWERMGMT_ProcessMode5
+00000000                      152  	.EXTERN _EM_Start
+00000000                      153  	.PUBLIC _POWERMGMT_GetMode
+00000000                      154  	.PUBLIC _POWERMGMT_PollingProcessing
+00000000                      155  	.PUBLIC _checkCoverTamper
+00000000                      156  	.PUBLIC _POWERMGMT_RTC_InterruptCallback
+00000000                      157  	.PUBLIC _POWERMGMT_COVER_InterruptCallback
+00000000                      158  	.PUBLIC _POWERMGMT_KEY_InterruptCallback
+00000000                      159  	.PUBLIC _POWERMGMT_VDD_InterruptCallback
+00000000                      160  	.PUBLIC _POWERMGMT_Set_AC_LOW
+00000000                      161  	.PUBLIC _POWERMGMT_Clear_AC_LOW
+00000000                      162  	.PUBLIC _POWERMGMT_setCurrentMode1
+00000000                      163  	.PUBLIC _POWERMGMT_AC_InterruptCallback
+00000000                      164  	.PUBLIC _POWERMGMT_VBATT_InterruptCallback
+00000000                      165  	.PUBLIC _POWERMGMT_VRTC_InterruptCallback
+00000000                      166  	.PUBLIC _POWERMGMT_NeutralMissing
+00000000                      167  	.PUBLIC _POWERMGMT_MAGNETIC_InterruptCallback
+00000000                      168  	.PUBLIC _POWERMGMT_IsACLow
+00000000                      169  	.PUBLIC _POWERMGMT_IsVBATTLow
+00000000                      170  	.PUBLIC _POWERMGMT_IsVRTCLow
+00000000                      171  	.PUBLIC _turnOff_UARTS
+00000000                      172  
+00000000                      173  	.SECTION .textf,TEXTF
+00000000                      174  	.TYPE _POWERMGMT_EXLVD_Action@1,function,.LFE1-_POWERMGMT_EXLVD_Action@1
+00000000                      175  _POWERMGMT_EXLVD_Action@1:
+00000000                      176  	.STACK _POWERMGMT_EXLVD_Action@1 = 4
+00000000                      177  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 138
+00000000 8F0000               178  	mov a, !LOWW(_g_powermgmt_flag)
+00000003 6101                 179  	add a, a
+00000005 317A                 180  	shr a, 0x07
+00000007 91                   181  	dec a
+00000008 DF00                 182  	bnz $.BB@LABEL@1_5
+0000000A                      183  .BB@LABEL@1_1:	; if_then_bb
+0000000A                      184  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 140
+0000000A FC000000             185  	call !!_stopEM
+0000000E                      186  .BB@LABEL@1_2:	; if_then_bb.split
+0000000E 36FA00               187  	movw hl, #0x00FA
+00000011                      188  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 142
+00000011 7183                 189  	clr1 [hl].0
+00000013                      190  .BB@LABEL@1_3:	; if_then_bb.split1
+00000013 36F000               191  	movw hl, #0x00F0
+00000016                      192  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 143
+00000016 71D3                 193  	clr1 [hl].5
+00000018                      194  .BB@LABEL@1_4:	; if_then_bb.split2
+00000018                      195  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 150
+00000018 FC000000             196  	call !!_R_CGC_OperateAt6MHz
+0000001C D7                   197  	ret
+0000001D                      198  .BB@LABEL@1_5:	; if_else_bb
+0000001D                      199  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 160
+0000001D FC000000             200  	call !!_R_CGC_OperateAt24MHz
+00000021 D7                   201  	ret
+00000022                      202  .LFE1:
+00000022                      203  	.TYPE _POWERMGMT_ProcessMode3_Pseudo,function,.LFE2-_POWERMGMT_ProcessMode3_Pseudo
+00000022                      204  _POWERMGMT_ProcessMode3_Pseudo:
+00000022                      205  	.STACK _POWERMGMT_ProcessMode3_Pseudo = 6
+00000022                      206  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 167
+00000022 C7                   207  	push hl
+00000023 36F000               208  	movw hl, #0x00F0
+00000026                      209  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 170
+00000026 71A2                 210  	set1 [hl].2
+00000028                      211  .BB@LABEL@2_1:	; entry.split
+00000028                      212  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 171
+00000028 71B2                 213  	set1 [hl].3
+0000002A                      214  .BB@LABEL@2_2:	; entry.split1
+0000002A                      215  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 172
+0000002A FC000000             216  	call !!_R_UART2_Start
+0000002E                      217  .BB@LABEL@2_3:	; entry.split2
+0000002E                      218  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 173
+0000002E FC000000             219  	call !!_R_UART3_Start
+00000032                      220  .BB@LABEL@2_4:	; entry.split3
+00000032                      221  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 174
+00000032 C80000               222  	mov [sp+0x00], #0x00
+00000035                      223  .BB@LABEL@2_5:	; entry.split4
+00000035                      224  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 175
+00000035 F1                   225  	clrb a
+00000036 C2                   226  	pop bc
+00000037 D7                   227  	ret
+00000038                      228  .LFE2:
+00000038                      229  	.TYPE _POWERMGMT_DoAfterStop,function,.LFE3-_POWERMGMT_DoAfterStop
+00000038                      230  _POWERMGMT_DoAfterStop:
+00000038                      231  	.STACK _POWERMGMT_DoAfterStop = 6
+00000038                      232  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 177
+00000038 C7                   233  	push hl
+00000039                      234  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 181
+00000039 717BFA               235  	di
+0000003C                      236  .BB@LABEL@3_1:	; entry.split
+0000003C                      237  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 182
+0000003C FC000000             238  	call !!_setInterruptPointers
+00000040                      239  .BB@LABEL@3_2:	; entry.split1
+00000040                      240  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 183
+00000040 717AFA               241  	ei
+00000043                      242  .BB@LABEL@3_3:	; entry.split2
+00000043 36F000               243  	movw hl, #0x00F0
+00000046                      244  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 185
+00000046 71A2                 245  	set1 [hl].2
+00000048                      246  .BB@LABEL@3_4:	; entry.split3
+00000048                      247  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 186
+00000048 71B2                 248  	set1 [hl].3
+0000004A                      249  .BB@LABEL@3_5:	; entry.split4
+0000004A                      250  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 187
+0000004A FC000000             251  	call !!_R_UART0_Start
+0000004E                      252  .BB@LABEL@3_6:	; entry.split5
+0000004E                      253  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 188
+0000004E FC000000             254  	call !!_R_UART2_Start
+00000052                      255  .BB@LABEL@3_7:	; entry.split6
+00000052                      256  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 189
+00000052 FC000000             257  	call !!_R_UART3_Start
+00000056                      258  .BB@LABEL@3_8:	; entry.split7
+00000056                      259  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 191
+00000056 FE0000               260  	call $!_POWERMGMT_EXLVD_Action@1
+00000059                      261  .BB@LABEL@3_9:	; entry.split8
+00000059 36FA00               262  	movw hl, #0x00FA
+0000005C                      263  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 195
+0000005C 7182                 264  	set1 [hl].0
+0000005E                      265  .BB@LABEL@3_10:	; entry.split9
+0000005E 36F000               266  	movw hl, #0x00F0
+00000061                      267  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 196
+00000061 7182                 268  	set1 [hl].0
+00000063                      269  .BB@LABEL@3_11:	; entry.split10
+00000063                      270  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 199
+00000063 71D2                 271  	set1 [hl].5
+00000065                      272  .BB@LABEL@3_12:	; entry.split11
+00000065 36FC00               273  	movw hl, #0x00FC
+00000068                      274  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 200
+00000068 71A2                 275  	set1 [hl].2
+0000006A                      276  .BB@LABEL@3_13:	; entry.split12
+0000006A 36FA00               277  	movw hl, #0x00FA
+0000006D                      278  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 201
+0000006D 71B2                 279  	set1 [hl].3
+0000006F                      280  .BB@LABEL@3_14:	; entry.split13
+0000006F 36FC00               281  	movw hl, #0x00FC
+00000072                      282  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 202
+00000072 7182                 283  	set1 [hl].0
+00000074                      284  .BB@LABEL@3_15:	; entry.split14
+00000074                      285  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 204
+00000074 FC000000             286  	call !!_R_PORT_Create
+00000078                      287  .BB@LABEL@3_16:	; entry.split15
+00000078                      288  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 205
+00000078 51E0                 289  	mov a, #0xE0
+0000007A FC000000             290  	call !!_R_RTC_Set_ConstPeriodInterruptOn
+0000007E                      291  .BB@LABEL@3_17:	; entry.split16
+0000007E                      292  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 207
+0000007E FC000000             293  	call !!_R_TAU0_Channel0_Start
+00000082                      294  .BB@LABEL@3_18:	; entry.split17
+00000082                      295  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 208
+00000082 FC000000             296  	call !!_R_TAU0_Channel1_Start
+00000086                      297  .BB@LABEL@3_19:	; entry.split18
+00000086                      298  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 209
+00000086 FC000000             299  	call !!_R_TAU0_Channel2_Start
+0000008A                      300  .BB@LABEL@3_20:	; entry.split19
+0000008A                      301  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 211
+0000008A FC000000             302  	call !!_CONFIG_Init
+0000008E 9800                 303  	mov [sp+0x00], a
+00000090                      304  .BB@LABEL@3_21:	; entry.split20
+00000090                      305  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 212
+00000090 E1                   306  	oneb a
+00000091 FC000000             307  	call !!_R_DSADC_GetGainEnumValue
+00000095 70                   308  	mov x, a
+00000096 F1                   309  	clrb a
+00000097 FC000000             310  	call !!_R_DSADC_SetChannelGain
+0000009B                      311  .BB@LABEL@3_22:	; entry.split21
+0000009B                      312  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 213
+0000009B E1                   313  	oneb a
+0000009C FC000000             314  	call !!_R_DSADC_GetGainEnumValue
+000000A0 70                   315  	mov x, a
+000000A1 E1                   316  	oneb a
+000000A2 FC000000             317  	call !!_R_DSADC_SetChannelGain
+000000A6                      318  .BB@LABEL@3_23:	; entry.split22
+000000A6                      319  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 214
+000000A6 E1                   320  	oneb a
+000000A7 FC000000             321  	call !!_R_DSADC_GetGainEnumValue
+000000AB 70                   322  	mov x, a
+000000AC 5102                 323  	mov a, #0x02
+000000AE FC000000             324  	call !!_R_DSADC_SetChannelGain
+000000B2                      325  .BB@LABEL@3_24:	; entry.split23
+000000B2                      326  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 215
+000000B2 E1                   327  	oneb a
+000000B3 FC000000             328  	call !!_R_DSADC_GetGainEnumValue
+000000B7 70                   329  	mov x, a
+000000B8 5103                 330  	mov a, #0x03
+000000BA FC000000             331  	call !!_R_DSADC_SetChannelGain
+000000BE                      332  .BB@LABEL@3_25:	; entry.split24
+000000BE                      333  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 218
+000000BE 3086FF               334  	movw ax, #0xFF86
+000000C1 FC000000             335  	call !!_EM_ADC_SAMP_SetTimerOffset
+000000C5                      336  .BB@LABEL@3_26:	; entry.split25
+000000C5                      337  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 220
+000000C5 FC000000             338  	call !!_R_TAU0_Channel3_Start
+000000C9                      339  .BB@LABEL@3_27:	; entry.split26
+000000C9                      340  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 221
+000000C9 340000               341  	movw de, #SMRLW(_g_EM_DefaultCalibration)
+000000CC 320000               342  	movw bc, #SMRLW(_g_EM_DefaultConfig)
+000000CF 300000               343  	movw ax, #SMRLW(_g_EM_DefaultProperty)
+000000D2 FC000000             344  	call !!_EM_Init
+000000D6                      345  .BB@LABEL@3_28:	; entry.split27
+000000D6                      346  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 222
+000000D6 8800                 347  	mov a, [sp+0x00]
+000000D8 FC000000             348  	call !!_config_data_load
+000000DC                      349  .BB@LABEL@3_29:	; entry.split28
+000000DC                      350  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 223
+000000DC 5102                 351  	mov a, #0x02
+000000DE FC000000             352  	call !!_CONFIG_Restore
+000000E2                      353  .BB@LABEL@3_30:	; entry.split29
+000000E2                      354  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 224
+000000E2 00                   355  	nop
+000000E3                      356  .BB@LABEL@3_31:	; entry.split30
+000000E3                      357  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 226
+000000E3 FC000000             358  	call !!_startEM
+000000E7                      359  .BB@LABEL@3_32:	; entry.split31
+000000E7                      360  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 232
+000000E7 FC000000             361  	call !!_R_INTC0_Start
+000000EB                      362  .BB@LABEL@3_33:	; entry.split32
+000000EB                      363  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 235
+000000EB FC000000             364  	call !!_R_LCD_PowerOn
+000000EF C0                   365  	pop ax
+000000F0 D7                   366  	ret
+000000F1                      367  .LFE3:
+000000F1                      368  	.TYPE _waitForSupplyToStabilize,function,.LFE4-_waitForSupplyToStabilize
+000000F1                      369  _waitForSupplyToStabilize:
+000000F1                      370  	.STACK _waitForSupplyToStabilize = 4
+000000F1                      371  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 244
+000000F1 00                   372  	nop
+000000F2                      373  .BB@LABEL@4_1:	; entry.split
+000000F2                      374  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 245
+000000F2 00                   375  	nop
+000000F3                      376  .BB@LABEL@4_2:	; entry.split1
+000000F3                      377  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 246
+000000F3 00                   378  	nop
+000000F4                      379  .BB@LABEL@4_3:	; entry.split2
+000000F4                      380  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 247
+000000F4 00                   381  	nop
+000000F5                      382  .BB@LABEL@4_4:	; entry.split3
+000000F5                      383  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 248
+000000F5 00                   384  	nop
+000000F6                      385  .BB@LABEL@4_5:	; entry.split4
+000000F6                      386  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 249
+000000F6 00                   387  	nop
+000000F7                      388  .BB@LABEL@4_6:	; entry.split5
+000000F7                      389  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 250
+000000F7 00                   390  	nop
+000000F8                      391  .BB@LABEL@4_7:	; entry.split6
+000000F8                      392  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 251
+000000F8 00                   393  	nop
+000000F9                      394  .BB@LABEL@4_8:	; entry.split7
+000000F9                      395  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 252
+000000F9 00                   396  	nop
+000000FA                      397  .BB@LABEL@4_9:	; entry.split8
+000000FA                      398  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 253
+000000FA 00                   399  	nop
+000000FB                      400  .BB@LABEL@4_10:	; entry.split9
+000000FB                      401  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 254
+000000FB 00                   402  	nop
+000000FC                      403  .BB@LABEL@4_11:	; entry.split10
+000000FC                      404  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 255
+000000FC 00                   405  	nop
+000000FD                      406  .BB@LABEL@4_12:	; entry.split11
+000000FD                      407  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 256
+000000FD 00                   408  	nop
+000000FE                      409  .BB@LABEL@4_13:	; entry.split12
+000000FE                      410  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 257
+000000FE 00                   411  	nop
+000000FF                      412  .BB@LABEL@4_14:	; entry.split13
+000000FF                      413  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 258
+000000FF 00                   414  	nop
+00000100                      415  .BB@LABEL@4_15:	; entry.split14
+00000100                      416  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 259
+00000100 00                   417  	nop
+00000101                      418  .BB@LABEL@4_16:	; entry.split15
+00000101                      419  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 260
+00000101 00                   420  	nop
+00000102 D7                   421  	ret
+00000103                      422  .LFE4:
+00000103                      423  	.TYPE _POWERMGMT_DoBeforeStop,function,.LFE5-_POWERMGMT_DoBeforeStop
+00000103                      424  _POWERMGMT_DoBeforeStop:
+00000103                      425  	.STACK _POWERMGMT_DoBeforeStop = 4
+00000103                      426  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 266
+00000103 FE0000               427  	call $!_POWERMGMT_EXLVD_Action@1
+00000106                      428  .BB@LABEL@5_1:	; entry.split
+00000106                      429  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 268
+00000106 FC000000             430  	call !!_LCD_ClearAll
+0000010A                      431  .BB@LABEL@5_2:	; entry.split1
+0000010A                      432  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 269
+0000010A FC000000             433  	call !!_R_LCD_PowerOff
+0000010E                      434  .BB@LABEL@5_3:	; entry.split2
+0000010E                      435  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 273
+0000010E FC000000             436  	call !!_R_UART0_Stop
+00000112                      437  .BB@LABEL@5_4:	; entry.split3
+00000112                      438  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 274
+00000112 FC000000             439  	call !!_R_UART2_Stop
+00000116                      440  .BB@LABEL@5_5:	; entry.split4
+00000116                      441  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 275
+00000116 FC000000             442  	call !!_R_UART3_Stop
+0000011A                      443  .BB@LABEL@5_6:	; entry.split5
+0000011A                      444  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 276
+0000011A FC000000             445  	call !!_R_TAU0_Channel0_Stop
+0000011E                      446  .BB@LABEL@5_7:	; entry.split6
+0000011E                      447  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 277
+0000011E FC000000             448  	call !!_R_TAU0_Channel1_Stop
+00000122                      449  .BB@LABEL@5_8:	; entry.split7
+00000122                      450  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 278
+00000122 FC000000             451  	call !!_R_TAU0_Channel2_Stop
+00000126                      452  .BB@LABEL@5_9:	; entry.split8
+00000126                      453  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 279
+00000126 FC000000             454  	call !!_R_TAU0_Channel3_Stop
+0000012A                      455  .BB@LABEL@5_10:	; entry.split9
+0000012A                      456  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 281
+0000012A FC000000             457  	call !!_R_RTC_Set_ConstPeriodInterruptOff
+0000012E                      458  .BB@LABEL@5_11:	; entry.split10
+0000012E                      459  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 283
+0000012E FC000000             460  	call !!_R_PORT_StopCreate
+00000132                      461  .BB@LABEL@5_12:	; entry.split11
+00000132 36FC00               462  	movw hl, #0x00FC
+00000135                      463  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 285
+00000135 7183                 464  	clr1 [hl].0
+00000137                      465  .BB@LABEL@5_13:	; entry.split12
+00000137                      466  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 289
+00000137 F5F000               467  	clrb !0x00F0
+0000013A                      468  .BB@LABEL@5_14:	; entry.split13
+0000013A                      469  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 290
+0000013A F5FA00               470  	clrb !0x00FA
+0000013D                      471  .BB@LABEL@5_15:	; entry.split14
+0000013D                      472  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 291
+0000013D F5FC00               473  	clrb !0x00FC
+00000140 D7                   474  	ret
+00000141                      475  .LFE5:
+00000141                      476  	.TYPE _POWERMGMT_ProcessMode1,function,.LFE6-_POWERMGMT_ProcessMode1
+00000141                      477  _POWERMGMT_ProcessMode1:
+00000141                      478  	.STACK _POWERMGMT_ProcessMode1 = 26
+00000141                      479  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 312
+00000141 2006                 480  	subw sp, #0x06
+00000143                      481  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 318
+00000143 D50000               482  	cmp0 !LOWW(_g_softreset_flag)
+00000146 61F8                 483  	sknz
+00000148                      484  .BB@LABEL@6_1:	; if_then_bb
+00000148                      485  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 320
+00000148 FE0000               486  	call $!_POWERMGMT_DoAfterStop
+0000014B                      487  .BB@LABEL@6_2:	; if_break_bb
+0000014B                      488  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 323
+0000014B FC000000             489  	call !!_LCD_ClearAll
+0000014F                      490  .BB@LABEL@6_3:	; if_break_bb.split
+0000014F                      491  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 325
+0000014F FC000000             492  	call !!_readRTC
+00000153                      493  .BB@LABEL@6_4:	; if_break_bb.split1
+00000153                      494  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 328
+00000153 FC000000             495  	call !!_EM_GetSystemState
+00000157 318F                 496  	sarw ax, 8+0x00000
+00000159 440200               497  	cmpw ax, #0x0002
+0000015C 61E8                 498  	skz
+0000015E                      499  .BB@LABEL@6_5:	; if_then_bb13
+0000015E                      500  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 330
+0000015E FC000000             501  	call !!_startEM
+00000162                      502  .BB@LABEL@6_6:	; if_break_bb14
+00000162                      503  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 340
+00000162 E1                   504  	oneb a
+00000163 FC000000             505  	call !!_powerUpDataCheck
+00000167                      506  .BB@LABEL@6_7:	; if_break_bb14.split
+00000167                      507  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 342
+00000167 D50000               508  	cmp0 !LOWW(_g_softreset_flag)
+0000016A DF00                 509  	bnz $.BB@LABEL@6_9
+0000016C                      510  .BB@LABEL@6_8:	; if_then_bb20
+0000016C                      511  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 345
+0000016C FC000000             512  	call !!_do_initial_things
+00000170 EF00                 513  	br $.BB@LABEL@6_10
+00000172                      514  .BB@LABEL@6_9:	; if_else_bb
+00000172                      515  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 348
+00000172 F50000               516  	clrb !LOWW(_g_softreset_flag)
+00000175                      517  .BB@LABEL@6_10:	; if_break_bb21
+00000175                      518  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 351
+00000175 FC000000             519  	call !!_LCD_DisplayAll
+00000179                      520  .BB@LABEL@6_11:	; if_break_bb21.split
+00000179                      521  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 357
+00000179 2008                 522  	subw sp, #0x08
+0000017B AEF8                 523  	movw ax, sp
+0000017D 340800               524  	movw de, #0x0008
+00000180 320000               525  	movw bc, #LOWW(_capturedRTC)
+00000183 FC000000             526  	call !!_memcpy
+00000187 2008                 527  	subw sp, #0x08
+00000189 AEF8                 528  	movw ax, sp
+0000018B 340800               529  	movw de, #0x0008
+0000018E 320000               530  	movw bc, #LOWW(_rtc)
+00000191 FC000000             531  	call !!_memcpy
+00000195 FC000000             532  	call !!_diffInSecondsBetween
+00000199 14                   533  	movw de, ax
+0000019A 13                   534  	movw ax, bc
+0000019B 1010                 535  	addw sp, #0x10
+0000019D 7C80                 536  	xor a, #0x80
+0000019F 440080               537  	cmpw ax, #0x8000
+000001A2 15                   538  	movw ax, de
+000001A3 61F8                 539  	sknz
+000001A5                      540  .BB@LABEL@6_12:	; if_break_bb21.split
+000001A5 440600               541  	cmpw ax, #0x0006
+000001A8                      542  .BB@LABEL@6_13:	; if_break_bb21.split
+000001A8 DC00                 543  	bc $.BB@LABEL@6_25
+000001AA                      544  .BB@LABEL@6_14:	; if_then_bb26
+000001AA                      545  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 360
+000001AA C80100               546  	mov [sp+0x01], #0x00
+000001AD                      547  .BB@LABEL@6_15:	; bb
+000001AD                      548  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 363
+000001AD FC000000             549  	call !!_record_power_fail_event
+000001B1 9800                 550  	mov [sp+0x00], a
+000001B3                      551  .BB@LABEL@6_16:	; bb.split
+000001B3                      552  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 364
+000001B3 8801                 553  	mov a, [sp+0x01]
+000001B5 81                   554  	inc a
+000001B6 9801                 555  	mov [sp+0x01], a
+000001B8                      556  .BB@LABEL@6_17:	; bb.split2
+000001B8                      557  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 365
+000001B8 8801                 558  	mov a, [sp+0x01]
+000001BA 318F                 559  	sarw ax, 8+0x00000
+000001BC 7C80                 560  	xor a, #0x80
+000001BE 440680               561  	cmpw ax, #0x8006
+000001C1 DC00                 562  	bc $.BB@LABEL@6_20
+000001C3                      563  .BB@LABEL@6_18:	; bb34
+000001C3 8800                 564  	mov a, [sp+0x00]
+000001C5 318F                 565  	sarw ax, 8+0x00000
+000001C7 6168                 566  	or a, x
+000001C9 DF00                 567  	bnz $.BB@LABEL@6_20
+000001CB                      568  .BB@LABEL@6_19:	; bb39
+000001CB E6                   569  	onew ax
+000001CC B802                 570  	movw [sp+0x02], ax
+000001CE EF00                 571  	br $.BB@LABEL@6_21
+000001D0                      572  .BB@LABEL@6_20:	; bb40
+000001D0 F6                   573  	clrw ax
+000001D1 B802                 574  	movw [sp+0x02], ax
+000001D3                      575  .BB@LABEL@6_21:	; bb41
+000001D3 A802                 576  	movw ax, [sp+0x02]
+000001D5 6168                 577  	or a, x
+000001D7 61E8                 578  	skz
+000001D9                      579  .BB@LABEL@6_22:	; if_then_bb46
+000001D9                      580  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 366
+000001D9 C80001               581  	mov [sp+0x00], #0x01
+000001DC                      582  .BB@LABEL@6_23:	; if_break_bb47
+000001DC                      583  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 361
+000001DC 8800                 584  	mov a, [sp+0x00]
+000001DE 318F                 585  	sarw ax, 8+0x00000
+000001E0 6168                 586  	or a, x
+000001E2 DD00                 587  	bz $.BB@LABEL@6_15
+000001E4                      588  .BB@LABEL@6_24:	; bb53
+000001E4                      589  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 370
+000001E4 FC000000             590  	call !!_clearPersistenceCounters
+000001E8                      591  .BB@LABEL@6_25:	; if_break_bb54
+000001E8                      592  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 374
+000001E8 F50000               593  	clrb !LOWW(_g_display_mode)
+000001EB                      594  .BB@LABEL@6_26:	; if_break_bb54.split
+000001EB                      595  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 375
+000001EB CF0000FF             596  	mov !LOWW(_sub_disp_state), #0xFF
+000001EF                      597  .BB@LABEL@6_27:	; if_break_bb54.split3
+000001EF                      598  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 376
+000001EF CF0000FF             599  	mov !LOWW(_disp_state), #0xFF
+000001F3                      600  .BB@LABEL@6_28:	; if_break_bb54.split4
+000001F3                      601  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 377
+000001F3 8F0000               602  	mov a, !LOWW(_disp_autoscroll_interval)
+000001F6 9F0000               603  	mov !LOWW(_disp_timer), a
+000001F9                      604  .BB@LABEL@6_29:	; if_break_bb54.split5
+000001F9                      605  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 378
+000001F9 F50000               606  	clrb !LOWW(_autoscrollInButtonMode)
+000001FC                      607  .BB@LABEL@6_30:	; if_break_bb54.split6
+000001FC                      608  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 379
+000001FC F50000               609  	clrb !LOWW(_alt_autoscroll_mode)
+000001FF                      610  .BB@LABEL@6_31:	; if_break_bb54.split7
+000001FF                      611  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 380
+000001FF F50000               612  	clrb !LOWW(_avoidShowingRepeatParameters)
+00000202                      613  .BB@LABEL@6_32:	; if_break_bb54.split8
+00000202                      614  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 382
+00000202 F50000               615  	clrb !LOWW(_fast_display_flag)
+00000205                      616  .BB@LABEL@6_33:	; if_break_bb54.split9
+00000205                      617  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 383
+00000205 F50000               618  	clrb !LOWW(_someKeyPressed)
+00000208                      619  .BB@LABEL@6_34:	; if_break_bb54.split10
+00000208                      620  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 384
+00000208 F50000               621  	clrb !LOWW(_fwdKeyPressed)
+0000020B                      622  .BB@LABEL@6_35:	; if_break_bb54.split11
+0000020B                      623  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 385
+0000020B F50000               624  	clrb !LOWW(_revKeyPressed)
+0000020E                      625  .BB@LABEL@6_36:	; if_break_bb54.split12
+0000020E F6                   626  	clrw ax
+0000020F                      627  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 387
+0000020F BF0000               628  	movw !LOWW(_gujaratSecondsCounter+0x00002), ax
+00000212 BF0000               629  	movw !LOWW(_gujaratSecondsCounter), ax
+00000215                      630  .BB@LABEL@6_37:	; if_break_bb54.split13
+00000215                      631  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 388
+00000215 E50000               632  	oneb !LOWW(_init_done)
+00000218                      633  .BB@LABEL@6_38:	; if_break_bb54.split14
+00000218                      634  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 389
+00000218 71200000             635  	set1 !LOWW(_g_powermgmt_flag+0x00001).2
+0000021C                      636  .BB@LABEL@6_39:	; if_break_bb54.split15
+0000021C                      637  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 393
+0000021C AF0000               638  	movw ax, !LOWW(_mytmprdata+0x0000A)
+0000021F 31AD                 639  	shlw ax, 0x0A
+00000221 61C8                 640  	skc
+00000223                      641  .BB@LABEL@6_40:	; if_then_bb64
+00000223                      642  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 395
+00000223 71280000             643  	clr1 !LOWW(_g_TamperStatus).2
+00000227                      644  .BB@LABEL@6_41:	; if_break_bb69
+00000227                      645  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 398
+00000227 AF0000               646  	movw ax, !LOWW(_mytmprdata+0x0000A)
+0000022A 319D                 647  	shlw ax, 0x09
+0000022C 61C8                 648  	skc
+0000022E                      649  .BB@LABEL@6_42:	; if_then_bb75
+0000022E                      650  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 400
+0000022E F50000               651  	clrb !LOWW(_pulsesStartedComingFlag)
+00000231                      652  .BB@LABEL@6_43:	; if_break_bb76
+00000231                      653  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 404
+00000231 8D03                 654  	mov a, 0xFFF03
+00000233 310300               655  	bt a.0, $.BB@LABEL@6_46
+00000236                      656  .BB@LABEL@6_44:	; if_then_bb84
+00000236                      657  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 406
+00000236 F50000               658  	clrb !LOWW(_calswitch)
+00000239                      659  .BB@LABEL@6_45:	; if_then_bb84.split
+00000239                      660  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 407
+00000239 CF00000A             661  	mov !LOWW(_disp_autoscroll_interval), #0x0A
+0000023D EF00                 662  	br $.BB@LABEL@6_47
+0000023F                      663  .BB@LABEL@6_46:	; if_else_bb85
+0000023F                      664  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 410
+0000023F E50000               665  	oneb !LOWW(_calswitch)
+00000242                      666  .BB@LABEL@6_47:	; if_break_bb86
+00000242                      667  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 414
+00000242 C80400               668  	mov [sp+0x04], #0x00
+00000245                      669  .BB@LABEL@6_48:	; if_break_bb86.split
+00000245                      670  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 415
+00000245 F1                   671  	clrb a
+00000246 1006                 672  	addw sp, #0x06
+00000248 D7                   673  	ret
+00000249                      674  .LFE6:
+00000249                      675  	.TYPE _POWERMGMT_ProcessMode2,function,.LFE7-_POWERMGMT_ProcessMode2
+00000249                      676  _POWERMGMT_ProcessMode2:
+00000249                      677  	.STACK _POWERMGMT_ProcessMode2 = 6
+00000249                      678  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 417
+00000249 C7                   679  	push hl
+0000024A                      680  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 420
+0000024A 8F0000               681  	mov a, !LOWW(_g_powermgmt_flag)
+0000024D 3179                 682  	shl a, 0x07
+0000024F 317A                 683  	shr a, 0x07
+00000251 91                   684  	dec a
+00000252 61F8                 685  	sknz
+00000254                      686  .BB@LABEL@7_1:	; if_then_bb
+00000254                      687  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 422
+00000254 71080000             688  	clr1 !LOWW(_g_powermgmt_flag).0
+00000258                      689  .BB@LABEL@7_2:	; if_break_bb
+00000258                      690  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 424
+00000258 C80000               691  	mov [sp+0x00], #0x00
+0000025B                      692  .BB@LABEL@7_3:	; if_break_bb.split
+0000025B                      693  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 425
+0000025B F1                   694  	clrb a
+0000025C C2                   695  	pop bc
+0000025D D7                   696  	ret
+0000025E                      697  .LFE7:
+0000025E                      698  	.TYPE _POWERMGMT_ProcessMode3,function,.LFE8-_POWERMGMT_ProcessMode3
+0000025E                      699  _POWERMGMT_ProcessMode3:
+0000025E                      700  	.STACK _POWERMGMT_ProcessMode3 = 6
+0000025E                      701  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 428
+0000025E C7                   702  	push hl
+0000025F                      703  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 431
+0000025F 51E0                 704  	mov a, #0xE0
+00000261 FC000000             705  	call !!_R_RTC_Set_ConstPeriodInterruptOn
+00000265                      706  .BB@LABEL@8_1:	; entry.split
+00000265                      707  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 433
+00000265 CD0605               708  	mov 0xFFF06, #0x05
+00000268                      709  .BB@LABEL@8_2:	; entry.split1
+00000268                      710  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 434
+00000268 CE26FA               711  	mov 0xFFF26, #0xFA
+0000026B                      712  .BB@LABEL@8_3:	; entry.split2
+0000026B                      713  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 436
+0000026B FC000000             714  	call !!_R_LCD_PowerOn
+0000026F                      715  .BB@LABEL@8_4:	; entry.split3
+0000026F                      716  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 438
+0000026F F50000               717  	clrb !LOWW(_someKeyPressed)
+00000272                      718  .BB@LABEL@8_5:	; entry.split4
+00000272                      719  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 439
+00000272 F50000               720  	clrb !LOWW(_fast_display_flag)
+00000275                      721  .BB@LABEL@8_6:	; entry.split5
+00000275                      722  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 440
+00000275 F50000               723  	clrb !LOWW(_autoscrollInButtonMode)
+00000278                      724  .BB@LABEL@8_7:	; entry.split6
+00000278                      725  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 441
+00000278 F50000               726  	clrb !LOWW(_alt_autoscroll_mode)
+0000027B                      727  .BB@LABEL@8_8:	; entry.split7
+0000027B                      728  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 442
+0000027B F50000               729  	clrb !LOWW(_avoidShowingRepeatParameters)
+0000027E                      730  .BB@LABEL@8_9:	; entry.split8
+0000027E                      731  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 443
+0000027E F50000               732  	clrb !LOWW(_fwdKeyPressed)
+00000281                      733  .BB@LABEL@8_10:	; entry.split9
+00000281                      734  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 444
+00000281 F50000               735  	clrb !LOWW(_revKeyPressed)
+00000284                      736  .BB@LABEL@8_11:	; entry.split10
+00000284                      737  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 450
+00000284 F50000               738  	clrb !LOWW(_g_display_mode)
+00000287                      739  .BB@LABEL@8_12:	; entry.split11
+00000287                      740  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 452
+00000287 F50000               741  	clrb !LOWW(_sub_disp_state)
+0000028A                      742  .BB@LABEL@8_13:	; entry.split12
+0000028A                      743  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 453
+0000028A CF0000FF             744  	mov !LOWW(_disp_state), #0xFF
+0000028E                      745  .BB@LABEL@8_14:	; entry.split13
+0000028E                      746  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 454
+0000028E 8F0000               747  	mov a, !LOWW(_disp_autoscroll_interval)
+00000291 9F0000               748  	mov !LOWW(_disp_timer), a
+00000294                      749  .BB@LABEL@8_15:	; entry.split14
+00000294                      750  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 465
+00000294 6A0820               751  	or 0xFFF08, #0x20
+00000297                      752  .BB@LABEL@8_16:	; entry.split15
+00000297                      753  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 469
+00000297 6A0540               754  	or 0xFFF05, #0x40
+0000029A                      755  .BB@LABEL@8_17:	; entry.split16
+0000029A                      756  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 480
+0000029A FE0000               757  	call $!_checkCoverTamper
+0000029D                      758  .BB@LABEL@8_18:	; entry.split17
+0000029D                      759  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 482
+0000029D C80000               760  	mov [sp+0x00], #0x00
+000002A0                      761  .BB@LABEL@8_19:	; entry.split18
+000002A0                      762  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 483
+000002A0 F1                   763  	clrb a
+000002A1 C2                   764  	pop bc
+000002A2 D7                   765  	ret
+000002A3                      766  .LFE8:
+000002A3                      767  	.TYPE _POWERMGMT_ProcessMode4,function,.LFE9-_POWERMGMT_ProcessMode4
+000002A3                      768  _POWERMGMT_ProcessMode4:
+000002A3                      769  	.STACK _POWERMGMT_ProcessMode4 = 6
+000002A3                      770  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 485
+000002A3 C7                   771  	push hl
+000002A4                      772  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 487
+000002A4 8F0000               773  	mov a, !LOWW(_g_powermgmt_previous_mode@2)
+000002A7 318F                 774  	sarw ax, 8+0x00000
+000002A9 B1                   775  	decw ax
+000002AA 440000               776  	cmpw ax, #0x0000
+000002AD                      777  	.bz $!.BB@LABEL@9_43
+000002AD 61F8                    	 -- Skncond
+000002AF EE0000                  	 -- br	**.target1
+000002B2                      778  .BB@LABEL@9_1:	; entry
+000002B2 B1                   779  	decw ax
+000002B3 440000               780  	cmpw ax, #0x0000
+000002B6 DD00                 781  	bz $.BB@LABEL@9_4
+000002B8                      782  .BB@LABEL@9_2:	; entry
+000002B8 B1                   783  	decw ax
+000002B9 440000               784  	cmpw ax, #0x0000
+000002BC                      785  	.bz $!.BB@LABEL@9_38
+000002BC 61F8                    	 -- Skncond
+000002BE EE0000                  	 -- br	**.target1
+000002C1                      786  .BB@LABEL@9_3:	; entry
+000002C1 440200               787  	cmpw ax, #0x0002
+000002C4                      788  	.bz $!.BB@LABEL@9_43, $!.BB@LABEL@9_44
+000002C4 61F8                    	 -- Skncond
+000002C6 EE0000                  	 -- br	**.target1
+000002C9 EE0000                  	 -- br	**.target2
+000002CC                      789  .BB@LABEL@9_4:	; switch_clause_bb
+000002CC                      790  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 491
+000002CC AF0000               791  	movw ax, !LOWW(_e2write_flags)
+000002CF 6168                 792  	or a, x
+000002D1 DD00                 793  	bz $.BB@LABEL@9_8
+000002D3                      794  .BB@LABEL@9_5:	; if_then_bb
+000002D3                      795  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 493
+000002D3 FC000000             796  	call !!_wre2rom
+000002D7                      797  .BB@LABEL@9_6:	; if_then_bb.split
+000002D7                      798  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 494
+000002D7 FC000000             799  	call !!_R_WDT_Restart
+000002DB                      800  .BB@LABEL@9_7:	; if_then_bb.split1
+000002DB                      801  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 495
+000002DB C80001               802  	mov [sp+0x00], #0x01
+000002DE EE0000               803  	br $!.BB@LABEL@9_45
+000002E1                      804  .BB@LABEL@9_8:	; if_break_bb
+000002E1                      805  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 498
+000002E1 FC000000             806  	call !!_EM_GetSystemState
+000002E5 318F                 807  	sarw ax, 8+0x00000
+000002E7 440200               808  	cmpw ax, #0x0002
+000002EA DF00                 809  	bnz $.BB@LABEL@9_11
+000002EC                      810  .BB@LABEL@9_9:	; if_then_bb11
+000002EC                      811  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 500
+000002EC FC000000             812  	call !!_EM_Stop
+000002F0 D1                   813  	cmp0 a
+000002F1 DD00                 814  	bz $.BB@LABEL@9_11
+000002F3                      815  .BB@LABEL@9_10:	; if_else_bb
+000002F3                      816  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 506
+000002F3 C80001               817  	mov [sp+0x00], #0x01
+000002F6 EE0000               818  	br $!.BB@LABEL@9_45
+000002F9                      819  .BB@LABEL@9_11:	; if_break_bb21
+000002F9                      820  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 510
+000002F9 8F0000               821  	mov a, !LOWW(_g_powermgmt_flag+0x00001)
+000002FC 3159                 822  	shl a, 0x05
+000002FE 317A                 823  	shr a, 0x07
+00000300 91                   824  	dec a
+00000301 DF00                 825  	bnz $.BB@LABEL@9_15
+00000303                      826  .BB@LABEL@9_12:	; if_then_bb29
+00000303                      827  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 512
+00000303 FC000000             828  	call !!_readRTC
+00000307                      829  .BB@LABEL@9_13:	; if_then_bb29.split
+00000307                      830  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 513
+00000307 340800               831  	movw de, #0x0008
+0000030A 320000               832  	movw bc, #LOWW(_rtc)
+0000030D 300000               833  	movw ax, #LOWW(_capturedRTC)
+00000310 FC000000             834  	call !!_memcpy
+00000314                      835  .BB@LABEL@9_14:	; if_then_bb29.split2
+00000314                      836  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 514
+00000314 320700               837  	movw bc, #0x0007
+00000317 300000               838  	movw ax, #LOWW(_capturedRTC)
+0000031A FC000000             839  	call !!_calcChecksum
+0000031E 9F0000               840  	mov !LOWW(_capturedRTC+0x00007), a
+00000321                      841  .BB@LABEL@9_15:	; if_break_bb31
+00000321                      842  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 518
+00000321 71080000             843  	clr1 !LOWW(_g_powermgmt_flag).0
+00000325                      844  .BB@LABEL@9_16:	; if_break_bb31.split
+00000325                      845  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 519
+00000325 71180000             846  	clr1 !LOWW(_g_powermgmt_flag).1
+00000329                      847  .BB@LABEL@9_17:	; if_break_bb31.split3
+00000329                      848  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 520
+00000329 71280000             849  	clr1 !LOWW(_g_powermgmt_flag).2
+0000032D                      850  .BB@LABEL@9_18:	; if_break_bb31.split4
+0000032D                      851  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 521
+0000032D 71380000             852  	clr1 !LOWW(_g_powermgmt_flag).3
+00000331                      853  .BB@LABEL@9_19:	; if_break_bb31.split5
+00000331                      854  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 522
+00000331 71180000             855  	clr1 !LOWW(_g_powermgmt_flag+0x00001).1
+00000335                      856  .BB@LABEL@9_20:	; if_break_bb31.split6
+00000335 F6                   857  	clrw ax
+00000336                      858  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 525
+00000336 BF0000               859  	movw !LOWW(_calWatt+0x00002), ax
+00000339 BF0000               860  	movw !LOWW(_calWatt), ax
+0000033C                      861  .BB@LABEL@9_21:	; if_break_bb31.split7
+0000033C                      862  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 526
+0000033C BF0000               863  	movw !LOWW(_total_active_power+0x00002), ax
+0000033F BF0000               864  	movw !LOWW(_total_active_power), ax
+00000342                      865  .BB@LABEL@9_22:	; if_break_bb31.split8
+00000342                      866  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 527
+00000342 BF0000               867  	movw !LOWW(_total_active_power_pulsing+0x00002), ax
+00000345 BF0000               868  	movw !LOWW(_total_active_power_pulsing), ax
+00000348                      869  .BB@LABEL@9_23:	; if_break_bb31.split9
+00000348                      870  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 529
+00000348 BF0000               871  	movw !LOWW(_calVar+0x00002), ax
+0000034B BF0000               872  	movw !LOWW(_calVar), ax
+0000034E                      873  .BB@LABEL@9_24:	; if_break_bb31.split10
+0000034E                      874  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 530
+0000034E BF0000               875  	movw !LOWW(_total_reactive_power+0x00002), ax
+00000351 BF0000               876  	movw !LOWW(_total_reactive_power), ax
+00000354                      877  .BB@LABEL@9_25:	; if_break_bb31.split11
+00000354                      878  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 531
+00000354 BF0000               879  	movw !LOWW(_total_reactive_power_pulsing+0x00002), ax
+00000357 BF0000               880  	movw !LOWW(_total_reactive_power_pulsing), ax
+0000035A                      881  .BB@LABEL@9_26:	; if_break_bb31.split12
+0000035A                      882  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 532
+0000035A BF0000               883  	movw !LOWW(_total_apparent_power_pulsing+0x00002), ax
+0000035D BF0000               884  	movw !LOWW(_total_apparent_power_pulsing), ax
+00000360                      885  .BB@LABEL@9_27:	; if_break_bb31.split13
+00000360                      886  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 534
+00000360 F50000               887  	clrb !LOWW(_init_done)
+00000363                      888  .BB@LABEL@9_28:	; if_break_bb31.split14
+00000363                      889  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 536
+00000363 FE0000               890  	call $!_POWERMGMT_DoBeforeStop
+00000366                      891  .BB@LABEL@9_29:	; if_break_bb31.split15
+00000366                      892  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 538
+00000366 D50000               893  	cmp0 !LOWW(_calswitch)
+00000369 DD00                 894  	bz $.BB@LABEL@9_31
+0000036B                      895  .BB@LABEL@9_30:	; if_then_bb52
+0000036B F6                   896  	clrw ax
+0000036C                      897  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 539
+0000036C BF0000               898  	movw !LOWW(_gujaratSecondsCounter+0x00002), ax
+0000036F 301BFD               899  	movw ax, #0xFD1B
+00000372 BF0000               900  	movw !LOWW(_gujaratSecondsCounter), ax
+00000375                      901  .BB@LABEL@9_31:	; if_break_bb53
+00000375                      902  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 541
+00000375 DB0000               903  	movw bc, !LOWW(_gujaratSecondsCounter+0x00002)
+00000378 AF0000               904  	movw ax, !LOWW(_gujaratSecondsCounter)
+0000037B 03                   905  	addw ax, bc
+0000037C DF00                 906  	bnz $.BB@LABEL@9_35
+0000037E                      907  .BB@LABEL@9_32:	; if_break_bb53
+0000037E DC00                 908  	bc $.BB@LABEL@9_35
+00000380                      909  .BB@LABEL@9_33:	; if_then_bb58
+00000380                      910  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 543
+00000380 51E0                 911  	mov a, #0xE0
+00000382 FC000000             912  	call !!_R_RTC_Set_ConstPeriodInterruptOn
+00000386                      913  .BB@LABEL@9_34:	; if_then_bb58.split
+00000386                      914  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 544
+00000386 71200000             915  	set1 !LOWW(_g_powermgmt_flag).2
+0000038A EF00                 916  	br $.BB@LABEL@9_36
+0000038C                      917  .BB@LABEL@9_35:	; if_else_bb62
+0000038C                      918  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 548
+0000038C 71280000             919  	clr1 !LOWW(_g_powermgmt_flag).2
+00000390                      920  .BB@LABEL@9_36:	; if_break_bb66
+00000390                      921  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 555
+00000390 71280000             922  	clr1 !LOWW(_g_powermgmt_flag+0x00001).2
+00000394                      923  .BB@LABEL@9_37:	; if_break_bb66.split
+00000394                      924  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 556
+00000394 C80000               925  	mov [sp+0x00], #0x00
+00000397 EF00                 926  	br $.BB@LABEL@9_45
+00000399                      927  .BB@LABEL@9_38:	; switch_clause_bb72
+00000399                      928  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 560
+00000399 FC000000             929  	call !!_R_LCD_PowerOff
+0000039D                      930  .BB@LABEL@9_39:	; switch_clause_bb72.split
+0000039D 36F000               931  	movw hl, #0x00F0
+000003A0                      932  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 562
+000003A0 71C3                 933  	clr1 [hl].4
+000003A2                      934  .BB@LABEL@9_40:	; switch_clause_bb72.split16
+000003A2 36FC00               935  	movw hl, #0x00FC
+000003A5                      936  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 563
+000003A5 7183                 937  	clr1 [hl].0
+000003A7                      938  .BB@LABEL@9_41:	; switch_clause_bb72.split17
+000003A7                      939  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 564
+000003A7 FC000000             940  	call !!_R_PORT_StopCreate
+000003AB                      941  .BB@LABEL@9_42:	; switch_clause_bb72.split18
+000003AB                      942  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 565
+000003AB C80000               943  	mov [sp+0x00], #0x00
+000003AE EF00                 944  	br $.BB@LABEL@9_45
+000003B0                      945  .BB@LABEL@9_43:	; switch_clause_bb74
+000003B0                      946  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 570
+000003B0 C80001               947  	mov [sp+0x00], #0x01
+000003B3 EF00                 948  	br $.BB@LABEL@9_45
+000003B5                      949  .BB@LABEL@9_44:	; switch_break_bb
+000003B5                      950  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 572
+000003B5 C80001               951  	mov [sp+0x00], #0x01
+000003B8                      952  .BB@LABEL@9_45:	; bb77
+000003B8 8800                 953  	mov a, [sp+0x00]
+000003BA 9801                 954  	mov [sp+0x01], a
+000003BC                      955  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 573
+000003BC C2                   956  	pop bc
+000003BD D7                   957  	ret
+000003BE                      958  .LFE9:
+000003BE                      959  	.TYPE _POWERMGMT_ProcessMode5,function,.LFE10-_POWERMGMT_ProcessMode5
+000003BE                      960  _POWERMGMT_ProcessMode5:
+000003BE                      961  	.STACK _POWERMGMT_ProcessMode5 = 6
+000003BE                      962  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 575
+000003BE C7                   963  	push hl
+000003BF                      964  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 577
+000003BF FE0000               965  	call $!_POWERMGMT_DoAfterStop
+000003C2                      966  .BB@LABEL@10_1:	; entry.split
+000003C2                      967  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 579
+000003C2 FC000000             968  	call !!_EM_GetSystemState
+000003C6 318F                 969  	sarw ax, 8+0x00000
+000003C8 440200               970  	cmpw ax, #0x0002
+000003CB DD00                 971  	bz $.BB@LABEL@10_4
+000003CD                      972  .BB@LABEL@10_2:	; if_then_bb
+000003CD                      973  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 582
+000003CD FC000000             974  	call !!_EM_Start
+000003D1 D1                   975  	cmp0 a
+000003D2 DD00                 976  	bz $.BB@LABEL@10_4
+000003D4                      977  .BB@LABEL@10_3:	; if_then_bb10
+000003D4                      978  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 584
+000003D4 C80001               979  	mov [sp+0x00], #0x01
+000003D7 EF00                 980  	br $.BB@LABEL@10_5
+000003D9                      981  .BB@LABEL@10_4:	; if_break_bb11
+000003D9                      982  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 588
+000003D9 C80000               983  	mov [sp+0x00], #0x00
+000003DC                      984  .BB@LABEL@10_5:	; bb13
+000003DC 8800                 985  	mov a, [sp+0x00]
+000003DE 9801                 986  	mov [sp+0x01], a
+000003E0                      987  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 589
+000003E0 C2                   988  	pop bc
+000003E1 D7                   989  	ret
+000003E2                      990  .LFE10:
+000003E2                      991  	.TYPE _POWERMGMT_SwitchMode@1,function,.LFE11-_POWERMGMT_SwitchMode@1
+000003E2                      992  _POWERMGMT_SwitchMode@1:
+000003E2                      993  	.STACK _POWERMGMT_SwitchMode@1 = 8
+000003E2                      994  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 591
+000003E2 2004                 995  	subw sp, #0x04
+000003E4 9801                 996  	mov [sp+0x01], a
+000003E6                      997  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 593
+000003E6 C80000               998  	mov [sp+0x00], #0x00
+000003E9                      999  .BB@LABEL@11_1:	; entry.split
+000003E9                     1000  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 596
+000003E9 8801                1001  	mov a, [sp+0x01]
+000003EB 318F                1002  	sarw ax, 8+0x00000
+000003ED B1                  1003  	decw ax
+000003EE 440000              1004  	cmpw ax, #0x0000
+000003F1 DD00                1005  	bz $.BB@LABEL@11_7
+000003F3                     1006  .BB@LABEL@11_2:	; entry.split
+000003F3 B1                  1007  	decw ax
+000003F4 440000              1008  	cmpw ax, #0x0000
+000003F7 DD00                1009  	bz $.BB@LABEL@11_8
+000003F9                     1010  .BB@LABEL@11_3:	; entry.split
+000003F9 B1                  1011  	decw ax
+000003FA 440000              1012  	cmpw ax, #0x0000
+000003FD DD00                1013  	bz $.BB@LABEL@11_9
+000003FF                     1014  .BB@LABEL@11_4:	; entry.split
+000003FF B1                  1015  	decw ax
+00000400 440000              1016  	cmpw ax, #0x0000
+00000403 DD00                1017  	bz $.BB@LABEL@11_10
+00000405                     1018  .BB@LABEL@11_5:	; entry.split
+00000405 B1                  1019  	decw ax
+00000406 440000              1020  	cmpw ax, #0x0000
+00000409 DD00                1021  	bz $.BB@LABEL@11_11
+0000040B                     1022  .BB@LABEL@11_6:	; entry.split
+0000040B 440100              1023  	cmpw ax, #0x0001
+0000040E DD00                1024  	bz $.BB@LABEL@11_12
+00000410 EF00                1025  	br $.BB@LABEL@11_13
+00000412                     1026  .BB@LABEL@11_7:	; switch_clause_bb
+00000412                     1027  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 599
+00000412 FE0000              1028  	call $!_POWERMGMT_ProcessMode1
+00000415 9800                1029  	mov [sp+0x00], a
+00000417 EF00                1030  	br $.BB@LABEL@11_14
+00000419                     1031  .BB@LABEL@11_8:	; switch_clause_bb5
+00000419                     1032  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 603
+00000419 FE0000              1033  	call $!_POWERMGMT_ProcessMode2
+0000041C 9800                1034  	mov [sp+0x00], a
+0000041E EF00                1035  	br $.BB@LABEL@11_14
+00000420                     1036  .BB@LABEL@11_9:	; switch_clause_bb7
+00000420                     1037  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 607
+00000420 FE0000              1038  	call $!_POWERMGMT_ProcessMode3
+00000423 9800                1039  	mov [sp+0x00], a
+00000425 EF00                1040  	br $.BB@LABEL@11_14
+00000427                     1041  .BB@LABEL@11_10:	; switch_clause_bb9
+00000427                     1042  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 611
+00000427 FE0000              1043  	call $!_POWERMGMT_ProcessMode4
+0000042A 9800                1044  	mov [sp+0x00], a
+0000042C EF00                1045  	br $.BB@LABEL@11_14
+0000042E                     1046  .BB@LABEL@11_11:	; switch_clause_bb11
+0000042E                     1047  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 615
+0000042E FE0000              1048  	call $!_POWERMGMT_ProcessMode5
+00000431 9800                1049  	mov [sp+0x00], a
+00000433 EF00                1050  	br $.BB@LABEL@11_14
+00000435                     1051  .BB@LABEL@11_12:	; switch_clause_bb13
+00000435                     1052  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 619
+00000435 C80000              1053  	mov [sp+0x00], #0x00
+00000438 EF00                1054  	br $.BB@LABEL@11_14
+0000043A                     1055  .BB@LABEL@11_13:	; switch_clause_bb14
+0000043A                     1056  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 624
+0000043A C80001              1057  	mov [sp+0x00], #0x01
+0000043D                     1058  .BB@LABEL@11_14:	; switch_break_bb
+0000043D                     1059  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 627
+0000043D 8800                1060  	mov a, [sp+0x00]
+0000043F 9802                1061  	mov [sp+0x02], a
+00000441                     1062  .BB@LABEL@11_15:	; switch_break_bb.split
+00000441                     1063  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 628
+00000441 1004                1064  	addw sp, #0x04
+00000443 D7                  1065  	ret
+00000444                     1066  .LFE11:
+00000444                     1067  	.TYPE _POWERMGMT_GetMode,function,.LFE12-_POWERMGMT_GetMode
+00000444                     1068  _POWERMGMT_GetMode:
+00000444                     1069  	.STACK _POWERMGMT_GetMode = 6
+00000444                     1070  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 631
+00000444 C7                  1071  	push hl
+00000445                     1072  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 637
+00000445 8F0000              1073  	mov a, !LOWW(_g_powermgmt_current_mode@1)
+00000448 9800                1074  	mov [sp+0x00], a
+0000044A                     1075  .BB@LABEL@12_1:	; entry.split
+0000044A                     1076  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 643
+0000044A C2                  1077  	pop bc
+0000044B D7                  1078  	ret
+0000044C                     1079  .LFE12:
+0000044C                     1080  	.TYPE _POWERMGMT_PollingProcessing,function,.LFE13-_POWERMGMT_PollingProcessing
+0000044C                     1081  _POWERMGMT_PollingProcessing:
+0000044C                     1082  	.STACK _POWERMGMT_PollingProcessing = 8
+0000044C                     1083  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 655
+0000044C 2004                1084  	subw sp, #0x04
+0000044E                     1085  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 661
+0000044E 8F0000              1086  	mov a, !LOWW(_g_powermgmt_current_mode@1)
+00000451 9800                1087  	mov [sp+0x00], a
+00000453                     1088  .BB@LABEL@13_1:	; entry.split
+00000453                     1089  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 662
+00000453 8F0000              1090  	mov a, !LOWW(_g_powermgmt_current_mode@1)
+00000456 9F0000              1091  	mov !LOWW(_g_powermgmt_previous_mode@2), a
+00000459                     1092  .BB@LABEL@13_2:	; entry.split1
+00000459                     1093  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 665
+00000459 8F0000              1094  	mov a, !LOWW(_g_powermgmt_previous_mode@2)
+0000045C 318F                1095  	sarw ax, 8+0x00000
+0000045E 440200              1096  	cmpw ax, #0x0002
+00000461 DD00                1097  	bz $.BB@LABEL@13_4
+00000463                     1098  .BB@LABEL@13_3:	; if_then_bb
+00000463                     1099  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 667
+00000463 8F0000              1100  	mov a, !LOWW(_g_powermgmt_previous_mode@2)
+00000466 9F0000              1101  	mov !LOWW(_g_powermgmt_prev_main_mode@3), a
+00000469                     1102  .BB@LABEL@13_4:	; if_break_bb
+00000469                     1103  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 670
+00000469 8F0000              1104  	mov a, !LOWW(_g_powermgmt_current_mode@1)
+0000046C 318F                1105  	sarw ax, 8+0x00000
+0000046E B1                  1106  	decw ax
+0000046F 440000              1107  	cmpw ax, #0x0000
+00000472 DD00                1108  	bz $.BB@LABEL@13_10
+00000474                     1109  .BB@LABEL@13_5:	; if_break_bb
+00000474 B1                  1110  	decw ax
+00000475 440000              1111  	cmpw ax, #0x0000
+00000478 DD00                1112  	bz $.BB@LABEL@13_21
+0000047A                     1113  .BB@LABEL@13_6:	; if_break_bb
+0000047A B1                  1114  	decw ax
+0000047B 440000              1115  	cmpw ax, #0x0000
+0000047E                     1116  	.bz $!.BB@LABEL@13_34
+0000047E 61F8                    	 -- Skncond
+00000480 EE0000                  	 -- br	**.target1
+00000483                     1117  .BB@LABEL@13_7:	; if_break_bb
+00000483 B1                  1118  	decw ax
+00000484 440000              1119  	cmpw ax, #0x0000
+00000487                     1120  	.bz $!.BB@LABEL@13_51
+00000487 61F8                    	 -- Skncond
+00000489 EE0000                  	 -- br	**.target1
+0000048C                     1121  .BB@LABEL@13_8:	; if_break_bb
+0000048C B1                  1122  	decw ax
+0000048D 440000              1123  	cmpw ax, #0x0000
+00000490                     1124  	.bz $!.BB@LABEL@13_70
+00000490 61F8                    	 -- Skncond
+00000492 EE0000                  	 -- br	**.target1
+00000495                     1125  .BB@LABEL@13_9:	; if_break_bb
+00000495 440100              1126  	cmpw ax, #0x0001
+00000498                     1127  	.bz $!.BB@LABEL@13_71, $!.BB@LABEL@13_73
+00000498 61F8                    	 -- Skncond
+0000049A EE0000                  	 -- br	**.target1
+0000049D EE0000                  	 -- br	**.target2
+000004A0                     1128  .BB@LABEL@13_10:	; switch_clause_bb
+000004A0                     1129  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 673
+000004A0 400000FF            1130  	cmp !LOWW(_g_display_mode), #0xFF
+000004A4 DD00                1131  	bz $.BB@LABEL@13_20
+000004A6                     1132  .BB@LABEL@13_11:	; if_then_bb15
+000004A6                     1133  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 675
+000004A6 AF0000              1134  	movw ax, !LOWW(_e2write_flags)
+000004A9 6168                1135  	or a, x
+000004AB DD00                1136  	bz $.BB@LABEL@13_13
+000004AD                     1137  .BB@LABEL@13_12:	; if_then_bb20
+000004AD                     1138  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 676
+000004AD FC000000            1139  	call !!_wre2rom
+000004B1 EF00                1140  	br $.BB@LABEL@13_20
+000004B3                     1141  .BB@LABEL@13_13:	; if_else_bb
+000004B3                     1142  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 679
+000004B3 8F0000              1143  	mov a, !LOWW(_g_powermgmt_flag)
+000004B6 6101                1144  	add a, a
+000004B8 317A                1145  	shr a, 0x07
+000004BA 91                  1146  	dec a
+000004BB DF00                1147  	bnz $.BB@LABEL@13_19
+000004BD                     1148  .BB@LABEL@13_14:	; if_then_bb28
+000004BD                     1149  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 681
+000004BD A20000              1150  	incw !LOWW(_mode1_counter@4@POWERMGMT_PollingProcessing)
+000004C0                     1151  .BB@LABEL@13_15:	; if_then_bb28.split
+000004C0                     1152  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 682
+000004C0 AF0000              1153  	movw ax, !LOWW(_mode1_counter@4@POWERMGMT_PollingProcessing)
+000004C3 44E903              1154  	cmpw ax, #0x03E9
+000004C6 DC00                1155  	bc $.BB@LABEL@13_20
+000004C8                     1156  .BB@LABEL@13_16:	; if_then_bb35
+000004C8 F6                  1157  	clrw ax
+000004C9                     1158  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 684
+000004C9 BF0000              1159  	movw !LOWW(_mode1_counter@4@POWERMGMT_PollingProcessing), ax
+000004CC                     1160  .BB@LABEL@13_17:	; if_then_bb35.split
+000004CC                     1161  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 685
+000004CC C80002              1162  	mov [sp+0x00], #0x02
+000004CF                     1163  .BB@LABEL@13_18:	; if_then_bb35.split2
+000004CF                     1164  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 686
+000004CF E50000              1165  	oneb !LOWW(_g_powermgmt_prev_main_mode@3)
+000004D2 EF00                1166  	br $.BB@LABEL@13_20
+000004D4                     1167  .BB@LABEL@13_19:	; if_else_bb37
+000004D4 F6                  1168  	clrw ax
+000004D5                     1169  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 691
+000004D5 BF0000              1170  	movw !LOWW(_mode1_counter@4@POWERMGMT_PollingProcessing), ax
+000004D8                     1171  .BB@LABEL@13_20:	; if_break_bb40
+000004D8                     1172  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 695
+000004D8 FE0000              1173  	call $!_checkCoverTamper
+000004DB EE0000              1174  	br $!.BB@LABEL@13_74
+000004DE                     1175  .BB@LABEL@13_21:	; switch_clause_bb41
+000004DE                     1176  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 699
+000004DE 360000              1177  	movw hl, #LOWW(_g_powermgmt_flag)
+000004E1 AF0000              1178  	movw ax, !LOWW(_mode1_counter@4@POWERMGMT_PollingProcessing)
+000004E4 31E300              1179  	bt [hl].6, $.BB@LABEL@13_28
+000004E7                     1180  .BB@LABEL@13_22:	; if_then_bb49
+000004E7                     1181  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 701
+000004E7 A1                  1182  	incw ax
+000004E8 BF0000              1183  	movw !LOWW(_mode1_counter@4@POWERMGMT_PollingProcessing), ax
+000004EB                     1184  .BB@LABEL@13_23:	; if_then_bb49.split
+000004EB                     1185  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 702
+000004EB AF0000              1186  	movw ax, !LOWW(_mode1_counter@4@POWERMGMT_PollingProcessing)
+000004EE 446500              1187  	cmpw ax, #0x0065
+000004F1                     1188  	.bc $!.BB@LABEL@13_74
+000004F1 61D8                    	 -- Skncond
+000004F3 EE0000                  	 -- br	**.target1
+000004F6                     1189  .BB@LABEL@13_24:	; if_then_bb56
+000004F6 F6                  1190  	clrw ax
+000004F7                     1191  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 704
+000004F7 BF0000              1192  	movw !LOWW(_mode1_counter@4@POWERMGMT_PollingProcessing), ax
+000004FA                     1193  .BB@LABEL@13_25:	; if_then_bb56.split
+000004FA                     1194  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 705
+000004FA C80001              1195  	mov [sp+0x00], #0x01
+000004FD                     1196  .BB@LABEL@13_26:	; if_then_bb56.split3
+000004FD                     1197  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 706
+000004FD CF0000FF            1198  	mov !LOWW(_g_display_mode), #0xFF
+00000501                     1199  .BB@LABEL@13_27:	; if_then_bb56.split4
+00000501                     1200  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 707
+00000501 8F0000              1201  	mov a, !LOWW(_disp_autoscroll_interval)
+00000504 9F0000              1202  	mov !LOWW(_disp_timer), a
+00000507 EE0000              1203  	br $!.BB@LABEL@13_74
+0000050A                     1204  .BB@LABEL@13_28:	; if_else_bb59
+0000050A                     1205  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 713
+0000050A 440A00              1206  	cmpw ax, #0x000A
+0000050D DE00                1207  	bnc $.BB@LABEL@13_30
+0000050F                     1208  .BB@LABEL@13_29:	; if_then_bb64
+0000050F                     1209  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 715
+0000050F A20000              1210  	incw !LOWW(_mode1_counter@4@POWERMGMT_PollingProcessing)
+00000512 EE0000              1211  	br $!.BB@LABEL@13_74
+00000515                     1212  .BB@LABEL@13_30:	; if_else_bb67
+00000515                     1213  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 720
+00000515 8F0000              1214  	mov a, !LOWW(_g_powermgmt_flag)
+00000518 6101                1215  	add a, a
+0000051A 317A                1216  	shr a, 0x07
+0000051C 91                  1217  	dec a
+0000051D                     1218  	.bnz $!.BB@LABEL@13_74
+0000051D 61E8                    	 -- Skncond
+0000051F EE0000                  	 -- br	**.target1
+00000522                     1219  .BB@LABEL@13_31:	; if_then_bb75
+00000522 F6                  1220  	clrw ax
+00000523                     1221  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 722
+00000523 BF0000              1222  	movw !LOWW(_mode1_counter@4@POWERMGMT_PollingProcessing), ax
+00000526                     1223  .BB@LABEL@13_32:	; if_then_bb75.split
+00000526                     1224  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 723
+00000526 C80004              1225  	mov [sp+0x00], #0x04
+00000529                     1226  .BB@LABEL@13_33:	; if_then_bb75.split5
+00000529                     1227  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 724
+00000529 FC000000            1228  	call !!_LCD_ClearAll
+0000052D EE0000              1229  	br $!.BB@LABEL@13_74
+00000530                     1230  .BB@LABEL@13_34:	; switch_clause_bb79
+00000530 F6                  1231  	clrw ax
+00000531                     1232  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 731
+00000531 BF0000              1233  	movw !LOWW(_mode1_counter@4@POWERMGMT_PollingProcessing), ax
+00000534 8F0000              1234  	mov a, !LOWW(_g_powermgmt_flag)
+00000537 6101                1235  	add a, a
+00000539 317A                1236  	shr a, 0x07
+0000053B 91                  1237  	dec a
+0000053C DF00                1238  	bnz $.BB@LABEL@13_49
+0000053E                     1239  .BB@LABEL@13_35:	; if_then_bb87.split
+0000053E                     1240  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 735
+0000053E AF0000              1241  	movw ax, !LOWW(_gujaratSecondsCounter+0x00002)
+00000541 7C80                1242  	xor a, #0x80
+00000543 440080              1243  	cmpw ax, #0x8000
+00000546 AF0000              1244  	movw ax, !LOWW(_gujaratSecondsCounter)
+00000549 61F8                1245  	sknz
+0000054B                     1246  .BB@LABEL@13_36:	; if_then_bb87.split
+0000054B 4421FD              1247  	cmpw ax, #0xFD21
+0000054E                     1248  .BB@LABEL@13_37:	; if_then_bb87.split
+0000054E DC00                1249  	bc $.BB@LABEL@13_40
+00000550                     1250  .BB@LABEL@13_38:	; bb
+00000550 D50000              1251  	cmp0 !LOWW(_sleepCommMode)
+00000553 DF00                1252  	bnz $.BB@LABEL@13_40
+00000555                     1253  .BB@LABEL@13_39:	; bb96
+00000555 E6                  1254  	onew ax
+00000556 B802                1255  	movw [sp+0x02], ax
+00000558 EF00                1256  	br $.BB@LABEL@13_41
+0000055A                     1257  .BB@LABEL@13_40:	; bb97
+0000055A F6                  1258  	clrw ax
+0000055B B802                1259  	movw [sp+0x02], ax
+0000055D                     1260  .BB@LABEL@13_41:	; bb98
+0000055D A802                1261  	movw ax, [sp+0x02]
+0000055F 6168                1262  	or a, x
+00000561 DD00                1263  	bz $.BB@LABEL@13_44
+00000563                     1264  .BB@LABEL@13_42:	; if_then_bb103
+00000563                     1265  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 739
+00000563 C80002              1266  	mov [sp+0x00], #0x02
+00000566                     1267  .BB@LABEL@13_43:	; if_then_bb103.split
+00000566                     1268  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 740
+00000566 CF000003            1269  	mov !LOWW(_g_powermgmt_prev_main_mode@3), #0x03
+0000056A                     1270  .BB@LABEL@13_44:	; if_break_bb104
+0000056A                     1271  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 743
+0000056A 8F0000              1272  	mov a, !LOWW(_g_powermgmt_flag)
+0000056D 3159                1273  	shl a, 0x05
+0000056F 317A                1274  	shr a, 0x07
+00000571 91                  1275  	dec a
+00000572 DF00                1276  	bnz $.BB@LABEL@13_48
+00000574                     1277  .BB@LABEL@13_45:	; if_then_bb112
+00000574                     1278  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 745
+00000574 8F0000              1279  	mov a, !LOWW(_disp_autoscroll_interval)
+00000577 9F0000              1280  	mov !LOWW(_disp_timer), a
+0000057A                     1281  .BB@LABEL@13_46:	; if_then_bb112.split
+0000057A                     1282  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 746
+0000057A 71280000            1283  	clr1 !LOWW(_g_powermgmt_flag).2
+0000057E                     1284  .BB@LABEL@13_47:	; if_then_bb112.split6
+0000057E                     1285  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 747
+0000057E E50000              1286  	oneb !LOWW(_someKeyPressed)
+00000581                     1287  .BB@LABEL@13_48:	; if_break_bb117
+00000581                     1288  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 774
+00000581 FE0000              1289  	call $!_checkCoverTamper
+00000584 EE0000              1290  	br $!.BB@LABEL@13_74
+00000587                     1291  .BB@LABEL@13_49:	; if_else_bb118.split
+00000587                     1292  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 783
+00000587 C80002              1293  	mov [sp+0x00], #0x02
+0000058A                     1294  .BB@LABEL@13_50:	; if_else_bb118.split7
+0000058A                     1295  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 784
+0000058A CF000003            1296  	mov !LOWW(_g_powermgmt_prev_main_mode@3), #0x03
+0000058E EE0000              1297  	br $!.BB@LABEL@13_74
+00000591                     1298  .BB@LABEL@13_51:	; switch_clause_bb120
+00000591                     1299  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 790
+00000591 360000              1300  	movw hl, #LOWW(_g_powermgmt_flag)
+00000594 31E300              1301  	bt [hl].6, $.BB@LABEL@13_55
+00000597                     1302  .BB@LABEL@13_52:	; if_then_bb128
+00000597                     1303  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 795
+00000597 C80002              1304  	mov [sp+0x00], #0x02
+0000059A                     1305  .BB@LABEL@13_53:	; if_then_bb128.split
+0000059A F6                  1306  	clrw ax
+0000059B                     1307  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 796
+0000059B BF0000              1308  	movw !LOWW(_mode1_counter@4@POWERMGMT_PollingProcessing), ax
+0000059E                     1309  .BB@LABEL@13_54:	; if_then_bb128.split8
+0000059E                     1310  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 797
+0000059E CF000004            1311  	mov !LOWW(_g_powermgmt_prev_main_mode@3), #0x04
+000005A2 EF00                1312  	br $.BB@LABEL@13_74
+000005A4                     1313  .BB@LABEL@13_55:	; if_else_bb129
+000005A4 F6                  1314  	clrw ax
+000005A5                     1315  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 802
+000005A5 BF0000              1316  	movw !LOWW(_mode1_counter@4@POWERMGMT_PollingProcessing), ax
+000005A8                     1317  .BB@LABEL@13_56:	; if_else_bb129.split
+000005A8                     1318  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 804
+000005A8 8F0000              1319  	mov a, !LOWW(_g_powermgmt_flag)
+000005AB 3159                1320  	shl a, 0x05
+000005AD 317A                1321  	shr a, 0x07
+000005AF 91                  1322  	dec a
+000005B0 DF00                1323  	bnz $.BB@LABEL@13_65
+000005B2                     1324  .BB@LABEL@13_57:	; if_then_bb137
+000005B2                     1325  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 807
+000005B2 360000              1326  	movw hl, #LOWW(_g_powermgmt_flag+0x00001)
+000005B5 319300              1327  	bt [hl].1, $.BB@LABEL@13_61
+000005B8                     1328  .BB@LABEL@13_58:	; if_then_bb145
+000005B8                     1329  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 809
+000005B8 D50000              1330  	cmp0 !LOWW(_calswitch)
+000005BB DD00                1331  	bz $.BB@LABEL@13_60
+000005BD                     1332  .BB@LABEL@13_59:	; if_then_bb151
+000005BD F6                  1333  	clrw ax
+000005BE                     1334  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 810
+000005BE BF0000              1335  	movw !LOWW(_gujaratSecondsCounter+0x00002), ax
+000005C1 301BFD              1336  	movw ax, #0xFD1B
+000005C4 BF0000              1337  	movw !LOWW(_gujaratSecondsCounter), ax
+000005C7 EF00                1338  	br $.BB@LABEL@13_62
+000005C9                     1339  .BB@LABEL@13_60:	; if_else_bb152
+000005C9 F6                  1340  	clrw ax
+000005CA                     1341  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 812
+000005CA BF0000              1342  	movw !LOWW(_gujaratSecondsCounter+0x00002), ax
+000005CD BF0000              1343  	movw !LOWW(_gujaratSecondsCounter), ax
+000005D0 EF00                1344  	br $.BB@LABEL@13_62
+000005D2                     1345  .BB@LABEL@13_61:	; if_else_bb154
+000005D2 F6                  1346  	clrw ax
+000005D3                     1347  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 817
+000005D3 BF0000              1348  	movw !LOWW(_gujaratSecondsCounter+0x00002), ax
+000005D6 301BFD              1349  	movw ax, #0xFD1B
+000005D9 BF0000              1350  	movw !LOWW(_gujaratSecondsCounter), ax
+000005DC                     1351  .BB@LABEL@13_62:	; if_break_bb155
+000005DC                     1352  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 821
+000005DC C80003              1353  	mov [sp+0x00], #0x03
+000005DF                     1354  .BB@LABEL@13_63:	; if_break_bb155.split
+000005DF                     1355  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 822
+000005DF 71280000            1356  	clr1 !LOWW(_g_powermgmt_flag).2
+000005E3                     1357  .BB@LABEL@13_64:	; if_break_bb155.split9
+000005E3                     1358  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 823
+000005E3 7193                1359  	clr1 [hl].1
+000005E5 EF00                1360  	br $.BB@LABEL@13_74
+000005E7                     1361  .BB@LABEL@13_65:	; if_else_bb162
+000005E7                     1362  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 830
+000005E7 8F0000              1363  	mov a, !LOWW(_g_powermgmt_flag)
+000005EA 3169                1364  	shl a, 0x06
+000005EC 317A                1365  	shr a, 0x07
+000005EE 91                  1366  	dec a
+000005EF DF00                1367  	bnz $.BB@LABEL@13_74
+000005F1                     1368  .BB@LABEL@13_66:	; if_then_bb170
+000005F1                     1369  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 832
+000005F1 C80003              1370  	mov [sp+0x00], #0x03
+000005F4                     1371  .BB@LABEL@13_67:	; if_then_bb170.split
+000005F4                     1372  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 833
+000005F4 D50000              1373  	cmp0 !LOWW(_calswitch)
+000005F7 DD00                1374  	bz $.BB@LABEL@13_69
+000005F9                     1375  .BB@LABEL@13_68:	; if_then_bb176
+000005F9 F6                  1376  	clrw ax
+000005FA                     1377  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 834
+000005FA BF0000              1378  	movw !LOWW(_gujaratSecondsCounter+0x00002), ax
+000005FD 301BFD              1379  	movw ax, #0xFD1B
+00000600 BF0000              1380  	movw !LOWW(_gujaratSecondsCounter), ax
+00000603 EF00                1381  	br $.BB@LABEL@13_74
+00000605                     1382  .BB@LABEL@13_69:	; if_else_bb177
+00000605 F6                  1383  	clrw ax
+00000606                     1384  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 836
+00000606 BF0000              1385  	movw !LOWW(_gujaratSecondsCounter+0x00002), ax
+00000609 BF0000              1386  	movw !LOWW(_gujaratSecondsCounter), ax
+0000060C EF00                1387  	br $.BB@LABEL@13_74
+0000060E                     1388  .BB@LABEL@13_70:	; switch_clause_bb182
+0000060E                     1389  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 843
+0000060E C80002              1390  	mov [sp+0x00], #0x02
+00000611 EF00                1391  	br $.BB@LABEL@13_74
+00000613                     1392  .BB@LABEL@13_71:	; switch_clause_bb183
+00000613 F6                  1393  	clrw ax
+00000614                     1394  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 847
+00000614 BF0000              1395  	movw !LOWW(_mode1_counter@4@POWERMGMT_PollingProcessing), ax
+00000617                     1396  .BB@LABEL@13_72:	; switch_clause_bb183.split
+00000617                     1397  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 848
+00000617 C80002              1398  	mov [sp+0x00], #0x02
+0000061A EF00                1399  	br $.BB@LABEL@13_74
+0000061C                     1400  .BB@LABEL@13_73:	; switch_clause_bb184
+0000061C                     1401  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 852
+0000061C C80001              1402  	mov [sp+0x00], #0x01
+0000061F                     1403  .BB@LABEL@13_74:	; switch_break_bb
+0000061F                     1404  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 857
+0000061F 8F0000              1405  	mov a, !LOWW(_g_powermgmt_current_mode@1)
+00000622 318F                1406  	sarw ax, 8+0x00000
+00000624 12                  1407  	movw bc, ax
+00000625 8800                1408  	mov a, [sp+0x00]
+00000627 318F                1409  	sarw ax, 8+0x00000
+00000629 43                  1410  	cmpw ax, bc
+0000062A DF00                1411  	bnz $.BB@LABEL@13_76
+0000062C                     1412  .BB@LABEL@13_75:	; bb191
+0000062C 8800                1413  	mov a, [sp+0x00]
+0000062E 318F                1414  	sarw ax, 8+0x00000
+00000630 440200              1415  	cmpw ax, #0x0002
+00000633 DF00                1416  	bnz $.BB@LABEL@13_77
+00000635                     1417  .BB@LABEL@13_76:	; bb196
+00000635 E6                  1418  	onew ax
+00000636 B802                1419  	movw [sp+0x02], ax
+00000638 EF00                1420  	br $.BB@LABEL@13_78
+0000063A                     1421  .BB@LABEL@13_77:	; bb197
+0000063A F6                  1422  	clrw ax
+0000063B B802                1423  	movw [sp+0x02], ax
+0000063D                     1424  .BB@LABEL@13_78:	; bb198
+0000063D A802                1425  	movw ax, [sp+0x02]
+0000063F 6168                1426  	or a, x
+00000641 DD00                1427  	bz $.BB@LABEL@13_81
+00000643                     1428  .BB@LABEL@13_79:	; if_then_bb203
+00000643                     1429  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 859
+00000643 8800                1430  	mov a, [sp+0x00]
+00000645 FE0000              1431  	call $!_POWERMGMT_SwitchMode@1
+00000648 D1                  1432  	cmp0 a
+00000649 DF00                1433  	bnz $.BB@LABEL@13_81
+0000064B                     1434  .BB@LABEL@13_80:	; if_then_bb210
+0000064B                     1435  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 861
+0000064B 8800                1436  	mov a, [sp+0x00]
+0000064D 9F0000              1437  	mov !LOWW(_g_powermgmt_current_mode@1), a
+00000650 1004                1438  	addw sp, #0x04
+00000652 D7                  1439  	ret
+00000653                     1440  .BB@LABEL@13_81:	; return
+00000653                     1441  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 869
+00000653 1004                1442  	addw sp, #0x04
+00000655 D7                  1443  	ret
+00000656                     1444  .LFE13:
+00000656                     1445  	.TYPE _checkCoverTamper,function,.LFE14-_checkCoverTamper
+00000656                     1446  _checkCoverTamper:
+00000656                     1447  	.STACK _checkCoverTamper = 6
+00000656                     1448  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 871
+00000656 C7                  1449  	push hl
+00000657                     1450  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 876
+00000657 FE0000              1451  	call $!_POWERMGMT_GetMode
+0000065A 9801                1452  	mov [sp+0x01], a
+0000065C                     1453  .BB@LABEL@14_1:	; entry.split
+0000065C                     1454  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 878
+0000065C 8801                1455  	mov a, [sp+0x01]
+0000065E 318F                1456  	sarw ax, 8+0x00000
+00000660 440300              1457  	cmpw ax, #0x0003
+00000663 DF00                1458  	bnz $.BB@LABEL@14_3
+00000665                     1459  .BB@LABEL@14_2:	; if_then_bb
+00000665                     1460  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 879
+00000665 C80002              1461  	mov [sp+0x00], #0x02
+00000668 EF00                1462  	br $.BB@LABEL@14_4
+0000066A                     1463  .BB@LABEL@14_3:	; if_else_bb
+0000066A                     1464  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 883
+0000066A C80064              1465  	mov [sp+0x00], #0x64
+0000066D                     1466  .BB@LABEL@14_4:	; if_break_bb
+0000066D                     1467  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 891
+0000066D 8D0F                1468  	mov a, 0xFFF0F
+0000066F 3169                1469  	shl a, 0x06
+00000671 317A                1470  	shr a, 0x07
+00000673 91                  1471  	dec a
+00000674 DF00                1472  	bnz $.BB@LABEL@14_14
+00000676                     1473  .BB@LABEL@14_5:	; if_then_bb14
+00000676                     1474  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 893
+00000676 A20000              1475  	incw !LOWW(_coverOpenCtr)
+00000679                     1476  .BB@LABEL@14_6:	; if_then_bb14.split
+00000679                     1477  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 894
+00000679 AF0000              1478  	movw ax, !LOWW(_coverOpenCtr)
+0000067C 7C80                1479  	xor a, #0x80
+0000067E 12                  1480  	movw bc, ax
+0000067F 8800                1481  	mov a, [sp+0x00]
+00000681 318E                1482  	shrw ax, 8+0x00000
+00000683 6C80                1483  	or a, #0x80
+00000685 43                  1484  	cmpw ax, bc
+00000686 DE00                1485  	bnc $.BB@LABEL@14_15
+00000688                     1486  .BB@LABEL@14_7:	; if_then_bb23
+00000688                     1487  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 896
+00000688 AF0000              1488  	movw ax, !LOWW(_mytmprdata+0x0000A)
+0000068B 316D                1489  	shlw ax, 0x06
+0000068D DC00                1490  	bc $.BB@LABEL@14_15
+0000068F                     1491  .BB@LABEL@14_8:	; if_then_bb29
+0000068F                     1492  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 898
+0000068F FC000000            1493  	call !!_readRTC
+00000693                     1494  .BB@LABEL@14_9:	; if_then_bb29.split
+00000693                     1495  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 901
+00000693 AF0000              1496  	movw ax, !LOWW(_mytmprdata+0x00002)
+00000696 6C04                1497  	or a, #0x04
+00000698 BF0000              1498  	movw !LOWW(_mytmprdata+0x00002), ax
+0000069B                     1499  .BB@LABEL@14_10:	; if_then_bb29.split1
+0000069B                     1500  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 902
+0000069B AF0000              1501  	movw ax, !LOWW(_mytmprdata+0x0000A)
+0000069E 6C04                1502  	or a, #0x04
+000006A0 BF0000              1503  	movw !LOWW(_mytmprdata+0x0000A), ax
+000006A3                     1504  .BB@LABEL@14_11:	; if_then_bb29.split2
+000006A3                     1505  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 903
+000006A3 AF0000              1506  	movw ax, !LOWW(_mytmprdata+0x00006)
+000006A6 6C04                1507  	or a, #0x04
+000006A8 BF0000              1508  	movw !LOWW(_mytmprdata+0x00006), ax
+000006AB                     1509  .BB@LABEL@14_12:	; if_then_bb29.split3
+000006AB                     1510  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 904
+000006AB AF0000              1511  	movw ax, !LOWW(_e2write_flags)
+000006AE 08                  1512  	xch a, x
+000006AF 6C08                1513  	or a, #0x08
+000006B1 08                  1514  	xch a, x
+000006B2 BF0000              1515  	movw !LOWW(_e2write_flags), ax
+000006B5                     1516  .BB@LABEL@14_13:	; if_then_bb29.split4
+000006B5                     1517  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 905
+000006B5 FC000000            1518  	call !!_wre2rom
+000006B9 EF00                1519  	br $.BB@LABEL@14_15
+000006BB                     1520  .BB@LABEL@14_14:	; if_else_bb41
+000006BB F6                  1521  	clrw ax
+000006BC                     1522  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 915
+000006BC BF0000              1523  	movw !LOWW(_coverOpenCtr), ax
+000006BF                     1524  .BB@LABEL@14_15:	; if_break_bb42
+000006BF                     1525  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 917
+000006BF 71180000            1526  	clr1 !LOWW(_g_powermgmt_flag).1
+000006C3 C0                  1527  	pop ax
+000006C4 D7                  1528  	ret
+000006C5                     1529  .LFE14:
+000006C5                     1530  	.TYPE _POWERMGMT_RTC_InterruptCallback,function,.LFE15-_POWERMGMT_RTC_InterruptCallback
+000006C5                     1531  _POWERMGMT_RTC_InterruptCallback:
+000006C5                     1532  	.STACK _POWERMGMT_RTC_InterruptCallback = 4
+000006C5                     1533  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 924
+000006C5 71000000            1534  	set1 !LOWW(_g_powermgmt_flag).0
+000006C9 D7                  1535  	ret
+000006CA                     1536  .LFE15:
+000006CA                     1537  	.TYPE _POWERMGMT_COVER_InterruptCallback,function,.LFE16-_POWERMGMT_COVER_InterruptCallback
+000006CA                     1538  _POWERMGMT_COVER_InterruptCallback:
+000006CA                     1539  	.STACK _POWERMGMT_COVER_InterruptCallback = 4
+000006CA                     1540  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 931
+000006CA 71100000            1541  	set1 !LOWW(_g_powermgmt_flag).1
+000006CE D7                  1542  	ret
+000006CF                     1543  .LFE16:
+000006CF                     1544  	.TYPE _POWERMGMT_KEY_InterruptCallback,function,.LFE17-_POWERMGMT_KEY_InterruptCallback
+000006CF                     1545  _POWERMGMT_KEY_InterruptCallback:
+000006CF                     1546  	.STACK _POWERMGMT_KEY_InterruptCallback = 4
+000006CF                     1547  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 938
+000006CF 71200000            1548  	set1 !LOWW(_g_powermgmt_flag).2
+000006D3                     1549  .BB@LABEL@17_1:	; entry.split
+000006D3                     1550  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 939
+000006D3 71100000            1551  	set1 !LOWW(_g_powermgmt_flag+0x00001).1
+000006D7 D7                  1552  	ret
+000006D8                     1553  .LFE17:
+000006D8                     1554  	.TYPE _POWERMGMT_VDD_InterruptCallback,function,.LFE18-_POWERMGMT_VDD_InterruptCallback
+000006D8                     1555  _POWERMGMT_VDD_InterruptCallback:
+000006D8                     1556  	.STACK _POWERMGMT_VDD_InterruptCallback = 4
+000006D8                     1557  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 944
+000006D8 517F                1558  	mov a, #0x7F
+000006DA                     1559  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 948
+000006DA 5F0000              1560  	and a, !LOWW(_g_powermgmt_flag)
+000006DD 70                  1561  	mov x, a
+000006DE 8F3203              1562  	mov a, !0x0332
+000006E1 316300              1563  	bt a.6, $.BB@LABEL@18_2
+000006E4                     1564  .BB@LABEL@18_1:	; if_then_bb
+000006E4 60                  1565  	mov a, x
+000006E5                     1566  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 950
+000006E5 9F0000              1567  	mov !LOWW(_g_powermgmt_flag), a
+000006E8 D7                  1568  	ret
+000006E9                     1569  .BB@LABEL@18_2:	; if_else_bb
+000006E9 60                  1570  	mov a, x
+000006EA                     1571  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 954
+000006EA 71FA                1572  	set1 a.7
+000006EC 9F0000              1573  	mov !LOWW(_g_powermgmt_flag), a
+000006EF D7                  1574  	ret
+000006F0                     1575  .LFE18:
+000006F0                     1576  	.TYPE _POWERMGMT_Set_AC_LOW,function,.LFE19-_POWERMGMT_Set_AC_LOW
+000006F0                     1577  _POWERMGMT_Set_AC_LOW:
+000006F0                     1578  	.STACK _POWERMGMT_Set_AC_LOW = 4
+000006F0                     1579  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 965
+000006F0 71600000            1580  	set1 !LOWW(_g_powermgmt_flag).6
+000006F4 D7                  1581  	ret
+000006F5                     1582  .LFE19:
+000006F5                     1583  	.TYPE _POWERMGMT_Clear_AC_LOW,function,.LFE20-_POWERMGMT_Clear_AC_LOW
+000006F5                     1584  _POWERMGMT_Clear_AC_LOW:
+000006F5                     1585  	.STACK _POWERMGMT_Clear_AC_LOW = 4
+000006F5                     1586  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 970
+000006F5 71680000            1587  	clr1 !LOWW(_g_powermgmt_flag).6
+000006F9 D7                  1588  	ret
+000006FA                     1589  .LFE20:
+000006FA                     1590  	.TYPE _POWERMGMT_setCurrentMode1,function,.LFE21-_POWERMGMT_setCurrentMode1
+000006FA                     1591  _POWERMGMT_setCurrentMode1:
+000006FA                     1592  	.STACK _POWERMGMT_setCurrentMode1 = 4
+000006FA                     1593  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 975
+000006FA E50000              1594  	oneb !LOWW(_g_powermgmt_current_mode@1)
+000006FD D7                  1595  	ret
+000006FE                     1596  .LFE21:
+000006FE                     1597  	.TYPE _POWERMGMT_AC_InterruptCallback,function,.LFE22-_POWERMGMT_AC_InterruptCallback
+000006FE                     1598  _POWERMGMT_AC_InterruptCallback:
+000006FE                     1599  	.STACK _POWERMGMT_AC_InterruptCallback = 4
+000006FE                     1600  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 979
+000006FE 51BF                1601  	mov a, #0xBF
+00000700                     1602  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 982
+00000700 5F0000              1603  	and a, !LOWW(_g_powermgmt_flag)
+00000703 70                  1604  	mov x, a
+00000704 8F3503              1605  	mov a, !0x0335
+00000707 316300              1606  	bt a.6, $.BB@LABEL@22_2
+0000070A                     1607  .BB@LABEL@22_1:	; if_then_bb
+0000070A 60                  1608  	mov a, x
+0000070B                     1609  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 984
+0000070B 9F0000              1610  	mov !LOWW(_g_powermgmt_flag), a
+0000070E D7                  1611  	ret
+0000070F                     1612  .BB@LABEL@22_2:	; if_else_bb
+0000070F 60                  1613  	mov a, x
+00000710                     1614  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 988
+00000710 71EA                1615  	set1 a.6
+00000712 9F0000              1616  	mov !LOWW(_g_powermgmt_flag), a
+00000715 D7                  1617  	ret
+00000716                     1618  .LFE22:
+00000716                     1619  	.TYPE _POWERMGMT_VBATT_InterruptCallback,function,.LFE23-_POWERMGMT_VBATT_InterruptCallback
+00000716                     1620  _POWERMGMT_VBATT_InterruptCallback:
+00000716                     1621  	.STACK _POWERMGMT_VBATT_InterruptCallback = 4
+00000716                     1622  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 993
+00000716 51EF                1623  	mov a, #0xEF
+00000718                     1624  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 996
+00000718 5F0000              1625  	and a, !LOWW(_g_powermgmt_flag)
+0000071B 70                  1626  	mov x, a
+0000071C 8F3303              1627  	mov a, !0x0333
+0000071F 316300              1628  	bt a.6, $.BB@LABEL@23_2
+00000722                     1629  .BB@LABEL@23_1:	; if_then_bb
+00000722 60                  1630  	mov a, x
+00000723                     1631  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 998
+00000723 9F0000              1632  	mov !LOWW(_g_powermgmt_flag), a
+00000726 D7                  1633  	ret
+00000727                     1634  .BB@LABEL@23_2:	; if_else_bb
+00000727 60                  1635  	mov a, x
+00000728                     1636  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1002
+00000728 71CA                1637  	set1 a.4
+0000072A 9F0000              1638  	mov !LOWW(_g_powermgmt_flag), a
+0000072D D7                  1639  	ret
+0000072E                     1640  .LFE23:
+0000072E                     1641  	.TYPE _POWERMGMT_VRTC_InterruptCallback,function,.LFE24-_POWERMGMT_VRTC_InterruptCallback
+0000072E                     1642  _POWERMGMT_VRTC_InterruptCallback:
+0000072E                     1643  	.STACK _POWERMGMT_VRTC_InterruptCallback = 4
+0000072E                     1644  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1010
+0000072E D50000              1645  	cmp0 !LOWW(_rtcTestFlag)
+00000731 DF00                1646  	bnz $.BB@LABEL@24_5
+00000733                     1647  .BB@LABEL@24_1:	; if_then_bb
+00000733                     1648  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1012
+00000733 8F3403              1649  	mov a, !0x0334
+00000736 316300              1650  	bt a.6, $.BB@LABEL@24_3
+00000739                     1651  .BB@LABEL@24_2:	; if_then_bb11
+00000739                     1652  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1014
+00000739 71580000            1653  	clr1 !LOWW(_g_powermgmt_flag).5
+0000073D D7                  1654  	ret
+0000073E                     1655  .BB@LABEL@24_3:	; if_else_bb
+0000073E                     1656  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1018
+0000073E 6A0C20              1657  	or 0xFFF0C, #0x20
+00000741                     1658  .BB@LABEL@24_4:	; if_else_bb.split
+00000741                     1659  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1019
+00000741 71500000            1660  	set1 !LOWW(_g_powermgmt_flag).5
+00000745 D7                  1661  	ret
+00000746                     1662  .BB@LABEL@24_5:	; if_else_bb22
+00000746                     1663  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1024
+00000746 8F3403              1664  	mov a, !0x0334
+00000749 316500              1665  	bf a.6, $.BB@LABEL@24_8
+0000074C                     1666  .BB@LABEL@24_6:	; if_else_bb31
+0000074C                     1667  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1030
+0000074C 6A0C20              1668  	or 0xFFF0C, #0x20
+0000074F                     1669  .BB@LABEL@24_7:	; if_else_bb31.split
+0000074F                     1670  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1031
+0000074F 71500000            1671  	set1 !LOWW(_g_powermgmt_flag).5
+00000753 D7                  1672  	ret
+00000754                     1673  .BB@LABEL@24_8:	; return
+00000754                     1674  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1035
+00000754 D7                  1675  	ret
+00000755                     1676  .LFE24:
+00000755                     1677  	.TYPE _POWERMGMT_NeutralMissing,function,.LFE25-_POWERMGMT_NeutralMissing
+00000755                     1678  _POWERMGMT_NeutralMissing:
+00000755                     1679  	.STACK _POWERMGMT_NeutralMissing = 6
+00000755                     1680  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1037
+00000755 C7                  1681  	push hl
+00000756 70                  1682  	mov x, a
+00000757 9800                1683  	mov [sp+0x00], a
+00000759 51FE                1684  	mov a, #0xFE
+0000075B                     1685  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1040
+0000075B 5F0000              1686  	and a, !LOWW(_g_powermgmt_flag+0x00001)
+0000075E 73                  1687  	mov b, a
+0000075F 60                  1688  	mov a, x
+00000760 318F                1689  	sarw ax, 8+0x00000
+00000762 6168                1690  	or a, x
+00000764 DF00                1691  	bnz $.BB@LABEL@25_2
+00000766                     1692  .BB@LABEL@25_1:	; if_then_bb
+00000766 63                  1693  	mov a, b
+00000767                     1694  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1042
+00000767 718A                1695  	set1 a.0
+00000769 9F0000              1696  	mov !LOWW(_g_powermgmt_flag+0x00001), a
+0000076C C0                  1697  	pop ax
+0000076D D7                  1698  	ret
+0000076E                     1699  .BB@LABEL@25_2:	; if_else_bb
+0000076E 63                  1700  	mov a, b
+0000076F                     1701  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1046
+0000076F 9F0000              1702  	mov !LOWW(_g_powermgmt_flag+0x00001), a
+00000772 C0                  1703  	pop ax
+00000773 D7                  1704  	ret
+00000774                     1705  .LFE25:
+00000774                     1706  	.TYPE _POWERMGMT_MAGNETIC_InterruptCallback,function,.LFE26-_POWERMGMT_MAGNETIC_InterruptCallback
+00000774                     1707  _POWERMGMT_MAGNETIC_InterruptCallback:
+00000774                     1708  	.STACK _POWERMGMT_MAGNETIC_InterruptCallback = 4
+00000774                     1709  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1054
+00000774 71300000            1710  	set1 !LOWW(_g_powermgmt_flag).3
+00000778 D7                  1711  	ret
+00000779                     1712  .LFE26:
+00000779                     1713  	.TYPE _POWERMGMT_IsACLow,function,.LFE27-_POWERMGMT_IsACLow
+00000779                     1714  _POWERMGMT_IsACLow:
+00000779                     1715  	.STACK _POWERMGMT_IsACLow = 6
+00000779                     1716  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1058
+00000779 C7                  1717  	push hl
+0000077A                     1718  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1061
+0000077A 8F0000              1719  	mov a, !LOWW(_g_powermgmt_flag)
+0000077D 6101                1720  	add a, a
+0000077F 317A                1721  	shr a, 0x07
+00000781 9800                1722  	mov [sp+0x00], a
+00000783                     1723  .BB@LABEL@27_1:	; entry.split
+00000783                     1724  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1065
+00000783 C2                  1725  	pop bc
+00000784 D7                  1726  	ret
+00000785                     1727  .LFE27:
+00000785                     1728  	.TYPE _POWERMGMT_IsVBATTLow,function,.LFE28-_POWERMGMT_IsVBATTLow
+00000785                     1729  _POWERMGMT_IsVBATTLow:
+00000785                     1730  	.STACK _POWERMGMT_IsVBATTLow = 6
+00000785                     1731  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1067
+00000785 C7                  1732  	push hl
+00000786                     1733  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1070
+00000786 8F0000              1734  	mov a, !LOWW(_g_powermgmt_flag)
+00000789 3139                1735  	shl a, 0x03
+0000078B 317A                1736  	shr a, 0x07
+0000078D 9800                1737  	mov [sp+0x00], a
+0000078F                     1738  .BB@LABEL@28_1:	; entry.split
+0000078F                     1739  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1074
+0000078F C2                  1740  	pop bc
+00000790 D7                  1741  	ret
+00000791                     1742  .LFE28:
+00000791                     1743  	.TYPE _POWERMGMT_IsVRTCLow,function,.LFE29-_POWERMGMT_IsVRTCLow
+00000791                     1744  _POWERMGMT_IsVRTCLow:
+00000791                     1745  	.STACK _POWERMGMT_IsVRTCLow = 6
+00000791                     1746  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1076
+00000791 C7                  1747  	push hl
+00000792                     1748  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1088
+00000792 8F0000              1749  	mov a, !LOWW(_g_powermgmt_flag)
+00000795 3129                1750  	shl a, 0x02
+00000797 317A                1751  	shr a, 0x07
+00000799 9800                1752  	mov [sp+0x00], a
+0000079B                     1753  .BB@LABEL@29_1:	; entry.split
+0000079B                     1754  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1092
+0000079B C2                  1755  	pop bc
+0000079C D7                  1756  	ret
+0000079D                     1757  .LFE29:
+0000079D                     1758  	.TYPE _turnOff_UARTS,function,.LFE30-_turnOff_UARTS
+0000079D                     1759  _turnOff_UARTS:
+0000079D                     1760  	.STACK _turnOff_UARTS = 4
+0000079D                     1761  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1099
+0000079D FC000000            1762  	call !!_R_UART0_Stop
+000007A1                     1763  .BB@LABEL@30_1:	; entry.split
+000007A1                     1764  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1100
+000007A1 FC000000            1765  	call !!_R_UART2_Stop
+000007A5                     1766  .BB@LABEL@30_2:	; entry.split1
+000007A5                     1767  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1101
+000007A5 FC000000            1768  	call !!_R_UART3_Stop
+000007A9                     1769  .BB@LABEL@30_3:	; entry.split2
+000007A9                     1770  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/application/powermgmt/powermgmt.c", 1104
+000007A9 5A057F              1771  	and 0xFFF05, #0x7F
+000007AC D7                  1772  	ret
+000007AD                     1773  .LFE30:
+00000000                     1774  	.SECTION .bss,BSS
+00000000                     1775  	.TYPE _capturedRTC,object,8
+00000000                     1776  _capturedRTC:
+00000000                     1777  	.DS (8)
+00000000                     1778  	.SECTION .data,DATA
+00000000                     1779  	.TYPE _g_powermgmt_current_mode@1,object,1
+00000000                     1780  _g_powermgmt_current_mode@1:
+00000000 02                  1781  	.DB 0x02
+00000001                     1782  	.TYPE _g_powermgmt_previous_mode@2,object,1
+00000001                     1783  _g_powermgmt_previous_mode@2:
+00000001 02                  1784  	.DB 0x02
+00000002                     1785  	.TYPE _g_powermgmt_prev_main_mode@3,object,1
+00000002                     1786  _g_powermgmt_prev_main_mode@3:
+00000002 01                  1787  	.DB 0x01
+00000003 00                  1788  	.ALIGN 2
+00000004                     1789  	.TYPE _g_powermgmt_flag,object,2
+00000004                     1790  _g_powermgmt_flag:
+00000004 0000                1791  	.DS (2)
+00000006                     1792  	.ALIGN 2
+00000006                     1793  	.TYPE _mode1_counter@4@POWERMGMT_PollingProcessing,object,2
+00000006                     1794  _mode1_counter@4@POWERMGMT_PollingProcessing:
+00000006 0000                1795  	.DS (2)
+00000008                     1796  	.ALIGN 2
+00000008                     1797  	.TYPE _mode2_counter@5@POWERMGMT_PollingProcessing,object,2
+00000008                     1798  _mode2_counter@5@POWERMGMT_PollingProcessing:
+00000008 0000                1799  	.DS (2)
+
+Section List
+Attr     Size                Name
+
+TEXTF              1965 (000007AD) .textf
+DATA                 10 (0000000A) .data
+BSS                   8 (00000008) .bss
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\asrl.exe" @C:\Users\HP\AppData\Local\Temp\$ccrl000\powermgmt.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120100 -cpu=S3 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Release_BQFR -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\physical -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\objects -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app\hash -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app\aes -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\debug\loadtest -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\services\64bit_process -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\config -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\include -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\powermgmt -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage\meterdata -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage\config -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dataflash\fdl\incrl78 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dataflash -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\services -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsHeaders -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIHandler -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIEng -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIComm -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIApp -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\driver\mcu -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\calibration -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\debug -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\display&button -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\display&button\lcd -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\eeprom -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\event -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\startup -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\middleware\headers -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\middleware\plugin -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\user -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\shared -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\ -character_set=none -goptimize -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -output=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Build\Release_BQFR\powermgmt.obj C:\Users\HP\AppData\Local\Temp\$ccrl000\powermgmt.asm 
+

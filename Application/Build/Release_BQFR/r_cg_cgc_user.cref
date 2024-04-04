@@ -1,0 +1,295 @@
+****rl78i1c\driver\mcu\r_cg_cgc_user.c
+v2 
+:1712232847
+#1
+F "__DI" N I!1 T!2 ?18-2 
+T "void" KBV I!2 0x0 
+F "__EI" N I!3 T!2 ?19-2 
+F "__halt" N I!4 T!2 ?20-2 
+F "__stop" N I!5 T!2 ?21-2 
+F "__brk" N I!6 T!2 ?22-2 
+F "__nop" N I!7 T!2 ?23-2 31-1 
+F "__rolb" N I!8 T!9 ?25-2 P!10 P!11 
+T "unsigned char" KBU I!9 0x1 
+V "" N I!10 O!8 T!9 .1 0x1 
+V "" N I!11 O!8 T!9 .1 0x1 
+F "__rorb" N I!12 T!9 ?26-2 P!13 P!14 
+V "" N I!13 O!12 T!9 .1 0x1 
+V "" N I!14 O!12 T!9 .1 0x1 
+F "__rolw" N I!15 T!16 ?27-2 P!17 P!18 
+T "unsigned int" KBU I!16 0x2 
+V "" N I!17 O!15 T!16 .2 0x2 
+V "" N I!18 O!15 T!9 .1 0x1 
+F "__rorw" N I!19 T!16 ?28-2 P!20 P!21 
+V "" N I!20 O!19 T!16 .2 0x2 
+V "" N I!21 O!19 T!9 .1 0x1 
+F "__mulu" N I!22 T!16 ?30-2 P!23 P!24 
+V "" N I!23 O!22 T!9 .1 0x1 
+V "" N I!24 O!22 T!9 .1 0x1 
+F "__mului" N I!25 T!26 ?32-2 P!27 P!28 
+T "unsigned long" KBU I!26 0x4 
+V "" N I!27 O!25 T!16 .2 0x2 
+V "" N I!28 O!25 T!16 .2 0x2 
+F "__mulsi" N I!29 T!30 ?33-2 P!31 P!33 
+T "long" KBS I!30 0x4 
+V "" N I!31 O!29 T!32 .2 0x2 
+T "int" KBS I!32 0x2 
+V "" N I!33 O!29 T!32 .2 0x2 
+F "_COM_mulul" F I!34 T!35 ?42-2 P!36 P!37 
+T "unsigned long long" KBU I!35 0x8 
+V "" N I!36 O!34 T!26 .2 0x4 
+V "" N I!37 O!34 T!26 .2 0x4 
+F "_COM_mulsl" F I!38 T!39 ?43-2 P!40 P!41 
+T "long long" KBS I!39 0x8 
+V "" N I!40 O!38 T!30 .2 0x4 
+V "" N I!41 O!38 T!30 .2 0x4 
+F "_COM_divui" F I!42 T!16 ?48-2 P!43 P!44 
+V "" N I!43 O!42 T!16 .2 0x2 
+V "" N I!44 O!42 T!9 .1 0x1 
+F "_COM_divul" F I!45 T!26 ?49-2 P!46 P!47 
+V "" N I!46 O!45 T!26 .2 0x4 
+V "" N I!47 O!45 T!16 .2 0x2 
+F "_COM_remui" F I!48 T!9 ?53-2 P!49 P!50 
+V "" N I!49 O!48 T!16 .2 0x2 
+V "" N I!50 O!48 T!9 .1 0x1 
+F "_COM_remul" F I!51 T!16 ?54-2 P!52 P!53 
+V "" N I!52 O!51 T!26 .2 0x4 
+V "" N I!53 O!51 T!16 .2 0x2 
+F "_COM_macui" F I!54 T!26 ?58-2 P!55 P!56 P!57 
+V "" N I!55 O!54 T!16 .2 0x2 
+V "" N I!56 O!54 T!16 .2 0x2 
+V "" N I!57 O!54 T!26 .2 0x4 
+F "_COM_macsi" F I!58 T!30 ?59-2 P!59 P!60 P!61 
+V "" N I!59 O!58 T!32 .2 0x2 
+V "" N I!60 O!58 T!32 .2 0x2 
+V "" N I!61 O!58 T!30 .2 0x4 
+F "__get_psw" N I!62 T!9 ?63-2 
+F "__set_psw" N I!63 T!2 ?64-2 P!64 
+V "" N I!64 O!63 T!9 .1 0x1 
+F "__set1" N I!65 T!2 ?66-2 P!66 P!68 
+V "" N I!66 O!65 T!67 .2 0x2 
+T "" KP I!67 T!9 0x2 
+V "" N I!68 O!65 T!9 .1 0x1 
+F "__clr1" N I!69 T!2 ?67-2 P!70 P!71 
+V "" N I!70 O!69 T!67 .2 0x2 
+V "" N I!71 O!69 T!9 .1 0x1 
+F "__not1" N I!72 T!2 ?68-2 P!73 P!74 
+V "" N I!73 O!72 T!67 .2 0x2 
+V "" N I!74 O!72 T!9 .1 0x1 
+T "" KS I!75 !39-4 0x1 VM!76 VM!77 VM!78 VM!79 VM!80 VM!81 VM!82 VM!83 
+V "no0" - I!76 O!75 T!9 !40-4 #18-1 #26-1 .1 0x1 BO0 BIS1 
+V "no1" - I!77 O!75 T!9 !41-4 .1 0x1 BO1 BIS1 
+V "no2" - I!78 O!75 T!9 !42-4 .1 0x1 BO2 BIS1 
+V "no3" - I!79 O!75 T!9 !43-4 .1 0x1 BO3 BIS1 
+V "no4" - I!80 O!75 T!9 !44-4 .1 0x1 BO4 BIS1 
+V "no5" - I!81 O!75 T!9 !45-4 .1 0x1 BO5 BIS1 
+V "no6" - I!82 O!75 T!9 !46-4 #15-1 #35-1 .1 0x1 BO6 BIS1 
+V "no7" - I!83 O!75 T!9 !47-4 .1 0x1 BO7 BIS1 
+T "__bitf_T" KT I!84 T!75 !48-4 0x1 
+T "" KS I!85 !51-4 0x2 VM!86 VM!87 VM!88 VM!89 VM!90 VM!91 VM!92 VM!93 VM!94 VM!95 VM!96 VM!97 VM!98 VM!99 VM!100 VM!101 
+V "no0" - I!86 O!85 T!9 !52-4 .1 0x1 BO0 BIS1 
+V "no1" - I!87 O!85 T!9 !53-4 .1 0x1 BO1 BIS1 
+V "no2" - I!88 O!85 T!9 !54-4 .1 0x1 BO2 BIS1 
+V "no3" - I!89 O!85 T!9 !55-4 .1 0x1 BO3 BIS1 
+V "no4" - I!90 O!85 T!9 !56-4 .1 0x1 BO4 BIS1 
+V "no5" - I!91 O!85 T!9 !57-4 .1 0x1 BO5 BIS1 
+V "no6" - I!92 O!85 T!9 !58-4 .1 0x1 BO6 BIS1 
+V "no7" - I!93 O!85 T!9 !59-4 .1 0x1 BO7 BIS1 
+V "no8" - I!94 O!85 T!9 !60-4 .1 0x1 BO8 BIS1 
+V "no9" - I!95 O!85 T!9 !61-4 .1 0x1 BO9 BIS1 
+V "no10" - I!96 O!85 T!9 !62-4 .1 0x1 BO10 BIS1 
+V "no11" - I!97 O!85 T!9 !63-4 .1 0x1 BO11 BIS1 
+V "no12" - I!98 O!85 T!9 !64-4 .1 0x1 BO12 BIS1 
+V "no13" - I!99 O!85 T!9 !65-4 .1 0x1 BO13 BIS1 
+V "no14" - I!100 O!85 T!9 !66-4 .1 0x1 BO14 BIS1 
+V "no15" - I!101 O!85 T!9 !67-4 .1 0x1 BO15 BIS1 
+T "__bitf_T2" KT I!102 T!85 !68-4 0x2 
+T "int8_t" KT I!103 T!104 !47-3 0x1 
+T "signed char" KBS I!104 0x1 
+T "uint8_t" KT I!105 T!9 !48-3 0x1 
+T "int16_t" KT I!106 T!107 !49-3 0x2 
+T "short" KBS I!107 0x2 
+T "uint16_t" KT I!108 T!109 !50-3 0x2 
+T "unsigned short" KBU I!109 0x2 
+T "int32_t" KT I!110 T!30 !51-3 0x4 
+T "uint32_t" KT I!111 T!26 !52-3 0x4 
+T "int64_t" KT I!112 T!39 !53-3 0x8 
+T "uint64_t" KT I!113 T!35 !54-3 0x8 
+T "MD_STATUS" KT I!114 T!109 !55-3 0x2 
+T "" KE I!115 T!116 0x1 EM0:"HIOCLK" EM1:"SYSX1CLK" EM2:"SYSEXTCLK" EM3:"SUBXT1CLK" EM4:"SUBEXTCLK" 
+T "char" KBCS I!116 0x1 
+T "clock_mode_t" KT I!117 T!115 !167-6 0x1 
+F "R_CGC_Create" F I!118 T!2 ?173-6 
+T "" KE I!119 T!116 0x1 EM0:"HOCO_24M_X" EM1:"HOCO_12M_16M" EM2:"HOCO_6M_8M" EM3:"HOCO_3M_4M" EM4:"HOCO_1M5_2M" EM5:"HOCO_X_1M" 
+T "hoco_mode_t" KT I!120 T!119 !184-6 0x1 
+T "" KE I!121 T!116 0x1 EM0:"MOCO_4M" EM1:"MOCO_2M" EM2:"MOCO_1M" 
+T "moco_mode_t" KT I!122 T!121 !191-6 0x1 
+F "R_CGC_FclkUseFmx" F I!123 T!2 ?193-6 
+F "R_CGC_FclkUseFsub" F I!124 T!2 #12-1 !13,19-1-1 ?194-6 
+F "R_CGC_FclkUseFih" F I!125 T!2 #21-1 !22,36-1-1 ?195-6 
+F "R_CGC_FclkUsePLL" F I!126 T!2 ?196-6 
+F "R_CGC_FclkUseFim" F I!127 T!2 ?197-6 
+F "R_CGC_ChangeFihClk" F I!128 T!2 ?199-6 P!129 
+V "" N I!129 O!128 T!120 .1 0x1 
+F "R_CGC_ChangeFimClk" F I!130 T!2 ?200-6 P!131 
+V "" N I!131 O!130 T!122 .1 0x1 
+F "R_CGC_OperateAt24MHz" F I!132 T!2 #38-1 !39,57-1-1 ?202-6 
+F "R_CGC_OperateAt12MHz" F I!133 T!2 #59-1 !60,74-1-1 ?203-6 
+F "R_CGC_OperateAt6MHz" F I!134 T!2 #76-1 !77,98-1-1 ?204-6 
+F "R_TAU0_Create" F I!135 T!2 ?421-7 
+F "R_TAU0_Channel0_Start" F I!136 T!2 ?422-7 
+F "R_TAU0_Channel0_Stop" F I!137 T!2 ?423-7 
+F "R_TAU0_Channel1_Start" F I!138 T!2 ?424-7 
+F "R_TAU0_Channel1_Stop" F I!139 T!2 ?425-7 
+F "R_TAU0_Channel2_Start" F I!140 T!2 ?426-7 
+F "R_TAU0_Channel2_Stop" F I!141 T!2 ?427-7 
+F "R_TAU0_Channel3_Start" F I!142 T!2 ?429-7 
+F "R_TAU0_Channel3_Stop" F I!143 T!2 ?430-7 
+F "R_TAU0_Channel1_SetValue" F I!144 T!2 ?432-7 P!145 
+V "" N I!145 O!144 T!108 .2 0x2 
+T "tagStdUartBaudRate" KE I!146 T!116 !304-8 0x1 EM0:"SAU_STD_BAUD_RATE_300" EM1:"SAU_STD_BAUD_RATE_600" EM2:"SAU_STD_BAUD_RATE_1200" EM3:"SAU_STD_BAUD_RATE_2400" EM4:"SAU_STD_BAUD_RATE_4800" EM5:"SAU_STD_BAUD_RATE_9600" EM6:"SAU_STD_BAUD_RATE_19200" EM7:"SAU_STD_BAUD_RATE_38400" EM8:"SAU_STD_BAUD_RATE_57600" EM9:"SAU_STD_BAUD_RATE_115200" 
+T "sau_std_baud_rate_t" KT I!147 T!146 !317-8 0x1 
+T "tagStdUartLength" KE I!148 T!116 !319-8 0x1 EM6:"SAU_STD_LENGTH_7" EM7:"SAU_STD_LENGTH_8" EM5:"SAU_STD_LENGTH_9" 
+T "sau_std_length_t" KT I!149 T!148 !324-8 0x1 
+T "tagStdUartParity" KE I!150 T!107 !326-8 0x2 EM0:"SAU_STD_PARITY_NONE" EM768:"SAU_STD_PARITY_ODD" EM512:"SAU_STD_PARITY_EVEN" 
+T "sau_std_parity_t" KT I!151 T!150 !331-8 0x2 
+T "tagStdUartStopBits" KE I!152 T!116 !333-8 0x1 EM16:"SAU_STD_STOPBITS_1" EM32:"SAU_STD_STOPBITS_2" 
+T "sau_std_stopbits_t" KT I!153 T!152 !337-8 0x1 
+F "R_SAU0_Create" F I!154 T!2 ?345-8 
+F "R_UART0_Create" F I!155 T!2 ?346-8 
+F "R_UART0_Start" F I!156 T!2 ?347-8 
+F "R_UART0_Stop" F I!157 T!2 ?348-8 
+F "R_UART0_Send" F I!158 T!114 ?349-8 P!159 P!161 
+V "" ON I!159 O!158 T!160 .2 0x2 
+T "" KP I!160 T!105 0x2 
+V "" N I!161 O!158 T!108 .2 0x2 
+F "R_UART0_Receive" F I!162 T!114 ?350-8 P!163 P!164 
+V "" ON I!163 O!162 T!160 .2 0x2 
+V "" N I!164 O!162 T!108 .2 0x2 
+F "r_uart0_callback_error" SF I!165 T!2 ?351-8 P!166 
+V "" N I!166 O!165 T!105 .1 0x1 
+F "r_uart0_callback_receiveend" SF I!167 T!2 ?352-8 
+F "r_uart0_callback_sendend" SF I!168 T!2 ?353-8 
+F "r_uart0_callback_softwareoverrun" SF I!169 T!2 ?354-8 P!170 
+V "" N I!170 O!169 T!108 .2 0x2 
+F "R_SAU1_Create" F I!171 T!2 ?356-8 
+F "R_UART2_Create" F I!172 T!2 ?357-8 
+F "R_UART2_Start" F I!173 T!2 ?358-8 
+F "R_UART2_Stop" F I!174 T!2 ?359-8 
+F "R_UART2_Send" F I!175 T!114 ?360-8 P!176 P!177 
+V "" ON I!176 O!175 T!160 .2 0x2 
+V "" N I!177 O!175 T!108 .2 0x2 
+F "R_UART2_Receive" F I!178 T!114 ?361-8 P!179 P!180 
+V "" ON I!179 O!178 T!160 .2 0x2 
+V "" N I!180 O!178 T!108 .2 0x2 
+F "r_uart2_callback_error" SF I!181 T!2 ?362-8 P!182 
+V "" N I!182 O!181 T!105 .1 0x1 
+F "r_uart2_callback_receiveend" SF I!183 T!2 ?363-8 
+F "r_uart2_callback_sendend" SF I!184 T!2 ?364-8 
+F "r_uart2_callback_softwareoverrun" SF I!185 T!2 ?365-8 P!186 
+V "" N I!186 O!185 T!108 .2 0x2 
+F "R_UART3_Create" F I!187 T!2 ?367-8 
+F "R_UART3_Start" F I!188 T!2 ?368-8 
+F "R_UART3_Stop" F I!189 T!2 ?369-8 
+F "R_UART3_Send" F I!190 T!114 ?370-8 P!191 P!192 
+V "" ON I!191 O!190 T!160 .2 0x2 
+V "" N I!192 O!190 T!108 .2 0x2 
+F "R_UART3_Receive" F I!193 T!114 ?371-8 P!194 P!195 
+V "" ON I!194 O!193 T!160 .2 0x2 
+V "" N I!195 O!193 T!108 .2 0x2 
+F "r_uart3_callback_error" SF I!196 T!2 ?372-8 P!197 
+V "" N I!197 O!196 T!105 .1 0x1 
+F "r_uart3_callback_receiveend" SF I!198 T!2 ?373-8 
+F "r_uart3_callback_sendend" SF I!199 T!2 ?374-8 
+F "r_uart3_callback_softwareoverrun" SF I!200 T!2 ?375-8 P!201 
+V "" N I!201 O!200 T!108 .2 0x2 
+F "R_UART0_CheckOperating" F I!202 T!105 ?377-8 
+F "R_UART0_SetBaudRate" F I!203 T!2 ?378-8 P!204 
+V "" N I!204 O!203 T!147 .1 0x1 
+F "R_UART0_OnHocoChanged" F I!205 T!2 ?379-8 
+F "R_UART0_SetConfig" F I!206 T!2 ?380-8 P!207 P!208 P!209 
+V "" N I!207 O!206 T!149 .1 0x1 
+V "" N I!208 O!206 T!151 .2 0x2 
+V "" N I!209 O!206 T!153 .1 0x1 
+F "R_UART2_CheckOperating" F I!210 T!105 ?382-8 
+F "R_UART2_SetBaudRate" F I!211 T!2 ?383-8 P!212 
+V "" N I!212 O!211 T!147 .1 0x1 
+F "R_UART2_OnHocoChanged" F I!213 T!2 ?384-8 
+F "R_UART2_SetConfig" F I!214 T!2 ?385-8 P!215 P!216 P!217 
+V "" N I!215 O!214 T!149 .1 0x1 
+V "" N I!216 O!214 T!151 .2 0x2 
+V "" N I!217 O!214 T!153 .1 0x1 
+F "R_UART3_CheckOperating" F I!218 T!105 ?387-8 
+F "R_UART3_SetBaudRate" F I!219 T!2 ?388-8 P!220 
+V "" N I!220 O!219 T!147 .1 0x1 
+F "R_UART3_OnHocoChanged" F I!221 T!2 ?389-8 
+F "R_UART3_SetConfig" F I!222 T!2 ?390-8 P!223 P!224 P!225 
+V "" N I!223 O!222 T!149 .1 0x1 
+V "" N I!224 O!222 T!151 .2 0x2 
+V "" N I!225 O!222 T!153 .1 0x1 
+F "R_UART0_ConfigHDLCProtocol" F I!226 T!2 ?392-8 
+F "R_UART2_ConfigHDLCProtocol" F I!227 T!2 ?393-8 
+F "R_UART3_ConfigHDLCProtocol" F I!228 T!2 ?394-8 
+F "R_WDT_Create" F I!229 T!2 ?28-9 
+F "R_WDT_Restart" F I!230 T!2 ?29-9 
+F "R_IICA0_Create" F I!231 T!2 ?151-10 
+F "R_IICA0_Master_Send" F I!232 T!114 ?152-10 P!233 P!234 P!235 P!236 
+V "" N I!233 O!232 T!105 .1 0x1 
+V "" ON I!234 O!232 T!160 .2 0x2 
+V "" N I!235 O!232 T!108 .2 0x2 
+V "" N I!236 O!232 T!105 .1 0x1 
+F "R_IICA0_Master_Receive" F I!237 T!114 ?153-10 P!238 P!239 P!240 P!241 
+V "" N I!238 O!237 T!105 .1 0x1 
+V "" ON I!239 O!237 T!160 .2 0x2 
+V "" N I!240 O!237 T!108 .2 0x2 
+V "" N I!241 O!237 T!105 .1 0x1 
+F "R_IICA0_Stop" F I!242 T!2 ?154-10 
+F "R_IICA0_StopCondition" F I!243 T!2 ?155-10 
+F "r_iica0_callback_master_sendend" SF I!244 T!2 ?156-10 
+F "r_iica0_callback_master_receiveend" SF I!245 T!2 ?157-10 
+F "r_iica0_callback_master_error" SF I!246 T!2 ?158-10 P!247 
+V "" N I!247 O!246 T!114 .2 0x2 
+F "iica0_masterhandler" SF I!248 T!2 ?159-10 
+F "R_IICA0_Start" F I!249 T!2 ?162-10 
+F "R_IICA0_SetTransClockAt24MHz" F I!250 T!2 ?163-10 
+F "R_IICA0_SetTransClockAt12MHz" F I!251 T!2 ?164-10 
+F "R_IICA0_SetTransClockAt6MHz" F I!252 T!2 ?165-10 
+F "R_IICA0_SetTransClockAt3MHz" F I!253 T!2 ?166-10 
+F "R_IICA0_SetTransClockAt1M5Hz" F I!254 T!2 ?167-10 
+V "w_count" VN I!255 O!125 T!108 !23-1 #29-1 #29-1 29-1 29-1 .2 0x2 
+****%CxSystemPath%\inc\builtin.h
+v2 
+:1712232847
+#2
+****rl78i1c\driver\mcu\r_cg_macrodriver.h
+v2 
+:1712232847
+#3
+****iodefine.h
+v2 
+:1712232847
+#4
+****rl78i1c\driver\mcu\r_cg_userdefine.h
+v2 
+:1712232847
+#5
+****rl78i1c\driver\mcu\r_cg_cgc.h
+v2 
+:1712232847
+#6
+****rl78i1c\driver\mcu\r_cg_tau.h
+v2 
+:1712232847
+#7
+****rl78i1c\driver\mcu\r_cg_sau.h
+v2 
+:1712232847
+#8
+****rl78i1c\driver\mcu\r_cg_wdt.h
+v2 
+:1712232847
+#9
+****rl78i1c\driver\mcu\r_cg_iica.h
+v2 
+:1712232847
+#10

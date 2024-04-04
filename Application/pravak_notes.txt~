@@ -1,0 +1,919 @@
+//-------------------------------------------------------------------------------------
+08/03/2019
+PROD code must have battery function implemented. 
+In battery mode, User code, when meter is switched off and then on,
+then lag accuracy changes from within limits to -7%
+This does not hapen when battery is disconnected, in which case, meter always
+starts from reset condition.
+
+Other faults reported:
+
+	Read billing date shows junk - OK in GuruX
+ 	No of power failures always shows 10		-		FIXED. 
+	rtc setting not being recorded as transaction event	- DONE. 
+	
+In Battery mode when power was turned on/off, then lag error was getting upset.
+	Changes have been made in powermgmt.c so that when meter is restarted all those things that were
+	done in startup are repeated - i.e configuration, property and calib data are reloaded and then EM started
+	THIS HAS FIXED THE PROBLEM
+	
+When meter was running in Lag or Lead then one of the values kVAR_lag and KVAR_lead was correct while the
+other was incorrect. This has been corrected by forcing the other value to 0 (old value was being displayed earlier)
+	THIS HAS FIXED THE PROBLEM.  
+	
+	
+16:35
+At the close of day following are the things remaining to be done as of today:
+	
+1 Upon implementing meter restart function from power fail, meter accuracy is ok, but communication has stopped functioning
+2 DLMS should work from Optical Port as well as Optically isolated COMM port
+3 Implement by range in load survey, daily log and other profiles
+4 Indexing method should assign value of 1 to correspond to oldest/newest
+5 activity calendar time zone
+6 verify implementation of class 1,3,4,7,8,15,20,22,23
+
+The following have been done
+1 Transaction related events to be recorded - DONE. 
+2 g_Class03_BillingDate to be updated while billing and upon reset - DONE. 
+3 Power and restore tamper - current and voltage values - DONE. 
+4 cum tamper count, no of power failure count, cum power fail duration - DONE. 
+
+
+//-------------------------------------------------------------------------------------
+06/03/2019
+commondata_t has been modified to include the following new variables:
+	uint32_t cumPowerFailDuration;
+  uint16_t noOfPowerFailures;
+
+	cumTamperCount is available in mytmprdata.tamperCount
+
+
+A new Calibration File has been created to account for changes in the commondata structure
+
+A new user code is being sent today. 
+
+
+//-------------------------------------------------------------------------------------
+02/03/2019
+Copy(36) was saved yesterday at close of work.
+at gnoida at 12:53 hours
+following to be implemented:
+1 Implement by range in load survey, daily log and other profiles
+2 Indexing method should assign value of 1 to correspond to oldest/newest
+3 Transaction related events to be recorded - DONE. 
+4 g_Class03_BillingDate to be updated while billing and upon reset - DONE. 
+5 Power and restore tamper - current and voltage values - DONE. 
+6 activity calendar time zone
+7 cum tamper count, no of power failure count, cum power fail duration - DONE. 
+8 verify implementation of class 1,3,4,7,8,15,20,22,23
+ 
+//-------------------------------------------------------------------------------------
+01/03/2019
+1. In r_dlms_data_h CLASS07_BLOCKLOAD_MAX_ENTRY has been redefined to include no of days of survey data
+2. In survey.c function do_survey_update a check on lastTime.minute has been added in that if it is <30
+		it should be made 0
+3. Load survey kavrh lag and lead are now incrementing properly 
+Most of the stuff is now functional
+A Copy(36) is being saved at close of day 19:01 hours
+//-------------------------------------------------------------------------------------
+27/02/2019
+at Greater Noida
+A copy(35) has been saved before starting work.
+After 12 months - history is being made and oldest value is discarded. OK.
+
+
+//-------------------------------------------------------------------------------------
+13/02/2019
+A PROD and USER code has been sent today at around 10:00 hours
+To verify working of DATE/TIME command and its upsetting of error by -66%
+//-------------------------------------------------------------------------------------
+11/02/2019
+Day of week computation is now being performed. Verified ok in both DLMS and PRAVAK comm
+
+Check Billing of next month
+REMOVE the *100 multiplier in per_second_activity in emeter3_app.c - DONE.
+
+Billing bug has been fixed - in the get_bill_data function
+Load Survey 9 days problem has been kind of fixed - hardcoded to 30 in computeLoadSurveyEntries() in survey_c
+Load survey stores 10 values - 3 Current, 3 voltages and 4 consumptions
+For consumption computation, we do not have the fields for reactive_lag and reactive lead in ctldata
+
+//-------------------------------------------------------------------------------------
+07/02/2019
+A copy(33) has been saved before making any changes
+Meter was getting stuck in high resolution display mode - has been fixed.
+High resolution energy was incorrectly computed - corrected.
+
+Rtc setting causes -66% error -  error shift is now of the order of 0.1% which gets restored on power on
+Day of week setting
+Billing for subsequent months is not proper - Now it is proper
+Load Survey beyond nine days
+TOD is not correct
+//-------------------------------------------------------------------------------------
+10/01/2019
+Long press option for Third Display in power on mode (mode1) - DONE
+In displayOnDemand scroll interval = 100
+If key is not pressed for 5 minutes display returns to autoscroll
+If long key press display goes to high resolution mode.
+In high res mode, if key is pressed display returns to autoscroll
+In power on mode - mode1 - display reverts to autoscroll
+Above points have been implemented
+Now to change the addresses for 64K e2rom - 
+100 days daily log
+30 days load survey - for 45 days load survey we need another 24c512
+//-------------------------------------------------------------------------------------
+09/01/2019
+Will zap the meter first and then begin recording of power tamper
+Record power fail interrupt when power fail happens - actually one could simply capture the time
+As of last evening:
+RAMDATA SECTION:  00002854 Byte(s)
+ROMDATA SECTION:  0000339f Byte(s)
+PROGRAM SECTION:  00027f76 Byte(s)
+RAMDATA has gone down by 8 bytes - 
+We had already done away with g_rtc_timestamp0,g_rtc_timestamp2
+We had created some new variables - sleepCommMode,sleepCommModeTimer
+g_rtc_timestamp1 was being used, but it did not seem to capture the time correctly
+Hence to record cover tamper, we were reading the rtc actually
+It may now be feasible to do away with g_rtc_timestamp1 - DONE
+RAMDATA SECTION:  0000284e Byte(s)
+ROMDATA SECTION:  0000339f Byte(s)
+PROGRAM SECTION:  00027f6f Byte(s)
+RAM has gone down by 6 bytes - The struct rtc_timecapture_value_t was only 5 bytes
+Seems like the compiler had used 6 bytes for even alignment
+
+Begin with recording power fail when it actually happens - abandoned
+since the meter does not go into mode4 at all for some reason
+however, power failure time is now captured in capturedRTC and earlier procedure
+of recording tamper when power return is adopted
+one notable change is that after the power fail tamper has been recorded - the rtc
+is read again to get the correct time of recovery of power (i.e power return)
+
+RAMDATA SECTION:  00002856 Byte(s)
+ROMDATA SECTION:  0000339f Byte(s)
+PROGRAM SECTION:  00027f86 Byte(s)
+Ram area has increased by 8 bytes owing to capturedRTC.
+
+
+In battery mode (mode3), one can turn on AUX_OUT to enable operation of the switches
+We should also modify all calls getting the instantaneous parameters of emeter
+to ensure that 0 values are given in MODE3 - DONE.
+
+A new function getInstantaneousParams(uint8_t param, EM_LINE line) has been made
+This function gives all the instantaneous values - with the advantage that in
+MODE3 (battery operation) the instantaneous values are returned as 0.0 - DONE
+ 
+Pending points :
+Fix DLMS history and other bugs
+Change memory addresses as per memory ic 512 (64K)
+Fix the option byte for resetting
+Cover open tamper should also work when power is there
+Long press of key should work for third display option when power is there
+
+Saving a Copy(32)
+
+
+
+//-------------------------------------------------------------------------------------
+08/01/2019
+Detect Long press of the input - DONE
+Incorporate forward and backward scrolling - DONE
+
+RAMDATA SECTION:  0000285c Byte(s)
+ROMDATA SECTION:  0000339f Byte(s)
+PROGRAM SECTION:  00027ed3 Byte(s)
+
+A lot of bytes are being wasted in flags - turns out that one misunderstood the definition of 
+powermgmt_int_flag_t - It is actually an uint16_t with all other labels defined as bits
+Hence no change was observed after fixing powermgmtflags
+RAMDATA SECTION:  0000285c Byte(s)
+ROMDATA SECTION:  0000339d Byte(s)
+PROGRAM SECTION:  00027f53 Byte(s)
+
+Changes made by using _BV etc have been undone and rebuilt
+RAMDATA SECTION:  0000285c Byte(s)
+ROMDATA SECTION:  0000339f Byte(s)
+PROGRAM SECTION:  00027ecb Byte(s)
+
+We should trigger the communication mode when a byte is received. It should get turned off
+after some time - This could not be implemented as somehow it wasn't working - replaced
+the logic with a long key press which is working fine
+Whenever communication is initiated, the timer is reset to 0 to allow communication to proceed
+When the timer times out then MODE3 is exited
+
+Get the rtc input capture stuff working
+For cover open detection P151 is input and pullup is enabled (pullup was earlier not enabled)
+RTCCR1 input capture is enabled, RTCCR2 input capture is NOT enabled
+COVER OPEN TAMPER is working.
+
+A copy(31) is being saved before closing for the day
+
+
+//-------------------------------------------------------------------------------------
+07/01/2019
+While we now have a working version, we need to bring the current down
+While going into shutdown mode, we are powering the e2rom
+
+FEA_SW3 has been connected to DVDD. Thus it will get power even when supply is not there
+since VBAT is diode ored with DVDD
+Other switches including cover open are connected to AUX_OUT
+Now AUX_OUT will be made zero and switch operation will be triggered by INTO interrupt
+
+Done and it is working nicely
+Will now start the UARTs - before that save a copy(29)
+
+Communication is also working
+For Communication to work the STOP() in the main function for MODE3 must be commented
+Hence we need a variable called commMode which can be made 1 when push button is pressed
+for say 5 seconds - when this variable is one then the STOP() function will be skipped
+in MODE3
+if the STOP() is used then communication does not work but current drawn is around 50 microamps
+when communication is turned on, then current drawn is roughly 2 milliamps
+saving yet another copy(30) and then stopping for the day
+//-------------------------------------------------------------------------------------
+06/01/2019
+The #defines of KEY1 etc have been shifted to emeter3_structs.h
+Display function is running on subclock
+When AUX_OUT is off and MODe3 is inactive, then the current drawn is 2 to 3 microamps.
+With pullups of 10K, cuurent drawn when AUX_OUT is switched on is around 6 to 10 microamps
+When display comes on current draws fluctuates between 30 to 50 microamps
+
+Memory is also working in battery mode
+One has been able to run the meter in battery mode, accessing both autoscroll and
+displayOneDemand routines, and meter turns off after last disp_state of auto_scroll.
+
+A copy(28) is being saved 
+//-------------------------------------------------------------------------------------
+05/01/2019
+verified at pravak that current is coming down to 2 microamps,
+however vdd pin is running on vbat - in case battery ges down this can produce vdd interrupts
+we need to shut down lvdvdd operation
+also have a timer interrupt every second which will cause the watchdog to be cleared
+so that in case of a runaway condition, the meter would get reset
+1) to shutdown lvdvdd interrupt  
+R_LVDVDD_Create,R_LVDVBAT_Create,R_LVDVRTC_Create have been commented
+R_LVDVDD_Start,R_LVDVRTC_Start,R_LVDVBAT_Start have been commented
+Current is of the order of 1 to 2 microamps
+2) To enable RTC interrupt and let watchdog run in poweroff
+Turning the one second interrupt on, did not change the current drawn too much still 1-2 microamps
+Current option byte is 7E 39 E0
+New option byte is 7F 39 E0 - now watchdog is enabled in sleep mode
+Working fine - though after turning watchdog on current has gone up to 2-3 microamps
+
+
+Now to turn the switch function on
+Done - Meter is going into mode3 without switch being pressed
+Current drawn is around 40 microamps
+A copy(27) has been saved
+//-------------------------------------------------------------------------------------
+04/01/2019
+Vikas had reported that after replacing the diodes used for oring the vbat supply with vdd
+the current came down to 2 microamps
+collected the meter from vikas today
+//-------------------------------------------------------------------------------------
+02/01/2019
+Vbat has been diode ored with VDD - a current of 30 microamps was flowing with option byte settings of 7E 31 E0
+Following changes have been made in r_cg_lvd file:
+R_LVDVDD_Create
+    LVDVDD = _00_VLVDVDD_LEVEL0;  /* Rising Edge 2.54 V, Falling Edge 2.47 V */
+R_LVDVBAT_Create	
+    LVDVBAT |= _01_VLVDVBAT_LEVEL1; /* Rising Edge 2.22 V, Falling Edge 2.16 V */ 
+This has caused current to reach 4 microamps
+However when supply is falling, current remains at high levels for two/three seconds or so before going down
+Meter is not resetting
+
+In the powermgmt file, the mode1_counter <1000 check will be changed to 10 - this should speed up the shutdown
+It does speed up the shutdown process
+
+A copy(26) is being saved at this point
+
+Further changes to be made
+
+(a) To power up the switches - Current has gone upto 11 microamps and settled at 5 after some time
+(b) To power up the E2rom
+		VCC3 - High, SCL - High, SDA - High, WP - High
+		Current drawn is 9 microamps settling at 8,7
+(c) To power up the Communication
+		VCC2 (P5.7) - High, 
+		IR_TXD(P5.6) - High, IR_RXD(P5.5) - Input
+		UART1_TXD(P8.5) - High, UART1_RXD(P8.4) - Input
+
+Turning VCC2 high causes current to shoot upto 70-80 microamps
+Hence this will need to be turned on only when PB is pressed
+
+(d) One final thing to be tried is to remove debug monitor
+		This brings the current to 6 microamps
+		
+(e) We also need the rtc interrupt to come every second, the wdt to continue working in power off mode
+		and the rtc interrupt be used to clear the watchdog in power off mode
+		
+Now we need to enter the battery mode of operation		
+
+//-------------------------------------------------------------------------------------
+24/12/2018
+A separate branch from copy 26 had been started on new hardware - this has been currently abandoned
+Changes have been made to the PCB and now battery is connected to DVDD always
+Since DVDD will never go low assuming VBATT to be in fit and fine condition,
+now power availability will need to be checked with EXLVD - 
+
+since vdd is always there, hence when we shut down the meter we cannot indiscrimately make port pins
+as output and make the port value 0 as well as switch off VCC-1,2,3,4, AUX-OUT since these supplies
+are likely to be needed for battery operation
+VCC_1	:	FEA_LED0, FEA_LED1
+VCC_2	:	UARTs
+VCC_3	:	E2ROM
+VCC_4	:	Hall Sensor
+AUX_OUT:	Pushbuttons
+
+the Opamp U3 is being powered from DVDD, now removed and temporarily powered from VCC_4
+We must also shutdown the LVD_VDD interrupt 
+
+When in
+(1) r_systeminit.c the function R_LVDVDD_Create() is commented
+(2) startup.c the function R_LVDVDD_Start is commented
+Then when power is cycled On/Off then METER IS ALWAYS RESETTING
+Wonder why this is happening
+
+On the contrary - although LVDVDD is now effectively not in use since VDD is always supplied
+we will change the comparison value from _03_VLVDVDD_LEVEL3 to _01_VLVDVDD_LEVEL1
+Current is at 9.5 microamps. Current has crept up to 16.7 microamps
+
+
+If VDD is always supplied, then what happens to watchdog - can we turn it off in SLEEP mode
+
+//-------------------------------------------------------------------------------------
+17/12/2018
+If reverse condition exists in meter then current tampers to be skipped - done. 
+//-------------------------------------------------------------------------------------
+13/12/2018
+Sometimes when the programmer hangs, one has to erase the flash
+By doing so since our calibration which is stred in e2rom but whose code is written alongwith
+the flash routines causes default config to be loaded forcing recalibration
+Hence loading of calibration values is being taken out
+
+
+When date and time are being set, then load_survey and do_initial_things are being called
+//-------------------------------------------------------------------------------------
+06/12/2018
+
+18:45 hours
+Several changes have been made in the CALIB folder - now calibration data is being stored
+in e2rom - To allow the same data to be used the functions for loading and if needed
+saving must also be implemented in this code
+
+A Copy(24) is being saved before making changes
+
+Post lunch:
+
+We have checked operation of tampers - working ok
+Current tampers are messed up. To fix the current tampers, first a copy(25) is being saved
+
+//-------------------------------------------------------------------------------------
+01/12/2018
+Calibration tends to get corrupted - intiating processo to store in e2rom
+meter was stopping to pulse at 40 Amps - the MAX_POWER defined and compared with int32_t
+was not being accepted till a forced typecast was done - now OK
+
+//-------------------------------------------------------------------------------------
+27/11/2018
+A copy(23) has been saved before starting worg at GNOIDA.
+Programmer not working has been fixed by setting 
+	Erase Flash Rom when starting to Yes
+in the property of RL78 E1(Serial)(Debug Tool)
+This property automatically gets cleared after one shot.
+
+It has been noticed that when voltage input goes below 120V , then all EM_GetVoltage functions start 
+returning 0. This is serious
+
+More serious observations:
+
+a. When current is reversed, meter accuracy goes down by 66%
+
+
+//-------------------------------------------------------------------------------------
+19/11/2018
+We were faced with the programmer not programming
+Appeared to be fixed by first programming the prod code, then tried programming code of copy(16)
+finally the programmer started programming again
+
+whenever meter is being powered on/off i.e when power fail and recovery tamper is being recorded
+then two occurence tampers (code 7) and one restoration tampers were also getting recorded - these
+corresponds to over voltage tamper - when the code body of the over voltage tamper was commented, 
+the restoration disappeared but two occureneces were still being recorded
+
+we will stop recording the power fail tamper and check
+even when the power fail event was not recorded, two double occurences(7) and one restoration(8) persists.
+
+This implies that the three events are being generated by spurious activity which happens
+whenever power is turned off and then turned on again
+
+The backup battery was disconnected, and power turned off and on - in this case meter started from reset
+Interestingly the double occurence(7) and restoration(8) were not recorded
+Hence this is being casued by different initial condition relating to power on between rest case and wakeup from sleep case
+
+Stopping for the day 18:56 hours
+//-------------------------------------------------------------------------------------
+17/11/2018
+A copy(22) has been saved which reflects hex file of 12/Nov/2018
+
+Reverse Icon is being generated from total power - this produces incorrect results when
+only one line has been reversed. Further individual current reversals are to be logged
+Needs to be corrected
+//-------------------------------------------------------------------------------------
+11/11/2018
+disp autoscroll and display on demand have been implemented
+one push button has been activated - all push button functions are in em_display.c
+the key module has been excluded from the build
+A copy(21) is being saved, as the display routines are going to be rewritten
+Existing state is as follows:
+RAMDATA SECTION:  00002854 Byte(s)
+ROMDATA SECTION:  000033a3 Byte(s)
+PROGRAM SECTION:  000279c7 Byte(s)
+
+//-------------------------------------------------------------------------------------
+08/11/2018
+power fail and recover events are now being recorded correctly.
+tampers remaining - magnet, cover open
+events remaining - settings etc
+implementation of tod setting
+acceptance of key inputs and showing disply on demand and third display sequence
+//-------------------------------------------------------------------------------------
+01/11/2018
+Will now record power fail tamper and power recovered tamper
+
+//-------------------------------------------------------------------------------------
+31/10/2018
+We will be making changes after intense study to this code. A Copy(18) is being saved before doing so - DONE
+R_LVD_Create has not been called at all - One wonders how reset mode, interrupt mode or interrupt & reset mode
+would be working under this case at all - need to fix this
+
+Have been able to achieve 0 microamp current in battery mode
+Changes have been made in the power management functions in an attempt to simplify
+A Copy(19) is being saved as reference starting point
+Mode used for LVI is interrupt mode
+Value of option byte 7E31E0
+//-------------------------------------------------------------------------------------
+25/10/2018
+Changes have been made in POWERMGMT_DoBeforeStop and POWERMGMT_DoAfterStop by changing to battery power
+through software. Two things have been noticed:
+-when the meter is set to 2mA scale and power is switched off current decays and settles at 7-8 micro amps
+- when the meter is set to 200 microamp scale, one sees oscillation of the current
+- when meter kept at 20mA scale, current shoots up and then falls below 10 micro amps - meter reads 0.00
+
+When power is reapplied - current briefly flows through battery and falls back to 0
+
+Thus we seem to be achieving a standby current of 8 microamps.
+If we go for reset option, save the meter data and then let the meter be reset - it may be more desirable
+However, in such a case ram data may in all likelihood be lost
+//-------------------------------------------------------------------------------------
+23/10/2018
+At Greater Noida
+This code was put on built meter at EEPL, but it shown 0.19 amp current, while on our bare
+PCB the current is coming as 30 microamps every two seconds.
+
+Settings of the LINK OPTIONs are documented in 22/10/18 section
+
+The Copy(17) has been compared with this code and found to be identical
+
+1. COMM PORT added to pcb - meter zapped
+Date and Time set - 23/10/18 11:05
+
+*	Resistances put at 3 pushbuttons and cover switch - Current has gone up to 63 microamps continuous. 
+*	R111,R19, R18,R112, R15,R17, R123 - Cover switch was open - 63 microamps
+*	Cover switch has been closed by shorting 1 and 2 - current is still 61 micramps continuous
+*	R19,R17,R112 removed, Cover switch closed - Current pulses at 30 micro amps and settles at 9-11 continuous
+	Second observation of same case - current pulses at 30 microamps and settles at 12-15 microamps continuous - longer time to settle
+* R19,R17,R112 added, - in the software some of these pins were not made input - DONE. 
+	Current pulses at 30 microamps some six times and settles at 12-15
+
+P1.3 was never supposed to be input - It is actually P13.7
+Changes related to P1.3 being made input have been indone. Current is now pulsing at 11 microamp max
+
+Optical port added:
+Current is now pulsing at 24 microamp.
+
+
+
+Will now address the observations
+
+
+//-------------------------------------------------------------------------------------
+22/10/2018
+We have restored most of the power management code. A Copy(16) is being saved before making further changes
+This is some kind of a working copy - but current in power off condition is still of the order of 0.3 mA
+There are instances though when then current goes down to 0.02 mA - it alternates between 20 microamps and
+0 microamps at roughly 1 to 2 seconds
+
+11:47 am
+Now when switching power off current drops to 0, but shoots up to 32 microamps every second
+Seems like the RTC interrupt of 1 second is causing this - will attempt to fix
+
+17:10
+Meter is now consuming upto 30 microamps every other second - it is also not exactly 2 seconds
+By commenting #define USE_DLMS there was no change. Also we seemed to have disabled the clock one second interrupt
+Commenting the //		P3 ^=0x40; produce no change.
+R_INTC0_Stop and R_INTC1_Stop - No change
+When power is restored //    IICA0EN = 1U; has been commented - No change
+The DI and EI statements enclosing the block of statements in POWERMGMT_DoBeforeStop produce no change 
+VRTCEN = 0U;	// no luck with this too.
+
+Very strange :
+Commenting the call to this function also produced no change - it was as if this function was not working properly
+and that rtc 1 second interrupt continued 
+//    R_RTC_Set_ConstPeriodInterruptOff();            /* Change RTC to 1 sec interrupt and system */
+
+A copy(17) is being saved as this has brought us to within 30 microamperes of the backup battery current
+in power off mode. We need to preserve this and compare with earlier versions to kno why we were getting more current
+
+IN THE LINK OPTIONS
+Set enable/disable on-chip debug by link option - NO
+Set option byte	- YES
+User option byte value	- 7E7DE0
+Wonder if the above settings have had any effect
+
+
+//-------------------------------------------------------------------------------------
+21/10/2018
+It appears that we should stop DTC and ELC - this may be causing current flow in STOP mode
+//-------------------------------------------------------------------------------------
+19/10/2018
+intp module - R_INTC0_Start and R_INTC1_Start have been commented - no external edge triggered interrupts
+//-------------------------------------------------------------------------------------
+17/10/2018
+Have been working on all kinds of things including Battery backup function - power management
+turns out that when we achieve state 4 (sleep mode) current drawn is 180 microamps
+we were not switching off the Vcc3(P3.7) supply to the e2rom and Vcc2(P5.7) to the Optical port
+Vcc4(P3.6) for hall sensor and Vcc1 (P0.3) to cal leds.
+
+This does not seem to be working - The current does not go below 0.11 mA and in fact quite oftens
+settles at 0.19 mA.
+
+We will save a copy(15) and make changes to the power mnagement function
+//-------------------------------------------------------------------------------------
+12/10/2018
+It turns out that whenever the date time is being set, the meter accuracy goes bust down by -67%
+and returns to normal upon reset -
+When rtcis set the one second interrupt stops coming for some time. This upsets the EM Core
+Hence we should generate the 1 second interrupt from the 40 ms source
+//-------------------------------------------------------------------------------------
+11/10/2018
+A copy(13) has been saved- when rtc is set using dlms - then meter accuracy goes haywire -67%
+when meter is reset it becomes ok - needs to be fixed
+
+//-------------------------------------------------------------------------------------
+10/10/2018
+1) on-chip debug function option byte is being set to 0x84. This causes data flash to be erased
+when authentication of on-chip debug security ID fails - By making this 0x85, it will not erase data flash
+
+If one second interrupt of rtc does not come, enrgy incrementation should not suffer
+Hence use 40 ms interrupt to generate signal for per_second_activity
+
+md date and time were not being shown correctly - now they do. - fixed
+//-------------------------------------------------------------------------------------
+09/10/2018
+A Copy(12) is being saved before making any changes. We will make the code such that if USE_DLMS
+has been defined it should be still possible to use the PRAVAK communication commands.
+Multi protocol communication is implemented - METER and BY command added to set meter number and batch year
+//-------------------------------------------------------------------------------------
+07/10/2018
+One had forgotten to take the charger to EEPL today and after some time, work was done on
+Rohit's machine. At the day's end Rohit emailed me the folder. The earlier Source3P folder
+has been saved as Copy(11) and Rohit's machines folder is the current Source3P
+Resuming - 0936 hours
+
+To add PRAVAK commands to allow meter number, bill date, meter type etc to be entered
+in User code. This implies that while USE_DLMS option is selected it should still be able to
+pass other non-DLMS commands and execute them
+
+//-------------------------------------------------------------------------------------
+06/10/2018
+When the hex file was being downloaded using the Debugger mode through CS+ then meter was
+running, but when it was downloaded using the hex programmer software it required a reset
+to cause the program to run.
+This problem was being caused by the presence of the on-chip debug function.
+In the CC-RL Build Tool property, the OCD option byte is being set but its value
+has been changed from default 0x84 to 0x04 - thus OnChipDebug has been disabled
+The debug code is also not being loaded to free up the memory locations
+Now hex file runs on the meter when downloaded using a hex programmer WITHOUT requiring a reset
+
+To do the following:
+A list of observations has been provided by Ashish which is being attended to.
+ 
+//-------------------------------------------------------------------------------------
+26/09/2018
+The g_ChildTableClass07 has 16 entries
+	// 0 - Instantaneous parameters snapshot  
+	{   1,   0,   94,   91,   0, 255 },				// Field 1. Logical name (OBIS code) of the object.  
+	// 1 - Instantaneous Scaler Profile  
+	{   1,   0,   94,  91,   3, 255 },				// Field 1. Logical name (OBIS code) of the object.  
+	// 2 - Block Load Profile  
+	{   1,   0,   99,   1,   0, 255 },				// Field 1. Logical name (OBIS code) of the object.  
+	// 3 - Block Load Scaler Profile  
+	{   1,   0,   94,  91,   4, 255 },				// Field 1. Logical name (OBIS code) of the object.  
+	// 4 - Daily Load Profile  
+	{   1,   0,   99,   2,   0, 255 },				// Field 1. Logical name (OBIS code) of the object.  
+	// 5 - Daily Load Scaler Profile  
+	{   1,   0,   94,  91,   5, 255 },				// Field 1. Logical name (OBIS code) of the object.  
+	// 6 - Billing profile  
+	{   1,   0,   98,   1,   0, 255 },				// Field 1. Logical name (OBIS code) of the object.  
+	// 7 - Billing Scaler Profile  
+	{   1,   0,   94,  91,   6, 255 },				// Field 1. Logical name (OBIS code) of the object.  
+	// 8 - Event 0 Scaler Profile  
+	{   1,   0,   94,  91,   7, 255 },				// Field 1. Logical name (OBIS code) of the object.  
+	// 9 - Event 0 profile-Amendment3 
+	{   0,   0,   99,  98,   0, 255 },				// Field 1. Logical name (OBIS code) of the object.  
+	// 10 - Event 1 profile-Amendment3 
+	{   0,   0,   99,  98,   1, 255 },				// Field 1. Logical name (OBIS code) of the object.  
+	// 11 - Event 2 profile-Amendment3 
+	{   0,   0,   99,  98,   2, 255 },				// Field 1. Logical name (OBIS code) of the object.  
+	// 12 - Event 3 profile-Amendment3 
+	{   0,   0,   99,  98,   3, 255 },				// Field 1. Logical name (OBIS code) of the object.  
+	// 13 - Event 4 profile-Amendment3 
+	{   0,   0,   99,  98,   4, 255 },				// Field 1. Logical name (OBIS code) of the object.  
+	// 14 - Event 5 profile-Amendment3 
+	{   0,   0,   99,  98,   5, 255 },				// Field 1. Logical name (OBIS code) of the object.  
+	// 15 - Name Plate profile  
+	{   0,   0,   94,  91,   10, 255 },				// Field 1. Logical name (OBIS code) of the object.  
+	
+All event profiles have a common scaler.
+The g_Class07_Event_EntriesInUse[6] and g_Class07_Event_MaxEntries[6] are an array.
+This may permit treatment of the events in a common function.
+Event indices go from 9 to 14 (9,10,11,12,13,14)	
+
+12:02 pm
+To save memory - some files / functions not required are being excluded from build
+Wherever calls to these functions are being made - if found not necessary 
+have been marked "commented by pravak as this feature not required"
+
+//-------------------------------------------------------------------------------------
+25/09/2018
+Between copy(8) and this, attempt was made to fix calibration issue. In this version of the
+code under standard pravak communication, the CAL0, CAL1 etc commands do not work. Hence a different
+folder E:\PRAVAK_this\RNSS3P\Source3P_CALIB contains the files which allow calibration
+We are conveniently calling hex file of the calib folder as the production code, and that of
+this folder as the user code
+
+Between copy(9) and this the pulse rate was changed from 1000 pulses/kwh to 1600
+It turns out that this information is stored in type EM_CALIBRATION.commondata_t.meter_constant_total
+there is also a EM_CALIBRATION.commondata_t.meter_constant_phase whose meaning is not clearly understood
+at the moment
+However as it turns out this mter constant value is read from the default value once and stored
+in the EM. Subsequently in the code this value is not changed at all - hence in the calib folder
+while the calibration is being saved this value has been forced to 1600 at present - this happens only 
+in the calib folder code
+
+We now need to look at the following things to move towards the end point
+1) improve the display functionality and get all the icons to work
+2) meter hangs at times when powering up - it needs to be made robust
+3) rtc gets corrupted upon start up - need to investigate
+4) in calib folder we need to verify that the zap program has succesfully erased
+and the energy values have been written with proper checksum
+5) implement tamper
+6) implement VBATT operation
+7) implement pushbutton and two modes of display - 
+	a)displayOnDemand with FWD / BACK scrolling
+	b)high resolution display
+8) communication in pwoer off mode
+
+Bugs reported:
+1) when md interval is set, it does not seem to have effect and the value read is also not changed
+2) when name plate data query is done for 0.0.96.1.1.255 the meter gets reset
+
+
+//-------------------------------------------------------------------------------------
+17/09/2018
+A copy(9) is being saved before starting work. Hex files matches with DLMS and HT versions
+//-------------------------------------------------------------------------------------
+30/08/2018
+will first work on billing
+//-------------------------------------------------------------------------------------
+29/08/2018
+Load survey and daily log are kind of working now - seem to be behaving ok
+Billing is yet to be properly done, and then tampers
+A Copy(7) is being saved while stopping work for the day. 
+Project has been cleaned and last hex file renamed to 1 prior to saving
+//-------------------------------------------------------------------------------------
+27/08/2018
+Today have begun testing load_survey and daily log
+Doesn't appear to be working - stopping for now
+
+//-------------------------------------------------------------------------------------
+23/08/2018
+A copy(6) has been saved.
+Memory addresses have been modified to uint32_t to accomodate memory more than 64K
+Some ctldata write pointers are still 16 bits.
+We must ensure that the 0th page of 64KB is used for basic meter data - and stuff
+like load survey and log etc go to the next page
+
+//-------------------------------------------------------------------------------------
+get_lp_data, get_dlp_data and get_bill_data implemented
+the corresponding update functions need to be done/redone
+RAMDATA SECTION:  0000204e Byte(s)	00002014
+ROMDATA SECTION:  00003301 Byte(s)	00003301
+PROGRAM SECTION:  00020402 Byte(s)	0002032d
+
+//-------------------------------------------------------------------------------------
+14/08/2018
+Adding functionality for daily log, and billing, to be followed by tamper profiles
+functions like get_lp_data, get_dlp_data,find_num_between_lp_entries,find_num_between_dlp_entries,
+get_bill_data,get_tamper_data,get_time_data etc to be implemented
+//-------------------------------------------------------------------------------------
+13/08/2018
+Added the functionality of load survey and its connection with dlms. Not completed yet
+There is also a requirement of finding the entries in use, and profile entries
+We are using a different structure for storing survey data, where records for the day
+are indexed from the time of the day. Each record is currently 20 bytes. This will cause
+data to cross page boundaries and hence e2rom writing functions need to written appropriately.
+
+An intermediate picture is 
+RAMData		2050	
+ROMData		3301	
+Program		200f1	
+
+An intermediate Copy(5) is being saved just like that - it has been a long time and progress is slow
+//-------------------------------------------------------------------------------------
+02/08/2018
+Worked on DLMS - subsequently reverted to PRAVAK COMM and discovered that Calibration does not appear to be working
+Stopping right now and going back to some old code to check calibration
+//-------------------------------------------------------------------------------------
+01/08/2018
+A Copy(4) has been saved before starting work - rtc.day is now being read from ext_rtc
+there is a problem, while setting date and time we do not set the weekday
+without explicitly setting the day, it is possible that this value will not be correct
+when reported through
+one remembers that for some code written for rohit, during the raspberry pi days there
+was a need for a routine to find the day of week knowing the date, month and year.  
+//-------------------------------------------------------------------------------------
+31/07/2018
+was at greater noida. initiated process fof filling dlms data
+
+//-------------------------------------------------------------------------------------
+30/07/2018
+to add load_survey, and dlms interface data
+to add tamper code
+to fix display function
+//-------------------------------------------------------------------------------------
+29/07/2018
+A folder Source3P - Copy (2) has been saved. One was facing problems related to section overflow errors -
+there was no apparent reason why it was happening, there is sufficient memory, and yet the error
+was reported - some cc-rl settings were changed and now the error has disappeared
+
+emeter3_app, memoryOps, e2rom and utilities files have been edited to incorporate metering application
+md, billing, tod etc have been implemented - but do_inital_things does not seem to be working
+correctly - one can now set date and time through pravakComm
+
+we also need to add load_survey and tamper code
+
+Having significantly trimmed the code in em_anti_tamper_plugin, em_event_plugin, and the header files
+					before			after
+RAMData		20d2				20ae
+ROMData		32c7				32a3
+Program		218ec			 1fe3b
+
+we can now add our own functions for tamper and event processing.
+
+After making changes in the plugin functionality, the EVENT_RegisterAll() in startup started
+returning error. i.e events were not registered successfully - this caused sartup to fail and the 
+code was not processing to main
+
+the function EVENT_RegisterAll has been commented - hence we now do not expect any event to be registered
+at least the meter is now coming to main and other code is functioning. 
+//-------------------------------------------------------------------------------------
+27/07/2018
+readRTC added in main after saving copy(2)
+//-------------------------------------------------------------------------------------
+25/07/2018
+Energy is now being saved and restored.
+To add minute functions
+//-------------------------------------------------------------------------------------
+24/07/2018
+One is plagued by write_energies not working.
+A separate folder E:\PRAVAK_This\RNSS3P\Source3P has been created.
+We will abandon the IIC routines and implement our own bit banging i2c functions
+Our e2rom implementation appears to be working correctly
+A bug was noted that per_second activity was being called even though init was not completed
+A flag init_done has been introduced which is set to 1 once init is complete
+We still neeed to figure out how to have uninitialized memory
+//-------------------------------------------------------------------------------------
+23/07/2018
+In startup_c and powermgmt_c the rtc interrupt was probably being set to 1/2 second
+It has been made 1 second. This could have been the likely cause for kwh being incremented two times
+Will also restore the change made in R_RTC_Create in r_cg_rtc.c file - Done
+
+//-------------------------------------------------------------------------------------
+22/07/2018
+We are currently working on th 2018-06-27 folder, since the Source Folder is causing the meter
+to not boot at all. 
+emeter3_app and memoryOps files have been included - energy accumulation etc are now being performed
+in emeter3_app - what we are finding is that kwh is increasing at twice the rate, rtc interrupt appears
+to be set at once a second, but for some reason, kwh is double the amount
+
+INTRTCPRD and INTRTCRPD are both defined in iodefine.h - wonder where the problem is
+continuing to work
+
+
+SERVICE_ReadEMData and SERVICE_WriteEMData function body has been completely commented in service_em_data.c
+
+
+//-------------------------------------------------------------------------------------
+16/07/2018
+This folder is being renamed Source_2018_Jul_16.
+The folder SourcesShared_2018-06-27 is being copied and renamed Source.
+//-------------------------------------------------------------------------------------
+06/06/2018
+Two changes have been made in r_dlms_data_ic.h (lines 40,41) and r_dlms_user_interface.c(line 887)
+These changes must be undone.
+
+//-------------------------------------------------------------------------------------
+04/06/2018 09:17 hours
+appear to have a handle on dlms, and timers.
+in this code TMR00 (1 ms), TMR01 (135 microsecond) and TMR02(40 ms) interrupts have been used.
+The 1 ms interrupt was being used for mlsSystemTimerCallback which is probably used by the interpreter (GUI)
+for determining timeout and endo communication.. The same fellow may not be used for DLMS which follows
+a similar communication protocol
+
+UART needs to be at 9600 for DLMS - first need to test whether things work properly at 9600 or not
+DLMS needs UART, 1 mstimer, 0.5 second timer and optional WDT.
+
+OPTO ISOLATED port is working at 9600 but OPTICAL PORT is not.
+We will use the ISOLATED PORT to test the DLMS 
+//-------------------------------------------------------------------------------------
+02/06/2018 09:26 hours
+
+A Copy(6) has been saved.
+Yesterday one was able to get the CAL n command to call the SERVICE_DoAutoCalibration function
+This calibrated the meter in a time period of around 10 to 12 seconds. Calibration appeared to be
+OK although error is not exactly 0 - what it's effect will be on the final total power remains to be
+seen. it may be required to fine tune individual phase errors to tbe close to 0 so that total power
+error can remain within limits always. The phase calibration works even when upf is applied; this is 
+probably be done by making the reactive power 0. how it works is not totally understood at present;
+CAL 0,1,2 will calibrate phases R,Y and B. CAL 3 will calibrate the Neutral Current amd CAL 4 will save
+the data. atpresent data is being saved in flash; this can be amended. 
+
+looking at dlms -it appears that all the get commands call functions which get the required parameters
+to see how getting history data, logdata, survey data etc will work. there are also actions that can
+be initiated which definitely include setting the date time (should be only an adjustment) as well as to
+manually reset MD i.e. force generate a bill, also change tod settings - need to see how all of this is done
+in dlms 
+ 
+//-------------------------------------------------------------------------------------
+30/05/2018
+At Greater Noida - The DLMS files have been excluded from this build.
+Today one will attempt to run the system and attempt Auto calibration from PRAVAK comm
+Firstone needs to mess up the already calibrated meter by using the GUI.
+Since in this folder the GUI part - mls files have been removed , one will use an earlier version
+to first disturb the meter and then use this folder to attempt autocal
+//-------------------------------------------------------------------------------------
+29/05/2018
+Ravindra had sent a new DLMS folder through a link which downloaded a folder called share.
+It contained a project for rl78i1c. However, building it produce around 338 warnings.
+One has fixed all those warnings and the DLMS files have been included in this folder.
+//-------------------------------------------------------------------------------------
+28/05/2018
+One had messed with the DLMS code without success. Ravindra has promised to deliver the rl78i1c version
+today.
+Both the Optical and the Isolated ports are working with Standard PRAVAK Communication.
+At a time only one of them can be used, which depends on #define OPTICAL_PORT being commented or uncommented.
+At a later date, we may assign PRAVAK Comm to only the Optical port. 
+
+We must now write the code to perform AUTO Calibration through the HyperTerminal. 
+//-------------------------------------------------------------------------------------
+25/05/2018
+Yesterday Avijit and Ravindra alongwith Himanshu had turned up to handover the DLMS package which they did.
+Unfortunately the package was for RL78I1B which is for single phase meters.
+We may have to port it to RL78i1C.
+
+To begin with one should rationalise the three UART ports which are there in the EEPL design.
+These are UART0, UART3 and UART2. 
+UART3 is optoisolated port which we are are operating at 4800 baud
+UART2 is an Optical port with LED and PhotoTransistor
+UART0 has been brought out to a 5 pin header and is likely meant for the RF modem.
+
+We should setup the driver and wrapper layers to account for the three ports.
+This is being done manually
+Files affected are 
+r_cg_sau_ren.c, r_cg_sau.h r_cg_sau_user.c
+Now to fix the wrapper. We must use the wrapper number as 0,2 and 3
+Kind of done; now to see if the standard communication works
+
+First one will check the UART3.
+This is working.
+
+Now let us check the Optical Port - which happens to be UART2
+//-------------------------------------------------------------------------------------
+22/05/2018
+Included wrp_user_uart in the build.
+
+20:23 Hours - pravakComm module is working.
+
+
+//-------------------------------------------------------------------------------------
+21/05/2018
+
+One has shutdown renesas protocol by excluding all c files in interpreter
+as well as excluding wrp_user_uart.c from build
+It was also required to comment the following calls in phminit and phmstart functions
+	R_CI_Init() and R_CI_Start()
+Function calls in r_cg_tau_user and r_cg_sau_user were also commented.
+
+Will now attempt to write a PRAVAK Standard CRLF terminated communication system.
+//-------------------------------------------------------------------------------------

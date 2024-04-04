@@ -1,0 +1,20 @@
+The header byte ':' is not encrypted - it is in plain text
+Given input string
+
+	E	E	O	B	L
+
+Hex	45	45	4F	42	4C
+NOT	BA	BA	B0	BD	B3
+XOR 	55	56	57	58	59
+	EF	EC	E7	E5	EA
+
+Decryption
+
+After : has been received the following 5 bytes must be stored in array 
+
+Array	0	1	2	3	4
+Byte	EF	EC	E7	E5	EA
+XOR	55	56	57	58	59
+	BA	BA	B0	BD	B3
+NOT	45	45	4F	42	4C	- Original string
+

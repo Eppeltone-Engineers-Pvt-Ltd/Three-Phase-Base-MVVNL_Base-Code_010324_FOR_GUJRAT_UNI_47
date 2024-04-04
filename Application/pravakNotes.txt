@@ -1,0 +1,307 @@
+//------------------------------------------------------------------------------------------------------------------------------
+28/Aug/2021
+
+A new folder E:\PRAVAK_this\SMRNSS\DLMSV2\SCSM_test  had been separately created to test whether both 
+the DLMS and metering codes could be madde to fit in one MCU.
+
+One was facing problems of RAM as well as Flash memory requirements being exceeded,even though
+all the functionality had not been included.
+
+In the test folder, the Bootloader (Subproject) was removed and one tried to remove the size errors for
+bss and text segments - without success.
+
+Rohit has indicated that other people are implementing a 2 chip solution for the smart meter.
+
+One feels that it may be the correct way to go about.
+
+We will also follow the two chip model.
+
+In the two chip model, one chip will handle all the metering functions - This will contain the code of something
+like E:\PRAVAK_this\RNSS3P20\Source3P_BootLoader
+
+Another (second) chip will handle the DLMS V2 code and will communicate with the first chip over UART.
+
+Things to be done in the first chip:
+
+(a) Remove the DLMS (Version 1) code to free up Flash as well as RAM
+(b) Add new code to communicate with Chip 2
+
+Things to be done in the second chip:
+
+(a) This will primarily contain the DLMS V2 code - It will also connect to the RF modem
+(b) How will data be obtained locally - Probable answer (Through chip 2 / Chip 1(?))
+(c) Chip 2 will need 3 Comm ports - RF modem, Optical Port and Inside port
+(d) What about the RJ11 port? Can it be shared with the Optical Port?
+
+We will need a Communication protocol to exchange data between the First and the second chip.
+
+Over the Air Software Update issue will need to be worked out.
+
+17:28
+
+This folder does not compile - It gives the following error
+
+	F0563100:Section address overflow out of range : ".bss" 
+	
+	
+
+
+
+
+
+//------------------------------------------------------------------------------------------------------------------------------
+11/Aug/2021
+The number of interrupts is 56 - hence we should not reserve more than 58 locations
+
+//------------------------------------------------------------------------------------------------------------------------------
+9/Aug/2021
+Have added most of the metering functions
+Getting a few errors and warnings.
+
+18:31 Stopping now
+//------------------------------------------------------------------------------------------------------------------------------
+8/Aug/2021
+This folder uses only timer0 as a 1 ms interrupt fr dlms functions
+
+The emeter software uses four timers
+(a) Timer0 as interval timer 1 ms interrupt
+(b) Timer1 as a one shot counter
+(c) Timer2 as interval timer 40 ms 
+(d) Timer3 as interval timer 40 ms
+
+We will copy the relevant portions of the code from the Smart3P folder
+The header file definitions are different - hence care must be taken
+
+//------------------------------------------------------------------------------------------------------------------------------
+7/Aug/2021
+A Copy(4) is being saved. Copy(4) is marginally different from Copy(3)
+However, one is now going to make major additions - hence a need for Copy(4) to be saved.
+
+We will start from r_cg_systeminit
+
+Had got stuck at r_cg_tau
+//------------------------------------------------------------------------------------------------------------------------------
+4/Aug/2021
+09:11
+rtc, display and uart1 are now working
+Need to add the EM library and EM code
+
+
+18:10
+FOUND THE SETTING WHICH GIVES ERROR FOR P0.2=1; P0.2=0 ETC.
+The error is 
+	E0520065: Expected a ";"
+This error gets fixed by the following selection:
+Compile Options Tab -> Others ->
+Use support for porting from other compiler - Yes(CA78K0R)(-convert_cc=ca78k0r)
+If this option is chosen then the E0520065 error disappears
+
+This system uses the following libraries:
+
+
+
+//------------------------------------------------------------------------------------------------------------------------------
+3/Aug/2021
+
+09:30
+The User Option value is FF FF E2. The value that we use is 7E 39 E0
+Need to check the difference
+//--------------------------------------------------------------------------
+Option Byte 1  - address C0	(Watchdog Operation)
+Case : 0xFF
+			7					 6			 5				4				3			2			1					0
+	WDTINIT		|	WINDOW1	WINDOW0	|	WDTON	|	WDCS2	WDCS1	WDCS0	|	WDSTBYON		|	 
+			1		 	|		 1			 1		|		1		|		1			1			1		|			1				|
+	Interrupt	|	Window Open			|Counter|	Overflow time			|Operation On |
+	generated	|	100%						|Enabled|		3799.18 ms			|in HALT/STOP	|
+	
+Case : 0x7E
+			7					 6			 5				4				3			2			1					0
+	WDTINIT		|	WINDOW1	WINDOW0	|	WDTON	|	WDCS2	WDCS1	WDCS0	|	WDSTBYON		|	 
+			0		 	|		 1			 1		|		1		|		1			1			1		|			0				|
+	   No			|	Window Open			|Counter|	Overflow time			|Operation OFF|
+	Interrupt	|	100%						|Enabled|		3799.18 ms			|in HALT/STOP	|
+	
+//--------------------------------------------------------------------------
+Option Byte 2  - address C1	(LVD setting)
+Case : 0xFF
+			7					 6			 5				4				3			2				1				0
+	  VPOC2		|	 VPOC1		VPOC0	|Always	|	LVIS1	LVIS0	|LVIMDS1|LVIMDS0|	 
+			1		 	|		 x			 x		|		1		|		x			x		|		x				1		|
+	 LVD OFF	|	 								| 			|							|				  			|
+	 setting	|	 								|				|							|								|
+
+Remarks	:	LVD is Off (use of external reset input via RESET pin)
+	
+Case : 0x39
+			7					 6			 5				4				3			2				1				0
+	  VPOC2		|	 VPOC1		VPOC0	|Always	|	LVIS1	LVIS0	|LVIMDS1|LVIMDS0|	 
+			0		 	|		 0			 1		|		1		|		1			0		|		0				1		|
+	  LVD ON	|Detection Voltage|Counter|Detect. Volt.|	LVD setting		|
+						|1.98V , 1.94V	  |Enabled|1.98V , 1.94V|	Interrupt mode|
+	
+Remarks	:	LVD is On (Interrupt occurs at 1.98V(rising) and 1.94V(falling)
+
+//--------------------------------------------------------------------------
+Option Byte 3  - address C3	(Flash operation mode, Frequency of high speed onchip clock)
+Case : 0xE2
+			7				6			 	5			4			  3				2				1				0
+	  CMODE1	CMODE1|Always|Always|FRQSEL3 FRQSEL2 FRQSEL1 FRQSEL0|	 
+			1		 		1		|		1			 0	|		0				0				1				0		|
+	 		HS mode			|	 						| 															|
+	 	(high speed)	|	 						|																|
+
+Remarks	:	Flash high speed mode, Frequency of Osc - 6 MHz
+	
+Case : 0xE0
+			7				6			 	5			4			  3				2				1				0
+	  CMODE1	CMODE1|Always|Always|FRQSEL3 FRQSEL2 FRQSEL1 FRQSEL0|	 
+			1		 		1		|		1			 0	|		0				0				0				0		|
+	 		HS mode			|	 						| 															|
+	 	(high speed)	|	 						|																|
+	
+Remarks	:	Flash high speed mode, Frequency of Osc - 24 MHz
+
+We will change the Option byte settings to 7E 39 E0	
+
+11:41
+Uart1 is now working at 9600 baud - since operating frequency is now 24 MHz
+
+11:46
+Bootloader bl_cstart.asm contains the entry point upon reset which is _bl_start
+
+The following functions are called in sequence
+
+	_bl_stkinit
+	_bl_hdwinit
+	bss is intialized, ROM data is copied
+	_bl_main 
+
+
+Subsequently _bl_main calls address USER_APP_NEAR_START_ADDRESS which is defined as 0x2000
+ 
+18:08
+Whoopie!!! - The Lcd display now works
+The code written in the reference folder E:\PRAVAK_this\Smart3P\3PSmartMeter was not entirely correct.
+This folder code is now correct.
+LCD_ClearRAMDigitInfo function has been fixed, so have the LCD_WriteRAMDigitInfo
+Function swapNibbles is now redundant.
+LCD_DisplayAll,LCD_ClearAll, have been fixed
+lcd_clearTopLine will need to be written correctly so as to erase only the a,b,c,d,e,f,g segments
+
+A Copy (3) of this folder will be saved.
+//------------------------------------------------------------------------------------------------------------------------------
+2/Aug/2021
+The code is not working as desired. Some things are happening
+Display has come on but one is not able to display properly
+RTC periodic interrupt seems to be coming
+Communication is not working
+Writing P0.2=1 or P0.2=0is giving error saying 'Expected "a ;"'
+Will compare the settings of this folder with that of our reference folder E:\PRAVAK_this\Smart3P\3PSmartMeter
+
+17:22
+Finally managed to get the LED to blink and the UART1 to work, and the lcd to partly work
+Changes had to be made to the CC-RL(Build Tool)settings - Common Options and Compile Options
+Changes were made to
+	Level of Optimization
+	Enhance debug with optimization
+	Check function without prototype declaration
+	Sign of the char type
+	Use support for porting from other compiler
+	Merge string literals
+	
+After making these changes P0.2=1; and P0.2=0; commands compiled without error
+For some reason communication baud rate is 2400
+LCD display is messed up.
+//------------------------------------------------------------------------------------------------------------------------------
+1/Aug/2021
+One had made several additions to this folder to get the lcd, comport and rtc interrupts to function
+However it did not work for some reason
+
+The E:\PRAVAK_this\Smart3P\3PSmartMeter was not working for some reason - it was fixed and now we will compare
+the two folders to find out why things are not working as planned.
+
+The bootloader is being modified to kind of not do anything and straight jump to the application.
+
+A folder E:\PRAVAK_this\SMRNSS\DLMSV2\SCSM - Copy exists which can be used as a reference to determine the changes made
+
+10:48
+A SCSM - Copy (2) is being made before starting work
+
+Checking the following in bootloader:
+
+17:58
+Don't seem to be having any luck
+Display has turned on but is not working correctly
+Communication is not working
+Statement P0.2=1; or P0.2=0; is giving error
+
+Will knock off the bootloader and run just our application.
+Will save a Copy_setAside before making any changes
+
+Could not make the changes necessary to simply run the application. Giving up.
+Deleted the folder and the Copy_setAside has been renamed SCSM
+
+//------------------------------------------------------------------------------------------------------------------------------
+31/Jul/2021
+lcd files and uart files and drivers have been added. now to incorporate pravakComm - DONE
+various calls to DLMS in the r_cg_main->main() have been commented.
+will also modify the bootloader so that after startup, it jumps straight to application
+
+//------------------------------------------------------------------------------------------------------------------------------
+26/Jul/2021
+Last working day at Patna.
+We will add the lcd and display files to the main project. DONE.
+//------------------------------------------------------------------------------------------------------------------------------
+25/Jul/2021
+
+The lcd and display files are updated for the bootloader.
+Now for the application
+r_cg_port.c - done
+r_cg_cgc - already implemented
+r_cg_sau and user have been modified to activate UART1(already done in bootloader) and UART3
+send and receive and interrupt handlers are new
+
+The lcd driver has already been started in bootloader
+We need to add the new c and h files for r_drv_lcd_ext,r_drv_lcd_config,r_drv_lcd_display
+as well as the display file for user display 
+
+Wil make a copy at this stage
+
+//------------------------------------------------------------------------------------------------------------------------------
+24/Jul/2021
+09:40
+We are now at Patna, having spent the night of 22/Jul/2021 at Clark Awadh. Lucknow and the next day drving from Lucknow to Patna
+on 23/Jul/2021 reaching Patna at just around 19:00 hours
+
+The source of this folder is
+	E:\PRAVAK_this\SMRNSS\DLMS IS15959PART2_1_6-3-2021\3Phase256\Skeleton_Code_DLMS_3P4W_20210308_Rel_noAES
+	The aes library rl78i1c_aes_gcm_driver.lib needs to be added to the
+	E:\PRAVAK_this\SMRNSS\DLMSV2\SCSM\rl78i1c\application\dlms2\library\aes folder
+	In general to the 
+	..\rl78i1c\application\dlms2\library\aes folder
+
+At Delhi this folder had been created and two log reports called FirstTimeLog.txt and SecondTimeLog.txt have been created.
+
+The objective is to understand, why adding new modules for LCD and rtc etc which are picked up from our code folders produces
+large number of errors.
+
+We were able to get the UART1 port working in 
+	E:\PRAVAK_this\Smart3P\3PSmartMeter\rl78i1c\driver\mcu\r_cg_sau_ren.c and
+	E:\PRAVAK_this\Smart3P\3PSmartMeter\rl78i1c\driver\mcu\r_cg_sau_user.c
+	
+To get this port up and running we need to change/modify/append/add the ..\driver\
+	r_cg_port, r_cg_sau, lcd  files and the display files
+	
+One will begin with the r_cg_port
+
+To begin with the rl78i1c_production.mot file are identical.
+
+09:51 Will modify cg_port.c
+Must begin with bl_r_cg_port.c and r_cg_portc.c
+Several #defines in bl_r_cg_port.h and r_cg_portc.h have been defined differently.
+We have modified the code to include the #defines of the dlmsv2 skeleton code provided.
+
+11:11
+Now to add UART1 and CSI00 - DONE.
+

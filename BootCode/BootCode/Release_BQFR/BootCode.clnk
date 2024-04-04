@@ -1,0 +1,39 @@
+-Input=Release_BQFR\Command.obj
+-Input=Release_BQFR\My_cg_timer.obj
+-Input=Release_BQFR\My_cg_timer_user.obj
+-Input=Release_BQFR\my_cgc.obj
+-Input=Release_BQFR\my_cgc_user.obj
+-Input=Release_BQFR\MY_interrupts.obj
+-Input=Release_BQFR\my_main.obj
+-Input=Release_BQFR\my_port.obj
+-Input=Release_BQFR\my_port_user.obj
+-Input=Release_BQFR\MY_ram_vector.obj
+-Input=Release_BQFR\my_uartf.obj
+-Input=Release_BQFR\xmodem.obj
+-Input=Release_BQFR\My_cstart.obj
+-Input=Release_BQFR\My_hdwinit.obj
+-LIBrary=V2.21\librl78\fsl.lib
+-SECURITY_ID=00000000000000000000
+-DEVICE=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+-DEBug
+-NOCOmpress
+-OUtput=Release_BQFR\BootCode.abs
+-LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\lib\rl78em4s.lib
+-LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\lib\malloc_n.lib
+-LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\lib\rl78em4r.lib
+-USER_OPT_BYTE=7E39E0
+-LISt=Release_BQFR\BootCode.map
+-SHow=SYmbol,Reference,Xreference,Total_size,VECTOR,RELOCATION_ATTRIBUTE
+-STARt=.text,.RLIB,.SLIB,.textf,.constf,.data,.sdata,FSL_BCD,FSL_RCD,FSL_FCD/00100,.const/02000,.dataR,.bss/FC410,.ramvect_n/FFD50,.sdataR,.sbss/FFE20
+-ROm=.data=.dataR
+-ROm=.sdata=.sdataR
+-NOMessage
+-NOLOgo
+-end
+-Input=Release_BQFR\BootCode.abs
+-DEVICE=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+-OUtput=..\..\Application\Release_BQFR\BootCode.hex
+-FOrm=Hexadecimal
+-NOMessage
+-exit
+

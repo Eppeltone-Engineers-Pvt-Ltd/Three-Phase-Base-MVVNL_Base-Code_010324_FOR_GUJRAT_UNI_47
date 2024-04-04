@@ -1,0 +1,53 @@
+
+This file contains information regarding the display and tamper files to be include for building various projects.
+
+The following definitions are included in the board.h file
+//#define GUJARAT_UNI_DIR_LTCT_METER	// use this instead of POINT_FIVE_CLASS_METER
+//#define GUJARAT_BI_DIR_METER
+//#define GUJARAT_UNI_DIR_METER		// we must use a different display file for this case
+//#define KERALA_UNIDIR	// this is Unidirectional meter
+//#define PVVNL_UNI_DIR_METER
+//#define DVVNL_UNI_DIR_METER
+//#define JVVNL_UNI_DIR_METER
+//#define MVVNL_UNI_DIR_METER
+
+For each of these project definitions, the associated display,tamper files and e2rom_add files are documented
+
+******************************************************************************************
+MVVNL_UNI_DIR_METER uses a different display file - rest is same as PVVNL 
+use the #define PVVNL_UNI_DIR_METER
+	Display File 	:	em_display_MVVNL.c		// for MVVNL board	
+	Tamper File		:	tampers_PVVNL.c
+	e2rom_adds		:	e2rom_adds.h
+******************************************************************************************
+
+
+******************************************************************************************
+PVVNL_UNI_DIR_METER
+	Display File 	:	em_display_PVVNL.c
+	Display File 	:	em_display_MVVNL.c		// for MVVNL board	
+	Tamper File		:	tampers_PVVNL.c
+	e2rom_adds		:	e2rom_adds.h
+******************************************************************************************
+GUJARAT_UNI_DIR_LTCT_METER
+	Display File 	:	em_display_Gujarat_unidir_ltct
+	Tamper File		:	tampers_Gujarat_unidir_ltct.c
+	e2rom_adds		:	e2rom_adds_GUJARAT_LTCT_UNDIR.h
+
+******************************************************************************************
+GUJARAT_BIDIR_LTCT_METER
+	Display File 	:	em_display_Gujarat_bidir_ltct
+	Tamper File		:	tampers_Gujarat_bidir_ltct.c
+	e2rom_adds		:	e2rom_adds_GUJARAT_LTCT_UNDIR.h
+
+
+******************************************************************************************
+//GUJARAT_BI_DIR_METER
+//GUJARAT_UNI_DIR_METER		// we must use a different display file for this case
+For both of these meters
+	Display File 	:	em_display_Gujarat
+	Tamper File		:	tampers.c
+	e2rom_adds		:	e2rom_adds.h
+******************************************************************************************
+	
+	

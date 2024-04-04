@@ -1,0 +1,117 @@
+****trigFunctions.c
+v2 
+:1712232856
+#1
+F "__DI" N I!1 T!2 ?18-2 
+T "void" KBV I!2 0x0 
+F "__EI" N I!3 T!2 ?19-2 
+F "__halt" N I!4 T!2 ?20-2 
+F "__stop" N I!5 T!2 ?21-2 
+F "__brk" N I!6 T!2 ?22-2 
+F "__nop" N I!7 T!2 ?23-2 
+F "__rolb" N I!8 T!9 ?25-2 P!10 P!11 
+T "unsigned char" KBU I!9 0x1 
+V "" N I!10 O!8 T!9 .1 0x1 
+V "" N I!11 O!8 T!9 .1 0x1 
+F "__rorb" N I!12 T!9 ?26-2 P!13 P!14 
+V "" N I!13 O!12 T!9 .1 0x1 
+V "" N I!14 O!12 T!9 .1 0x1 
+F "__rolw" N I!15 T!16 ?27-2 P!17 P!18 
+T "unsigned int" KBU I!16 0x2 
+V "" N I!17 O!15 T!16 .2 0x2 
+V "" N I!18 O!15 T!9 .1 0x1 
+F "__rorw" N I!19 T!16 ?28-2 P!20 P!21 
+V "" N I!20 O!19 T!16 .2 0x2 
+V "" N I!21 O!19 T!9 .1 0x1 
+F "__mulu" N I!22 T!16 ?30-2 P!23 P!24 
+V "" N I!23 O!22 T!9 .1 0x1 
+V "" N I!24 O!22 T!9 .1 0x1 
+F "__mului" N I!25 T!26 ?32-2 P!27 P!28 
+T "unsigned long" KBU I!26 0x4 
+V "" N I!27 O!25 T!16 .2 0x2 
+V "" N I!28 O!25 T!16 .2 0x2 
+F "__mulsi" N I!29 T!30 ?33-2 P!31 P!33 
+T "long" KBS I!30 0x4 
+V "" N I!31 O!29 T!32 .2 0x2 
+T "int" KBS I!32 0x2 
+V "" N I!33 O!29 T!32 .2 0x2 
+F "_COM_mulul" F I!34 T!35 ?42-2 P!36 P!37 
+T "unsigned long long" KBU I!35 0x8 
+V "" N I!36 O!34 T!26 .2 0x4 
+V "" N I!37 O!34 T!26 .2 0x4 
+F "_COM_mulsl" F I!38 T!39 ?43-2 P!40 P!41 
+T "long long" KBS I!39 0x8 
+V "" N I!40 O!38 T!30 .2 0x4 
+V "" N I!41 O!38 T!30 .2 0x4 
+F "_COM_divui" F I!42 T!16 ?48-2 P!43 P!44 
+V "" N I!43 O!42 T!16 .2 0x2 
+V "" N I!44 O!42 T!9 .1 0x1 
+F "_COM_divul" F I!45 T!26 ?49-2 P!46 P!47 
+V "" N I!46 O!45 T!26 .2 0x4 
+V "" N I!47 O!45 T!16 .2 0x2 
+F "_COM_remui" F I!48 T!9 ?53-2 P!49 P!50 
+V "" N I!49 O!48 T!16 .2 0x2 
+V "" N I!50 O!48 T!9 .1 0x1 
+F "_COM_remul" F I!51 T!16 ?54-2 P!52 P!53 
+V "" N I!52 O!51 T!26 .2 0x4 
+V "" N I!53 O!51 T!16 .2 0x2 
+F "_COM_macui" F I!54 T!26 ?58-2 P!55 P!56 P!57 
+V "" N I!55 O!54 T!16 .2 0x2 
+V "" N I!56 O!54 T!16 .2 0x2 
+V "" N I!57 O!54 T!26 .2 0x4 
+F "_COM_macsi" F I!58 T!30 ?59-2 P!59 P!60 P!61 
+V "" N I!59 O!58 T!32 .2 0x2 
+V "" N I!60 O!58 T!32 .2 0x2 
+V "" N I!61 O!58 T!30 .2 0x4 
+F "__get_psw" N I!62 T!9 ?63-2 
+F "__set_psw" N I!63 T!2 ?64-2 P!64 
+V "" N I!64 O!63 T!9 .1 0x1 
+F "__set1" N I!65 T!2 ?66-2 P!66 P!68 
+V "" N I!66 O!65 T!67 .2 0x2 
+T "" KP I!67 T!9 0x2 
+V "" N I!68 O!65 T!9 .1 0x1 
+F "__clr1" N I!69 T!2 ?67-2 P!70 P!71 
+V "" N I!70 O!69 T!67 .2 0x2 
+V "" N I!71 O!69 T!9 .1 0x1 
+F "__not1" N I!72 T!2 ?68-2 P!73 P!74 
+V "" N I!73 O!72 T!67 .2 0x2 
+V "" N I!74 O!72 T!9 .1 0x1 
+T "int8_t" KT I!75 T!76 !26-3 0x1 
+T "signed char" KBS I!76 0x1 
+T "uint8_t" KT I!77 T!9 !27-3 0x1 
+T "int16_t" KT I!78 T!79 !28-3 0x2 
+T "short" KBS I!79 0x2 
+T "uint16_t" KT I!80 T!81 !29-3 0x2 
+T "unsigned short" KBU I!81 0x2 
+T "int32_t" KT I!82 T!30 !30-3 0x4 
+T "uint32_t" KT I!83 T!26 !31-3 0x4 
+T "int64_t" KT I!84 T!39 !32-3 0x8 
+T "uint64_t" KT I!85 T!35 !33-3 0x8 
+T "double64_t" KT I!86 T!85 !40-3 0x8 
+T "float32_t" KT I!87 T!88 !41-3 0x4 
+T "float" KBF I!88 0x4 
+F "entryMatched" F I!89 T!75 #104-1 !105,113-1-1 ?7-1 150-1 P!96 P!97 
+V "cosTable" GN I!92 T!93 !9-1 #9-1 108-1 108-1 154-1 191-1 .2 0xb6 
+T "" MOD"C" KA91 I!93 T!78 0xb6 
+V "pf" N I!96 O!89 T!78 !104-1 108-1 108-1 .2 0x2 
+V "index" N I!97 O!89 T!78 !104-1 108-1 108-1 .2 0x2 
+V "retval" N I!98 O!89 T!75 !106-1 #109-1 #111-1 112-1 .1 0x1 
+F "findArcCos" F I!99 T!78 #115-1 !116,183-1-1 P!102 P!103 
+V "signedPF" N I!102 O!99 T!78 !115-1 123-1 124-1 126-1 .2 0x2 
+V "seedIndex" N I!103 O!99 T!78 !115-1 128-1 .2 0x2 
+V "searchIndex" N I!104 O!99 T!78 !117-1 #128-1 #132-1 #139-1 #157-1 #160-1 #167-1 #170-1 150-1 154-1 156-1 158-1 166-1 168-1 182-1 .2 0x2 
+V "pf" N I!105 O!99 T!78 !118-1 #124-1 #126-1 130-1 137-1 150-1 154-1 .2 0x2 
+V "bottom" N I!106 O!99 T!78 !119-1 #144-1 #166-1 157-1 167-1 .2 0x2 
+V "top" N I!107 O!99 T!78 !120-1 #145-1 #156-1 157-1 167-1 .2 0x2 
+V "done" N I!108 O!99 T!75 !121-1 #121-1 #133-1 #140-1 #151-1 #161-1 #171-1 148-1 .1 0x1 
+F "findCos" F I!109 T!78 #185-1 !186,193-1-1 P!111 
+V "angle" N I!111 O!109 T!78 !185-1 #189-1 188-1 189-1 191-1 .2 0x2 
+V "pf" N I!112 O!109 T!78 !187-1 #191-1 192-1 .2 0x2 
+****%CxSystemPath%\inc\builtin.h
+v2 
+:1712232856
+#2
+****typedef.h
+v2 
+:1712232856
+#3

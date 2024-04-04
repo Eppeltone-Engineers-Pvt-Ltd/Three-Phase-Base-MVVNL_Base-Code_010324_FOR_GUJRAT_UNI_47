@@ -1,0 +1,403 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  #CC-RL Compiler RL78 Assembler Source
+00000000                        2  #@  CC-RL Version : V1.12.01  [12 Jun 2023]
+00000000                        3  #@  Commmand :
+00000000                        4  #@   rl78i1c\wrapper\core\sw\wrp_em_adc_data.c
+00000000                        5  #@   -cpu=S3
+00000000                        6  #@   -cref=Build/Release_BQFR\wrp_em_adc_data.cref
+00000000                        7  #@   -o Build/Release_BQFR\wrp_em_adc_data.obj
+00000000                        8  #@   -no_warning_num=20177,20550,20494,20174
+00000000                        9  #@   -dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+00000000                       10  #@   -g
+00000000                       11  #@   -Onothing
+00000000                       12  #@   -goptimize
+00000000                       13  #@   -I Release_BQFR
+00000000                       14  #@   -I rl78i1c\application\dlms\physical
+00000000                       15  #@   -I rl78i1c\application\dlms\objects
+00000000                       16  #@   -I rl78i1c\application\dlms\meter_app\hash
+00000000                       17  #@   -I rl78i1c\application\dlms\meter_app\aes
+00000000                       18  #@   -I rl78i1c\application\dlms\meter_app
+00000000                       19  #@   -I rl78i1c\application\dlms
+00000000                       20  #@   -I rl78i1c\application
+00000000                       21  #@   -I rl78i1c\application\debug\loadtest
+00000000                       22  #@   -I rl78i1c\application\services\64bit_process
+00000000                       23  #@   -I .
+00000000                       24  #@   -I rl78i1c\wrapper\core\sw\filter\config
+00000000                       25  #@   -I rl78i1c\wrapper\core\sw\filter\include
+00000000                       26  #@   -I rl78i1c\application\powermgmt
+00000000                       27  #@   -I rl78i1c\application\storage\meterdata
+00000000                       28  #@   -I rl78i1c\application\storage\config
+00000000                       29  #@   -I rl78i1c\application\dataflash\fdl\incrl78
+00000000                       30  #@   -I rl78i1c\application\dataflash
+00000000                       31  #@   -I rl78i1c\application\services
+00000000                       32  #@   -I rl78i1c\application\interpreter\mlsHeaders
+00000000                       33  #@   -I rl78i1c\application\interpreter\mlsCIHandler
+00000000                       34  #@   -I rl78i1c\application\interpreter\mlsCIEng
+00000000                       35  #@   -I rl78i1c\application\interpreter\mlsCIComm
+00000000                       36  #@   -I rl78i1c\application\interpreter\mlsCIApp
+00000000                       37  #@   -I rl78i1c\driver\mcu
+00000000                       38  #@   -I rl78i1c\application\calibration
+00000000                       39  #@   -I rl78i1c\application\debug
+00000000                       40  #@   -I rl78i1c\application\display&button
+00000000                       41  #@   -I rl78i1c\application\display&button\lcd
+00000000                       42  #@   -I rl78i1c\application\eeprom
+00000000                       43  #@   -I rl78i1c\application\event
+00000000                       44  #@   -I rl78i1c\application\startup
+00000000                       45  #@   -I rl78i1c\application\storage
+00000000                       46  #@   -I rl78i1c\middleware\headers
+00000000                       47  #@   -I rl78i1c\middleware\plugin
+00000000                       48  #@   -I rl78i1c\wrapper\user
+00000000                       49  #@   -I rl78i1c\wrapper\core\sw
+00000000                       50  #@   -I rl78i1c\wrapper\core\shared
+00000000                       51  #@   -I .\
+00000000                       52  #@   -D __BOARD_REVISION=2,FEATURES_BQFR
+00000000                       53  #@   -refs_without_declaration
+00000000                       54  #@   -signed_char
+00000000                       55  #@   -merge_string
+00000000                       56  #@   -asmopt=-prn_path=Release_BQFR
+00000000                       57  #@   -convert_cc=ca78k0r
+00000000                       58  #@   -c
+00000000                       59  #@  compiled at Thu Apr 04 17:44:15 2024
+00000000                       60  
+00000000                       61  	.PUBLIC _g_wrp_adc_voltage_circle_pos
+00000000                       62  	.PUBLIC _g_wrp_adc_voltage_circle_step
+00000000                       63  	.PUBLIC _g_wrp_adc_voltage_circle_phase_r
+00000000                       64  	.PUBLIC _g_wrp_adc_voltage_circle_phase_y
+00000000                       65  	.PUBLIC _g_wrp_adc_voltage_circle_phase_b
+00000000                       66  	.PUBLIC _g_wrp_adc_voltage90_circle_pos
+00000000                       67  	.PUBLIC _g_wrp_adc_voltage90_circle_step
+00000000                       68  	.PUBLIC _g_wrp_adc_voltage90_circle_phase_r
+00000000                       69  	.PUBLIC _g_wrp_adc_voltage90_circle_phase_y
+00000000                       70  	.PUBLIC _g_wrp_adc_voltage90_circle_phase_b
+00000000                       71  	.PUBLIC _g_wrp_adc_buffer_phase_r_v
+00000000                       72  	.PUBLIC _g_wrp_adc_buffer_phase_y_v
+00000000                       73  	.PUBLIC _g_wrp_adc_buffer_phase_b_v
+00000000                       74  	.PUBLIC _g_wrp_adc_buffer_phase_r_v90
+00000000                       75  	.PUBLIC _g_wrp_adc_buffer_phase_y_v90
+00000000                       76  	.PUBLIC _g_wrp_adc_buffer_phase_b_v90
+00000000                       77  	.PUBLIC _g_wrp_adc_offset_phase_r_v
+00000000                       78  	.PUBLIC _g_wrp_adc_offset_phase_y_v
+00000000                       79  	.PUBLIC _g_wrp_adc_offset_phase_b_v
+00000000                       80  	.PUBLIC _g_wrp_adc_samples
+00000000                       81  	.PUBLIC _g_wrp_adc_tdr_ignore
+00000000                       82  	.PUBLIC _g_wrp_adc_channel
+00000000                       83  	.PUBLIC _g_EM_ADC_GainPhaseCurrentLevel
+00000000                       84  	.PUBLIC _g_wrp_adc_channel_gain
+00000000                       85  	.PUBLIC _g_fsteps_timer_offset
+00000000                       86  	.PUBLIC _g_wrp_adc_timer_table
+00000000                       87  	.PUBLIC _EM_ADC_SAMP_GetTimerOffset
+00000000                       88  	.PUBLIC _EM_ADC_SAMP_SetTimerOffset
+00000000                       89  
+00000000                       90  	.SECTION WrpAdcText_f,TEXTF
+00000000                       91  	.TYPE _EM_ADC_SAMP_GetTimerOffset,function,.LFE1-_EM_ADC_SAMP_GetTimerOffset
+00000000                       92  _EM_ADC_SAMP_GetTimerOffset:
+00000000                       93  	.STACK _EM_ADC_SAMP_GetTimerOffset = 6
+00000000                       94  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/wrapper/core/sw/wrp_em_adc_data.c", 224
+00000000 C7                    95  	push hl
+00000001                       96  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/wrapper/core/sw/wrp_em_adc_data.c", 226
+00000001 AF0000                97  	movw ax, !LOWW(_g_fsteps_timer_offset)
+00000004 B800                  98  	movw [sp+0x00], ax
+00000006                       99  .BB@LABEL@1_1:	; entry.split
+00000006                      100  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/wrapper/core/sw/wrp_em_adc_data.c", 227
+00000006 C2                   101  	pop bc
+00000007 D7                   102  	ret
+00000008                      103  .LFE1:
+00000008                      104  	.TYPE _EM_ADC_SAMP_SetTimerOffset,function,.LFE2-_EM_ADC_SAMP_SetTimerOffset
+00000008                      105  _EM_ADC_SAMP_SetTimerOffset:
+00000008                      106  	.STACK _EM_ADC_SAMP_SetTimerOffset = 6
+00000008                      107  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/wrapper/core/sw/wrp_em_adc_data.c", 236
+00000008 C7                   108  	push hl
+00000009 B800                 109  	movw [sp+0x00], ax
+0000000B                      110  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/wrapper/core/sw/wrp_em_adc_data.c", 238
+0000000B BF0000               111  	movw !LOWW(_g_fsteps_timer_offset), ax
+0000000E C0                   112  	pop ax
+0000000F D7                   113  	ret
+00000010                      114  .LFE2:
+00000000                      115  	.SECTION .bss,BSS
+00000000                      116  	.ALIGN 2
+00000000                      117  	.TYPE _g_wrp_adc_voltage_circle_pos,object,2
+00000000                      118  _g_wrp_adc_voltage_circle_pos:
+00000000                      119  	.DS (2)
+00000002                      120  	.ALIGN 2
+00000002                      121  	.TYPE _g_wrp_adc_voltage_circle_step,object,2
+00000002                      122  _g_wrp_adc_voltage_circle_step:
+00000002                      123  	.DS (2)
+00000004                      124  	.ALIGN 2
+00000004                      125  	.TYPE _g_wrp_adc_voltage_circle_phase_r,object,14
+00000004                      126  _g_wrp_adc_voltage_circle_phase_r:
+00000004                      127  	.DS (14)
+00000012                      128  	.ALIGN 2
+00000012                      129  	.TYPE _g_wrp_adc_voltage_circle_phase_y,object,14
+00000012                      130  _g_wrp_adc_voltage_circle_phase_y:
+00000012                      131  	.DS (14)
+00000020                      132  	.ALIGN 2
+00000020                      133  	.TYPE _g_wrp_adc_voltage_circle_phase_b,object,14
+00000020                      134  _g_wrp_adc_voltage_circle_phase_b:
+00000020                      135  	.DS (14)
+0000002E                      136  	.ALIGN 2
+0000002E                      137  	.TYPE _g_wrp_adc_voltage90_circle_pos,object,2
+0000002E                      138  _g_wrp_adc_voltage90_circle_pos:
+0000002E                      139  	.DS (2)
+00000030                      140  	.ALIGN 2
+00000030                      141  	.TYPE _g_wrp_adc_voltage90_circle_step,object,2
+00000030                      142  _g_wrp_adc_voltage90_circle_step:
+00000030                      143  	.DS (2)
+00000032                      144  	.ALIGN 2
+00000032                      145  	.TYPE _g_wrp_adc_voltage90_circle_phase_r,object,64
+00000032                      146  _g_wrp_adc_voltage90_circle_phase_r:
+00000032                      147  	.DS (64)
+00000072                      148  	.ALIGN 2
+00000072                      149  	.TYPE _g_wrp_adc_voltage90_circle_phase_y,object,64
+00000072                      150  _g_wrp_adc_voltage90_circle_phase_y:
+00000072                      151  	.DS (64)
+000000B2                      152  	.ALIGN 2
+000000B2                      153  	.TYPE _g_wrp_adc_voltage90_circle_phase_b,object,64
+000000B2                      154  _g_wrp_adc_voltage90_circle_phase_b:
+000000B2                      155  	.DS (64)
+000000F2                      156  	.ALIGN 2
+000000F2                      157  	.TYPE _g_wrp_adc_buffer_phase_r_v,object,2
+000000F2                      158  _g_wrp_adc_buffer_phase_r_v:
+000000F2                      159  	.DS (2)
+000000F4                      160  	.ALIGN 2
+000000F4                      161  	.TYPE _g_wrp_adc_buffer_phase_y_v,object,2
+000000F4                      162  _g_wrp_adc_buffer_phase_y_v:
+000000F4                      163  	.DS (2)
+000000F6                      164  	.ALIGN 2
+000000F6                      165  	.TYPE _g_wrp_adc_buffer_phase_b_v,object,2
+000000F6                      166  _g_wrp_adc_buffer_phase_b_v:
+000000F6                      167  	.DS (2)
+000000F8                      168  	.ALIGN 2
+000000F8                      169  	.TYPE _g_wrp_adc_buffer_phase_r_v90,object,2
+000000F8                      170  _g_wrp_adc_buffer_phase_r_v90:
+000000F8                      171  	.DS (2)
+000000FA                      172  	.ALIGN 2
+000000FA                      173  	.TYPE _g_wrp_adc_buffer_phase_y_v90,object,2
+000000FA                      174  _g_wrp_adc_buffer_phase_y_v90:
+000000FA                      175  	.DS (2)
+000000FC                      176  	.ALIGN 2
+000000FC                      177  	.TYPE _g_wrp_adc_buffer_phase_b_v90,object,2
+000000FC                      178  _g_wrp_adc_buffer_phase_b_v90:
+000000FC                      179  	.DS (2)
+000000FE                      180  	.ALIGN 2
+000000FE                      181  	.TYPE _g_wrp_adc_offset_phase_r_v,object,2
+000000FE                      182  _g_wrp_adc_offset_phase_r_v:
+000000FE                      183  	.DS (2)
+00000100                      184  	.ALIGN 2
+00000100                      185  	.TYPE _g_wrp_adc_offset_phase_y_v,object,2
+00000100                      186  _g_wrp_adc_offset_phase_y_v:
+00000100                      187  	.DS (2)
+00000102                      188  	.ALIGN 2
+00000102                      189  	.TYPE _g_wrp_adc_offset_phase_b_v,object,2
+00000102                      190  _g_wrp_adc_offset_phase_b_v:
+00000102                      191  	.DS (2)
+00000104                      192  	.ALIGN 2
+00000104                      193  	.TYPE _g_wrp_adc_samples,object,66
+00000104                      194  _g_wrp_adc_samples:
+00000104                      195  	.DS (66)
+00000146                      196  	.TYPE _g_wrp_adc_tdr_ignore,object,1
+00000146                      197  _g_wrp_adc_tdr_ignore:
+00000146                      198  	.DS (1)
+00000147                      199  	.TYPE _g_EM_ADC_GainPhaseCurrentLevel,object,3
+00000147                      200  _g_EM_ADC_GainPhaseCurrentLevel:
+00000147                      201  	.DS (3)
+0000014A                      202  	.ALIGN 2
+0000014A                      203  	.TYPE _g_fsteps_timer_offset,object,2
+0000014A                      204  _g_fsteps_timer_offset:
+0000014A                      205  	.DS (2)
+00000000                      206  	.SECTION WrpAdcConst_n,CONST
+00000000                      207  	.TYPE _g_wrp_adc_channel,object,4
+00000000                      208  _g_wrp_adc_channel:
+00000000 00                   209  	.DS (1)
+00000001 01                   210  	.DB 0x01,0x02,0x03
+00000002 02              
+00000003 03              
+00000004                      211  	.TYPE _g_wrp_adc_channel_gain,object,6
+00000004                      212  _g_wrp_adc_channel_gain:
+00000004 00                   213  	.DS (1)
+00000005 02                   214  	.DB 0x02
+00000006 00                   215  	.DS (1)
+00000007 02                   216  	.DB 0x02
+00000008 00                   217  	.DS (1)
+00000009 02                   218  	.DB 0x02
+0000000A                      219  	.ALIGN 2
+0000000A                      220  	.TYPE _g_wrp_adc_timer_table,object,324
+0000000A                      221  _g_wrp_adc_timer_table:
+0000000A 0A00                 222  	.DB2 0x000A
+0000000C 6602                 223  	.DB2 0x0266
+0000000E 0B00                 224  	.DB2 0x000B
+00000010 A302                 225  	.DB2 0x02A3
+00000012 0C00                 226  	.DB2 0x000C
+00000014 E102                 227  	.DB2 0x02E1
+00000016 0D00                 228  	.DB2 0x000D
+00000018 1E03                 229  	.DB2 0x031E
+0000001A 0E00                 230  	.DB2 0x000E
+0000001C 5C03                 231  	.DB2 0x035C
+0000001E 0F00                 232  	.DB2 0x000F
+00000020 9903                 233  	.DB2 0x0399
+00000022 1000                 234  	.DB2 0x0010
+00000024 D703                 235  	.DB2 0x03D7
+00000026 1100                 236  	.DB2 0x0011
+00000028 1404                 237  	.DB2 0x0414
+0000002A 1200                 238  	.DB2 0x0012
+0000002C 5104                 239  	.DB2 0x0451
+0000002E 1300                 240  	.DB2 0x0013
+00000030 8F04                 241  	.DB2 0x048F
+00000032 1400                 242  	.DB2 0x0014
+00000034 CC04                 243  	.DB2 0x04CC
+00000036 1500                 244  	.DB2 0x0015
+00000038 0A05                 245  	.DB2 0x050A
+0000003A 1600                 246  	.DB2 0x0016
+0000003C 4705                 247  	.DB2 0x0547
+0000003E 1700                 248  	.DB2 0x0017
+00000040 8505                 249  	.DB2 0x0585
+00000042 1800                 250  	.DB2 0x0018
+00000044 C205                 251  	.DB2 0x05C2
+00000046 1900                 252  	.DB2 0x0019
+00000048 0006                 253  	.DB2 0x0600
+0000004A 1A00                 254  	.DB2 0x001A
+0000004C 3D06                 255  	.DB2 0x063D
+0000004E 1B00                 256  	.DB2 0x001B
+00000050 7A06                 257  	.DB2 0x067A
+00000052 1C00                 258  	.DB2 0x001C
+00000054 B806                 259  	.DB2 0x06B8
+00000056 1D00                 260  	.DB2 0x001D
+00000058 F506                 261  	.DB2 0x06F5
+0000005A 1E00                 262  	.DB2 0x001E
+0000005C 3307                 263  	.DB2 0x0733
+0000005E 1F00                 264  	.DB2 0x001F
+00000060 7007                 265  	.DB2 0x0770
+00000062 2000                 266  	.DB2 0x0020
+00000064 AE07                 267  	.DB2 0x07AE
+00000066 2100                 268  	.DB2 0x0021
+00000068 EB07                 269  	.DB2 0x07EB
+0000006A 2200                 270  	.DB2 0x0022
+0000006C 2808                 271  	.DB2 0x0828
+0000006E 2300                 272  	.DB2 0x0023
+00000070 6608                 273  	.DB2 0x0866
+00000072 2400                 274  	.DB2 0x0024
+00000074 A308                 275  	.DB2 0x08A3
+00000076 2500                 276  	.DB2 0x0025
+00000078 E108                 277  	.DB2 0x08E1
+0000007A 2600                 278  	.DB2 0x0026
+0000007C 1E09                 279  	.DB2 0x091E
+0000007E 2700                 280  	.DB2 0x0027
+00000080 5C09                 281  	.DB2 0x095C
+00000082 2800                 282  	.DB2 0x0028
+00000084 9909                 283  	.DB2 0x0999
+00000086 2900                 284  	.DB2 0x0029
+00000088 D709                 285  	.DB2 0x09D7
+0000008A 2A00                 286  	.DB2 0x002A
+0000008C 140A                 287  	.DB2 0x0A14
+0000008E 2B00                 288  	.DB2 0x002B
+00000090 510A                 289  	.DB2 0x0A51
+00000092 2C00                 290  	.DB2 0x002C
+00000094 8F0A                 291  	.DB2 0x0A8F
+00000096 2D00                 292  	.DB2 0x002D
+00000098 CC0A                 293  	.DB2 0x0ACC
+0000009A 2E00                 294  	.DB2 0x002E
+0000009C 0A0B                 295  	.DB2 0x0B0A
+0000009E 2F00                 296  	.DB2 0x002F
+000000A0 470B                 297  	.DB2 0x0B47
+000000A2 3000                 298  	.DB2 0x0030
+000000A4 850B                 299  	.DB2 0x0B85
+000000A6 3100                 300  	.DB2 0x0031
+000000A8 C20B                 301  	.DB2 0x0BC2
+000000AA 3200                 302  	.DB2 0x0032
+000000AC 000C                 303  	.DB2 0x0C00
+000000AE 3300                 304  	.DB2 0x0033
+000000B0 3D0C                 305  	.DB2 0x0C3D
+000000B2 3400                 306  	.DB2 0x0034
+000000B4 7A0C                 307  	.DB2 0x0C7A
+000000B6 3500                 308  	.DB2 0x0035
+000000B8 B80C                 309  	.DB2 0x0CB8
+000000BA 3600                 310  	.DB2 0x0036
+000000BC F50C                 311  	.DB2 0x0CF5
+000000BE 3700                 312  	.DB2 0x0037
+000000C0 330D                 313  	.DB2 0x0D33
+000000C2 3800                 314  	.DB2 0x0038
+000000C4 700D                 315  	.DB2 0x0D70
+000000C6 3900                 316  	.DB2 0x0039
+000000C8 AE0D                 317  	.DB2 0x0DAE
+000000CA 3A00                 318  	.DB2 0x003A
+000000CC EB0D                 319  	.DB2 0x0DEB
+000000CE 3B00                 320  	.DB2 0x003B
+000000D0 280E                 321  	.DB2 0x0E28
+000000D2 3C00                 322  	.DB2 0x003C
+000000D4 660E                 323  	.DB2 0x0E66
+000000D6 3D00                 324  	.DB2 0x003D
+000000D8 A30E                 325  	.DB2 0x0EA3
+000000DA 3E00                 326  	.DB2 0x003E
+000000DC E10E                 327  	.DB2 0x0EE1
+000000DE 3F00                 328  	.DB2 0x003F
+000000E0 1E0F                 329  	.DB2 0x0F1E
+000000E2 4000                 330  	.DB2 0x0040
+000000E4 5C0F                 331  	.DB2 0x0F5C
+000000E6 4100                 332  	.DB2 0x0041
+000000E8 990F                 333  	.DB2 0x0F99
+000000EA 4200                 334  	.DB2 0x0042
+000000EC D70F                 335  	.DB2 0x0FD7
+000000EE 4300                 336  	.DB2 0x0043
+000000F0 1410                 337  	.DB2 0x1014
+000000F2 4400                 338  	.DB2 0x0044
+000000F4 5110                 339  	.DB2 0x1051
+000000F6 4500                 340  	.DB2 0x0045
+000000F8 8F10                 341  	.DB2 0x108F
+000000FA 4600                 342  	.DB2 0x0046
+000000FC CC10                 343  	.DB2 0x10CC
+000000FE 4700                 344  	.DB2 0x0047
+00000100 0A11                 345  	.DB2 0x110A
+00000102 4800                 346  	.DB2 0x0048
+00000104 4711                 347  	.DB2 0x1147
+00000106 4900                 348  	.DB2 0x0049
+00000108 8511                 349  	.DB2 0x1185
+0000010A 4A00                 350  	.DB2 0x004A
+0000010C C211                 351  	.DB2 0x11C2
+0000010E 4B00                 352  	.DB2 0x004B
+00000110 0012                 353  	.DB2 0x1200
+00000112 4C00                 354  	.DB2 0x004C
+00000114 3D12                 355  	.DB2 0x123D
+00000116 4D00                 356  	.DB2 0x004D
+00000118 7A12                 357  	.DB2 0x127A
+0000011A 4E00                 358  	.DB2 0x004E
+0000011C B812                 359  	.DB2 0x12B8
+0000011E 4F00                 360  	.DB2 0x004F
+00000120 F512                 361  	.DB2 0x12F5
+00000122 5000                 362  	.DB2 0x0050
+00000124 3313                 363  	.DB2 0x1333
+00000126 5100                 364  	.DB2 0x0051
+00000128 7013                 365  	.DB2 0x1370
+0000012A 5200                 366  	.DB2 0x0052
+0000012C AE13                 367  	.DB2 0x13AE
+0000012E 5300                 368  	.DB2 0x0053
+00000130 EB13                 369  	.DB2 0x13EB
+00000132 5400                 370  	.DB2 0x0054
+00000134 2814                 371  	.DB2 0x1428
+00000136 5500                 372  	.DB2 0x0055
+00000138 6614                 373  	.DB2 0x1466
+0000013A 5600                 374  	.DB2 0x0056
+0000013C A314                 375  	.DB2 0x14A3
+0000013E 5700                 376  	.DB2 0x0057
+00000140 E114                 377  	.DB2 0x14E1
+00000142 5800                 378  	.DB2 0x0058
+00000144 1E15                 379  	.DB2 0x151E
+00000146 5900                 380  	.DB2 0x0059
+00000148 5C15                 381  	.DB2 0x155C
+0000014A 5A00                 382  	.DB2 0x005A
+0000014C 9915                 383  	.DB2 0x1599
+
+Section List
+Attr     Size                Name
+
+BSS                 332 (0000014C) .bss
+TEXTF                16 (00000010) WrpAdcText_f
+CONST               334 (0000014E) WrpAdcConst_n
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\asrl.exe" @C:\Users\HP\AppData\Local\Temp\$ccrl001\wrp_em_adc_data.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120100 -cpu=S3 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Release_BQFR -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\physical -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\objects -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app\hash -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app\aes -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\debug\loadtest -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\services\64bit_process -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\config -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\include -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\powermgmt -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage\meterdata -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage\config -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dataflash\fdl\incrl78 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dataflash -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\services -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsHeaders -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIHandler -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIEng -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIComm -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIApp -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\driver\mcu -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\calibration -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\debug -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\display&button -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\display&button\lcd -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\eeprom -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\event -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\startup -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\middleware\headers -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\middleware\plugin -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\user -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\shared -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\ -character_set=none -goptimize -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -output=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Build\Release_BQFR\wrp_em_adc_data.obj C:\Users\HP\AppData\Local\Temp\$ccrl001\wrp_em_adc_data.asm 
+

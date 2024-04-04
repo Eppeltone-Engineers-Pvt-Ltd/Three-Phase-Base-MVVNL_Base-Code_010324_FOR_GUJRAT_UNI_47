@@ -1,0 +1,232 @@
+****rl78i1c\driver\mcu\r_cg_iica_user.c
+v2 
+:1710160910
+#1
+F "__DI" N I!1 T!2 ?18-2 
+T "void" KBV I!2 0x0 
+F "__EI" N I!3 T!2 ?19-2 
+F "__halt" N I!4 T!2 ?20-2 
+F "__stop" N I!5 T!2 ?21-2 
+F "__brk" N I!6 T!2 ?22-2 
+F "__nop" N I!7 T!2 ?23-2 
+F "__rolb" N I!8 T!9 ?25-2 P!10 P!11 
+T "unsigned char" KBU I!9 0x1 
+V "" N I!10 O!8 T!9 .1 0x1 
+V "" N I!11 O!8 T!9 .1 0x1 
+F "__rorb" N I!12 T!9 ?26-2 P!13 P!14 
+V "" N I!13 O!12 T!9 .1 0x1 
+V "" N I!14 O!12 T!9 .1 0x1 
+F "__rolw" N I!15 T!16 ?27-2 P!17 P!18 
+T "unsigned int" KBU I!16 0x2 
+V "" N I!17 O!15 T!16 .2 0x2 
+V "" N I!18 O!15 T!9 .1 0x1 
+F "__rorw" N I!19 T!16 ?28-2 P!20 P!21 
+V "" N I!20 O!19 T!16 .2 0x2 
+V "" N I!21 O!19 T!9 .1 0x1 
+F "__mulu" N I!22 T!16 ?30-2 P!23 P!24 
+V "" N I!23 O!22 T!9 .1 0x1 
+V "" N I!24 O!22 T!9 .1 0x1 
+F "__mului" N I!25 T!26 ?32-2 P!27 P!28 
+T "unsigned long" KBU I!26 0x4 
+V "" N I!27 O!25 T!16 .2 0x2 
+V "" N I!28 O!25 T!16 .2 0x2 
+F "__mulsi" N I!29 T!30 ?33-2 P!31 P!33 
+T "long" KBS I!30 0x4 
+V "" N I!31 O!29 T!32 .2 0x2 
+T "int" KBS I!32 0x2 
+V "" N I!33 O!29 T!32 .2 0x2 
+F "_COM_mulul" F I!34 T!35 ?42-2 P!36 P!37 
+T "unsigned long long" KBU I!35 0x8 
+V "" N I!36 O!34 T!26 .2 0x4 
+V "" N I!37 O!34 T!26 .2 0x4 
+F "_COM_mulsl" F I!38 T!39 ?43-2 P!40 P!41 
+T "long long" KBS I!39 0x8 
+V "" N I!40 O!38 T!30 .2 0x4 
+V "" N I!41 O!38 T!30 .2 0x4 
+F "_COM_divui" F I!42 T!16 ?48-2 P!43 P!44 
+V "" N I!43 O!42 T!16 .2 0x2 
+V "" N I!44 O!42 T!9 .1 0x1 
+F "_COM_divul" F I!45 T!26 ?49-2 P!46 P!47 
+V "" N I!46 O!45 T!26 .2 0x4 
+V "" N I!47 O!45 T!16 .2 0x2 
+F "_COM_remui" F I!48 T!9 ?53-2 P!49 P!50 
+V "" N I!49 O!48 T!16 .2 0x2 
+V "" N I!50 O!48 T!9 .1 0x1 
+F "_COM_remul" F I!51 T!16 ?54-2 P!52 P!53 
+V "" N I!52 O!51 T!26 .2 0x4 
+V "" N I!53 O!51 T!16 .2 0x2 
+F "_COM_macui" F I!54 T!26 ?58-2 P!55 P!56 P!57 
+V "" N I!55 O!54 T!16 .2 0x2 
+V "" N I!56 O!54 T!16 .2 0x2 
+V "" N I!57 O!54 T!26 .2 0x4 
+F "_COM_macsi" F I!58 T!30 ?59-2 P!59 P!60 P!61 
+V "" N I!59 O!58 T!32 .2 0x2 
+V "" N I!60 O!58 T!32 .2 0x2 
+V "" N I!61 O!58 T!30 .2 0x4 
+F "__get_psw" N I!62 T!9 ?63-2 
+F "__set_psw" N I!63 T!2 ?64-2 P!64 
+V "" N I!64 O!63 T!9 .1 0x1 
+F "__set1" N I!65 T!2 ?66-2 P!66 P!68 
+V "" N I!66 O!65 T!67 .2 0x2 
+T "" KP I!67 T!9 0x2 
+V "" N I!68 O!65 T!9 .1 0x1 
+F "__clr1" N I!69 T!2 ?67-2 P!70 P!71 
+V "" N I!70 O!69 T!67 .2 0x2 
+V "" N I!71 O!69 T!9 .1 0x1 
+F "__not1" N I!72 T!2 ?68-2 P!73 P!74 
+V "" N I!73 O!72 T!67 .2 0x2 
+V "" N I!74 O!72 T!9 .1 0x1 
+T "" KS I!75 !39-3 0x1 VM!76 VM!77 VM!78 VM!79 VM!80 VM!81 VM!82 VM!83 
+V "no0" - I!76 O!75 T!9 !40-3 #174-1 #187-1 .1 0x1 BO0 BIS1 
+V "no1" - I!77 O!75 T!9 !41-3 .1 0x1 BO1 BIS1 
+V "no2" - I!78 O!75 T!9 !42-3 #94-1 #138-1 #230-1 #259-1 73-1 109-1 .1 0x1 BO2 BIS1 
+V "no3" - I!79 O!75 T!9 !43-3 #79-1 #95-1 #140-1 #227-1 #256-1 77-1 107-1 .1 0x1 BO3 BIS1 
+V "no4" - I!80 O!75 T!9 !44-3 .1 0x1 BO4 BIS1 
+V "no5" - I!81 O!75 T!9 !45-3 #96-1 #139-1 #144-1 .1 0x1 BO5 BIS1 
+V "no6" - I!82 O!75 T!9 !46-3 64-1 .1 0x1 BO6 BIS1 
+V "no7" - I!83 O!75 T!9 !47-3 .1 0x1 BO7 BIS1 
+T "__bitf_T" KT I!84 T!75 !48-3 0x1 
+T "" KS I!85 !51-3 0x2 VM!86 VM!87 VM!88 VM!89 VM!90 VM!91 VM!92 VM!93 VM!94 VM!95 VM!96 VM!97 VM!98 VM!99 VM!100 VM!101 
+V "no0" - I!86 O!85 T!9 !52-3 .1 0x1 BO0 BIS1 
+V "no1" - I!87 O!85 T!9 !53-3 .1 0x1 BO1 BIS1 
+V "no2" - I!88 O!85 T!9 !54-3 .1 0x1 BO2 BIS1 
+V "no3" - I!89 O!85 T!9 !55-3 .1 0x1 BO3 BIS1 
+V "no4" - I!90 O!85 T!9 !56-3 .1 0x1 BO4 BIS1 
+V "no5" - I!91 O!85 T!9 !57-3 .1 0x1 BO5 BIS1 
+V "no6" - I!92 O!85 T!9 !58-3 .1 0x1 BO6 BIS1 
+V "no7" - I!93 O!85 T!9 !59-3 .1 0x1 BO7 BIS1 
+V "no8" - I!94 O!85 T!9 !60-3 .1 0x1 BO8 BIS1 
+V "no9" - I!95 O!85 T!9 !61-3 .1 0x1 BO9 BIS1 
+V "no10" - I!96 O!85 T!9 !62-3 .1 0x1 BO10 BIS1 
+V "no11" - I!97 O!85 T!9 !63-3 .1 0x1 BO11 BIS1 
+V "no12" - I!98 O!85 T!9 !64-3 .1 0x1 BO12 BIS1 
+V "no13" - I!99 O!85 T!9 !65-3 .1 0x1 BO13 BIS1 
+V "no14" - I!100 O!85 T!9 !66-3 .1 0x1 BO14 BIS1 
+V "no15" - I!101 O!85 T!9 !67-3 .1 0x1 BO15 BIS1 
+T "__bitf_T2" KT I!102 T!85 !68-3 0x2 
+T "int8_t" KT I!103 T!104 !47-4 0x1 
+T "signed char" KBS I!104 0x1 
+T "uint8_t" KT I!105 T!9 !48-4 0x1 
+T "int16_t" KT I!106 T!107 !49-4 0x2 
+T "short" KBS I!107 0x2 
+T "uint16_t" KT I!108 T!109 !50-4 0x2 
+T "unsigned short" KBU I!109 0x2 
+T "int32_t" KT I!110 T!30 !51-4 0x4 
+T "uint32_t" KT I!111 T!26 !52-4 0x4 
+T "int64_t" KT I!112 T!39 !53-4 0x8 
+T "uint64_t" KT I!113 T!35 !54-4 0x8 
+T "MD_STATUS" KT I!114 T!109 !55-4 0x2 
+F "R_IICA0_Create" F I!115 T!2 ?151-6 
+F "R_IICA0_Master_Send" F I!116 T!114 ?152-6 P!117 P!118 P!120 P!121 
+V "" N I!117 O!116 T!105 .1 0x1 
+V "" ON I!118 O!116 T!119 .2 0x2 
+T "" KP I!119 T!105 0x2 
+V "" N I!120 O!116 T!108 .2 0x2 
+V "" N I!121 O!116 T!105 .1 0x1 
+F "R_IICA0_Master_Receive" F I!122 T!114 ?153-6 P!123 P!124 P!125 P!126 
+V "" N I!123 O!122 T!105 .1 0x1 
+V "" ON I!124 O!122 T!119 .2 0x2 
+V "" N I!125 O!122 T!108 .2 0x2 
+V "" N I!126 O!122 T!105 .1 0x1 
+F "R_IICA0_Stop" F I!127 T!2 ?154-6 
+F "R_IICA0_StopCondition" F I!128 T!2 ?155-6 
+F "r_iica0_callback_master_sendend" SF I!129 T!2 #185-1 !186,191-1-1 ?156-6 89-1 123-1 
+F "r_iica0_callback_master_receiveend" SF I!130 T!2 #172-1 !173,178-1-1 ?157-6 149-1 
+F "r_iica0_callback_master_error" SF I!131 T!2 #161-1 !162,165-1-1 ?158-6 66-1 101-1 111-1 P!198 
+F "iica0_masterhandler" SF I!133 T!2 #61-1 !62,154-1-1 ?159-6 52-1 
+F "R_IICA0_Start" F I!134 T!2 ?162-6 
+F "R_IICA0_SetTransClockAt24MHz" F I!135 T!2 #253-1 !254,261-1-1 ?163-6 
+F "R_IICA0_SetTransClockAt12MHz" F I!136 T!2 #240-1 !241,245-1-1 ?164-6 
+F "R_IICA0_SetTransClockAt6MHz" F I!137 T!2 #225-1 !226,232-1-1 ?165-6 
+F "R_IICA0_SetTransClockAt3MHz" F I!138 T!2 #213-1 !214,217-1-1 ?166-6 
+F "R_IICA0_SetTransClockAt1M5Hz" F I!139 T!2 #200-1 !201,204-1-1 ?167-6 
+T "double64_t" KT I!140 T!113 !40-8 0x8 
+T "float32_t" KT I!141 T!142 !41-8 0x4 
+T "float" KBF I!142 0x4 
+F "WRP_IIC_Init" F I!143 T!2 ?42-7 
+F "WRP_IIC_SendStart" F I!144 T!105 ?43-7 P!145 P!146 P!147 
+V "" N I!145 O!144 T!105 .1 0x1 
+V "" N I!146 O!144 T!119 .2 0x2 
+V "" N I!147 O!144 T!108 .2 0x2 
+F "WRP_IIC_ReceiveStart" F I!148 T!105 ?44-7 P!149 P!150 P!151 
+V "" N I!149 O!148 T!105 .1 0x1 
+V "" N I!150 O!148 T!119 .2 0x2 
+V "" N I!151 O!148 T!108 .2 0x2 
+F "WRP_IIC_SendEndCallback" F I!152 T!2 ?52-7 189-1 
+F "WRP_IIC_ReceiveEndCallback" F I!153 T!2 ?53-7 176-1 
+F "r_lvd_interrupt" F I!154 T!2 ?4-9 
+F "r_lvdvdd_interrupt" F I!155 T!2 ?5-9 
+F "r_lvdvbat_interrupt" F I!156 T!2 ?6-9 
+F "r_lvdvrtc_interrupt" F I!157 T!2 ?7-9 
+F "r_lvdexlvd_interrupt" F I!158 T!2 ?8-9 
+F "r_intc0_interrupt" F I!159 T!2 ?10-9 
+F "r_intc1_interrupt" F I!160 T!2 ?11-9 
+F "r_intc2_interrupt" F I!161 T!2 ?12-9 
+F "r_intc3_interrupt" F I!162 T!2 ?13-9 
+F "r_intc4_interrupt" F I!163 T!2 ?14-9 
+F "r_intc5_interrupt" F I!164 T!2 ?15-9 
+F "r_intc6_interrupt" F I!165 T!2 ?16-9 
+F "r_intc7_interrupt" F I!166 T!2 ?17-9 
+F "r_uart0_interrupt_receive" F I!167 T!2 ?19-9 
+F "r_uart0_interrupt_send" F I!168 T!2 ?20-9 
+F "r_uart2_interrupt_receive" F I!169 T!2 ?22-9 
+F "r_uart2_interrupt_send" F I!170 T!2 ?23-9 
+F "r_uart3_interrupt_receive" F I!171 T!2 ?25-9 
+F "r_uart3_interrupt_send" F I!172 T!2 ?26-9 
+F "r_uart1_interrupt_receive" F I!173 T!2 ?28-9 
+F "r_uart1_interrupt_send" F I!174 T!2 ?29-9 
+F "r_iica0_interrupt" F I!175 T!2 #48-1 !49,54-1-1 ?31-9 
+F "r_tau0_channel0_interrupt" F I!176 T!2 ?33-9 
+F "r_tau0_channel1_interrupt" F I!177 T!2 ?34-9 
+F "r_tau0_channel2_interrupt" F I!178 T!2 ?35-9 
+F "r_tau0_channel3_interrupt" F I!179 T!2 ?36-9 
+F "r_adc_interrupt" F I!180 T!2 ?38-9 
+F "p_timer_interrupt" F I!181 T!2 ?39-9 
+F "r_rtc_time_capture0" F I!182 T!2 ?41-9 
+F "r_rtc_time_capture1" F I!183 T!2 ?42-9 
+F "r_rtc_time_capture2" F I!184 T!2 ?43-9 
+F "r_dsadzc0_interrupt" F I!185 T!2 ?45-9 
+F "r_dsadzc1_interrupt" F I!186 T!2 ?46-9 
+F "r_macl_interrupt" F I!187 T!2 ?48-9 
+F "r_rtc_rpd_interrupt" F I!188 T!2 ?49-9 
+V "g_iica0_master_status_flag" GVN I!189 T!105 ?31-1 #75-1 71-1 75-1 .1 0x1 
+V "g_iica0_slave_status_flag" GVN I!190 T!105 ?32-1 .1 0x1 
+V "gp_iica0_rx_address" GN I!191 T!192 ?33-1 #133-1 132-1 133-1 .2 0x2 
+T "" MOD"V" KP I!192 T!105 0x2 
+V "g_iica0_rx_cnt" GVN I!193 T!108 ?34-1 #134-1 130-1 134-1 136-1 .2 0x2 
+V "g_iica0_rx_len" GVN I!194 T!108 ?35-1 130-1 136-1 .2 0x2 
+V "gp_iica0_tx_address" GN I!195 T!192 ?36-1 #84-1 #118-1 83-1 84-1 117-1 118-1 .2 0x2 
+V "g_iica0_tx_cnt" GVN I!196 T!108 ?37-1 #85-1 #119-1 64-1 81-1 85-1 109-1 115-1 119-1 .2 0x2 
+V "flag" N I!198 O!131 T!114 !161-1 .2 0x2 
+****%CxSystemPath%\inc\builtin.h
+v2 
+:1710160910
+#2
+****iodefine.h
+v2 
+:1710160910
+#3
+****rl78i1c\driver\mcu\r_cg_macrodriver.h
+v2 
+:1710160910
+#4
+****rl78i1c\driver\mcu\r_cg_userdefine.h
+v2 
+:1710160910
+#5
+****rl78i1c\driver\mcu\r_cg_iica.h
+v2 
+:1710160910
+#6
+****rl78i1c\wrapper\user\wrp_user_iic.h
+v2 
+:1710160910
+#7
+****typedef.h
+v2 
+:1710160910
+#8
+****appInterrupts.h
+v2 
+:1710160910
+#9

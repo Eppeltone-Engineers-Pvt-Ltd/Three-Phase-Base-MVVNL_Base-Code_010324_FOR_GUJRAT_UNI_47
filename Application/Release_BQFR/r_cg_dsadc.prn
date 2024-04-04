@@ -1,0 +1,1452 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  #CC-RL Compiler RL78 Assembler Source
+00000000                        2  #@  CC-RL Version : V1.12.01  [12 Jun 2023]
+00000000                        3  #@  Commmand :
+00000000                        4  #@   rl78i1c\driver\mcu\r_cg_dsadc.c
+00000000                        5  #@   -cpu=S3
+00000000                        6  #@   -cref=Build/Release_BQFR\r_cg_dsadc.cref
+00000000                        7  #@   -o Build/Release_BQFR\r_cg_dsadc.obj
+00000000                        8  #@   -no_warning_num=20177,20550,20494,20174
+00000000                        9  #@   -dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+00000000                       10  #@   -g
+00000000                       11  #@   -Onothing
+00000000                       12  #@   -goptimize
+00000000                       13  #@   -I Release_BQFR
+00000000                       14  #@   -I rl78i1c\application\dlms\physical
+00000000                       15  #@   -I rl78i1c\application\dlms\objects
+00000000                       16  #@   -I rl78i1c\application\dlms\meter_app\hash
+00000000                       17  #@   -I rl78i1c\application\dlms\meter_app\aes
+00000000                       18  #@   -I rl78i1c\application\dlms\meter_app
+00000000                       19  #@   -I rl78i1c\application\dlms
+00000000                       20  #@   -I rl78i1c\application
+00000000                       21  #@   -I rl78i1c\application\debug\loadtest
+00000000                       22  #@   -I rl78i1c\application\services\64bit_process
+00000000                       23  #@   -I .
+00000000                       24  #@   -I rl78i1c\wrapper\core\sw\filter\config
+00000000                       25  #@   -I rl78i1c\wrapper\core\sw\filter\include
+00000000                       26  #@   -I rl78i1c\application\powermgmt
+00000000                       27  #@   -I rl78i1c\application\storage\meterdata
+00000000                       28  #@   -I rl78i1c\application\storage\config
+00000000                       29  #@   -I rl78i1c\application\dataflash\fdl\incrl78
+00000000                       30  #@   -I rl78i1c\application\dataflash
+00000000                       31  #@   -I rl78i1c\application\services
+00000000                       32  #@   -I rl78i1c\application\interpreter\mlsHeaders
+00000000                       33  #@   -I rl78i1c\application\interpreter\mlsCIHandler
+00000000                       34  #@   -I rl78i1c\application\interpreter\mlsCIEng
+00000000                       35  #@   -I rl78i1c\application\interpreter\mlsCIComm
+00000000                       36  #@   -I rl78i1c\application\interpreter\mlsCIApp
+00000000                       37  #@   -I rl78i1c\driver\mcu
+00000000                       38  #@   -I rl78i1c\application\calibration
+00000000                       39  #@   -I rl78i1c\application\debug
+00000000                       40  #@   -I rl78i1c\application\display&button
+00000000                       41  #@   -I rl78i1c\application\display&button\lcd
+00000000                       42  #@   -I rl78i1c\application\eeprom
+00000000                       43  #@   -I rl78i1c\application\event
+00000000                       44  #@   -I rl78i1c\application\startup
+00000000                       45  #@   -I rl78i1c\application\storage
+00000000                       46  #@   -I rl78i1c\middleware\headers
+00000000                       47  #@   -I rl78i1c\middleware\plugin
+00000000                       48  #@   -I rl78i1c\wrapper\user
+00000000                       49  #@   -I rl78i1c\wrapper\core\sw
+00000000                       50  #@   -I rl78i1c\wrapper\core\shared
+00000000                       51  #@   -I .\
+00000000                       52  #@   -D __BOARD_REVISION=2,FEATURES_BQFR
+00000000                       53  #@   -refs_without_declaration
+00000000                       54  #@   -signed_char
+00000000                       55  #@   -merge_string
+00000000                       56  #@   -asmopt=-prn_path=Release_BQFR
+00000000                       57  #@   -convert_cc=ca78k0r
+00000000                       58  #@   -c
+00000000                       59  #@  compiled at Thu Apr 04 17:44:10 2024
+00000000                       60  
+00000000                       61  	.PUBLIC _R_DSADC_Create
+00000000                       62  	.PUBLIC _R_DSADC_Start
+00000000                       63  	.EXTERN _MCU_Delay
+00000000                       64  	.PUBLIC _R_DSADC_ZC_Start
+00000000                       65  	.PUBLIC _R_DSADC_ZC_Stop
+00000000                       66  	.PUBLIC _R_DSADC_StartWithoutGainAndPhase
+00000000                       67  	.PUBLIC _R_DSADC_StartChannel0Only
+00000000                       68  	.PUBLIC _R_DSADC_StartChannel1Only
+00000000                       69  	.PUBLIC _R_DSADC_StartChannel2Only
+00000000                       70  	.PUBLIC _R_DSADC_StartChannel3Only
+00000000                       71  	.PUBLIC _R_DSADC_StartCurrentChannels
+00000000                       72  	.PUBLIC _R_DSADC_BackupPhaseRegSetting
+00000000                       73  	.PUBLIC _R_DSADC_RestorePhaseRegSetting
+00000000                       74  	.PUBLIC _R_DSADC_Stop
+00000000                       75  	.PUBLIC _R_DSADC_SetHighPassFilterOff
+00000000                       76  	.PUBLIC _R_DSADC_SetHighPassFilterOn
+00000000                       77  	.PUBLIC _R_DSADC_Set_CutOffFrequency
+00000000                       78  	.PUBLIC _R_DSADC_AdjustPhaseDelay
+00000000                       79  	.PUBLIC _R_DSADC_GetGainAndPhase
+00000000                       80  	.PUBLIC _R_DSADC_SetGainAndPhase
+00000000                       81  	.PUBLIC _R_DSADC_SetGain
+00000000                       82  	.PUBLIC _R_DSADC_SetChannelGain
+00000000                       83  	.PUBLIC _R_DSADC_GetGainEnumValue
+00000000                       84  	.PUBLIC _R_DSADC_GetChannelGain
+00000000                       85  	.PUBLIC _R_DSADC_GetChannelPhase
+00000000                       86  
+00000000                       87  	.SECTION .textf,TEXTF
+00000000                       88  	.TYPE _R_DSADC_Create,function,.LFE1-_R_DSADC_Create
+00000000                       89  _R_DSADC_Create:
+00000000                       90  	.STACK _R_DSADC_Create = 4
+00000000                       91  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 17
+00000000 369800                92  	movw hl, #0x0098
+00000003                       93  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 19
+00000003 7183                  94  	clr1 [hl].0
+00000005                       95  .BB@LABEL@1_1:	; entry.split
+00000005 36FA00                96  	movw hl, #0x00FA
+00000008                       97  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 20
+00000008 7182                  98  	set1 [hl].0
+0000000A                       99  .BB@LABEL@1_2:	; entry.split1
+0000000A                      100  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 21
+0000000A 710AD4               101  	set1 0xFFFD4.0
+0000000D                      102  .BB@LABEL@1_3:	; entry.split2
+0000000D                      103  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 22
+0000000D 710BD0               104  	clr1 0xFFFD0.0
+00000010                      105  .BB@LABEL@1_4:	; entry.split3
+00000010                      106  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 25
+00000010 710AD6               107  	set1 0xFFFD6.0
+00000013                      108  .BB@LABEL@1_5:	; entry.split4
+00000013                      109  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 26
+00000013 710BD2               110  	clr1 0xFFFD2.0
+00000016                      111  .BB@LABEL@1_6:	; entry.split5
+00000016                      112  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 27
+00000016 711AD6               113  	set1 0xFFFD6.1
+00000019                      114  .BB@LABEL@1_7:	; entry.split6
+00000019                      115  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 28
+00000019 711BD2               116  	clr1 0xFFFD2.1
+0000001C                      117  .BB@LABEL@1_8:	; entry.split7
+0000001C                      118  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 31
+0000001C 710BD8               119  	clr1 0xFFFD8.0
+0000001F                      120  .BB@LABEL@1_9:	; entry.split8
+0000001F                      121  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 32
+0000001F 710BDC               122  	clr1 0xFFFDC.0
+00000022                      123  .BB@LABEL@1_10:	; entry.split9
+00000022                      124  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 35
+00000022 710ADA               125  	set1 0xFFFDA.0
+00000025                      126  .BB@LABEL@1_11:	; entry.split10
+00000025                      127  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 36
+00000025 711ADA               128  	set1 0xFFFDA.1
+00000028                      129  .BB@LABEL@1_12:	; entry.split11
+00000028                      130  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 39
+00000028 710ADE               131  	set1 0xFFFDE.0
+0000002B                      132  .BB@LABEL@1_13:	; entry.split12
+0000002B                      133  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 40
+0000002B 711ADE               134  	set1 0xFFFDE.1
+0000002E                      135  .BB@LABEL@1_14:	; entry.split13
+0000002E                      136  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 43
+0000002E F5C803               137  	clrb !0x03C8
+00000031                      138  .BB@LABEL@1_15:	; entry.split14
+00000031                      139  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 44
+00000031 E5C803               140  	oneb !0x03C8
+00000034                      141  .BB@LABEL@1_16:	; entry.split15
+00000034 F6                   142  	clrw ax
+00000035                      143  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 48
+00000035 BFC003               144  	movw !0x03C0, ax
+00000038                      145  .BB@LABEL@1_17:	; entry.split16
+00000038 34C003               146  	movw de, #0x03C0
+0000003B                      147  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 49
+0000003B A9                   148  	movw ax, [de]
+0000003C 6C0F                 149  	or a, #0x0F
+0000003E 08                   150  	xch a, x
+0000003F 6C0F                 151  	or a, #0x0F
+00000041 08                   152  	xch a, x
+00000042 B9                   153  	movw [de], ax
+00000043                      154  .BB@LABEL@1_18:	; entry.split17
+00000043                      155  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 58
+00000043 5103                 156  	mov a, #0x03
+00000045 FE0000               157  	call $!_R_DSADC_SetHighPassFilterOn
+00000048                      158  .BB@LABEL@1_19:	; entry.split18
+00000048                      159  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 59
+00000048 5102                 160  	mov a, #0x02
+0000004A FE0000               161  	call $!_R_DSADC_SetHighPassFilterOn
+0000004D                      162  .BB@LABEL@1_20:	; entry.split19
+0000004D                      163  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 60
+0000004D E1                   164  	oneb a
+0000004E FE0000               165  	call $!_R_DSADC_SetHighPassFilterOn
+00000051                      166  .BB@LABEL@1_21:	; entry.split20
+00000051                      167  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 61
+00000051 F1                   168  	clrb a
+00000052 FE0000               169  	call $!_R_DSADC_SetHighPassFilterOn
+00000055                      170  .BB@LABEL@1_22:	; entry.split21
+00000055                      171  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 62
+00000055 5103                 172  	mov a, #0x03
+00000057 FE0000               173  	call $!_R_DSADC_Set_CutOffFrequency
+0000005A                      174  .BB@LABEL@1_23:	; entry.split22
+0000005A                      175  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 66
+0000005A F5C203               176  	clrb !0x03C2
+0000005D                      177  .BB@LABEL@1_24:	; entry.split23
+0000005D                      178  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 67
+0000005D F5C303               179  	clrb !0x03C3
+00000060 D7                   180  	ret
+00000061                      181  .LFE1:
+00000061                      182  	.TYPE _R_DSADC_Start,function,.LFE2-_R_DSADC_Start
+00000061                      183  _R_DSADC_Start:
+00000061                      184  	.STACK _R_DSADC_Start = 6
+00000061                      185  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 70
+00000061 C7                   186  	push hl
+00000062                      187  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 75
+00000062 710AD4               188  	set1 0xFFFD4.0
+00000065                      189  .BB@LABEL@2_1:	; entry.split
+00000065                      190  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 76
+00000065 710BD0               191  	clr1 0xFFFD0.0
+00000068                      192  .BB@LABEL@2_2:	; entry.split1
+00000068 34C003               193  	movw de, #0x03C0
+0000006B                      194  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 79
+0000006B A9                   195  	movw ax, [de]
+0000006C 5CF0                 196  	and a, #0xF0
+0000006E 08                   197  	xch a, x
+0000006F 5CF0                 198  	and a, #0xF0
+00000071 08                   199  	xch a, x
+00000072 B9                   200  	movw [de], ax
+00000073                      201  .BB@LABEL@2_3:	; entry.split2
+00000073                      202  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 80
+00000073 A9                   203  	movw ax, [de]
+00000074 6C0F                 204  	or a, #0x0F
+00000076 08                   205  	xch a, x
+00000077 6C0F                 206  	or a, #0x0F
+00000079 08                   207  	xch a, x
+0000007A B9                   208  	movw [de], ax
+0000007B                      209  .BB@LABEL@2_4:	; entry.split3
+0000007B                      210  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 83
+0000007B C80080               211  	mov [sp+0x00], #0x80
+0000007E EF00                 212  	br $.BB@LABEL@2_10
+00000080                      213  .BB@LABEL@2_5:	; if_then_bb
+00000080                      214  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 88
+00000080 710BD0               215  	clr1 0xFFFD0.0
+00000083                      216  .BB@LABEL@2_6:	; if_then_bb.split
+00000083                      217  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 89
+00000083 F7                   218  	clrw bc
+00000084 301400               219  	movw ax, #0x0014
+00000087 FC000000             220  	call !!_MCU_Delay
+0000008B                      221  .BB@LABEL@2_7:	; if_then_bb.split4
+0000008B 36E902               222  	movw hl, #0x02E9
+0000008E                      223  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 90
+0000008E 71D2                 224  	set1 [hl].5
+00000090                      225  .BB@LABEL@2_8:	; if_then_bb.split5
+00000090                      226  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 91
+00000090 8800                 227  	mov a, [sp+0x00]
+00000092 91                   228  	dec a
+00000093 9800                 229  	mov [sp+0x00], a
+00000095                      230  .BB@LABEL@2_9:	; if_break_bb
+00000095                      231  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 93
+00000095 8800                 232  	mov a, [sp+0x00]
+00000097 D1                   233  	cmp0 a
+00000098 DD00                 234  	bz $.BB@LABEL@2_11
+0000009A                      235  .BB@LABEL@2_10:	; bb21.split
+0000009A                      236  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 86
+0000009A 8ED0                 237  	mov a, 0xFFFD0
+0000009C 3179                 238  	shl a, 0x07
+0000009E 317A                 239  	shr a, 0x07
+000000A0 91                   240  	dec a
+000000A1 DD00                 241  	bz $.BB@LABEL@2_5
+000000A3 EF00                 242  	br $.BB@LABEL@2_9
+000000A5                      243  .BB@LABEL@2_11:	; bb23.split
+000000A5                      244  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 100
+000000A5 710BD4               245  	clr1 0xFFFD4.0
+000000A8 C0                   246  	pop ax
+000000A9 D7                   247  	ret
+000000AA                      248  .LFE2:
+000000AA                      249  	.TYPE _R_DSADC_ZC_Start,function,.LFE3-_R_DSADC_ZC_Start
+000000AA                      250  _R_DSADC_ZC_Start:
+000000AA                      251  	.STACK _R_DSADC_ZC_Start = 4
+000000AA                      252  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 107
+000000AA 710AD6               253  	set1 0xFFFD6.0
+000000AD                      254  .BB@LABEL@3_1:	; entry.split
+000000AD                      255  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 108
+000000AD 710BD2               256  	clr1 0xFFFD2.0
+000000B0                      257  .BB@LABEL@3_2:	; entry.split1
+000000B0                      258  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 109
+000000B0 711AD6               259  	set1 0xFFFD6.1
+000000B3                      260  .BB@LABEL@3_3:	; entry.split2
+000000B3                      261  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 110
+000000B3 711BD2               262  	clr1 0xFFFD2.1
+000000B6                      263  .BB@LABEL@3_4:	; entry.split3
+000000B6 34C903               264  	movw de, #0x03C9
+000000B9                      265  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 113
+000000B9 89                   266  	mov a, [de]
+000000BA 6C11                 267  	or a, #0x11
+000000BC 99                   268  	mov [de], a
+000000BD                      269  .BB@LABEL@3_5:	; entry.split4
+000000BD                      270  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 114
+000000BD 710BD6               271  	clr1 0xFFFD6.0
+000000C0                      272  .BB@LABEL@3_6:	; entry.split5
+000000C0                      273  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 115
+000000C0 711BD6               274  	clr1 0xFFFD6.1
+000000C3 D7                   275  	ret
+000000C4                      276  .LFE3:
+000000C4                      277  	.TYPE _R_DSADC_ZC_Stop,function,.LFE4-_R_DSADC_ZC_Stop
+000000C4                      278  _R_DSADC_ZC_Stop:
+000000C4                      279  	.STACK _R_DSADC_ZC_Stop = 4
+000000C4                      280  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 121
+000000C4 710BD6               281  	clr1 0xFFFD6.0
+000000C7                      282  .BB@LABEL@4_1:	; entry.split
+000000C7                      283  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 122
+000000C7 710BD2               284  	clr1 0xFFFD2.0
+000000CA                      285  .BB@LABEL@4_2:	; entry.split1
+000000CA                      286  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 123
+000000CA 711BD6               287  	clr1 0xFFFD6.1
+000000CD                      288  .BB@LABEL@4_3:	; entry.split2
+000000CD                      289  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 124
+000000CD 711BD2               290  	clr1 0xFFFD2.1
+000000D0 D7                   291  	ret
+000000D1                      292  .LFE4:
+000000D1                      293  	.TYPE _R_DSADC_StartWithoutGainAndPhase,function,.LFE5-_R_DSADC_StartWithoutGainAndPhase
+000000D1                      294  _R_DSADC_StartWithoutGainAndPhase:
+000000D1                      295  	.STACK _R_DSADC_StartWithoutGainAndPhase = 8
+000000D1                      296  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 127
+000000D1 2004                 297  	subw sp, #0x04
+000000D3 B802                 298  	movw [sp+0x02], ax
+000000D5                      299  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 131
+000000D5 710AD4               300  	set1 0xFFFD4.0
+000000D8                      301  .BB@LABEL@5_1:	; entry.split
+000000D8                      302  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 132
+000000D8 710BD0               303  	clr1 0xFFFD0.0
+000000DB                      304  .BB@LABEL@5_2:	; entry.split1
+000000DB 34C003               305  	movw de, #0x03C0
+000000DE                      306  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 133
+000000DE A9                   307  	movw ax, [de]
+000000DF 5CF0                 308  	and a, #0xF0
+000000E1 08                   309  	xch a, x
+000000E2 5CF0                 310  	and a, #0xF0
+000000E4 08                   311  	xch a, x
+000000E5 B9                   312  	movw [de], ax
+000000E6                      313  .BB@LABEL@5_3:	; entry.split2
+000000E6                      314  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 136
+000000E6 F5C203               315  	clrb !0x03C2
+000000E9                      316  .BB@LABEL@5_4:	; entry.split3
+000000E9                      317  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 137
+000000E9 F5C303               318  	clrb !0x03C3
+000000EC                      319  .BB@LABEL@5_5:	; entry.split4
+000000EC F6                   320  	clrw ax
+000000ED                      321  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 140
+000000ED BFD003               322  	movw !0x03D0, ax
+000000F0                      323  .BB@LABEL@5_6:	; entry.split5
+000000F0                      324  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 141
+000000F0 BFD203               325  	movw !0x03D2, ax
+000000F3                      326  .BB@LABEL@5_7:	; entry.split6
+000000F3                      327  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 142
+000000F3 BFD403               328  	movw !0x03D4, ax
+000000F6                      329  .BB@LABEL@5_8:	; entry.split7
+000000F6                      330  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 143
+000000F6 BFD603               331  	movw !0x03D6, ax
+000000F9                      332  .BB@LABEL@5_9:	; entry.split8
+000000F9                      333  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 157
+000000F9 A802                 334  	movw ax, [sp+0x02]
+000000FB 31DD                 335  	shlw ax, 0x0D
+000000FD DE00                 336  	bnc $.BB@LABEL@5_11
+000000FF                      337  .BB@LABEL@5_10:	; if_then_bb
+000000FF                      338  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 159
+000000FF 5103                 339  	mov a, #0x03
+00000101 FE0000               340  	call $!_R_DSADC_SetHighPassFilterOn
+00000104                      341  .BB@LABEL@5_11:	; if_break_bb
+00000104                      342  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 161
+00000104 5102                 343  	mov a, #0x02
+00000106 FE0000               344  	call $!_R_DSADC_SetHighPassFilterOn
+00000109                      345  .BB@LABEL@5_12:	; if_break_bb.split
+00000109                      346  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 162
+00000109 E1                   347  	oneb a
+0000010A FE0000               348  	call $!_R_DSADC_SetHighPassFilterOn
+0000010D                      349  .BB@LABEL@5_13:	; if_break_bb.split9
+0000010D                      350  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 163
+0000010D F1                   351  	clrb a
+0000010E FE0000               352  	call $!_R_DSADC_SetHighPassFilterOn
+00000111                      353  .BB@LABEL@5_14:	; if_break_bb.split10
+00000111                      354  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 164
+00000111 5103                 355  	mov a, #0x03
+00000113 FE0000               356  	call $!_R_DSADC_Set_CutOffFrequency
+00000116                      357  .BB@LABEL@5_15:	; if_break_bb.split11
+00000116                      358  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 167
+00000116 A802                 359  	movw ax, [sp+0x02]
+00000118 12                   360  	movw bc, ax
+00000119 34C003               361  	movw de, #0x03C0
+0000011C A9                   362  	movw ax, [de]
+0000011D 616B                 363  	or a, b
+0000011F 08                   364  	xch a, x
+00000120 616A                 365  	or a, c
+00000122 08                   366  	xch a, x
+00000123 B9                   367  	movw [de], ax
+00000124                      368  .BB@LABEL@5_16:	; if_break_bb.split12
+00000124                      369  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 170
+00000124 C80080               370  	mov [sp+0x00], #0x80
+00000127 EF00                 371  	br $.BB@LABEL@5_20
+00000129                      372  .BB@LABEL@5_17:	; if_then_bb23
+00000129                      373  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 175
+00000129 710BD0               374  	clr1 0xFFFD0.0
+0000012C                      375  .BB@LABEL@5_18:	; if_then_bb23.split
+0000012C                      376  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 176
+0000012C 8800                 377  	mov a, [sp+0x00]
+0000012E 91                   378  	dec a
+0000012F 9800                 379  	mov [sp+0x00], a
+00000131                      380  .BB@LABEL@5_19:	; if_break_bb26
+00000131                      381  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 178
+00000131 8800                 382  	mov a, [sp+0x00]
+00000133 D1                   383  	cmp0 a
+00000134 DD00                 384  	bz $.BB@LABEL@5_21
+00000136                      385  .BB@LABEL@5_20:	; bb35.split
+00000136                      386  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 173
+00000136 8ED0                 387  	mov a, 0xFFFD0
+00000138 3179                 388  	shl a, 0x07
+0000013A 317A                 389  	shr a, 0x07
+0000013C 91                   390  	dec a
+0000013D DD00                 391  	bz $.BB@LABEL@5_17
+0000013F EF00                 392  	br $.BB@LABEL@5_19
+00000141                      393  .BB@LABEL@5_21:	; bb37.split
+00000141                      394  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 185
+00000141 710BD4               395  	clr1 0xFFFD4.0
+00000144 1004                 396  	addw sp, #0x04
+00000146 D7                   397  	ret
+00000147                      398  .LFE5:
+00000147                      399  	.TYPE _R_DSADC_StartChannel0Only,function,.LFE6-_R_DSADC_StartChannel0Only
+00000147                      400  _R_DSADC_StartChannel0Only:
+00000147                      401  	.STACK _R_DSADC_StartChannel0Only = 4
+00000147                      402  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 191
+00000147 710AD4               403  	set1 0xFFFD4.0
+0000014A                      404  .BB@LABEL@6_1:	; entry.split
+0000014A                      405  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 192
+0000014A 710BD0               406  	clr1 0xFFFD0.0
+0000014D                      407  .BB@LABEL@6_2:	; entry.split1
+0000014D F6                   408  	clrw ax
+0000014E                      409  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 193
+0000014E BFD003               410  	movw !0x03D0, ax
+00000151                      411  .BB@LABEL@6_3:	; entry.split2
+00000151 34C003               412  	movw de, #0x03C0
+00000154                      413  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 194
+00000154 A9                   414  	movw ax, [de]
+00000155 5CF0                 415  	and a, #0xF0
+00000157 08                   416  	xch a, x
+00000158 5CF0                 417  	and a, #0xF0
+0000015A 08                   418  	xch a, x
+0000015B B9                   419  	movw [de], ax
+0000015C                      420  .BB@LABEL@6_4:	; entry.split3
+0000015C                      421  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 195
+0000015C A9                   422  	movw ax, [de]
+0000015D 6C01                 423  	or a, #0x01
+0000015F 08                   424  	xch a, x
+00000160 6C01                 425  	or a, #0x01
+00000162 08                   426  	xch a, x
+00000163 B9                   427  	movw [de], ax
+00000164                      428  .BB@LABEL@6_5:	; entry.split4
+00000164                      429  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 198
+00000164 710BD4               430  	clr1 0xFFFD4.0
+00000167 D7                   431  	ret
+00000168                      432  .LFE6:
+00000168                      433  	.TYPE _R_DSADC_StartChannel1Only,function,.LFE7-_R_DSADC_StartChannel1Only
+00000168                      434  _R_DSADC_StartChannel1Only:
+00000168                      435  	.STACK _R_DSADC_StartChannel1Only = 4
+00000168                      436  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 204
+00000168 710AD4               437  	set1 0xFFFD4.0
+0000016B                      438  .BB@LABEL@7_1:	; entry.split
+0000016B                      439  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 205
+0000016B 710BD0               440  	clr1 0xFFFD0.0
+0000016E                      441  .BB@LABEL@7_2:	; entry.split1
+0000016E F6                   442  	clrw ax
+0000016F                      443  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 206
+0000016F BFD203               444  	movw !0x03D2, ax
+00000172                      445  .BB@LABEL@7_3:	; entry.split2
+00000172 34C003               446  	movw de, #0x03C0
+00000175                      447  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 207
+00000175 A9                   448  	movw ax, [de]
+00000176 5CF0                 449  	and a, #0xF0
+00000178 08                   450  	xch a, x
+00000179 5CF0                 451  	and a, #0xF0
+0000017B 08                   452  	xch a, x
+0000017C B9                   453  	movw [de], ax
+0000017D                      454  .BB@LABEL@7_4:	; entry.split3
+0000017D                      455  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 208
+0000017D A9                   456  	movw ax, [de]
+0000017E 6C02                 457  	or a, #0x02
+00000180 08                   458  	xch a, x
+00000181 6C02                 459  	or a, #0x02
+00000183 08                   460  	xch a, x
+00000184 B9                   461  	movw [de], ax
+00000185                      462  .BB@LABEL@7_5:	; entry.split4
+00000185                      463  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 211
+00000185 710BD4               464  	clr1 0xFFFD4.0
+00000188 D7                   465  	ret
+00000189                      466  .LFE7:
+00000189                      467  	.TYPE _R_DSADC_StartChannel2Only,function,.LFE8-_R_DSADC_StartChannel2Only
+00000189                      468  _R_DSADC_StartChannel2Only:
+00000189                      469  	.STACK _R_DSADC_StartChannel2Only = 4
+00000189                      470  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 217
+00000189 710AD4               471  	set1 0xFFFD4.0
+0000018C                      472  .BB@LABEL@8_1:	; entry.split
+0000018C                      473  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 218
+0000018C 710BD0               474  	clr1 0xFFFD0.0
+0000018F                      475  .BB@LABEL@8_2:	; entry.split1
+0000018F F6                   476  	clrw ax
+00000190                      477  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 219
+00000190 BFD203               478  	movw !0x03D2, ax
+00000193                      479  .BB@LABEL@8_3:	; entry.split2
+00000193 34C003               480  	movw de, #0x03C0
+00000196                      481  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 220
+00000196 A9                   482  	movw ax, [de]
+00000197 5CF0                 483  	and a, #0xF0
+00000199 08                   484  	xch a, x
+0000019A 5CF0                 485  	and a, #0xF0
+0000019C 08                   486  	xch a, x
+0000019D B9                   487  	movw [de], ax
+0000019E                      488  .BB@LABEL@8_4:	; entry.split3
+0000019E                      489  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 221
+0000019E A9                   490  	movw ax, [de]
+0000019F 6C04                 491  	or a, #0x04
+000001A1 08                   492  	xch a, x
+000001A2 6C04                 493  	or a, #0x04
+000001A4 08                   494  	xch a, x
+000001A5 B9                   495  	movw [de], ax
+000001A6                      496  .BB@LABEL@8_5:	; entry.split4
+000001A6                      497  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 224
+000001A6 710BD4               498  	clr1 0xFFFD4.0
+000001A9 D7                   499  	ret
+000001AA                      500  .LFE8:
+000001AA                      501  	.TYPE _R_DSADC_StartChannel3Only,function,.LFE9-_R_DSADC_StartChannel3Only
+000001AA                      502  _R_DSADC_StartChannel3Only:
+000001AA                      503  	.STACK _R_DSADC_StartChannel3Only = 4
+000001AA                      504  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 230
+000001AA 710AD4               505  	set1 0xFFFD4.0
+000001AD                      506  .BB@LABEL@9_1:	; entry.split
+000001AD                      507  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 231
+000001AD 710BD0               508  	clr1 0xFFFD0.0
+000001B0                      509  .BB@LABEL@9_2:	; entry.split1
+000001B0 F6                   510  	clrw ax
+000001B1                      511  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 232
+000001B1 BFD603               512  	movw !0x03D6, ax
+000001B4                      513  .BB@LABEL@9_3:	; entry.split2
+000001B4 34C003               514  	movw de, #0x03C0
+000001B7                      515  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 233
+000001B7 A9                   516  	movw ax, [de]
+000001B8 5CF0                 517  	and a, #0xF0
+000001BA 08                   518  	xch a, x
+000001BB 5CF0                 519  	and a, #0xF0
+000001BD 08                   520  	xch a, x
+000001BE B9                   521  	movw [de], ax
+000001BF                      522  .BB@LABEL@9_4:	; entry.split3
+000001BF                      523  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 234
+000001BF A9                   524  	movw ax, [de]
+000001C0 6C08                 525  	or a, #0x08
+000001C2 08                   526  	xch a, x
+000001C3 6C08                 527  	or a, #0x08
+000001C5 08                   528  	xch a, x
+000001C6 B9                   529  	movw [de], ax
+000001C7                      530  .BB@LABEL@9_5:	; entry.split4
+000001C7                      531  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 237
+000001C7 710BD4               532  	clr1 0xFFFD4.0
+000001CA D7                   533  	ret
+000001CB                      534  .LFE9:
+000001CB                      535  	.TYPE _R_DSADC_StartCurrentChannels,function,.LFE10-_R_DSADC_StartCurrentChannels
+000001CB                      536  _R_DSADC_StartCurrentChannels:
+000001CB                      537  	.STACK _R_DSADC_StartCurrentChannels = 4
+000001CB                      538  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 243
+000001CB 710AD4               539  	set1 0xFFFD4.0
+000001CE                      540  .BB@LABEL@10_1:	; entry.split
+000001CE                      541  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 244
+000001CE 710BD0               542  	clr1 0xFFFD0.0
+000001D1                      543  .BB@LABEL@10_2:	; entry.split1
+000001D1 34C003               544  	movw de, #0x03C0
+000001D4                      545  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 245
+000001D4 A9                   546  	movw ax, [de]
+000001D5 6C05                 547  	or a, #0x05
+000001D7 08                   548  	xch a, x
+000001D8 6C05                 549  	or a, #0x05
+000001DA 08                   550  	xch a, x
+000001DB B9                   551  	movw [de], ax
+000001DC                      552  .BB@LABEL@10_3:	; entry.split2
+000001DC                      553  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 246
+000001DC A9                   554  	movw ax, [de]
+000001DD 5CF5                 555  	and a, #0xF5
+000001DF 08                   556  	xch a, x
+000001E0 5CF5                 557  	and a, #0xF5
+000001E2 08                   558  	xch a, x
+000001E3 B9                   559  	movw [de], ax
+000001E4                      560  .BB@LABEL@10_4:	; entry.split3
+000001E4                      561  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 249
+000001E4 710BD4               562  	clr1 0xFFFD4.0
+000001E7 D7                   563  	ret
+000001E8                      564  .LFE10:
+000001E8                      565  	.TYPE _R_DSADC_BackupPhaseRegSetting,function,.LFE11-_R_DSADC_BackupPhaseRegSetting
+000001E8                      566  _R_DSADC_BackupPhaseRegSetting:
+000001E8                      567  	.STACK _R_DSADC_BackupPhaseRegSetting = 4
+000001E8                      568  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 255
+000001E8 AFD003               569  	movw ax, !0x03D0
+000001EB BF0000               570  	movw !LOWW(_g_reg_phase0@1), ax
+000001EE                      571  .BB@LABEL@11_1:	; entry.split
+000001EE                      572  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 256
+000001EE AFD203               573  	movw ax, !0x03D2
+000001F1 BF0000               574  	movw !LOWW(_g_reg_phase1@2), ax
+000001F4                      575  .BB@LABEL@11_2:	; entry.split1
+000001F4                      576  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 257
+000001F4 AFD403               577  	movw ax, !0x03D4
+000001F7 BF0000               578  	movw !LOWW(_g_reg_phase2@3), ax
+000001FA                      579  .BB@LABEL@11_3:	; entry.split2
+000001FA                      580  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 258
+000001FA AFD603               581  	movw ax, !0x03D6
+000001FD BF0000               582  	movw !LOWW(_g_reg_phase3@4), ax
+00000200 D7                   583  	ret
+00000201                      584  .LFE11:
+00000201                      585  	.TYPE _R_DSADC_RestorePhaseRegSetting,function,.LFE12-_R_DSADC_RestorePhaseRegSetting
+00000201                      586  _R_DSADC_RestorePhaseRegSetting:
+00000201                      587  	.STACK _R_DSADC_RestorePhaseRegSetting = 4
+00000201                      588  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 263
+00000201 AF0000               589  	movw ax, !LOWW(_g_reg_phase0@1)
+00000204 BFD003               590  	movw !0x03D0, ax
+00000207                      591  .BB@LABEL@12_1:	; entry.split
+00000207                      592  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 264
+00000207 AF0000               593  	movw ax, !LOWW(_g_reg_phase1@2)
+0000020A BFD203               594  	movw !0x03D2, ax
+0000020D                      595  .BB@LABEL@12_2:	; entry.split1
+0000020D                      596  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 265
+0000020D AF0000               597  	movw ax, !LOWW(_g_reg_phase2@3)
+00000210 BFD403               598  	movw !0x03D4, ax
+00000213                      599  .BB@LABEL@12_3:	; entry.split2
+00000213                      600  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 266
+00000213 AF0000               601  	movw ax, !LOWW(_g_reg_phase3@4)
+00000216 BFD603               602  	movw !0x03D6, ax
+00000219 D7                   603  	ret
+0000021A                      604  .LFE12:
+0000021A                      605  	.TYPE _R_DSADC_Stop,function,.LFE13-_R_DSADC_Stop
+0000021A                      606  _R_DSADC_Stop:
+0000021A                      607  	.STACK _R_DSADC_Stop = 4
+0000021A                      608  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 269
+0000021A 34C003               609  	movw de, #0x03C0
+0000021D                      610  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 271
+0000021D A9                   611  	movw ax, [de]
+0000021E 5CF0                 612  	and a, #0xF0
+00000220 08                   613  	xch a, x
+00000221 5CF0                 614  	and a, #0xF0
+00000223 08                   615  	xch a, x
+00000224 B9                   616  	movw [de], ax
+00000225                      617  .BB@LABEL@13_1:	; entry.split
+00000225                      618  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 272
+00000225 710AD4               619  	set1 0xFFFD4.0
+00000228                      620  .BB@LABEL@13_2:	; entry.split1
+00000228                      621  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 273
+00000228 710BD0               622  	clr1 0xFFFD0.0
+0000022B D7                   623  	ret
+0000022C                      624  .LFE13:
+0000022C                      625  	.TYPE _R_DSADC_SetHighPassFilterOff,function,.LFE14-_R_DSADC_SetHighPassFilterOff
+0000022C                      626  _R_DSADC_SetHighPassFilterOff:
+0000022C                      627  	.STACK _R_DSADC_SetHighPassFilterOff = 10
+0000022C                      628  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 276
+0000022C 2006                 629  	subw sp, #0x06
+0000022E 9802                 630  	mov [sp+0x02], a
+00000230 F6                   631  	clrw ax
+00000231                      632  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 278
+00000231 B800                 633  	movw [sp+0x00], ax
+00000233                      634  .BB@LABEL@14_1:	; entry.split
+00000233                      635  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 279
+00000233 8802                 636  	mov a, [sp+0x02]
+00000235 318F                 637  	sarw ax, 8+0x00000
+00000237 440000               638  	cmpw ax, #0x0000
+0000023A DD00                 639  	bz $.BB@LABEL@14_5
+0000023C                      640  .BB@LABEL@14_2:	; entry.split
+0000023C B1                   641  	decw ax
+0000023D 440000               642  	cmpw ax, #0x0000
+00000240 DD00                 643  	bz $.BB@LABEL@14_6
+00000242                      644  .BB@LABEL@14_3:	; entry.split
+00000242 B1                   645  	decw ax
+00000243 440000               646  	cmpw ax, #0x0000
+00000246 DD00                 647  	bz $.BB@LABEL@14_7
+00000248                      648  .BB@LABEL@14_4:	; entry.split
+00000248 440100               649  	cmpw ax, #0x0001
+0000024B DD00                 650  	bz $.BB@LABEL@14_8
+0000024D EF00                 651  	br $.BB@LABEL@14_9
+0000024F                      652  .BB@LABEL@14_5:	; switch_clause_bb
+0000024F 34C503               653  	movw de, #0x03C5
+00000252                      654  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 282
+00000252 89                   655  	mov a, [de]
+00000253 718A                 656  	set1 a.0
+00000255 99                   657  	mov [de], a
+00000256 EF00                 658  	br $.BB@LABEL@14_10
+00000258                      659  .BB@LABEL@14_6:	; switch_clause_bb8
+00000258 34C503               660  	movw de, #0x03C5
+0000025B                      661  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 285
+0000025B 89                   662  	mov a, [de]
+0000025C 719A                 663  	set1 a.1
+0000025E 99                   664  	mov [de], a
+0000025F EF00                 665  	br $.BB@LABEL@14_10
+00000261                      666  .BB@LABEL@14_7:	; switch_clause_bb13
+00000261 34C503               667  	movw de, #0x03C5
+00000264                      668  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 288
+00000264 89                   669  	mov a, [de]
+00000265 71AA                 670  	set1 a.2
+00000267 99                   671  	mov [de], a
+00000268 EF00                 672  	br $.BB@LABEL@14_10
+0000026A                      673  .BB@LABEL@14_8:	; switch_clause_bb18
+0000026A 34C503               674  	movw de, #0x03C5
+0000026D                      675  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 291
+0000026D 89                   676  	mov a, [de]
+0000026E 71BA                 677  	set1 a.3
+00000270 99                   678  	mov [de], a
+00000271 EF00                 679  	br $.BB@LABEL@14_10
+00000273                      680  .BB@LABEL@14_9:	; switch_clause_bb23
+00000273 308100               681  	movw ax, #0x0081
+00000276                      682  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 295
+00000276 B800                 683  	movw [sp+0x00], ax
+00000278                      684  .BB@LABEL@14_10:	; switch_break_bb
+00000278                      685  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 298
+00000278 A800                 686  	movw ax, [sp+0x00]
+0000027A B804                 687  	movw [sp+0x04], ax
+0000027C                      688  .BB@LABEL@14_11:	; switch_break_bb.split
+0000027C                      689  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 299
+0000027C 1006                 690  	addw sp, #0x06
+0000027E D7                   691  	ret
+0000027F                      692  .LFE14:
+0000027F                      693  	.TYPE _R_DSADC_SetHighPassFilterOn,function,.LFE15-_R_DSADC_SetHighPassFilterOn
+0000027F                      694  _R_DSADC_SetHighPassFilterOn:
+0000027F                      695  	.STACK _R_DSADC_SetHighPassFilterOn = 10
+0000027F                      696  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 301
+0000027F 2006                 697  	subw sp, #0x06
+00000281 9802                 698  	mov [sp+0x02], a
+00000283 F6                   699  	clrw ax
+00000284                      700  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 303
+00000284 B800                 701  	movw [sp+0x00], ax
+00000286                      702  .BB@LABEL@15_1:	; entry.split
+00000286                      703  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 304
+00000286 8802                 704  	mov a, [sp+0x02]
+00000288 318F                 705  	sarw ax, 8+0x00000
+0000028A 440000               706  	cmpw ax, #0x0000
+0000028D DD00                 707  	bz $.BB@LABEL@15_5
+0000028F                      708  .BB@LABEL@15_2:	; entry.split
+0000028F B1                   709  	decw ax
+00000290 440000               710  	cmpw ax, #0x0000
+00000293 DD00                 711  	bz $.BB@LABEL@15_6
+00000295                      712  .BB@LABEL@15_3:	; entry.split
+00000295 B1                   713  	decw ax
+00000296 440000               714  	cmpw ax, #0x0000
+00000299 DD00                 715  	bz $.BB@LABEL@15_7
+0000029B                      716  .BB@LABEL@15_4:	; entry.split
+0000029B 440100               717  	cmpw ax, #0x0001
+0000029E DD00                 718  	bz $.BB@LABEL@15_8
+000002A0 EF00                 719  	br $.BB@LABEL@15_9
+000002A2                      720  .BB@LABEL@15_5:	; switch_clause_bb
+000002A2 34C503               721  	movw de, #0x03C5
+000002A5                      722  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 307
+000002A5 89                   723  	mov a, [de]
+000002A6 718B                 724  	clr1 a.0
+000002A8 99                   725  	mov [de], a
+000002A9 EF00                 726  	br $.BB@LABEL@15_10
+000002AB                      727  .BB@LABEL@15_6:	; switch_clause_bb8
+000002AB 34C503               728  	movw de, #0x03C5
+000002AE                      729  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 310
+000002AE 89                   730  	mov a, [de]
+000002AF 719B                 731  	clr1 a.1
+000002B1 99                   732  	mov [de], a
+000002B2 EF00                 733  	br $.BB@LABEL@15_10
+000002B4                      734  .BB@LABEL@15_7:	; switch_clause_bb13
+000002B4 34C503               735  	movw de, #0x03C5
+000002B7                      736  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 313
+000002B7 89                   737  	mov a, [de]
+000002B8 71AB                 738  	clr1 a.2
+000002BA 99                   739  	mov [de], a
+000002BB EF00                 740  	br $.BB@LABEL@15_10
+000002BD                      741  .BB@LABEL@15_8:	; switch_clause_bb18
+000002BD 34C503               742  	movw de, #0x03C5
+000002C0                      743  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 316
+000002C0 89                   744  	mov a, [de]
+000002C1 71BB                 745  	clr1 a.3
+000002C3 99                   746  	mov [de], a
+000002C4 EF00                 747  	br $.BB@LABEL@15_10
+000002C6                      748  .BB@LABEL@15_9:	; switch_clause_bb23
+000002C6 308100               749  	movw ax, #0x0081
+000002C9                      750  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 320
+000002C9 B800                 751  	movw [sp+0x00], ax
+000002CB                      752  .BB@LABEL@15_10:	; switch_break_bb
+000002CB                      753  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 323
+000002CB A800                 754  	movw ax, [sp+0x00]
+000002CD B804                 755  	movw [sp+0x04], ax
+000002CF                      756  .BB@LABEL@15_11:	; switch_break_bb.split
+000002CF                      757  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 324
+000002CF 1006                 758  	addw sp, #0x06
+000002D1 D7                   759  	ret
+000002D2                      760  .LFE15:
+000002D2                      761  	.TYPE _R_DSADC_Set_CutOffFrequency,function,.LFE16-_R_DSADC_Set_CutOffFrequency
+000002D2                      762  _R_DSADC_Set_CutOffFrequency:
+000002D2                      763  	.STACK _R_DSADC_Set_CutOffFrequency = 12
+000002D2                      764  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 326
+000002D2 2008                 765  	subw sp, #0x08
+000002D4 9800                 766  	mov [sp+0x00], a
+000002D6 F6                   767  	clrw ax
+000002D7                      768  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 328
+000002D7 B802                 769  	movw [sp+0x02], ax
+000002D9                      770  .BB@LABEL@16_1:	; entry.split
+000002D9                      771  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 330
+000002D9 8800                 772  	mov a, [sp+0x00]
+000002DB 318F                 773  	sarw ax, 8+0x00000
+000002DD 317300               774  	bt a.7, $.BB@LABEL@16_3
+000002E0                      775  .BB@LABEL@16_2:	; bb
+000002E0 8800                 776  	mov a, [sp+0x00]
+000002E2 318F                 777  	sarw ax, 8+0x00000
+000002E4 7C80                 778  	xor a, #0x80
+000002E6 440480               779  	cmpw ax, #0x8004
+000002E9 DC00                 780  	bc $.BB@LABEL@16_4
+000002EB                      781  .BB@LABEL@16_3:	; bb10
+000002EB E6                   782  	onew ax
+000002EC B804                 783  	movw [sp+0x04], ax
+000002EE EF00                 784  	br $.BB@LABEL@16_5
+000002F0                      785  .BB@LABEL@16_4:	; bb11
+000002F0 F6                   786  	clrw ax
+000002F1 B804                 787  	movw [sp+0x04], ax
+000002F3                      788  .BB@LABEL@16_5:	; bb12
+000002F3 A804                 789  	movw ax, [sp+0x04]
+000002F5 6168                 790  	or a, x
+000002F7 DD00                 791  	bz $.BB@LABEL@16_7
+000002F9                      792  .BB@LABEL@16_6:	; if_then_bb
+000002F9 308100               793  	movw ax, #0x0081
+000002FC                      794  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 332
+000002FC B802                 795  	movw [sp+0x02], ax
+000002FE EF00                 796  	br $.BB@LABEL@16_9
+00000300                      797  .BB@LABEL@16_7:	; if_else_bb
+00000300 34C503               798  	movw de, #0x03C5
+00000303                      799  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 336
+00000303 89                   800  	mov a, [de]
+00000304 5C0F                 801  	and a, #0x0F
+00000306 99                   802  	mov [de], a
+00000307                      803  .BB@LABEL@16_8:	; if_else_bb.split
+00000307 36C503               804  	movw hl, #0x03C5
+0000030A                      805  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 337
+0000030A 8800                 806  	mov a, [sp+0x00]
+0000030C 318F                 807  	sarw ax, 8+0x00000
+0000030E 316D                 808  	shlw ax, 0x06
+00000310 60                   809  	mov a, x
+00000311 6D                   810  	or a, [hl]
+00000312 9B                   811  	mov [hl], a
+00000313                      812  .BB@LABEL@16_9:	; if_break_bb
+00000313                      813  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 339
+00000313 A802                 814  	movw ax, [sp+0x02]
+00000315 B806                 815  	movw [sp+0x06], ax
+00000317                      816  .BB@LABEL@16_10:	; if_break_bb.split
+00000317                      817  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 340
+00000317 1008                 818  	addw sp, #0x08
+00000319 D7                   819  	ret
+0000031A                      820  .LFE16:
+0000031A                      821  	.TYPE _R_DSADC_AdjustPhaseDelay,function,.LFE17-_R_DSADC_AdjustPhaseDelay
+0000031A                      822  _R_DSADC_AdjustPhaseDelay:
+0000031A                      823  	.STACK _R_DSADC_AdjustPhaseDelay = 12
+0000031A                      824  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 342
+0000031A 2008                 825  	subw sp, #0x08
+0000031C 9804                 826  	mov [sp+0x04], a
+0000031E 13                   827  	movw ax, bc
+0000031F B800                 828  	movw [sp+0x00], ax
+00000321 F6                   829  	clrw ax
+00000322                      830  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 344
+00000322 B802                 831  	movw [sp+0x02], ax
+00000324                      832  .BB@LABEL@17_1:	; entry.split
+00000324                      833  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 346
+00000324 A800                 834  	movw ax, [sp+0x00]
+00000326 448004               835  	cmpw ax, #0x0480
+00000329 DE00                 836  	bnc $.BB@LABEL@17_11
+0000032B                      837  .BB@LABEL@17_2:	; if_then_bb
+0000032B                      838  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 348
+0000032B 8804                 839  	mov a, [sp+0x04]
+0000032D 318F                 840  	sarw ax, 8+0x00000
+0000032F 440000               841  	cmpw ax, #0x0000
+00000332 DD00                 842  	bz $.BB@LABEL@17_6
+00000334                      843  .BB@LABEL@17_3:	; if_then_bb
+00000334 B1                   844  	decw ax
+00000335 440000               845  	cmpw ax, #0x0000
+00000338 DD00                 846  	bz $.BB@LABEL@17_7
+0000033A                      847  .BB@LABEL@17_4:	; if_then_bb
+0000033A B1                   848  	decw ax
+0000033B 440000               849  	cmpw ax, #0x0000
+0000033E DD00                 850  	bz $.BB@LABEL@17_8
+00000340                      851  .BB@LABEL@17_5:	; if_then_bb
+00000340 440100               852  	cmpw ax, #0x0001
+00000343 DD00                 853  	bz $.BB@LABEL@17_9
+00000345 EF00                 854  	br $.BB@LABEL@17_10
+00000347                      855  .BB@LABEL@17_6:	; switch_clause_bb
+00000347                      856  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 351
+00000347 A800                 857  	movw ax, [sp+0x00]
+00000349 BFD003               858  	movw !0x03D0, ax
+0000034C EF00                 859  	br $.BB@LABEL@17_12
+0000034E                      860  .BB@LABEL@17_7:	; switch_clause_bb9
+0000034E                      861  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 354
+0000034E A800                 862  	movw ax, [sp+0x00]
+00000350 BFD203               863  	movw !0x03D2, ax
+00000353 EF00                 864  	br $.BB@LABEL@17_12
+00000355                      865  .BB@LABEL@17_8:	; switch_clause_bb11
+00000355                      866  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 357
+00000355 A800                 867  	movw ax, [sp+0x00]
+00000357 BFD403               868  	movw !0x03D4, ax
+0000035A EF00                 869  	br $.BB@LABEL@17_12
+0000035C                      870  .BB@LABEL@17_9:	; switch_clause_bb13
+0000035C                      871  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 360
+0000035C A800                 872  	movw ax, [sp+0x00]
+0000035E BFD603               873  	movw !0x03D6, ax
+00000361 EF00                 874  	br $.BB@LABEL@17_12
+00000363                      875  .BB@LABEL@17_10:	; switch_clause_bb15
+00000363 308100               876  	movw ax, #0x0081
+00000366                      877  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 364
+00000366 B802                 878  	movw [sp+0x02], ax
+00000368 EF00                 879  	br $.BB@LABEL@17_12
+0000036A                      880  .BB@LABEL@17_11:	; if_else_bb
+0000036A 308100               881  	movw ax, #0x0081
+0000036D                      882  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 371
+0000036D B802                 883  	movw [sp+0x02], ax
+0000036F                      884  .BB@LABEL@17_12:	; if_break_bb
+0000036F                      885  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 374
+0000036F A802                 886  	movw ax, [sp+0x02]
+00000371 B806                 887  	movw [sp+0x06], ax
+00000373                      888  .BB@LABEL@17_13:	; if_break_bb.split
+00000373                      889  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 375
+00000373 1008                 890  	addw sp, #0x08
+00000375 D7                   891  	ret
+00000376                      892  .LFE17:
+00000376                      893  	.TYPE _R_DSADC_GetGainAndPhase,function,.LFE18-_R_DSADC_GetGainAndPhase
+00000376                      894  _R_DSADC_GetGainAndPhase:
+00000376                      895  	.STACK _R_DSADC_GetGainAndPhase = 6
+00000376                      896  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 377
+00000376 C7                   897  	push hl
+00000377 B800                 898  	movw [sp+0x00], ax
+00000379 14                   899  	movw de, ax
+0000037A                      900  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 380
+0000037A 8FC203               901  	mov a, !0x03C2
+0000037D 99                   902  	mov [de], a
+0000037E                      903  .BB@LABEL@18_1:	; entry.split
+0000037E                      904  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 381
+0000037E A800                 905  	movw ax, [sp+0x00]
+00000380 14                   906  	movw de, ax
+00000381 A5                   907  	incw de
+00000382 8FC303               908  	mov a, !0x03C3
+00000385 99                   909  	mov [de], a
+00000386                      910  .BB@LABEL@18_2:	; entry.split1
+00000386                      911  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 383
+00000386 A800                 912  	movw ax, [sp+0x00]
+00000388 040200               913  	addw ax, #0x0002
+0000038B 14                   914  	movw de, ax
+0000038C AFD003               915  	movw ax, !0x03D0
+0000038F B9                   916  	movw [de], ax
+00000390                      917  .BB@LABEL@18_3:	; entry.split2
+00000390                      918  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 384
+00000390 A800                 919  	movw ax, [sp+0x00]
+00000392 040400               920  	addw ax, #0x0004
+00000395 14                   921  	movw de, ax
+00000396 AFD203               922  	movw ax, !0x03D2
+00000399 B9                   923  	movw [de], ax
+0000039A                      924  .BB@LABEL@18_4:	; entry.split3
+0000039A                      925  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 385
+0000039A A800                 926  	movw ax, [sp+0x00]
+0000039C 040600               927  	addw ax, #0x0006
+0000039F 14                   928  	movw de, ax
+000003A0 AFD403               929  	movw ax, !0x03D4
+000003A3 B9                   930  	movw [de], ax
+000003A4                      931  .BB@LABEL@18_5:	; entry.split4
+000003A4                      932  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 386
+000003A4 A800                 933  	movw ax, [sp+0x00]
+000003A6 040800               934  	addw ax, #0x0008
+000003A9 14                   935  	movw de, ax
+000003AA AFD603               936  	movw ax, !0x03D6
+000003AD B9                   937  	movw [de], ax
+000003AE C0                   938  	pop ax
+000003AF D7                   939  	ret
+000003B0                      940  .LFE18:
+000003B0                      941  	.TYPE _R_DSADC_SetGainAndPhase,function,.LFE19-_R_DSADC_SetGainAndPhase
+000003B0                      942  _R_DSADC_SetGainAndPhase:
+000003B0                      943  	.STACK _R_DSADC_SetGainAndPhase = 4
+000003B0                      944  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 389
+000003B0 8804                 945  	mov a, [sp+0x04]
+000003B2                      946  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 391
+000003B2 9FC203               947  	mov !0x03C2, a
+000003B5 AEF8                 948  	movw ax, sp
+000003B7 040400               949  	addw ax, #0x0004
+000003BA 12                   950  	movw bc, ax
+000003BB                      951  .BB@LABEL@19_1:	; entry.split
+000003BB                      952  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 392
+000003BB 13                   953  	movw ax, bc
+000003BC A1                   954  	incw ax
+000003BD 14                   955  	movw de, ax
+000003BE 89                   956  	mov a, [de]
+000003BF 9FC303               957  	mov !0x03C3, a
+000003C2                      958  .BB@LABEL@19_2:	; entry.split1
+000003C2                      959  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 393
+000003C2 A5                   960  	incw de
+000003C3 A9                   961  	movw ax, [de]
+000003C4 BFD003               962  	movw !0x03D0, ax
+000003C7                      963  .BB@LABEL@19_3:	; entry.split2
+000003C7                      964  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 394
+000003C7 13                   965  	movw ax, bc
+000003C8 040400               966  	addw ax, #0x0004
+000003CB 14                   967  	movw de, ax
+000003CC A9                   968  	movw ax, [de]
+000003CD BFD203               969  	movw !0x03D2, ax
+000003D0                      970  .BB@LABEL@19_4:	; entry.split3
+000003D0                      971  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 395
+000003D0 13                   972  	movw ax, bc
+000003D1 040600               973  	addw ax, #0x0006
+000003D4 14                   974  	movw de, ax
+000003D5 A9                   975  	movw ax, [de]
+000003D6 BFD403               976  	movw !0x03D4, ax
+000003D9                      977  .BB@LABEL@19_5:	; entry.split4
+000003D9 13                   978  	movw ax, bc
+000003DA                      979  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 396
+000003DA 040800               980  	addw ax, #0x0008
+000003DD 14                   981  	movw de, ax
+000003DE A9                   982  	movw ax, [de]
+000003DF BFD603               983  	movw !0x03D6, ax
+000003E2 D7                   984  	ret
+000003E3                      985  .LFE19:
+000003E3                      986  	.TYPE _R_DSADC_SetGain,function,.LFE20-_R_DSADC_SetGain
+000003E3                      987  _R_DSADC_SetGain:
+000003E3                      988  	.STACK _R_DSADC_SetGain = 4
+000003E3                      989  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 399
+000003E3 8804                 990  	mov a, [sp+0x04]
+000003E5                      991  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 401
+000003E5 9FC203               992  	mov !0x03C2, a
+000003E8 AEF8                 993  	movw ax, sp
+000003EA 040400               994  	addw ax, #0x0004
+000003ED                      995  .BB@LABEL@20_1:	; entry.split
+000003ED 14                   996  	movw de, ax
+000003EE                      997  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 402
+000003EE A5                   998  	incw de
+000003EF 89                   999  	mov a, [de]
+000003F0 9FC303              1000  	mov !0x03C3, a
+000003F3 D7                  1001  	ret
+000003F4                     1002  .LFE20:
+000003F4                     1003  	.TYPE _R_DSADC_SetChannelGain,function,.LFE21-_R_DSADC_SetChannelGain
+000003F4                     1004  _R_DSADC_SetChannelGain:
+000003F4                     1005  	.STACK _R_DSADC_SetChannelGain = 12
+000003F4                     1006  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 405
+000003F4 2008                1007  	subw sp, #0x08
+000003F6 9801                1008  	mov [sp+0x01], a
+000003F8 60                  1009  	mov a, x
+000003F9 9800                1010  	mov [sp+0x00], a
+000003FB F6                  1011  	clrw ax
+000003FC                     1012  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 407
+000003FC B804                1013  	movw [sp+0x04], ax
+000003FE                     1014  .BB@LABEL@21_1:	; entry.split
+000003FE                     1015  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 409
+000003FE 8801                1016  	mov a, [sp+0x01]
+00000400 318F                1017  	sarw ax, 8+0x00000
+00000402 440000              1018  	cmpw ax, #0x0000
+00000405 DD00                1019  	bz $.BB@LABEL@21_5
+00000407                     1020  .BB@LABEL@21_2:	; entry.split
+00000407 B1                  1021  	decw ax
+00000408 440000              1022  	cmpw ax, #0x0000
+0000040B DD00                1023  	bz $.BB@LABEL@21_13
+0000040D                     1024  .BB@LABEL@21_3:	; entry.split
+0000040D B1                  1025  	decw ax
+0000040E 440000              1026  	cmpw ax, #0x0000
+00000411                     1027  	.bz $!.BB@LABEL@21_21
+00000411 61F8                    	 -- Skncond
+00000413 EE0000                  	 -- br	**.target1
+00000416                     1028  .BB@LABEL@21_4:	; entry.split
+00000416 440100              1029  	cmpw ax, #0x0001
+00000419                     1030  	.bz $!.BB@LABEL@21_29, $!.BB@LABEL@21_37
+00000419 61F8                    	 -- Skncond
+0000041B EE0000                  	 -- br	**.target1
+0000041E EE0000                  	 -- br	**.target2
+00000421                     1031  .BB@LABEL@21_5:	; switch_clause_bb
+00000421                     1032  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 412
+00000421 8800                1033  	mov a, [sp+0x00]
+00000423 318F                1034  	sarw ax, 8+0x00000
+00000425 317300              1035  	bt a.7, $.BB@LABEL@21_7
+00000428                     1036  .BB@LABEL@21_6:	; bb
+00000428 8800                1037  	mov a, [sp+0x00]
+0000042A 318F                1038  	sarw ax, 8+0x00000
+0000042C 7C80                1039  	xor a, #0x80
+0000042E 440680              1040  	cmpw ax, #0x8006
+00000431 DC00                1041  	bc $.BB@LABEL@21_8
+00000433                     1042  .BB@LABEL@21_7:	; bb13
+00000433 E6                  1043  	onew ax
+00000434 B802                1044  	movw [sp+0x02], ax
+00000436 EF00                1045  	br $.BB@LABEL@21_9
+00000438                     1046  .BB@LABEL@21_8:	; bb14
+00000438 F6                  1047  	clrw ax
+00000439 B802                1048  	movw [sp+0x02], ax
+0000043B                     1049  .BB@LABEL@21_9:	; bb15
+0000043B A802                1050  	movw ax, [sp+0x02]
+0000043D 6168                1051  	or a, x
+0000043F DD00                1052  	bz $.BB@LABEL@21_11
+00000441                     1053  .BB@LABEL@21_10:	; if_then_bb
+00000441 308100              1054  	movw ax, #0x0081
+00000444                     1055  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 414
+00000444 B804                1056  	movw [sp+0x04], ax
+00000446 EE0000              1057  	br $!.BB@LABEL@21_38
+00000449                     1058  .BB@LABEL@21_11:	; if_break_bb
+00000449 34C203              1059  	movw de, #0x03C2
+0000044C                     1060  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 417
+0000044C 89                  1061  	mov a, [de]
+0000044D 5CF0                1062  	and a, #0xF0
+0000044F 99                  1063  	mov [de], a
+00000450                     1064  .BB@LABEL@21_12:	; if_break_bb.split
+00000450                     1065  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 418
+00000450 8800                1066  	mov a, [sp+0x00]
+00000452 318F                1067  	sarw ax, 8+0x00000
+00000454 12                  1068  	movw bc, ax
+00000455 89                  1069  	mov a, [de]
+00000456 318E                1070  	shrw ax, 8+0x00000
+00000458 616B                1071  	or a, b
+0000045A 08                  1072  	xch a, x
+0000045B 616A                1073  	or a, c
+0000045D 08                  1074  	xch a, x
+0000045E 60                  1075  	mov a, x
+0000045F 99                  1076  	mov [de], a
+00000460 EE0000              1077  	br $!.BB@LABEL@21_38
+00000463                     1078  .BB@LABEL@21_13:	; switch_clause_bb30
+00000463                     1079  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 421
+00000463 8800                1080  	mov a, [sp+0x00]
+00000465 318F                1081  	sarw ax, 8+0x00000
+00000467 317300              1082  	bt a.7, $.BB@LABEL@21_15
+0000046A                     1083  .BB@LABEL@21_14:	; bb35
+0000046A 8800                1084  	mov a, [sp+0x00]
+0000046C 318F                1085  	sarw ax, 8+0x00000
+0000046E 7C80                1086  	xor a, #0x80
+00000470 440580              1087  	cmpw ax, #0x8005
+00000473 DC00                1088  	bc $.BB@LABEL@21_16
+00000475                     1089  .BB@LABEL@21_15:	; bb40
+00000475 E6                  1090  	onew ax
+00000476 B802                1091  	movw [sp+0x02], ax
+00000478 EF00                1092  	br $.BB@LABEL@21_17
+0000047A                     1093  .BB@LABEL@21_16:	; bb41
+0000047A F6                  1094  	clrw ax
+0000047B B802                1095  	movw [sp+0x02], ax
+0000047D                     1096  .BB@LABEL@21_17:	; bb42
+0000047D A802                1097  	movw ax, [sp+0x02]
+0000047F 6168                1098  	or a, x
+00000481 DD00                1099  	bz $.BB@LABEL@21_19
+00000483                     1100  .BB@LABEL@21_18:	; if_then_bb47
+00000483 308100              1101  	movw ax, #0x0081
+00000486                     1102  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 423
+00000486 B804                1103  	movw [sp+0x04], ax
+00000488 EE0000              1104  	br $!.BB@LABEL@21_38
+0000048B                     1105  .BB@LABEL@21_19:	; if_break_bb49
+0000048B 34C203              1106  	movw de, #0x03C2
+0000048E                     1107  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 426
+0000048E 89                  1108  	mov a, [de]
+0000048F 5C0F                1109  	and a, #0x0F
+00000491 99                  1110  	mov [de], a
+00000492                     1111  .BB@LABEL@21_20:	; if_break_bb49.split
+00000492 36C203              1112  	movw hl, #0x03C2
+00000495                     1113  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 427
+00000495 8800                1114  	mov a, [sp+0x00]
+00000497 318F                1115  	sarw ax, 8+0x00000
+00000499 314D                1116  	shlw ax, 0x04
+0000049B 60                  1117  	mov a, x
+0000049C 6D                  1118  	or a, [hl]
+0000049D 9B                  1119  	mov [hl], a
+0000049E EE0000              1120  	br $!.BB@LABEL@21_38
+000004A1                     1121  .BB@LABEL@21_21:	; switch_clause_bb64
+000004A1                     1122  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 430
+000004A1 8800                1123  	mov a, [sp+0x00]
+000004A3 318F                1124  	sarw ax, 8+0x00000
+000004A5 317300              1125  	bt a.7, $.BB@LABEL@21_23
+000004A8                     1126  .BB@LABEL@21_22:	; bb69
+000004A8 8800                1127  	mov a, [sp+0x00]
+000004AA 318F                1128  	sarw ax, 8+0x00000
+000004AC 7C80                1129  	xor a, #0x80
+000004AE 440680              1130  	cmpw ax, #0x8006
+000004B1 DC00                1131  	bc $.BB@LABEL@21_24
+000004B3                     1132  .BB@LABEL@21_23:	; bb74
+000004B3 E6                  1133  	onew ax
+000004B4 B802                1134  	movw [sp+0x02], ax
+000004B6 EF00                1135  	br $.BB@LABEL@21_25
+000004B8                     1136  .BB@LABEL@21_24:	; bb75
+000004B8 F6                  1137  	clrw ax
+000004B9 B802                1138  	movw [sp+0x02], ax
+000004BB                     1139  .BB@LABEL@21_25:	; bb76
+000004BB A802                1140  	movw ax, [sp+0x02]
+000004BD 6168                1141  	or a, x
+000004BF DD00                1142  	bz $.BB@LABEL@21_27
+000004C1                     1143  .BB@LABEL@21_26:	; if_then_bb81
+000004C1 308100              1144  	movw ax, #0x0081
+000004C4                     1145  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 432
+000004C4 B804                1146  	movw [sp+0x04], ax
+000004C6 EF00                1147  	br $.BB@LABEL@21_38
+000004C8                     1148  .BB@LABEL@21_27:	; if_break_bb83
+000004C8 34C303              1149  	movw de, #0x03C3
+000004CB                     1150  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 435
+000004CB 89                  1151  	mov a, [de]
+000004CC 5CF0                1152  	and a, #0xF0
+000004CE 99                  1153  	mov [de], a
+000004CF                     1154  .BB@LABEL@21_28:	; if_break_bb83.split
+000004CF                     1155  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 436
+000004CF 8800                1156  	mov a, [sp+0x00]
+000004D1 318F                1157  	sarw ax, 8+0x00000
+000004D3 12                  1158  	movw bc, ax
+000004D4 89                  1159  	mov a, [de]
+000004D5 318E                1160  	shrw ax, 8+0x00000
+000004D7 616B                1161  	or a, b
+000004D9 08                  1162  	xch a, x
+000004DA 616A                1163  	or a, c
+000004DC 08                  1164  	xch a, x
+000004DD 60                  1165  	mov a, x
+000004DE 99                  1166  	mov [de], a
+000004DF EF00                1167  	br $.BB@LABEL@21_38
+000004E1                     1168  .BB@LABEL@21_29:	; switch_clause_bb94
+000004E1                     1169  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 439
+000004E1 8800                1170  	mov a, [sp+0x00]
+000004E3 318F                1171  	sarw ax, 8+0x00000
+000004E5 317300              1172  	bt a.7, $.BB@LABEL@21_31
+000004E8                     1173  .BB@LABEL@21_30:	; bb99
+000004E8 8800                1174  	mov a, [sp+0x00]
+000004EA 318F                1175  	sarw ax, 8+0x00000
+000004EC 7C80                1176  	xor a, #0x80
+000004EE 440580              1177  	cmpw ax, #0x8005
+000004F1 DC00                1178  	bc $.BB@LABEL@21_32
+000004F3                     1179  .BB@LABEL@21_31:	; bb104
+000004F3 E6                  1180  	onew ax
+000004F4 B802                1181  	movw [sp+0x02], ax
+000004F6 EF00                1182  	br $.BB@LABEL@21_33
+000004F8                     1183  .BB@LABEL@21_32:	; bb105
+000004F8 F6                  1184  	clrw ax
+000004F9 B802                1185  	movw [sp+0x02], ax
+000004FB                     1186  .BB@LABEL@21_33:	; bb106
+000004FB A802                1187  	movw ax, [sp+0x02]
+000004FD 6168                1188  	or a, x
+000004FF DD00                1189  	bz $.BB@LABEL@21_35
+00000501                     1190  .BB@LABEL@21_34:	; if_then_bb111
+00000501 308100              1191  	movw ax, #0x0081
+00000504                     1192  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 441
+00000504 B804                1193  	movw [sp+0x04], ax
+00000506 EF00                1194  	br $.BB@LABEL@21_38
+00000508                     1195  .BB@LABEL@21_35:	; if_break_bb113
+00000508 34C303              1196  	movw de, #0x03C3
+0000050B                     1197  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 444
+0000050B 89                  1198  	mov a, [de]
+0000050C 5C0F                1199  	and a, #0x0F
+0000050E 99                  1200  	mov [de], a
+0000050F                     1201  .BB@LABEL@21_36:	; if_break_bb113.split
+0000050F 36C303              1202  	movw hl, #0x03C3
+00000512                     1203  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 445
+00000512 8800                1204  	mov a, [sp+0x00]
+00000514 318F                1205  	sarw ax, 8+0x00000
+00000516 314D                1206  	shlw ax, 0x04
+00000518 60                  1207  	mov a, x
+00000519 6D                  1208  	or a, [hl]
+0000051A 9B                  1209  	mov [hl], a
+0000051B EF00                1210  	br $.BB@LABEL@21_38
+0000051D                     1211  .BB@LABEL@21_37:	; switch_clause_bb127
+0000051D 308100              1212  	movw ax, #0x0081
+00000520                     1213  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 449
+00000520 B804                1214  	movw [sp+0x04], ax
+00000522                     1215  .BB@LABEL@21_38:	; bb128
+00000522                     1216  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 453
+00000522 A804                1217  	movw ax, [sp+0x04]
+00000524 B806                1218  	movw [sp+0x06], ax
+00000526                     1219  .BB@LABEL@21_39:	; bb128.split
+00000526                     1220  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 454
+00000526 1008                1221  	addw sp, #0x08
+00000528 D7                  1222  	ret
+00000529                     1223  .LFE21:
+00000529                     1224  	.TYPE _R_DSADC_GetGainEnumValue,function,.LFE22-_R_DSADC_GetGainEnumValue
+00000529                     1225  _R_DSADC_GetGainEnumValue:
+00000529                     1226  	.STACK _R_DSADC_GetGainEnumValue = 8
+00000529                     1227  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 457
+00000529 2004                1228  	subw sp, #0x04
+0000052B 9801                1229  	mov [sp+0x01], a
+0000052D                     1230  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 461
+0000052D 91                  1231  	dec a
+0000052E DF00                1232  	bnz $.BB@LABEL@22_2
+00000530                     1233  .BB@LABEL@22_1:	; if_then_bb
+00000530                     1234  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 463
+00000530 C80000              1235  	mov [sp+0x00], #0x00
+00000533 EF00                1236  	br $.BB@LABEL@22_11
+00000535                     1237  .BB@LABEL@22_2:	; if_else_bb
+00000535                     1238  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 465
+00000535 8801                1239  	mov a, [sp+0x01]
+00000537 4C02                1240  	cmp a, #0x02
+00000539 DF00                1241  	bnz $.BB@LABEL@22_4
+0000053B                     1242  .BB@LABEL@22_3:	; if_then_bb11
+0000053B                     1243  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 467
+0000053B C80001              1244  	mov [sp+0x00], #0x01
+0000053E EF00                1245  	br $.BB@LABEL@22_11
+00000540                     1246  .BB@LABEL@22_4:	; if_else_bb12
+00000540                     1247  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 469
+00000540 8801                1248  	mov a, [sp+0x01]
+00000542 4C04                1249  	cmp a, #0x04
+00000544 DF00                1250  	bnz $.BB@LABEL@22_6
+00000546                     1251  .BB@LABEL@22_5:	; if_then_bb18
+00000546                     1252  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 471
+00000546 C80002              1253  	mov [sp+0x00], #0x02
+00000549 EF00                1254  	br $.BB@LABEL@22_11
+0000054B                     1255  .BB@LABEL@22_6:	; if_else_bb19
+0000054B                     1256  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 473
+0000054B 8801                1257  	mov a, [sp+0x01]
+0000054D 4C08                1258  	cmp a, #0x08
+0000054F DF00                1259  	bnz $.BB@LABEL@22_8
+00000551                     1260  .BB@LABEL@22_7:	; if_then_bb25
+00000551                     1261  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 475
+00000551 C80003              1262  	mov [sp+0x00], #0x03
+00000554 EF00                1263  	br $.BB@LABEL@22_11
+00000556                     1264  .BB@LABEL@22_8:	; if_else_bb26
+00000556                     1265  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 477
+00000556 8801                1266  	mov a, [sp+0x01]
+00000558 4C10                1267  	cmp a, #0x10
+0000055A DF00                1268  	bnz $.BB@LABEL@22_10
+0000055C                     1269  .BB@LABEL@22_9:	; if_then_bb32
+0000055C                     1270  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 479
+0000055C C80004              1271  	mov [sp+0x00], #0x04
+0000055F EF00                1272  	br $.BB@LABEL@22_11
+00000561                     1273  .BB@LABEL@22_10:	; if_else_bb33
+00000561                     1274  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 483
+00000561 C80005              1275  	mov [sp+0x00], #0x05
+00000564                     1276  .BB@LABEL@22_11:	; if_break_bb37
+00000564                     1277  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 486
+00000564 8800                1278  	mov a, [sp+0x00]
+00000566 9802                1279  	mov [sp+0x02], a
+00000568                     1280  .BB@LABEL@22_12:	; if_break_bb37.split
+00000568                     1281  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 487
+00000568 1004                1282  	addw sp, #0x04
+0000056A D7                  1283  	ret
+0000056B                     1284  .LFE22:
+0000056B                     1285  	.TYPE _R_DSADC_GetChannelGain,function,.LFE23-_R_DSADC_GetChannelGain
+0000056B                     1286  _R_DSADC_GetChannelGain:
+0000056B                     1287  	.STACK _R_DSADC_GetChannelGain = 8
+0000056B                     1288  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 490
+0000056B 2004                1289  	subw sp, #0x04
+0000056D 9802                1290  	mov [sp+0x02], a
+0000056F                     1291  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 493
+0000056F 318F                1292  	sarw ax, 8+0x00000
+00000571 440000              1293  	cmpw ax, #0x0000
+00000574 DD00                1294  	bz $.BB@LABEL@23_4
+00000576                     1295  .BB@LABEL@23_1:	; entry
+00000576 B1                  1296  	decw ax
+00000577 440000              1297  	cmpw ax, #0x0000
+0000057A DD00                1298  	bz $.BB@LABEL@23_7
+0000057C                     1299  .BB@LABEL@23_2:	; entry
+0000057C B1                  1300  	decw ax
+0000057D 440000              1301  	cmpw ax, #0x0000
+00000580 DD00                1302  	bz $.BB@LABEL@23_10
+00000582                     1303  .BB@LABEL@23_3:	; entry
+00000582 440100              1304  	cmpw ax, #0x0001
+00000585 DD00                1305  	bz $.BB@LABEL@23_13
+00000587 EF00                1306  	br $.BB@LABEL@23_16
+00000589                     1307  .BB@LABEL@23_4:	; switch_clause_bb
+00000589 510F                1308  	mov a, #0x0F
+0000058B                     1309  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 496
+0000058B 5FC203              1310  	and a, !0x03C2
+0000058E 73                  1311  	mov b, a
+0000058F E6                  1312  	onew ax
+00000590 D3                  1313  	cmp0 b
+00000591 DD00                1314  	bz $.BB@LABEL@23_6
+00000593                     1315  .BB@LABEL@23_5:	; switch_clause_bb
+00000593 01                  1316  	addw ax, ax
+00000594 93                  1317  	dec b
+00000595 DF00                1318  	bnz $.BB@LABEL@23_5
+00000597                     1319  .BB@LABEL@23_6:	; switch_clause_bb
+00000597 60                  1320  	mov a, x
+00000598 9800                1321  	mov [sp+0x00], a
+0000059A EF00                1322  	br $.BB@LABEL@23_17
+0000059C                     1323  .BB@LABEL@23_7:	; switch_clause_bb11
+0000059C                     1324  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 499
+0000059C 8FC203              1325  	mov a, !0x03C2
+0000059F 31CE                1326  	shrw ax, 8+0x00004
+000005A1 60                  1327  	mov a, x
+000005A2 73                  1328  	mov b, a
+000005A3 E6                  1329  	onew ax
+000005A4 D3                  1330  	cmp0 b
+000005A5 DD00                1331  	bz $.BB@LABEL@23_9
+000005A7                     1332  .BB@LABEL@23_8:	; switch_clause_bb11
+000005A7 01                  1333  	addw ax, ax
+000005A8 93                  1334  	dec b
+000005A9 DF00                1335  	bnz $.BB@LABEL@23_8
+000005AB                     1336  .BB@LABEL@23_9:	; switch_clause_bb11
+000005AB 60                  1337  	mov a, x
+000005AC 9800                1338  	mov [sp+0x00], a
+000005AE EF00                1339  	br $.BB@LABEL@23_17
+000005B0                     1340  .BB@LABEL@23_10:	; switch_clause_bb20
+000005B0 510F                1341  	mov a, #0x0F
+000005B2                     1342  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 502
+000005B2 5FC303              1343  	and a, !0x03C3
+000005B5 73                  1344  	mov b, a
+000005B6 E6                  1345  	onew ax
+000005B7 D3                  1346  	cmp0 b
+000005B8 DD00                1347  	bz $.BB@LABEL@23_12
+000005BA                     1348  .BB@LABEL@23_11:	; switch_clause_bb20
+000005BA 01                  1349  	addw ax, ax
+000005BB 93                  1350  	dec b
+000005BC DF00                1351  	bnz $.BB@LABEL@23_11
+000005BE                     1352  .BB@LABEL@23_12:	; switch_clause_bb20
+000005BE 60                  1353  	mov a, x
+000005BF 9800                1354  	mov [sp+0x00], a
+000005C1 EF00                1355  	br $.BB@LABEL@23_17
+000005C3                     1356  .BB@LABEL@23_13:	; switch_clause_bb28
+000005C3                     1357  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 505
+000005C3 8FC303              1358  	mov a, !0x03C3
+000005C6 31CE                1359  	shrw ax, 8+0x00004
+000005C8 60                  1360  	mov a, x
+000005C9 73                  1361  	mov b, a
+000005CA E6                  1362  	onew ax
+000005CB D3                  1363  	cmp0 b
+000005CC DD00                1364  	bz $.BB@LABEL@23_15
+000005CE                     1365  .BB@LABEL@23_14:	; switch_clause_bb28
+000005CE 01                  1366  	addw ax, ax
+000005CF 93                  1367  	dec b
+000005D0 DF00                1368  	bnz $.BB@LABEL@23_14
+000005D2                     1369  .BB@LABEL@23_15:	; switch_clause_bb28
+000005D2 60                  1370  	mov a, x
+000005D3 9800                1371  	mov [sp+0x00], a
+000005D5 EF00                1372  	br $.BB@LABEL@23_17
+000005D7                     1373  .BB@LABEL@23_16:	; switch_clause_bb37
+000005D7                     1374  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 508
+000005D7 C80000              1375  	mov [sp+0x00], #0x00
+000005DA                     1376  .BB@LABEL@23_17:	; switch_break_bb
+000005DA                     1377  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 512
+000005DA 8800                1378  	mov a, [sp+0x00]
+000005DC 9801                1379  	mov [sp+0x01], a
+000005DE                     1380  .BB@LABEL@23_18:	; switch_break_bb.split
+000005DE                     1381  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 513
+000005DE 1004                1382  	addw sp, #0x04
+000005E0 D7                  1383  	ret
+000005E1                     1384  .LFE23:
+000005E1                     1385  	.TYPE _R_DSADC_GetChannelPhase,function,.LFE24-_R_DSADC_GetChannelPhase
+000005E1                     1386  _R_DSADC_GetChannelPhase:
+000005E1                     1387  	.STACK _R_DSADC_GetChannelPhase = 10
+000005E1                     1388  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 515
+000005E1 2006                1389  	subw sp, #0x06
+000005E3 9800                1390  	mov [sp+0x00], a
+000005E5                     1391  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 519
+000005E5 318F                1392  	sarw ax, 8+0x00000
+000005E7 7C80                1393  	xor a, #0x80
+000005E9 440480              1394  	cmpw ax, #0x8004
+000005EC DC00                1395  	bc $.BB@LABEL@24_2
+000005EE                     1396  .BB@LABEL@24_1:	; if_then_bb
+000005EE                     1397  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 521
+000005EE 8800                1398  	mov a, [sp+0x00]
+000005F0 318F                1399  	sarw ax, 8+0x00000
+000005F2 01                  1400  	addw ax, ax
+000005F3 04D003              1401  	addw ax, #0x03D0
+000005F6 14                  1402  	movw de, ax
+000005F7 A9                  1403  	movw ax, [de]
+000005F8 B802                1404  	movw [sp+0x02], ax
+000005FA                     1405  .BB@LABEL@24_2:	; if_break_bb
+000005FA                     1406  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 524
+000005FA A802                1407  	movw ax, [sp+0x02]
+000005FC B804                1408  	movw [sp+0x04], ax
+000005FE                     1409  .BB@LABEL@24_3:	; if_break_bb.split
+000005FE                     1410  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/rl78i1c/driver/mcu/r_cg_dsadc.c", 525
+000005FE 1006                1411  	addw sp, #0x06
+00000600 D7                  1412  	ret
+00000601                     1413  .LFE24:
+00000000                     1414  	.SECTION .bss,BSS
+00000000                     1415  	.ALIGN 2
+00000000                     1416  	.TYPE _g_reg_phase0@1,object,2
+00000000                     1417  _g_reg_phase0@1:
+00000000                     1418  	.DS (2)
+00000002                     1419  	.ALIGN 2
+00000002                     1420  	.TYPE _g_reg_phase1@2,object,2
+00000002                     1421  _g_reg_phase1@2:
+00000002                     1422  	.DS (2)
+00000004                     1423  	.ALIGN 2
+00000004                     1424  	.TYPE _g_reg_phase2@3,object,2
+00000004                     1425  _g_reg_phase2@3:
+00000004                     1426  	.DS (2)
+00000006                     1427  	.ALIGN 2
+00000006                     1428  	.TYPE _g_reg_phase3@4,object,2
+00000006                     1429  _g_reg_phase3@4:
+00000006                     1430  	.DS (2)
+
+Section List
+Attr     Size                Name
+
+TEXTF              1537 (00000601) .textf
+BSS                   8 (00000008) .bss
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\asrl.exe" @C:\Users\HP\AppData\Local\Temp\$ccrl000\r_cg_dsadc.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120100 -cpu=S3 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Release_BQFR -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\physical -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\objects -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app\hash -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app\aes -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\debug\loadtest -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\services\64bit_process -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\config -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\include -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\powermgmt -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage\meterdata -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage\config -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dataflash\fdl\incrl78 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dataflash -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\services -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsHeaders -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIHandler -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIEng -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIComm -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIApp -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\driver\mcu -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\calibration -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\debug -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\display&button -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\display&button\lcd -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\eeprom -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\event -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\startup -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\middleware\headers -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\middleware\plugin -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\user -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\shared -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\ -character_set=none -goptimize -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -output=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Build\Release_BQFR\r_cg_dsadc.obj C:\Users\HP\AppData\Local\Temp\$ccrl000\r_cg_dsadc.asm 
+

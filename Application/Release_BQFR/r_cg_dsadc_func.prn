@@ -1,0 +1,90 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  ; Copyright (C) 2015 Renesas Electronics Corporation. All rights reserved.
+00000000                        2  ; File Name    : r_cg_adc_ASM.asm
+00000000                        3  ; Version      : 1.00
+00000000                        4  ; Device(s)    : None
+00000000                        5  ; Tool-Chain   : CCRL
+00000000                        6  
+00000000                        7  .PUBLIC _R_DSADC_Get_Result
+00000000                        8  
+00000000                        9  _R_DSADC_Get_Result:
+00000000 C5                    10      PUSH    DE
+00000001 2004                  11      SUBW    SP,#0x04
+00000003 9800                  12      MOV     [SP+0x00],A
+00000005 13                    13      MOVW    AX,BC
+00000006 B802                  14      MOVW    [SP+0x02],AX
+00000008                       15     
+00000008 14                    16      MOVW    DE, AX
+00000009                       17     
+00000009 8800                  18      MOV     A, [SP+0x00]
+0000000B D1                    19      CMP0    A
+0000000C 61E8                  20      SKZ
+0000000E EE0000                21      BR      $!CHECK_CH1
+00000011                       22  
+00000011 AFE003                23      MOVW    AX, !DSADCR0
+00000014 B9                    24      MOVW    [DE],AX
+00000015 8FE203                25      MOV      A, !DSADCR0H
+00000018 9A02                  26      MOV     [DE+0x02],A   
+0000001A EE0000                27      BR      $!GET_SIGN
+0000001D                       28     
+0000001D                       29  CHECK_CH1:
+0000001D 8800                  30      MOV     A, [SP+0x00]
+0000001F 91                    31      DEC     A
+00000020 61E8                  32      SKZ   
+00000022 EE0000                33      BR      $!CHECK_CH2
+00000025                       34     
+00000025 AFE403                35      MOVW    AX, !DSADCR1
+00000028 B9                    36      MOVW    [DE],AX
+00000029 8FE603                37      MOV     A, !DSADCR1H
+0000002C 9A02                  38      MOV     [DE+0x02],A   
+0000002E EE0000                39      BR      $!GET_SIGN
+00000031                       40     
+00000031                       41  CHECK_CH2:
+00000031 8800                  42      MOV     A, [SP+0x00]
+00000033 4C02                  43      CMP     A, #0x02
+00000035 61E8                  44      SKZ
+00000037 EE0000                45      BR      $!CHECK_CH3
+0000003A                       46     
+0000003A AFE803                47      MOVW    AX, !DSADCR2
+0000003D B9                    48      MOVW    [DE],AX
+0000003E 8FEA03                49      MOV     A, !DSADCR2H
+00000041 9A02                  50      MOV     [DE+0x02],A   
+00000043 EE0000                51      BR      $!GET_SIGN
+00000046                       52     
+00000046                       53  CHECK_CH3:
+00000046 8800                  54      MOV     A, [SP+0x00]
+00000048 4C03                  55      CMP     A, #0x03
+0000004A 61E8                  56      SKZ
+0000004C EE0000                57      BR      $!FINISH
+0000004F                       58     
+0000004F AFEC03                59      MOVW    AX, !DSADCR3
+00000052 B9                    60      MOVW    [DE],AX
+00000053 8FEE03                61      MOV     A, !DSADCR3H
+00000056 9A02                  62      MOV     [DE+0x02],A   
+00000058 EE0000                63      BR      $!GET_SIGN
+0000005B                       64  
+0000005B                       65  GET_SIGN:
+0000005B CA0300                66      MOV     [DE+0x03],#0x00
+0000005E 5C80                  67      AND     A,#0x80
+00000060 61E8                  68      SKZ
+00000062 CA03FF                69      MOV     [DE+0x03],#0xFF
+00000065                       70  
+00000065                       71  FINISH:
+00000065 C4                    72      POP     DE
+00000066 1004                  73      ADDW    SP,#0x04
+00000068 D7                    74      RET
+
+Section List
+Attr     Size                Name
+
+TEXT                105 (00000069) .text
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\asrl.exe" @C:\Users\HP\AppData\Local\Temp\$ccrl\r_cg_dsadc_func.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120100 -cpu=S3 -character_set=none -goptimize -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -convert_asm -debug -output=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Build\Release_BQFR\r_cg_dsadc_func.obj rl78i1c\driver\mcu\r_cg_dsadc_func.asm 
+

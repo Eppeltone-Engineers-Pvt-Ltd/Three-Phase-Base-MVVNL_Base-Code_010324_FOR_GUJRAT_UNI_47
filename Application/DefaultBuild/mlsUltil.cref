@@ -1,0 +1,164 @@
+****rl78i1c\application\interpreter\mlsCIEng\mlsUltil.c
+v2 
+:1710160920
+#1
+F "__DI" N I!1 T!2 ?18-2 
+T "void" KBV I!2 0x0 
+F "__EI" N I!3 T!2 ?19-2 
+F "__halt" N I!4 T!2 ?20-2 
+F "__stop" N I!5 T!2 ?21-2 
+F "__brk" N I!6 T!2 ?22-2 
+F "__nop" N I!7 T!2 ?23-2 
+F "__rolb" N I!8 T!9 ?25-2 P!10 P!11 
+T "unsigned char" KBU I!9 0x1 
+V "" N I!10 O!8 T!9 .1 0x1 
+V "" N I!11 O!8 T!9 .1 0x1 
+F "__rorb" N I!12 T!9 ?26-2 P!13 P!14 
+V "" N I!13 O!12 T!9 .1 0x1 
+V "" N I!14 O!12 T!9 .1 0x1 
+F "__rolw" N I!15 T!16 ?27-2 P!17 P!18 
+T "unsigned int" KBU I!16 0x2 
+V "" N I!17 O!15 T!16 .2 0x2 
+V "" N I!18 O!15 T!9 .1 0x1 
+F "__rorw" N I!19 T!16 ?28-2 P!20 P!21 
+V "" N I!20 O!19 T!16 .2 0x2 
+V "" N I!21 O!19 T!9 .1 0x1 
+F "__mulu" N I!22 T!16 ?30-2 P!23 P!24 
+V "" N I!23 O!22 T!9 .1 0x1 
+V "" N I!24 O!22 T!9 .1 0x1 
+F "__mului" N I!25 T!26 ?32-2 P!27 P!28 
+T "unsigned long" KBU I!26 0x4 
+V "" N I!27 O!25 T!16 .2 0x2 
+V "" N I!28 O!25 T!16 .2 0x2 
+F "__mulsi" N I!29 T!30 ?33-2 P!31 P!33 
+T "long" KBS I!30 0x4 
+V "" N I!31 O!29 T!32 .2 0x2 
+T "int" KBS I!32 0x2 
+V "" N I!33 O!29 T!32 .2 0x2 
+F "_COM_mulul" F I!34 T!35 ?42-2 P!36 P!37 
+T "unsigned long long" KBU I!35 0x8 
+V "" N I!36 O!34 T!26 .2 0x4 
+V "" N I!37 O!34 T!26 .2 0x4 
+F "_COM_mulsl" F I!38 T!39 ?43-2 P!40 P!41 
+T "long long" KBS I!39 0x8 
+V "" N I!40 O!38 T!30 .2 0x4 
+V "" N I!41 O!38 T!30 .2 0x4 
+F "_COM_divui" F I!42 T!16 ?48-2 P!43 P!44 
+V "" N I!43 O!42 T!16 .2 0x2 
+V "" N I!44 O!42 T!9 .1 0x1 
+F "_COM_divul" F I!45 T!26 ?49-2 P!46 P!47 
+V "" N I!46 O!45 T!26 .2 0x4 
+V "" N I!47 O!45 T!16 .2 0x2 
+F "_COM_remui" F I!48 T!9 ?53-2 P!49 P!50 
+V "" N I!49 O!48 T!16 .2 0x2 
+V "" N I!50 O!48 T!9 .1 0x1 
+F "_COM_remul" F I!51 T!16 ?54-2 P!52 P!53 
+V "" N I!52 O!51 T!26 .2 0x4 
+V "" N I!53 O!51 T!16 .2 0x2 
+F "_COM_macui" F I!54 T!26 ?58-2 P!55 P!56 P!57 
+V "" N I!55 O!54 T!16 .2 0x2 
+V "" N I!56 O!54 T!16 .2 0x2 
+V "" N I!57 O!54 T!26 .2 0x4 
+F "_COM_macsi" F I!58 T!30 ?59-2 P!59 P!60 P!61 
+V "" N I!59 O!58 T!32 .2 0x2 
+V "" N I!60 O!58 T!32 .2 0x2 
+V "" N I!61 O!58 T!30 .2 0x4 
+F "__get_psw" N I!62 T!9 ?63-2 
+F "__set_psw" N I!63 T!2 ?64-2 P!64 
+V "" N I!64 O!63 T!9 .1 0x1 
+F "__set1" N I!65 T!2 ?66-2 P!66 P!68 
+V "" N I!66 O!65 T!67 .2 0x2 
+T "" KP I!67 T!9 0x2 
+V "" N I!68 O!65 T!9 .1 0x1 
+F "__clr1" N I!69 T!2 ?67-2 P!70 P!71 
+V "" N I!70 O!69 T!67 .2 0x2 
+V "" N I!71 O!69 T!9 .1 0x1 
+F "__not1" N I!72 T!2 ?68-2 P!73 P!74 
+V "" N I!73 O!72 T!67 .2 0x2 
+V "" N I!74 O!72 T!9 .1 0x1 
+T "Byte" KT I!75 T!76 !57-4 0x1 
+T "signed char" KBS I!76 0x1 
+T "Int8" KT I!77 T!76 !62-4 0x1 
+T "pInt8" KT I!78 T!79 !62-4 0x2 
+T "" KP I!79 T!76 0x2 
+T "Int16" KT I!80 T!81 !67-4 0x2 
+T "short" KBS I!81 0x2 
+T "pInt16" KT I!82 T!83 !67-4 0x2 
+T "" KP I!83 T!81 0x2 
+T "Int32" KT I!84 T!30 !72-4 0x4 
+T "pInt32" KT I!85 T!86 !72-4 0x2 
+T "" KP I!86 T!30 0x2 
+T "UInt8" KT I!87 T!9 !77-4 0x1 
+T "pUInt8" KT I!88 T!89 !77-4 0x2 
+T "" KP I!89 T!9 0x2 
+T "UInt16" KT I!90 T!91 !82-4 0x2 
+T "unsigned short" KBU I!91 0x2 
+T "pUInt16" KT I!92 T!93 !82-4 0x2 
+T "" KP I!93 T!91 0x2 
+T "UInt32" KT I!94 T!26 !87-4 0x4 
+T "pUInt32" KT I!95 T!96 !87-4 0x2 
+T "" KP I!96 T!26 0x2 
+T "Void" KT I!97 T!2 !92-4 0x0 
+T "pVoid" KT I!98 T!99 !92-4 0x2 
+T "" KP I!99 T!2 0x2 
+T "Float" KT I!100 T!101 !97-4 0x4 
+T "float" KBF I!101 0x4 
+T "pFloat" KT I!102 T!103 !97-4 0x2 
+T "" KP I!103 T!101 0x2 
+T "Double" KT I!104 T!101 !102-4 0x4 
+T "pDouble" KT I!105 T!103 !102-4 0x2 
+T "Char" KT I!106 T!107 !108-4 0x1 
+T "char" KBCS I!107 0x1 
+T "pChar" KT I!108 T!109 !108-4 0x2 
+T "" KP I!109 T!107 0x2 
+T "String" KT I!110 T!109 !109-4 0x2 
+T "pString" KT I!111 T!112 !109-4 0x2 
+T "" KP I!112 T!109 0x2 
+T "ConstString" KT I!113 T!114 !114-4 0x2 
+T "" MOD"C" KP I!114 T!107 0x2 
+T "int8_t" KT I!115 T!76 !26-6 0x1 
+T "uint8_t" KT I!116 T!9 !27-6 0x1 
+T "int16_t" KT I!117 T!81 !28-6 0x2 
+T "uint16_t" KT I!118 T!91 !29-6 0x2 
+T "int32_t" KT I!119 T!30 !30-6 0x4 
+T "uint32_t" KT I!120 T!26 !31-6 0x4 
+T "int64_t" KT I!121 T!39 !32-6 0x8 
+T "uint64_t" KT I!122 T!35 !33-6 0x8 
+T "double64_t" KT I!123 T!122 !40-6 0x8 
+T "float32_t" KT I!124 T!101 !41-6 0x4 
+T "mlsErrorCode_t" KT I!125 T!120 !28-5 0x4 
+F "mlsUltil_CcittCrc16Calc" F I!126 T!90 #49-1 !50,80-1-1 ?88-8 P!132 P!133 
+T "" KP I!128 T!75 0x2 
+V "data_p" N I!132 O!126 T!128 !49-1 #62-1 62-1 .2 0x2 
+V "length" N I!133 O!126 T!90 !49-1 #72-1 57-1 72-1 .2 0x2 
+V "i" N I!134 O!126 T!75 !51-1 #63-1 #63-1 63-1 63-1 .1 0x1 
+V "data" N I!135 O!126 T!90 !52-1 #62-1 #70-1 #76-1 65-1 70-1 77-1 .2 0x2 
+V "crc" N I!136 O!126 T!90 !53-1 #55-1 #66-1 #68-1 #74-1 #77-1 58-1 65-1 66-1 68-1 74-1 76-1 77-1 79-1 .2 0x2 
+****%CxSystemPath%\inc\builtin.h
+v2 
+:1710160920
+#2
+****rl78i1c\application\interpreter\mlsHeaders\mlsInclude.h
+v2 
+:1710160920
+#3
+****rl78i1c\application\interpreter\mlsHeaders\mlsTypes.h
+v2 
+:1710160920
+#4
+****rl78i1c\application\interpreter\mlsHeaders\mlsErrors.h
+v2 
+:1710160920
+#5
+****typedef.h
+v2 
+:1710160920
+#6
+****rl78i1c\application\interpreter\mlsHeaders\mlsMacros.h
+v2 
+:1710160920
+#7
+****rl78i1c\application\interpreter\mlsCIEng\mlsUltil.h
+v2 
+:1710160920
+#8

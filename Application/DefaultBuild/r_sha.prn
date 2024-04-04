@@ -1,0 +1,733 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  ; Copyright (C) 2015 Renesas Electronics Corporation. All rights reserved.
+00000000                        2  ; File Name    : r_sha.asm
+00000000                        3  ; Version      : 1.00
+00000000                        4  ; Device(s)    : None
+00000000                        5  ; Tool-Chain   : CCRL
+00000000                        6  
+00000000                        7  .PUBLIC _R_SHA1_DigestChunk_Asm
+00000000                        8  
+00000000                        9  _R_SHA1_DigestChunk_Asm:
+00000000                       10  	;Stack
+00000000                       11  	;Local variable
+00000000                       12  	;[SP    ] 				: counter
+00000000                       13  	;[SP+0x01] --> [SP+0x03]  : <<no-use>>, alignment
+00000000                       14  	;[SP+0x04] --> [SP+0x07] 	: uint32_t temp
+00000000                       15  	;[SP+0x08] --> [SP+0x47]	: uint32_t W[16]
+00000000                       16  	;[SP+0x48] --> [SP+0x4B]	: uint32_t A;
+00000000                       17  	;[SP+0x4C] --> [SP+0x4F]	: uint32_t B;
+00000000                       18  	;[SP+0x50] --> [SP+0x53]	: uint32_t C;
+00000000                       19  	;[SP+0x54] --> [SP+0x57]	: uint32_t D;
+00000000                       20  	;[SP+0x58] --> [SP+0x5B]	: uint32_t E;
+00000000                       21  	
+00000000                       22  	;[SP+0x5E] --> [SP+0x5F]  : DE backup, dat_ptr
+00000000                       23  	;[SP+0x60] --> [SP+0x61]  : BC backup, blk_cnt
+00000000                       24  	;[SP+0x62] --> [SP+0x63]  : AX backup, sha1_info
+00000000                       25  	;[SP+0x64] --> [SP+0x65]  : HL backup
+00000000                       26  	;[SP+0x66] --> [SP+0x69]  : PC
+00000000                       27  	
+00000000                       28  	;Backup
+00000000 C7                    29  	PUSH	HL
+00000001 C1                    30  	PUSH	AX
+00000002 C3                    31  	PUSH	BC
+00000003 C5                    32  	PUSH	DE
+00000004 205E                  33  	SUBW	SP, #0x5E
+00000006 FBF8FF                34  	MOVW	HL, SP
+00000009                       35  	
+00000009                       36  	;counter = 0;
+00000009 F1                    37  	CLRB	A
+0000000A 9B                    38  	MOV	[HL], A
+0000000B                       39  	
+0000000B                       40  	;while (block > 0)
+0000000B                       41  BLK_LOOP:	
+0000000B F6                    42  	CLRW	AX
+0000000C 614960                43  	CMPW	AX, [HL+0x60]
+0000000F 61F8                  44  	SKNZ
+00000011 EE0000                45  	BR		$!BLK_COMPLETE
+00000014                       46  	
+00000014                       47  	;Init A,B,C,D,E
+00000014 AC62                  48  	MOVW	AX, [HL+0x62]
+00000016 14                    49  	MOVW	DE, AX			;Point DE to sha1_info
+00000017                       50  	
+00000017 A9                    51  	MOVW	AX, [DE]		;A
+00000018 BC48                  52  	MOVW	[HL+0x48], AX
+0000001A AA02                  53  	MOVW	AX, [DE+0x02]
+0000001C BC4A                  54  	MOVW	[HL+0x4A], AX
+0000001E AA04                  55  	MOVW	AX, [DE+0x04]	;B
+00000020 BC4C                  56  	MOVW	[HL+0x4C], AX
+00000022 AA06                  57  	MOVW	AX, [DE+0x06]
+00000024 BC4E                  58  	MOVW	[HL+0x4E], AX	
+00000026 AA08                  59  	MOVW	AX, [DE+0x08]	;C
+00000028 BC50                  60  	MOVW	[HL+0x50], AX
+0000002A AA0A                  61  	MOVW	AX, [DE+0x0A]
+0000002C BC52                  62  	MOVW	[HL+0x52], AX	
+0000002E AA0C                  63  	MOVW	AX, [DE+0x0C]	;D
+00000030 BC54                  64  	MOVW	[HL+0x54], AX
+00000032 AA0E                  65  	MOVW	AX, [DE+0x0E]
+00000034 BC56                  66  	MOVW	[HL+0x56], AX		
+00000036 AA10                  67  	MOVW	AX, [DE+0x10]	;E
+00000038 BC58                  68  	MOVW	[HL+0x58], AX
+0000003A AA12                  69  	MOVW	AX, [DE+0x12]
+0000003C BC5A                  70  	MOVW	[HL+0x5A], AX			
+0000003E                       71  	
+0000003E                       72  	;Reverse copy from sha1_info->msg.ptr to W 
+0000003E AC5E                  73  	MOVW	AX, [HL+0x5E]
+00000040 14                    74  	MOVW	DE, AX
+00000041                       75  	
+00000041 AA02                  76  	MOVW	AX, [DE+0x02]
+00000043 08                    77  	XCH		A, X
+00000044 BC08                  78  	MOVW	[HL+0x08], AX
+00000046 A9                    79  	MOVW	AX, [DE]
+00000047 08                    80  	XCH		A, X
+00000048 BC0A                  81  	MOVW	[HL+0x0A], AX
+0000004A AA06                  82  	MOVW	AX, [DE+0x06]
+0000004C 08                    83  	XCH		A, X
+0000004D BC0C                  84  	MOVW	[HL+0x0C], AX
+0000004F AA04                  85  	MOVW	AX, [DE+0x04]
+00000051 08                    86  	XCH		A, X
+00000052 BC0E                  87  	MOVW	[HL+0x0E], AX
+00000054 AA0A                  88  	MOVW	AX, [DE+0x0A]
+00000056 08                    89  	XCH		A, X
+00000057 BC10                  90  	MOVW	[HL+0x10], AX
+00000059 AA08                  91  	MOVW	AX, [DE+0x08]
+0000005B 08                    92  	XCH		A, X
+0000005C BC12                  93  	MOVW	[HL+0x12], AX
+0000005E AA0E                  94  	MOVW	AX, [DE+0x0E]
+00000060 08                    95  	XCH		A, X
+00000061 BC14                  96  	MOVW	[HL+0x14], AX
+00000063 AA0C                  97  	MOVW	AX, [DE+0x0C]
+00000065 08                    98  	XCH		A, X
+00000066 BC16                  99  	MOVW	[HL+0x16], AX
+00000068 AA12                 100  	MOVW	AX, [DE+0x12]
+0000006A 08                   101  	XCH		A, X
+0000006B BC18                 102  	MOVW	[HL+0x18], AX
+0000006D AA10                 103  	MOVW	AX, [DE+0x10]
+0000006F 08                   104  	XCH		A, X
+00000070 BC1A                 105  	MOVW	[HL+0x1A], AX
+00000072 AA16                 106  	MOVW	AX, [DE+0x16]
+00000074 08                   107  	XCH		A, X
+00000075 BC1C                 108  	MOVW	[HL+0x1C], AX
+00000077 AA14                 109  	MOVW	AX, [DE+0x14]
+00000079 08                   110  	XCH		A, X
+0000007A BC1E                 111  	MOVW	[HL+0x1E], AX
+0000007C AA1A                 112  	MOVW	AX, [DE+0x1A]
+0000007E 08                   113  	XCH		A, X
+0000007F BC20                 114  	MOVW	[HL+0x20], AX
+00000081 AA18                 115  	MOVW	AX, [DE+0x18]
+00000083 08                   116  	XCH		A, X
+00000084 BC22                 117  	MOVW	[HL+0x22], AX
+00000086 AA1E                 118  	MOVW	AX, [DE+0x1E]
+00000088 08                   119  	XCH		A, X
+00000089 BC24                 120  	MOVW	[HL+0x24], AX
+0000008B AA1C                 121  	MOVW	AX, [DE+0x1C]
+0000008D 08                   122  	XCH		A, X
+0000008E BC26                 123  	MOVW	[HL+0x26], AX
+00000090 AA22                 124  	MOVW	AX, [DE+0x22]
+00000092 08                   125  	XCH		A, X
+00000093 BC28                 126  	MOVW	[HL+0x28], AX
+00000095 AA20                 127  	MOVW	AX, [DE+0x20]
+00000097 08                   128  	XCH		A, X
+00000098 BC2A                 129  	MOVW	[HL+0x2A], AX
+0000009A AA26                 130  	MOVW	AX, [DE+0x26]
+0000009C 08                   131  	XCH		A, X
+0000009D BC2C                 132  	MOVW	[HL+0x2C], AX
+0000009F AA24                 133  	MOVW	AX, [DE+0x24]
+000000A1 08                   134  	XCH		A, X
+000000A2 BC2E                 135  	MOVW	[HL+0x2E], AX
+000000A4 AA2A                 136  	MOVW	AX, [DE+0x2A]
+000000A6 08                   137  	XCH		A, X
+000000A7 BC30                 138  	MOVW	[HL+0x30], AX
+000000A9 AA28                 139  	MOVW	AX, [DE+0x28]
+000000AB 08                   140  	XCH		A, X
+000000AC BC32                 141  	MOVW	[HL+0x32], AX
+000000AE AA2E                 142  	MOVW	AX, [DE+0x2E]
+000000B0 08                   143  	XCH		A, X
+000000B1 BC34                 144  	MOVW	[HL+0x34], AX
+000000B3 AA2C                 145  	MOVW	AX, [DE+0x2C]
+000000B5 08                   146  	XCH		A, X
+000000B6 BC36                 147  	MOVW	[HL+0x36], AX
+000000B8 AA32                 148  	MOVW	AX, [DE+0x32]
+000000BA 08                   149  	XCH		A, X
+000000BB BC38                 150  	MOVW	[HL+0x38], AX
+000000BD AA30                 151  	MOVW	AX, [DE+0x30]
+000000BF 08                   152  	XCH		A, X
+000000C0 BC3A                 153  	MOVW	[HL+0x3A], AX
+000000C2 AA36                 154  	MOVW	AX, [DE+0x36]
+000000C4 08                   155  	XCH		A, X
+000000C5 BC3C                 156  	MOVW	[HL+0x3C], AX
+000000C7 AA34                 157  	MOVW	AX, [DE+0x34]
+000000C9 08                   158  	XCH		A, X
+000000CA BC3E                 159  	MOVW	[HL+0x3E], AX
+000000CC AA3A                 160  	MOVW	AX, [DE+0x3A]
+000000CE 08                   161  	XCH		A, X
+000000CF BC40                 162  	MOVW	[HL+0x40], AX
+000000D1 AA38                 163  	MOVW	AX, [DE+0x38]
+000000D3 08                   164  	XCH		A, X
+000000D4 BC42                 165  	MOVW	[HL+0x42], AX
+000000D6 AA3E                 166  	MOVW	AX, [DE+0x3E]
+000000D8 08                   167  	XCH		A, X
+000000D9 BC44                 168  	MOVW	[HL+0x44], AX
+000000DB AA3C                 169  	MOVW	AX, [DE+0x3C]
+000000DD 08                   170  	XCH		A, X
+000000DE BC46                 171  	MOVW	[HL+0x46], AX
+000000E0                      172  	
+000000E0                      173  	;while (counter < 80)
+000000E0 F1                   174  	CLRB	A
+000000E1 9B                   175  	MOV		[HL], A
+000000E2                      176  	
+000000E2                      177  DIGEST_LOOP:	
+000000E2 5150                 178  	MOV		A, #0x50
+000000E4 4D                   179  	CMP		A, [HL]
+000000E5 61F8                 180  	SKNZ	
+000000E7 EE0000               181  	BR		$!FINISH
+000000EA                      182  	
+000000EA                      183  	;extend_counter = counter & 0x0F
+000000EA                      184  	;MOVW	A, #0x0F
+000000EA                      185  	;AND	A, [HL]
+000000EA                      186  	;MOV	[HL+01H], A
+000000EA                      187  	
+000000EA                      188  	;if (counter > 15) -->extend the chunk
+000000EA 510F                 189  	MOV		A, #0x0F
+000000EC 4D                   190  	CMP		A, [HL]
+000000ED 61C8                 191  	SKC	
+000000EF EE0000               192  	BR		$!ROUND_OPTION
+000000F2                      193  	
+000000F2                      194  EXTEND_CHUNK:
+000000F2                      195  	
+000000F2                      196  	;temp = W[(counter-3)&0x0F]
+000000F2 8B                   197  	MOV		A, [HL]
+000000F3 2C03                 198  	SUB		A, #0x03
+000000F5 5C0F                 199  	AND		A, #0x0F
+000000F7 F0                   200  	CLRB	X
+000000F8 3129                 201  	SHL		A, 2
+000000FA 08                   202  	XCH		A, X
+000000FB 040800               203  	ADDW	AX, #0x08
+000000FE 07                   204  	ADDW	AX, HL
+000000FF 14                   205  	MOVW	DE, AX
+00000100                      206  	
+00000100 A9                   207  	MOVW	AX, [DE]
+00000101 BC04                 208  	MOVW	[HL+0x04], AX
+00000103 AA02                 209  	MOVW	AX, [DE+0x02]
+00000105 BC06                 210  	MOVW	[HL+0x06], AX
+00000107                      211  	
+00000107                      212  	;temp ^= W[(counter-8)&0x0F]
+00000107 8B                   213  	MOV		A, [HL]
+00000108 2C08                 214  	SUB		A, #0x08
+0000010A 5C0F                 215  	AND		A, #0x0F
+0000010C F0                   216  	CLRB	X
+0000010D 3129                 217  	SHL		A, 2
+0000010F 08                   218  	XCH		A, X
+00000110 040800               219  	ADDW	AX, #0x08
+00000113 07                   220  	ADDW	AX, HL
+00000114 14                   221  	MOVW	DE, AX
+00000115                      222  	
+00000115 A9                   223  	MOVW	AX, [DE]
+00000116 7E05                 224  	XOR		A, [HL+0x05]
+00000118 08                   225  	XCH		A, X
+00000119 7E04                 226  	XOR		A, [HL+0x04]
+0000011B 08                   227  	XCH		A, X
+0000011C BC04                 228  	MOVW	[HL+0x04], AX
+0000011E AA02                 229  	MOVW	AX, [DE+0x02]
+00000120 7E07                 230  	XOR		A, [HL+0x07]
+00000122 08                   231  	XCH		A, X
+00000123 7E06                 232  	XOR		A, [HL+0x06]
+00000125 08                   233  	XCH		A, X
+00000126 BC06                 234  	MOVW	[HL+0x06], AX
+00000128                      235  
+00000128                      236  	;temp ^= W[(counter-14)&0x0F]
+00000128 8B                   237  	MOV		A, [HL]
+00000129 2C0E                 238  	SUB		A, #0x0E
+0000012B 5C0F                 239  	AND		A, #0x0F
+0000012D F0                   240  	CLRB	X
+0000012E 3129                 241  	SHL		A, 2
+00000130 08                   242  	XCH		A, X
+00000131 040800               243  	ADDW	AX, #0x08
+00000134 07                   244  	ADDW	AX, HL
+00000135 14                   245  	MOVW	DE, AX
+00000136                      246  	
+00000136 A9                   247  	MOVW	AX, [DE]
+00000137 7E05                 248  	XOR		A, [HL+0x05]
+00000139 08                   249  	XCH		A, X
+0000013A 7E04                 250  	XOR		A, [HL+0x04]
+0000013C 08                   251  	XCH		A, X
+0000013D BC04                 252  	MOVW	[HL+0x04], AX
+0000013F AA02                 253  	MOVW	AX, [DE+0x02]
+00000141 7E07                 254  	XOR		A, [HL+0x07]
+00000143 08                   255  	XCH		A, X
+00000144 7E06                 256  	XOR		A, [HL+0x06]
+00000146 08                   257  	XCH		A, X
+00000147 BC06                 258  	MOVW	[HL+0x06], AX
+00000149                      259  	
+00000149                      260  	;temp ^= W[(counter)&0x0F]
+00000149 8B                   261  	MOV		A, [HL]
+0000014A 5C0F                 262  	AND		A, #0x0F
+0000014C F0                   263  	CLRB	X
+0000014D 3129                 264  	SHL		A, 2
+0000014F 08                   265  	XCH		A,X
+00000150 040800               266  	ADDW	AX, #0x08
+00000153 07                   267  	ADDW	AX, HL
+00000154 14                   268  	MOVW	DE, AX
+00000155                      269  	
+00000155 A9                   270  	MOVW	AX, [DE]
+00000156 7E05                 271  	XOR		A, [HL+0x05]
+00000158 08                   272  	XCH		A, X
+00000159 7E04                 273  	XOR		A, [HL+0x04]
+0000015B 08                   274  	XCH		A, X
+0000015C BC04                 275  	MOVW	[HL+0x04], AX
+0000015E AA02                 276  	MOVW	AX, [DE+0x02]
+00000160 7E07                 277  	XOR		A, [HL+0x07]
+00000162 08                   278  	XCH		A, X
+00000163 7E06                 279  	XOR		A, [HL+0x06]
+00000165 08                   280  	XCH		A, X
+00000166 BC06                 281  	MOVW	[HL+0x06], AX
+00000168                      282  	
+00000168                      283  	;W[counter&0x0F] = RotateLeft_1(temp)
+00000168 12                   284  	MOVW	BC, AX
+00000169 AC04                 285  	MOVW	AX, [HL+0x04]
+0000016B 311D                 286  	SHLW	AX, 1
+0000016D 61FE                 287  	ROLWC	BC, 1
+0000016F 61D8                 288  	SKNC
+00000171 040100               289  	ADDW	AX, #0x01
+00000174 B9                   290  	MOVW	[DE], AX
+00000175 13                   291  	MOVW	AX, BC
+00000176 BA02                 292  	MOVW	[DE+0x02], AX
+00000178                      293  	
+00000178                      294  ROUND_OPTION:
+00000178                      295  	;temp = W[counter&0x0F] + E;
+00000178 8B                   296  	MOV		A, [HL]
+00000179 5C0F                 297  	AND		A, #0x0F
+0000017B 3129                 298  	SHL		A, 2
+0000017D F0                   299  	CLRB	X
+0000017E 08                   300  	XCH		A,X
+0000017F 040800               301  	ADDW	AX, #0x08
+00000182 07                   302  	ADDW	AX, HL
+00000183 14                   303  	MOVW	DE, AX
+00000184                      304  	
+00000184 A9                   305  	MOVW	AX, [DE]
+00000185 610958               306  	ADDW	AX, [HL+0x58]
+00000188 BC04                 307  	MOVW	[HL+0x04], AX 
+0000018A AA02                 308  	MOVW	AX, [DE+0x02]
+0000018C 61D8                 309  	SKNC
+0000018E A1                   310  	INCW	AX
+0000018F 61095A               311  	ADDW	AX, [HL+0x5A]
+00000192 BC06                 312  	MOVW	[HL+0x06], AX
+00000194                      313  		
+00000194                      314  	;temp += RotateLeft_5(A)
+00000194 AC48                 315  	MOVW	AX, [HL+0x48]
+00000196 12                   316  	MOVW	BC, AX
+00000197 AC4A                 317  	MOVW	AX, [HL+0x4A]
+00000199                      318  	
+00000199 311D                 319  	SHLW	AX, 1
+0000019B 61FE                 320  	ROLWC	BC, 1
+0000019D 61D8                 321  	SKNC
+0000019F 040100               322  	ADDW	AX, #0x01
+000001A2                      323  	
+000001A2 311D                 324  	SHLW	AX, 1
+000001A4 61FE                 325  	ROLWC	BC, 1
+000001A6 61D8                 326  	SKNC
+000001A8 040100               327  	ADDW	AX, #0x01
+000001AB                      328  	
+000001AB 311D                 329  	SHLW	AX, 1
+000001AD 61FE                 330  	ROLWC	BC, 1
+000001AF 61D8                 331  	SKNC
+000001B1 040100               332  	ADDW	AX, #0x01
+000001B4                      333  
+000001B4 311D                 334  	SHLW	AX, 1
+000001B6 61FE                 335  	ROLWC	BC, 1
+000001B8 61D8                 336  	SKNC
+000001BA 040100               337  	ADDW	AX, #0x01
+000001BD                      338  	
+000001BD 311D                 339  	SHLW	AX, 1
+000001BF 61FE                 340  	ROLWC	BC, 1
+000001C1 61D8                 341  	SKNC
+000001C3 040100               342  	ADDW	AX, #0x01
+000001C6                      343  	
+000001C6 33                   344  	XCHW	AX, BC
+000001C7 610904               345  	ADDW	AX, [HL+0x04]
+000001CA BC04                 346  	MOVW	[HL+0x04], AX
+000001CC 13                   347  	MOVW	AX, BC
+000001CD 61D8                 348  	SKNC
+000001CF A1                   349  	INCW	AX
+000001D0 610906               350  	ADDW	AX, [HL+0x06]
+000001D3 BC06                 351  	MOVW	[HL+0x06], AX
+000001D5                      352  
+000001D5                      353  BELOW_ROUND_19:	
+000001D5 5113                 354  	MOV		A, #0x13
+000001D7 4D                   355  	CMP		A, [HL]
+000001D8 61D8                 356  	SKNC
+000001DA EE0000               357  	BR		$!BELOW_ROUND_39
+000001DD                      358  	;if (counter <= 19) then (temp += (D ^ (B & (C ^ D))) + 0x5a827999)
+000001DD AC50                 359  	MOVW	AX, [HL+0x50]
+000001DF 12                   360  	MOVW	BC, AX
+000001E0 AC52                 361  	MOVW	AX, [HL+0x52]
+000001E2 14                   362  	MOVW	DE, AX
+000001E3 AC54                 363  	MOVW	AX, [HL+0x54] ; AX = D low
+000001E5 6173                 364  	XOR		B, A
+000001E7 08                   365  	XCH		A, X
+000001E8 6172                 366  	XOR		C, A
+000001EA AC56                 367  	MOVW	AX, [HL+0x56] ; AX = D high
+000001EC 6175                 368  	XOR		D, A
+000001EE 08                   369  	XCH		A, X
+000001EF 6174                 370  	XOR		E, A
+000001F1 AC4C                 371  	MOVW	AX, [HL+0x4C] ; AX = B low
+000001F3 6153                 372  	AND		B, A
+000001F5 08                   373  	XCH		A, X
+000001F6 6152                 374  	AND		C, A
+000001F8 AC4E                 375  	MOVW	AX, [HL+0x4E]; AX = B high
+000001FA 6155                 376  	AND		D, A
+000001FC 08                   377  	XCH		A, X
+000001FD 6154                 378  	AND		E, A
+000001FF AC54                 379  	MOVW	AX, [HL+0x54] ; AX = D low
+00000201 6173                 380  	XOR		B, A
+00000203 08                   381  	XCH		A, X
+00000204 6172                 382  	XOR		C, A
+00000206 AC56                 383  	MOVW	AX, [HL+0x56] ; AX = D high
+00000208 6175                 384  	XOR		D, A
+0000020A 08                   385  	XCH		A, X
+0000020B 6174                 386  	XOR		E, A
+0000020D                      387  	
+0000020D 13                   388  	MOVW	AX, BC
+0000020E 610904               389  	ADDW	AX, [HL+0x04]
+00000211 BC04                 390  	MOVW	[HL+0x04], AX
+00000213 15                   391  	MOVW	AX, DE
+00000214 61D8                 392  	SKNC
+00000216 A1                   393  	INCW	AX
+00000217 610906               394  	ADDW	AX, [HL+0x06]
+0000021A BC06                 395  	MOVW	[HL+0x06], AX
+0000021C                      396  	
+0000021C 309979               397  	MOVW	AX, #0x7999
+0000021F 610904               398  	ADDW	AX, [HL+0x04]
+00000222 BC04                 399  	MOVW	[HL+0x04], AX
+00000224 30825A               400  	MOVW	AX, #0x5A82
+00000227 61D8                 401  	SKNC
+00000229 A1                   402  	INCW	AX
+0000022A 610906               403  	ADDW	AX, [HL+0x06]
+0000022D BC06                 404  	MOVW	[HL+0x06], AX
+0000022F                      405  	
+0000022F EE0000               406  	BR		$!ROUND_COMMON
+00000232                      407  	
+00000232                      408  BELOW_ROUND_39:
+00000232 5127                 409  	MOV		A, #0x27
+00000234 4D                   410  	CMP		A, [HL]
+00000235 61D8                 411  	SKNC
+00000237 EE0000               412  	BR		$!BELOW_ROUND_59
+0000023A                      413  	;if (20 <= counter <= 39) then (temp += (B ^ C ^ D) + 0x6ed9eba1 )
+0000023A AC54                 414  	MOVW	AX, [HL+0x54]	;D --> DE BC
+0000023C 12                   415  	MOVW	BC, AX
+0000023D AC56                 416  	MOVW	AX, [HL+0x56]
+0000023F 14                   417  	MOVW	DE, AX
+00000240                      418  	
+00000240 AC50                 419  	MOVW	AX, [HL+0x50]	;AX = C low
+00000242 6173                 420  	XOR		B, A
+00000244 08                   421  	XCH		A, X
+00000245 6172                 422  	XOR		C, A
+00000247 AC52                 423  	MOVW	AX, [HL+0x52]	;Ax = C high
+00000249 6175                 424  	XOR		D, A
+0000024B 08                   425  	XCH		A, X
+0000024C 6174                 426  	XOR		E, A
+0000024E AC4C                 427  	MOVW	AX, [HL+0x4C] 	; AX = B low
+00000250 6173                 428  	XOR		B, A
+00000252 08                   429  	XCH		A, X
+00000253 6172                 430  	XOR		C, A
+00000255 AC4E                 431  	MOVW	AX, [HL+0x4E]	; AX = B high
+00000257 6175                 432  	XOR		D, A
+00000259 08                   433  	XCH		A, X
+0000025A 6174                 434  	XOR		E, A
+0000025C                      435  	
+0000025C 13                   436  	MOVW	AX, BC
+0000025D 610904               437  	ADDW	AX, [HL+0x04]
+00000260 BC04                 438  	MOVW	[HL+0x04], AX
+00000262 15                   439  	MOVW	AX, DE
+00000263 61D8                 440  	SKNC
+00000265 A1                   441  	INCW	AX
+00000266 610906               442  	ADDW	AX, [HL+0x06]
+00000269 BC06                 443  	MOVW	[HL+0x06], AX 
+0000026B                      444  
+0000026B 30A1EB               445  	MOVW	AX, #0xEBA1
+0000026E 610904               446  	ADDW	AX, [HL+0x04]
+00000271 BC04                 447  	MOVW	[HL+0x04], AX
+00000273 30D96E               448  	MOVW	AX, #0x6ED9
+00000276 61D8                 449  	SKNC
+00000278 A1                   450  	INCW	AX
+00000279 610906               451  	ADDW	AX, [HL+0x06]
+0000027C BC06                 452  	MOVW	[HL+0x06], AX	
+0000027E                      453  	
+0000027E EE0000               454  	BR		$!ROUND_COMMON
+00000281                      455  	
+00000281                      456  BELOW_ROUND_59:
+00000281 513B                 457  	MOV		A, #0x3B
+00000283 4D                   458  	CMP		A, [HL]
+00000284 61D8                 459  	SKNC
+00000286 EE0000               460  	BR		$!BELOW_ROUND_79
+00000289                      461  	;if (counter <= 59) then (temp += ((B&C) ^ (B&D) ^ (C&D)) + 0x8f1bbcdc)
+00000289 AC54                 462  	MOVW	AX, [HL+0x54]	;D --> DE BC
+0000028B 12                   463  	MOVW	BC, AX
+0000028C AC56                 464  	MOVW	AX, [HL+0x56]
+0000028E 14                   465  	MOVW	DE, AX
+0000028F                      466  	
+0000028F AC50                 467  	MOVW	AX, [HL+0x50]	;AX = C low
+00000291 6153                 468  	AND		B, A
+00000293 08                   469  	XCH		A, X
+00000294 6152                 470  	AND		C, A
+00000296 AC52                 471  	MOVW	AX, [HL+0x52]	;Ax = C high
+00000298 6155                 472  	AND		D, A
+0000029A 08                   473  	XCH		A, X
+0000029B 6154                 474  	AND		E, A
+0000029D                      475  	
+0000029D                      476  	;Backup C&D
+0000029D 13                   477  	MOVW	AX, BC
+0000029E C1                   478  	PUSH	AX
+0000029F 15                   479  	MOVW	AX, DE
+000002A0 C1                   480  	PUSH	AX
+000002A1                      481  	
+000002A1 AC54                 482  	MOVW	AX, [HL+0x54]	;D --> DE BC
+000002A3 12                   483  	MOVW	BC, AX
+000002A4 AC56                 484  	MOVW	AX, [HL+0x56]
+000002A6 14                   485  	MOVW	DE, AX
+000002A7                      486  	
+000002A7 AC4C                 487  	MOVW	AX, [HL+0x4C]	;AX = B low
+000002A9 6153                 488  	AND		B, A
+000002AB 08                   489  	XCH		A, X
+000002AC 6152                 490  	AND		C, A
+000002AE AC4E                 491  	MOVW	AX, [HL+0x4E]	;Ax = B high
+000002B0 6155                 492  	AND		D, A
+000002B2 08                   493  	XCH		A, X
+000002B3 6154                 494  	AND		E, A
+000002B5                      495  	
+000002B5 C0                   496  	POP		AX
+000002B6 6175                 497  	XOR		D, A
+000002B8 08                   498  	XCH		A, X
+000002B9 6174                 499  	XOR		E, A
+000002BB C0                   500  	POP		AX
+000002BC 6173                 501  	XOR		B, A
+000002BE 08                   502  	XCH		A, X
+000002BF 6172                 503  	XOR		C, A			;DE, BC : (B&D) ^ (C&D)
+000002C1                      504  	
+000002C1                      505  	;Backup (B&D) ^ (C&D)
+000002C1 13                   506  	MOVW	AX, BC
+000002C2 C1                   507  	PUSH	AX
+000002C3 15                   508  	MOVW	AX, DE
+000002C4 C1                   509  	PUSH	AX
+000002C5                      510  	
+000002C5 AC50                 511  	MOVW	AX, [HL+0x50]	;C --> DE BC
+000002C7 12                   512  	MOVW	BC, AX
+000002C8 AC52                 513  	MOVW	AX, [HL+0x52]
+000002CA 14                   514  	MOVW	DE, AX
+000002CB                      515  	
+000002CB AC4C                 516  	MOVW	AX, [HL+0x4C]	;AX = B low
+000002CD 6153                 517  	AND		B, A
+000002CF 08                   518  	XCH		A, X
+000002D0 6152                 519  	AND		C, A
+000002D2 AC4E                 520  	MOVW	AX, [HL+0x4E]	;Ax = B high
+000002D4 6155                 521  	AND		D, A
+000002D6 08                   522  	XCH		A, X
+000002D7 6154                 523  	AND		E, A
+000002D9                      524  	
+000002D9 C0                   525  	POP		AX
+000002DA 6175                 526  	XOR		D, A
+000002DC 08                   527  	XCH		A, X
+000002DD 6174                 528  	XOR		E, A
+000002DF C0                   529  	POP		AX
+000002E0 6173                 530  	XOR		B, A
+000002E2 08                   531  	XCH		A, X
+000002E3 6172                 532  	XOR		C, A
+000002E5                      533  	
+000002E5 13                   534  	MOVW	AX, BC
+000002E6 610904               535  	ADDW	AX, [HL+0x04]
+000002E9 BC04                 536  	MOVW	[HL+0x04], AX
+000002EB 15                   537  	MOVW	AX, DE
+000002EC 61D8                 538  	SKNC	
+000002EE A1                   539  	INCW	AX
+000002EF 610906               540  	ADDW	AX, [HL+0x06]
+000002F2 BC06                 541  	MOVW	[HL+0x06], AX
+000002F4                      542  	
+000002F4 30DCBC               543  	MOVW	AX, #0xBCDC
+000002F7 610904               544  	ADDW	AX, [HL+0x04]
+000002FA BC04                 545  	MOVW	[HL+0x04], AX
+000002FC 301B8F               546  	MOVW	AX, #0x8F1B
+000002FF 61D8                 547  	SKNC
+00000301 A1                   548  	INCW	AX
+00000302 610906               549  	ADDW	AX, [HL+0x06]
+00000305 BC06                 550  	MOVW	[HL+0x06], AX	
+00000307                      551  	
+00000307 EE0000               552  	BR		$!ROUND_COMMON
+0000030A                      553  	
+0000030A                      554  BELOW_ROUND_79:
+0000030A                      555  	;No need to check
+0000030A                      556  	;if (counter <= 79) then (temp += (B ^ C ^ D) + 0xca62c1d6) 
+0000030A AC54                 557  	MOVW	AX, [HL+0x54]	;D --> DE BC
+0000030C 12                   558  	MOVW	BC, AX
+0000030D AC56                 559  	MOVW	AX, [HL+0x56]
+0000030F 14                   560  	MOVW	DE, AX
+00000310                      561  	
+00000310 AC50                 562  	MOVW	AX, [HL+0x50]	;AX = C low
+00000312 6173                 563  	XOR		B, A
+00000314 08                   564  	XCH		A, X
+00000315 6172                 565  	XOR		C, A
+00000317 AC52                 566  	MOVW	AX, [HL+0x52]	;Ax = C high
+00000319 6175                 567  	XOR		D, A
+0000031B 08                   568  	XCH		A, X
+0000031C 6174                 569  	XOR		E, A
+0000031E AC4C                 570  	MOVW	AX, [HL+0x4C] 	; AX = B low
+00000320 6173                 571  	XOR		B, A
+00000322 08                   572  	XCH		A, X
+00000323 6172                 573  	XOR		C, A
+00000325 AC4E                 574  	MOVW	AX, [HL+0x4E]	; AX = B high
+00000327 6175                 575  	XOR		D, A
+00000329 08                   576  	XCH		A, X
+0000032A 6174                 577  	XOR		E, A
+0000032C                      578  	
+0000032C 13                   579  	MOVW	AX, BC
+0000032D 610904               580  	ADDW	AX, [HL+0x04]
+00000330 BC04                 581  	MOVW	[HL+0x04], AX
+00000332 15                   582  	MOVW	AX, DE
+00000333 61D8                 583  	SKNC
+00000335 A1                   584  	INCW	AX
+00000336 610906               585  	ADDW	AX, [HL+0x06]
+00000339 BC06                 586  	MOVW	[HL+0x06], AX 	
+0000033B                      587  
+0000033B 30D6C1               588  	MOVW	AX, #0xC1D6
+0000033E 610904               589  	ADDW	AX, [HL+0x04]
+00000341 BC04                 590  	MOVW	[HL+0x04], AX
+00000343 3062CA               591  	MOVW	AX, #0xCA62
+00000346 61D8                 592  	SKNC
+00000348 A1                   593  	INCW	AX
+00000349 610906               594  	ADDW	AX, [HL+0x06]
+0000034C BC06                 595  	MOVW	[HL+0x06], AX
+0000034E                      596  
+0000034E                      597  ROUND_COMMON:
+0000034E                      598  	;E=D
+0000034E AC54                 599  	MOVW	AX, [HL+0x54]
+00000350 BC58                 600  	MOVW	[HL+0x58], AX
+00000352 AC56                 601  	MOVW	AX, [HL+0x56]
+00000354 BC5A                 602  	MOVW	[HL+0x5A], AX
+00000356                      603  	;D=C;
+00000356 AC50                 604  	MOVW	AX, [HL+0x50]
+00000358 BC54                 605  	MOVW	[HL+0x54], AX
+0000035A AC52                 606  	MOVW	AX, [HL+0x52]
+0000035C BC56                 607  	MOVW	[HL+0x56], AX
+0000035E                      608  	;C=RotateLeft_30(B);
+0000035E                      609  	;RotateLeft_30 = RotateRight_2
+0000035E AC4C                 610  	MOVW	AX, [HL+0x4C]
+00000360 12                   611  	MOVW	BC, AX
+00000361 AC4E                 612  	MOVW	AX, [HL+0x4E]
+00000363 311E                 613  	SHRW	AX, 1
+00000365 33                   614  	XCHW	AX, BC			;1
+00000366 61FB                 615  	RORC	A, 1
+00000368 08                   616  	XCH		A, X
+00000369 61FB                 617  	RORC	A, 1
+0000036B 08                   618  	XCH		A, X
+0000036C 33                   619  	XCHW	AX, BC
+0000036D 71F9                 620  	MOV1	A.7, CY
+0000036F 311E                 621  	SHRW	AX, 1
+00000371 33                   622  	XCHW	AX, BC			;2
+00000372 61FB                 623  	RORC	A, 1
+00000374 08                   624  	XCH		A, X
+00000375 61FB                 625  	RORC	A, 1
+00000377 08                   626  	XCH		A, X
+00000378 33                   627  	XCHW	AX, BC
+00000379 71F9                 628  	MOV1	A.7, CY
+0000037B                      629  	
+0000037B BC52                 630  	MOVW	[HL+0x52], AX
+0000037D 13                   631  	MOVW	AX, BC
+0000037E BC50                 632  	MOVW	[HL+0x50], AX
+00000380                      633  	
+00000380                      634  	;B=A;
+00000380 AC48                 635  	MOVW	AX, [HL+0x48]
+00000382 BC4C                 636  	MOVW	[HL+0x4C], AX
+00000384 AC4A                 637  	MOVW	AX, [HL+0x4A]
+00000386 BC4E                 638  	MOVW	[HL+0x4E], AX
+00000388                      639  	;A=temp;
+00000388 AC04                 640  	MOVW	AX, [HL+0x04]
+0000038A BC48                 641  	MOVW	[HL+0x48], AX
+0000038C AC06                 642  	MOVW	AX, [HL+0x06]
+0000038E BC4A                 643  	MOVW	[HL+0x4A], AX
+00000390                      644  	
+00000390 615900               645  	INC		[HL+0x0]
+00000393 EE0000               646  	BR		$!DIGEST_LOOP
+00000396                      647  	
+00000396                      648  FINISH:	
+00000396 AC62                 649  	MOVW	AX, [HL+0x62]
+00000398 14                   650  	MOVW	DE, AX
+00000399                      651  	
+00000399                      652  	;sha1_info->digest.A += A
+00000399 A9                   653  	MOVW	AX, [DE]
+0000039A 610948               654  	ADDW	AX, [HL+0x48]
+0000039D B9                   655  	MOVW	[DE], AX
+0000039E AA02                 656  	MOVW	AX, [DE+0x02]
+000003A0 61D8                 657  	SKNC
+000003A2 A1                   658  	INCW	AX
+000003A3 61094A               659  	ADDW	AX, [HL+0x4A]
+000003A6 BA02                 660  	MOVW	[DE+0x02], AX
+000003A8                      661  	
+000003A8                      662  	;sha1_info->digest.B += B
+000003A8 AA04                 663  	MOVW	AX, [DE+0x04]	
+000003AA 61094C               664  	ADDW	AX, [HL+0x4C]
+000003AD BA04                 665  	MOVW	[DE+0x04], AX
+000003AF AA06                 666  	MOVW	AX, [DE+0x06]
+000003B1 61D8                 667  	SKNC
+000003B3 A1                   668  	INCW	AX
+000003B4 61094E               669  	ADDW	AX, [HL+0x4E]
+000003B7 BA06                 670  	MOVW	[DE+0x06], AX
+000003B9                      671  
+000003B9                      672  	;sha1_info->digest.C += C
+000003B9 AA08                 673  	MOVW	AX, [DE+0x08]
+000003BB 610950               674  	ADDW	AX, [HL+0x50]
+000003BE BA08                 675  	MOVW	[DE+0x08], AX
+000003C0 AA0A                 676  	MOVW	AX, [DE+0x0A]
+000003C2 61D8                 677  	SKNC
+000003C4 A1                   678  	INCW	AX
+000003C5 610952               679  	ADDW	AX, [HL+0x52]
+000003C8 BA0A                 680  	MOVW	[DE+0x0A], AX
+000003CA                      681  	
+000003CA                      682  	;sha1_info->digest.D += D
+000003CA AA0C                 683  	MOVW	AX, [DE+0x0C]
+000003CC 610954               684  	ADDW	AX, [HL+0x54]
+000003CF BA0C                 685  	MOVW	[DE+0x0C], AX
+000003D1 AA0E                 686  	MOVW	AX, [DE+0x0E]
+000003D3 61D8                 687  	SKNC
+000003D5 A1                   688  	INCW	AX
+000003D6 610956               689  	ADDW	AX, [HL+0x56]
+000003D9 BA0E                 690  	MOVW	[DE+0x0E], AX	
+000003DB                      691  	
+000003DB                      692  	;sha1_info->digest.E += E
+000003DB AA10                 693  	MOVW	AX, [DE+0x10]
+000003DD 610958               694  	ADDW	AX, [HL+0x58]
+000003E0 BA10                 695  	MOVW	[DE+0x10], AX
+000003E2 AA12                 696  	MOVW	AX, [DE+0x12]
+000003E4 61D8                 697  	SKNC
+000003E6 A1                   698  	INCW	AX
+000003E7 61095B               699  	ADDW	AX, [HL+0x5B]
+000003EA BA12                 700  	MOVW	[DE+0x12], AX
+000003EC                      701  	
+000003EC                      702  	;Point to dat_ptr
+000003EC AC5E                 703  	MOVW	AX, [HL+0x5E]
+000003EE 044000               704  	ADDW	AX, #0x40	;Next 64byte block
+000003F1 BC5E                 705  	MOVW	[HL+0x5E], AX	;sha1_info->msg.ptr = AX
+000003F3 618960               706  	DECW	[HL+0x60]
+000003F6 EE0000               707  	BR		$!BLK_LOOP
+000003F9                      708  	
+000003F9                      709  BLK_COMPLETE:
+000003F9                      710  	;Restore
+000003F9 105E                 711  	ADDW	SP, #0x5E
+000003FB C4                   712  	POP		DE
+000003FC C2                   713  	POP		BC
+000003FD C0                   714  	POP		AX
+000003FE C6                   715  	POP		HL
+000003FF                      716  	
+000003FF D7                   717  	RET
+
+Section List
+Attr     Size                Name
+
+TEXT               1024 (00000400) .text
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\asrl.exe" @C:\Users\SUSHMI~1\AppData\Local\Temp\$ccrl\r_sha.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120100 -cpu=S3 -character_set=sjis -goptimize -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=DefaultBuild -convert_asm -debug -output=D:\Sushmita\3_phase_meter\Three-Phase-Base-MVVNL_Base-Code_010324\Application\DefaultBuild\r_sha.obj rl78i1c\application\dlms\meter_app\hash\r_sha.asm 
+

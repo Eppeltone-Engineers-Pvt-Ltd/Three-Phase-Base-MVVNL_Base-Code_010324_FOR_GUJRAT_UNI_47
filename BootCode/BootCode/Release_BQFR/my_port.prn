@@ -1,0 +1,42 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  #CC-RL Compiler RL78 Assembler Source
+00000000                        2  #@  CC-RL Version : V1.12.01  [12 Jun 2023]
+00000000                        3  #@  Commmand :
+00000000                        4  #@   my_port.c
+00000000                        5  #@   -cpu=S3
+00000000                        6  #@   -o Release_BQFR\my_port.obj
+00000000                        7  #@   -dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+00000000                        8  #@   -g
+00000000                        9  #@   -g_line
+00000000                       10  #@   -Onothing
+00000000                       11  #@   -I Release_BQFR
+00000000                       12  #@   -I V2.21\incrl78
+00000000                       13  #@   -I .
+00000000                       14  #@   -asmopt=-prn_path=Release_BQFR
+00000000                       15  #@   -c
+00000000                       16  #@  compiled at Thu Apr 04 17:44:02 2024
+00000000                       17  
+00000000                       18  	.PUBLIC _MY_PORT_Create
+00000000                       19  
+00000000                       20  	.SECTION .textf,TEXTF
+00000000                       21  	.TYPE _MY_PORT_Create,function,.LFE1-_MY_PORT_Create
+00000000                       22  _MY_PORT_Create:
+00000000                       23  	.STACK _MY_PORT_Create = 4
+00000000                       24  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_port.c", 4
+00000000 D7                    25  	ret
+00000001                       26  .LFE1:
+
+Section List
+Attr     Size                Name
+
+TEXTF                 1 (00000001) .textf
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\asrl.exe" @C:\Users\HP\AppData\Local\Temp\$ccrl002\my_port.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120100 -cpu=S3 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode\Release_BQFR -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode\V2.21\incrl78 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode -character_set=none -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -output=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode\Release_BQFR\my_port.obj C:\Users\HP\AppData\Local\Temp\$ccrl002\my_port.asm 
+

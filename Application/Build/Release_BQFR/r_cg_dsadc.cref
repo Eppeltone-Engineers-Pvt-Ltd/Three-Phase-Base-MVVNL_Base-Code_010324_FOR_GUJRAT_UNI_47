@@ -1,0 +1,306 @@
+****rl78i1c\driver\mcu\r_cg_dsadc.c
+v2 
+:1712232850
+#1
+F "__DI" N I!1 T!2 ?18-2 
+T "void" KBV I!2 0x0 
+F "__EI" N I!3 T!2 ?19-2 
+F "__halt" N I!4 T!2 ?20-2 
+F "__stop" N I!5 T!2 ?21-2 
+F "__brk" N I!6 T!2 ?22-2 
+F "__nop" N I!7 T!2 ?23-2 
+F "__rolb" N I!8 T!9 ?25-2 P!10 P!11 
+T "unsigned char" KBU I!9 0x1 
+V "" N I!10 O!8 T!9 .1 0x1 
+V "" N I!11 O!8 T!9 .1 0x1 
+F "__rorb" N I!12 T!9 ?26-2 P!13 P!14 
+V "" N I!13 O!12 T!9 .1 0x1 
+V "" N I!14 O!12 T!9 .1 0x1 
+F "__rolw" N I!15 T!16 ?27-2 P!17 P!18 
+T "unsigned int" KBU I!16 0x2 
+V "" N I!17 O!15 T!16 .2 0x2 
+V "" N I!18 O!15 T!9 .1 0x1 
+F "__rorw" N I!19 T!16 ?28-2 P!20 P!21 
+V "" N I!20 O!19 T!16 .2 0x2 
+V "" N I!21 O!19 T!9 .1 0x1 
+F "__mulu" N I!22 T!16 ?30-2 P!23 P!24 
+V "" N I!23 O!22 T!9 .1 0x1 
+V "" N I!24 O!22 T!9 .1 0x1 
+F "__mului" N I!25 T!26 ?32-2 P!27 P!28 
+T "unsigned long" KBU I!26 0x4 
+V "" N I!27 O!25 T!16 .2 0x2 
+V "" N I!28 O!25 T!16 .2 0x2 
+F "__mulsi" N I!29 T!30 ?33-2 P!31 P!33 
+T "long" KBS I!30 0x4 
+V "" N I!31 O!29 T!32 .2 0x2 
+T "int" KBS I!32 0x2 
+V "" N I!33 O!29 T!32 .2 0x2 
+F "_COM_mulul" F I!34 T!35 ?42-2 P!36 P!37 
+T "unsigned long long" KBU I!35 0x8 
+V "" N I!36 O!34 T!26 .2 0x4 
+V "" N I!37 O!34 T!26 .2 0x4 
+F "_COM_mulsl" F I!38 T!39 ?43-2 P!40 P!41 
+T "long long" KBS I!39 0x8 
+V "" N I!40 O!38 T!30 .2 0x4 
+V "" N I!41 O!38 T!30 .2 0x4 
+F "_COM_divui" F I!42 T!16 ?48-2 P!43 P!44 
+V "" N I!43 O!42 T!16 .2 0x2 
+V "" N I!44 O!42 T!9 .1 0x1 
+F "_COM_divul" F I!45 T!26 ?49-2 P!46 P!47 
+V "" N I!46 O!45 T!26 .2 0x4 
+V "" N I!47 O!45 T!16 .2 0x2 
+F "_COM_remui" F I!48 T!9 ?53-2 P!49 P!50 
+V "" N I!49 O!48 T!16 .2 0x2 
+V "" N I!50 O!48 T!9 .1 0x1 
+F "_COM_remul" F I!51 T!16 ?54-2 P!52 P!53 
+V "" N I!52 O!51 T!26 .2 0x4 
+V "" N I!53 O!51 T!16 .2 0x2 
+F "_COM_macui" F I!54 T!26 ?58-2 P!55 P!56 P!57 
+V "" N I!55 O!54 T!16 .2 0x2 
+V "" N I!56 O!54 T!16 .2 0x2 
+V "" N I!57 O!54 T!26 .2 0x4 
+F "_COM_macsi" F I!58 T!30 ?59-2 P!59 P!60 P!61 
+V "" N I!59 O!58 T!32 .2 0x2 
+V "" N I!60 O!58 T!32 .2 0x2 
+V "" N I!61 O!58 T!30 .2 0x4 
+F "__get_psw" N I!62 T!9 ?63-2 
+F "__set_psw" N I!63 T!2 ?64-2 P!64 
+V "" N I!64 O!63 T!9 .1 0x1 
+F "__set1" N I!65 T!2 ?66-2 P!66 P!68 
+V "" N I!66 O!65 T!67 .2 0x2 
+T "" KP I!67 T!9 0x2 
+V "" N I!68 O!65 T!9 .1 0x1 
+F "__clr1" N I!69 T!2 ?67-2 P!70 P!71 
+V "" N I!70 O!69 T!67 .2 0x2 
+V "" N I!71 O!69 T!9 .1 0x1 
+F "__not1" N I!72 T!2 ?68-2 P!73 P!74 
+V "" N I!73 O!72 T!67 .2 0x2 
+V "" N I!74 O!72 T!9 .1 0x1 
+T "" KS I!75 !39-4 0x1 VM!76 VM!77 VM!78 VM!79 VM!80 VM!81 VM!82 VM!83 
+V "no0" - I!76 O!75 T!9 !40-4 #19-1 #20-1 #21-1 #22-1 #25-1 #26-1 #31-1 #32-1 #35-1 #39-1 #75-1 #76-1 #88-1 #100-1 #107-1 #108-1 #114-1 #121-1 #122-1 #131-1 #132-1 #175-1 #185-1 #191-1 #192-1 #198-1 #204-1 #205-1 #211-1 #217-1 #218-1 #224-1 #230-1 #231-1 #237-1 #243-1 #244-1 #249-1 #272-1 #273-1 86-1 173-1 .1 0x1 BO0 BIS1 
+V "no1" - I!77 O!75 T!9 !41-4 #27-1 #28-1 #36-1 #40-1 #109-1 #110-1 #115-1 #123-1 #124-1 .1 0x1 BO1 BIS1 
+V "no2" - I!78 O!75 T!9 !42-4 .1 0x1 BO2 BIS1 
+V "no3" - I!79 O!75 T!9 !43-4 .1 0x1 BO3 BIS1 
+V "no4" - I!80 O!75 T!9 !44-4 .1 0x1 BO4 BIS1 
+V "no5" - I!81 O!75 T!9 !45-4 .1 0x1 BO5 BIS1 
+V "no6" - I!82 O!75 T!9 !46-4 .1 0x1 BO6 BIS1 
+V "no7" - I!83 O!75 T!9 !47-4 .1 0x1 BO7 BIS1 
+T "__bitf_T" KT I!84 T!75 !48-4 0x1 
+T "" KS I!85 !51-4 0x2 VM!86 VM!87 VM!88 VM!89 VM!90 VM!91 VM!92 VM!93 VM!94 VM!95 VM!96 VM!97 VM!98 VM!99 VM!100 VM!101 
+V "no0" - I!86 O!85 T!9 !52-4 .1 0x1 BO0 BIS1 
+V "no1" - I!87 O!85 T!9 !53-4 .1 0x1 BO1 BIS1 
+V "no2" - I!88 O!85 T!9 !54-4 .1 0x1 BO2 BIS1 
+V "no3" - I!89 O!85 T!9 !55-4 .1 0x1 BO3 BIS1 
+V "no4" - I!90 O!85 T!9 !56-4 .1 0x1 BO4 BIS1 
+V "no5" - I!91 O!85 T!9 !57-4 .1 0x1 BO5 BIS1 
+V "no6" - I!92 O!85 T!9 !58-4 .1 0x1 BO6 BIS1 
+V "no7" - I!93 O!85 T!9 !59-4 .1 0x1 BO7 BIS1 
+V "no8" - I!94 O!85 T!9 !60-4 .1 0x1 BO8 BIS1 
+V "no9" - I!95 O!85 T!9 !61-4 .1 0x1 BO9 BIS1 
+V "no10" - I!96 O!85 T!9 !62-4 .1 0x1 BO10 BIS1 
+V "no11" - I!97 O!85 T!9 !63-4 .1 0x1 BO11 BIS1 
+V "no12" - I!98 O!85 T!9 !64-4 .1 0x1 BO12 BIS1 
+V "no13" - I!99 O!85 T!9 !65-4 .1 0x1 BO13 BIS1 
+V "no14" - I!100 O!85 T!9 !66-4 .1 0x1 BO14 BIS1 
+V "no15" - I!101 O!85 T!9 !67-4 .1 0x1 BO15 BIS1 
+T "__bitf_T2" KT I!102 T!85 !68-4 0x2 
+T "int8_t" KT I!103 T!104 !47-3 0x1 
+T "signed char" KBS I!104 0x1 
+T "uint8_t" KT I!105 T!9 !48-3 0x1 
+T "int16_t" KT I!106 T!107 !49-3 0x2 
+T "short" KBS I!107 0x2 
+T "uint16_t" KT I!108 T!109 !50-3 0x2 
+T "unsigned short" KBU I!109 0x2 
+T "int32_t" KT I!110 T!30 !51-3 0x4 
+T "uint32_t" KT I!111 T!26 !52-3 0x4 
+T "int64_t" KT I!112 T!39 !53-3 0x8 
+T "uint64_t" KT I!113 T!35 !54-3 0x8 
+T "MD_STATUS" KT I!114 T!109 !55-3 0x2 
+T "" KE I!115 T!116 0x1 EM0:"DSADCHANNEL0" EM1:"DSADCHANNEL1" EM2:"DSADCHANNEL2" EM3:"DSADCHANNEL3" 
+T "char" KBCS I!116 0x1 
+T "dsad_channel_t" KT I!117 T!115 !169-6 0x1 
+T "" KE I!118 T!116 0x1 EM0:"DSAD_3906HZ" EM1:"DSAD_1953HZ" 
+T "dsad_rate_t" KT I!119 T!118 !175-6 0x1 
+T "" KE I!120 T!116 0x1 EM0:"GAIN_X1" EM1:"GAIN_X2" EM2:"GAIN_X4" EM3:"GAIN_X8" EM4:"GAIN_X16" EM5:"GAIN_X32" EM6:"GAIN_NONE" 
+T "dsad_gain_t" KT I!121 T!120 !186-6 0x1 
+T "" KE I!122 T!116 0x1 EM0:"HPF_0067HZ" EM1:"HPF_1214_HZ" EM2:"HPF_2429_HZ" EM3:"HPF_4857_HZ" 
+T "dsad_cutoff_t" KT I!123 T!122 !194-6 0x1 
+T "" KS I!124 !197-6 0xa VM!125 VM!126 VM!127 VM!128 VM!129 VM!130 
+V "gain0" - I!125 O!124 T!105 !198-6 #380-1 391-1 401-1 .1 0x1 BO0 BIS8 
+V "gain1" - I!126 O!124 T!105 !199-6 #381-1 392-1 402-1 .1 0x1 BO8 BIS8 
+V "phase0" - I!127 O!124 T!108 !200-6 #383-1 393-1 .2 0x2 BO16 BIS16 
+V "phase1" - I!128 O!124 T!108 !201-6 #384-1 394-1 .2 0x2 BO32 BIS16 
+V "phase2" - I!129 O!124 T!108 !202-6 #385-1 395-1 .2 0x2 BO48 BIS16 
+V "phase3" - I!130 O!124 T!108 !203-6 #386-1 396-1 .2 0x2 BO64 BIS16 
+T "dsad_reg_setting_t" KT I!131 T!124 !204-6 0xa 
+F "R_DSADC_Create" F I!132 T!2 #17-1 !18,68-1-1 ?209-6 
+F "R_DSADC_Start" F I!133 T!2 #70-1 !71,102-1-1 ?210-6 
+F "R_DSADC_Stop" F I!134 T!2 #269-1 !270,274-1-1 ?211-6 
+F "R_DSADC_ZC_Start" F I!135 T!2 #104-1 !105,116-1-1 ?212-6 
+F "R_DSADC_ZC_Stop" F I!136 T!2 #118-1 !119,125-1-1 ?213-6 
+F "R_DSADC_StartChannel0Only" F I!137 T!2 #189-1 !190,200-1-1 ?214-6 
+F "R_DSADC_StartChannel1Only" F I!138 T!2 #202-1 !203,213-1-1 ?215-6 
+F "R_DSADC_StartChannel2Only" F I!139 T!2 #215-1 !216,226-1-1 ?216-6 
+F "R_DSADC_StartChannel3Only" F I!140 T!2 #228-1 !229,239-1-1 ?217-6 
+F "R_DSADC_StartCurrentChannels" F I!141 T!2 #241-1 !242,251-1-1 ?218-6 
+F "R_DSADC_BackupPhaseRegSetting" F I!142 T!2 #253-1 !254,259-1-1 ?219-6 
+F "R_DSADC_RestorePhaseRegSetting" F I!143 T!2 #261-1 !262,267-1-1 ?220-6 
+F "R_DSADC_Get_Result" F I!144 T!2 ?221-6 P!145 P!146 
+V "" N I!145 O!144 T!117 .1 0x1 
+V "" ON I!146 O!144 T!147 .2 0x2 
+T "" KP I!147 T!110 0x2 
+F "R_DSADC_SetHighPassFilterOn" F I!148 T!114 #301-1 !302,324-1-1 ?222-6 58-1 59-1 60-1 61-1 159-1 161-1 162-1 163-1 P!245 
+F "R_DSADC_SetHighPassFilterOff" F I!150 T!114 #276-1 !277,299-1-1 ?223-6 P!242 
+F "R_DSADC_Set_CutOffFrequency" F I!152 T!114 #326-1 !327,340-1-1 ?224-6 62-1 164-1 P!248 
+F "R_DSADC_SetChannelGain" F I!154 T!114 #405-1 !406,454-1-1 ?225-6 P!263 P!264 
+F "R_DSADC_AdjustPhaseDelay" F I!157 T!114 #342-1 !343,375-1-1 ?226-6 P!252 P!253 
+F "R_DSADC_GetGainAndPhase" F I!160 T!2 #377-1 !378,387-1-1 ?227-6 P!256 
+T "" KP I!162 T!131 0x2 
+F "R_DSADC_SetGainAndPhase" F I!163 T!2 #389-1 !390,397-1-1 ?228-6 P!258 
+F "R_DSADC_SetGain" F I!165 T!2 #399-1 !400,403-1-1 ?229-6 P!260 
+F "R_DSADC_StartWithoutGainAndPhase" F I!167 T!2 #127-1 !128,187-1-1 ?230-6 P!239 
+F "R_DSADC_GetGainEnumValue" F I!169 T!121 #457-1 !458,487-1-1 ?232-6 P!267 
+F "R_DSADC_GetChannelGain" F I!171 T!105 #490-1 !491,513-1-1 ?233-6 P!270 
+F "R_DSADC_GetChannelPhase" F I!173 T!108 #515-1 !516,525-1-1 ?234-6 P!273 
+T "double64_t" KT I!175 T!113 !40-8 0x8 
+T "float32_t" KT I!176 T!177 !41-8 0x4 
+T "float" KBF I!177 0x4 
+F "MCU_Delay" F I!178 T!2 ?35-7 89-1 P!179 
+V "" N I!179 O!178 T!111 .2 0x4 
+F "MCU_MultipleInterruptEnable" F I!180 T!2 ?36-7 P!181 
+V "" N I!181 O!180 T!105 .1 0x1 
+T "" KE I!182 T!9 0x1 EM0:"ADCHANNEL0" EM1:"ADCHANNEL1" EM2:"ADCHANNEL2" EM3:"ADCHANNEL3" EM4:"ADCHANNEL4" EM5:"ADCHANNEL5" EM6:"ADCHANNEL6" EM29:"ADTEMPERSENSOR0" EM129:"ADINTERREFVOLT" 
+T "ad_channel_t" KT I!183 T!182 !148-11 0x1 
+T "" KE I!184 T!116 0x1 EM0:"ADNORMALINPUT" EM2:"ADAVREFM" EM3:"ADAVREFP" 
+T "test_channel_t" KT I!185 T!184 !155-11 0x1 
+F "R_ADC_Create" F I!186 T!2 ?160-11 
+F "R_ADC_Start" F I!187 T!2 ?161-11 
+F "R_ADC_Start_NoInterrupt" F I!188 T!2 ?162-11 
+F "R_ADC_Stop" F I!189 T!2 ?163-11 
+F "R_ADC_Set_OperationOn" F I!190 T!2 ?164-11 
+F "R_ADC_Set_OperationOff" F I!191 T!2 ?165-11 
+F "R_ADC_HW_Trigger_Start" F I!192 T!2 ?167-11 
+F "R_ADC_HW_Trigger_Stop" F I!193 T!2 ?168-11 
+F "R_ADC_IsBusy" F I!194 T!105 ?169-11 
+T "tagElcSrc" KE I!195 T!116 !38-12 0x1 EM0:"ELC_TRIGGER_SRC_INTP0" EM1:"ELC_TRIGGER_SRC_INTP1" EM2:"ELC_TRIGGER_SRC_INTP2" EM3:"ELC_TRIGGER_SRC_INTP3" EM4:"ELC_TRIGGER_SRC_INTP4" EM5:"ELC_TRIGGER_SRC_INTP5" EM6:"ELC_TRIGGER_SRC_INTP6" EM7:"ELC_TRIGGER_SRC_INTP7" EM8:"ELC_TRIGGER_SRC_INTKR" EM9:"ELC_TRIGGER_SRC_INTIT" EM10:"ELC_TRIGGER_SRC_INTIT00" EM11:"ELC_TRIGGER_SRC_INTIT10" EM12:"ELC_TRIGGER_SRC_INTRTCRPD" EM13:"ELC_TRIGGER_SRC_INTTM00" EM14:"ELC_TRIGGER_SRC_INTTM01" EM15:"ELC_TRIGGER_SRC_INTTM02" EM16:"ELC_TRIGGER_SRC_INTTM03" EM17:"ELC_TRIGGER_SRC_INTTM05" EM18:"ELC_TRIGGER_SRC_INTTM07" EM19:"ELC_TRIGGER_SRC_INTDSAD" EM20:"ELC_TRIGGER_SRC_INTDSADZC0" EM21:"ELC_TRIGGER_SRC_INTDSADZC1" 
+T "elc_src_t" KT I!196 T!195 !62-12 0x1 
+F "R_ELC_Create" F I!197 T!2 ?67-12 
+F "R_ELC_Stop" F I!198 T!2 ?68-12 P!199 
+V "" N I!199 O!198 T!111 .2 0x4 
+F "R_ELC_Set" F I!200 T!2 ?71-12 P!201 P!202 
+V "" N I!201 O!200 T!196 .1 0x1 
+V "" N I!202 O!200 T!105 .1 0x1 
+F "R_ELC_Clear" F I!203 T!2 ?72-12 P!204 
+V "" N I!204 O!203 T!196 .1 0x1 
+T "" KS I!205 !165-13 0x8 VM!206 VM!207 VM!208 VM!209 VM!210 VM!211 
+V "dtccr" - I!206 O!205 T!105 !166-13 .1 0x1 BO0 BIS8 
+V "dtbls" - I!207 O!205 T!105 !167-13 .1 0x1 BO8 BIS8 
+V "dtcct" - I!208 O!205 T!105 !168-13 .1 0x1 BO16 BIS8 
+V "dtrld" - I!209 O!205 T!105 !169-13 .1 0x1 BO24 BIS8 
+V "dtsar" - I!210 O!205 T!108 !170-13 .2 0x2 BO32 BIS16 
+V "dtdar" - I!211 O!205 T!108 !171-13 .2 0x2 BO48 BIS16 
+T "st_dtc_data" KT I!212 T!205 !172-13 0x8 
+F "R_DTC_Create" F I!213 T!2 ?177-13 
+F "R_DTCD0_Start" F I!214 T!2 ?178-13 
+F "R_DTCD0_Stop" F I!215 T!2 ?179-13 
+F "R_DTCD1_Start" F I!216 T!2 ?180-13 
+F "R_DTCD1_Stop" F I!217 T!2 ?181-13 
+V "g_adc_data" GN I!218 T!219 ?184-13 .2 0x10 
+T "" MOD"V" KA8 I!219 T!108 0x10 
+F "R_TAU0_Create" F I!220 T!2 ?421-14 
+F "R_TAU0_Channel0_Start" F I!221 T!2 ?422-14 
+F "R_TAU0_Channel0_Stop" F I!222 T!2 ?423-14 
+F "R_TAU0_Channel1_Start" F I!223 T!2 ?424-14 
+F "R_TAU0_Channel1_Stop" F I!224 T!2 ?425-14 
+F "R_TAU0_Channel2_Start" F I!225 T!2 ?426-14 
+F "R_TAU0_Channel2_Stop" F I!226 T!2 ?427-14 
+F "R_TAU0_Channel3_Start" F I!227 T!2 ?429-14 
+F "R_TAU0_Channel3_Stop" F I!228 T!2 ?430-14 
+F "R_TAU0_Channel1_SetValue" F I!229 T!2 ?432-14 P!230 
+V "" N I!230 O!229 T!108 .2 0x2 
+F "R_PORT_Create" F I!231 T!2 ?288-15 
+F "R_PORT_StopCreate" F I!232 T!2 ?290-15 
+V "g_reg_phase0" GSN I!233 T!108 !11-1 #255-1 263-1 .2 0x2 
+V "g_reg_phase1" GSN I!234 T!108 !12-1 #256-1 264-1 .2 0x2 
+V "g_reg_phase2" GSN I!235 T!108 !13-1 #257-1 265-1 .2 0x2 
+V "g_reg_phase3" GSN I!236 T!108 !14-1 #258-1 266-1 .2 0x2 
+V "wait" N I!237 O!133 T!105 !72-1 #83-1 #91-1 91-1 93-1 .1 0x1 
+V "channel_control" N I!239 O!167 T!108 !127-1 157-1 167-1 .2 0x2 
+V "wait" N I!240 O!167 T!105 !129-1 #170-1 #176-1 176-1 178-1 .1 0x1 
+V "channel" N I!242 O!150 T!117 !276-1 279-1 .1 0x1 
+V "status" N I!243 O!150 T!114 !278-1 #278-1 #295-1 298-1 .2 0x2 
+V "channel" N I!245 O!148 T!117 !301-1 304-1 .1 0x1 
+V "status" N I!246 O!148 T!114 !303-1 #303-1 #320-1 323-1 .2 0x2 
+V "frequency" N I!248 O!152 T!123 !326-1 330-1 330-1 337-1 .1 0x1 
+V "status" N I!249 O!152 T!114 !328-1 #328-1 #332-1 339-1 .2 0x2 
+V "channel" N I!252 O!157 T!117 !342-1 348-1 .1 0x1 
+V "step" N I!253 O!157 T!108 !342-1 346-1 351-1 354-1 357-1 360-1 .2 0x2 
+V "status" N I!254 O!157 T!114 !344-1 #344-1 #364-1 #371-1 374-1 .2 0x2 
+V "adc_gain_phase" N I!256 O!160 T!162 !377-1 380-1 381-1 383-1 384-1 385-1 386-1 .2 0x2 
+V "adc_gain_phase" N I!258 O!163 T!131 !389-1 391-1 392-1 393-1 394-1 395-1 396-1 .2 0xa 
+V "adc_gain_phase" N I!260 O!165 T!131 !399-1 401-1 402-1 .2 0xa 
+V "channel" N I!263 O!154 T!117 !405-1 409-1 .1 0x1 
+V "gain" N I!264 O!154 T!121 !405-1 412-1 412-1 418-1 421-1 421-1 427-1 430-1 430-1 436-1 439-1 439-1 445-1 .1 0x1 
+V "status" N I!265 O!154 T!114 !407-1 #407-1 #414-1 #423-1 #432-1 #441-1 #449-1 453-1 .2 0x2 
+V "gain" N I!267 O!169 T!105 !457-1 461-1 465-1 469-1 473-1 477-1 .1 0x1 
+V "gain_value" N I!268 O!169 T!121 !459-1 #463-1 #467-1 #471-1 #475-1 #479-1 #483-1 486-1 .1 0x1 
+V "channel" N I!270 O!171 T!117 !490-1 493-1 .1 0x1 
+V "gain" N I!271 O!171 T!105 !492-1 #496-1 #499-1 #502-1 #505-1 #508-1 512-1 .1 0x1 
+V "channel" N I!273 O!173 T!117 !515-1 519-1 521-1 .1 0x1 
+V "phase_setting" N I!274 O!173 T!108 !517-1 #521-1 524-1 .2 0x2 
+****%CxSystemPath%\inc\builtin.h
+v2 
+:1712232850
+#2
+****rl78i1c\driver\mcu\r_cg_macrodriver.h
+v2 
+:1712232850
+#3
+****iodefine.h
+v2 
+:1712232850
+#4
+****rl78i1c\driver\mcu\r_cg_userdefine.h
+v2 
+:1712232850
+#5
+****rl78i1c\driver\mcu\r_cg_dsadc.h
+v2 
+:1712232850
+#6
+****rl78i1c\wrapper\core\shared\wrp_mcu.h
+v2 
+:1712232850
+#7
+****typedef.h
+v2 
+:1712232850
+#8
+****rl78i1c\wrapper\core\sw\wrp_em_sw_config.h
+v2 
+:1712232850
+#9
+****rl78i1c\middleware\headers\em_constraint.h
+v2 
+:1712232850
+#10
+****rl78i1c\driver\mcu\r_cg_adc.h
+v2 
+:1712232850
+#11
+****rl78i1c\driver\mcu\r_cg_elc.h
+v2 
+:1712232850
+#12
+****rl78i1c\driver\mcu\r_cg_dtc.h
+v2 
+:1712232850
+#13
+****rl78i1c\driver\mcu\r_cg_tau.h
+v2 
+:1712232850
+#14
+****rl78i1c\driver\mcu\r_cg_port.h
+v2 
+:1712232850
+#15

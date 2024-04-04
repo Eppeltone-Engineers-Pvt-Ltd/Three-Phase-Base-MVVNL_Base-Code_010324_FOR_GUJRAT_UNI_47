@@ -1,0 +1,195 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  #CC-RL Compiler RL78 Assembler Source
+00000000                        2  #@  CC-RL Version : V1.12.01  [12 Jun 2023]
+00000000                        3  #@  Commmand :
+00000000                        4  #@   section_init.c
+00000000                        5  #@   -cpu=S3
+00000000                        6  #@   -cref=Build/Release_BQFR\section_init.cref
+00000000                        7  #@   -o Build/Release_BQFR\section_init.obj
+00000000                        8  #@   -no_warning_num=20177,20550,20494,20174
+00000000                        9  #@   -dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+00000000                       10  #@   -g
+00000000                       11  #@   -Onothing
+00000000                       12  #@   -goptimize
+00000000                       13  #@   -I Release_BQFR
+00000000                       14  #@   -I rl78i1c\application\dlms\physical
+00000000                       15  #@   -I rl78i1c\application\dlms\objects
+00000000                       16  #@   -I rl78i1c\application\dlms\meter_app\hash
+00000000                       17  #@   -I rl78i1c\application\dlms\meter_app\aes
+00000000                       18  #@   -I rl78i1c\application\dlms\meter_app
+00000000                       19  #@   -I rl78i1c\application\dlms
+00000000                       20  #@   -I rl78i1c\application
+00000000                       21  #@   -I rl78i1c\application\debug\loadtest
+00000000                       22  #@   -I rl78i1c\application\services\64bit_process
+00000000                       23  #@   -I .
+00000000                       24  #@   -I rl78i1c\wrapper\core\sw\filter\config
+00000000                       25  #@   -I rl78i1c\wrapper\core\sw\filter\include
+00000000                       26  #@   -I rl78i1c\application\powermgmt
+00000000                       27  #@   -I rl78i1c\application\storage\meterdata
+00000000                       28  #@   -I rl78i1c\application\storage\config
+00000000                       29  #@   -I rl78i1c\application\dataflash\fdl\incrl78
+00000000                       30  #@   -I rl78i1c\application\dataflash
+00000000                       31  #@   -I rl78i1c\application\services
+00000000                       32  #@   -I rl78i1c\application\interpreter\mlsHeaders
+00000000                       33  #@   -I rl78i1c\application\interpreter\mlsCIHandler
+00000000                       34  #@   -I rl78i1c\application\interpreter\mlsCIEng
+00000000                       35  #@   -I rl78i1c\application\interpreter\mlsCIComm
+00000000                       36  #@   -I rl78i1c\application\interpreter\mlsCIApp
+00000000                       37  #@   -I rl78i1c\driver\mcu
+00000000                       38  #@   -I rl78i1c\application\calibration
+00000000                       39  #@   -I rl78i1c\application\debug
+00000000                       40  #@   -I rl78i1c\application\display&button
+00000000                       41  #@   -I rl78i1c\application\display&button\lcd
+00000000                       42  #@   -I rl78i1c\application\eeprom
+00000000                       43  #@   -I rl78i1c\application\event
+00000000                       44  #@   -I rl78i1c\application\startup
+00000000                       45  #@   -I rl78i1c\application\storage
+00000000                       46  #@   -I rl78i1c\middleware\headers
+00000000                       47  #@   -I rl78i1c\middleware\plugin
+00000000                       48  #@   -I rl78i1c\wrapper\user
+00000000                       49  #@   -I rl78i1c\wrapper\core\sw
+00000000                       50  #@   -I rl78i1c\wrapper\core\shared
+00000000                       51  #@   -I .\
+00000000                       52  #@   -D __BOARD_REVISION=2,FEATURES_BQFR
+00000000                       53  #@   -refs_without_declaration
+00000000                       54  #@   -signed_char
+00000000                       55  #@   -merge_string
+00000000                       56  #@   -asmopt=-prn_path=Release_BQFR
+00000000                       57  #@   -convert_cc=ca78k0r
+00000000                       58  #@   -c
+00000000                       59  #@  compiled at Thu Apr 04 17:44:04 2024
+00000000                       60  
+00000000                       61  	.PUBLIC _dsec_table
+00000000                       62  	.PUBLIC _section_init
+00000000                       63  
+00000000                       64  	.SECTION .textf,TEXTF
+00000000                       65  	.TYPE _section_init,function,.LFE1-_section_init
+00000000                       66  _section_init:
+00000000                       67  	.STACK _section_init = 12
+00000000                       68  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/section_init.c", 117
+00000000 2008                  69  	subw sp, #0x08
+00000002 F6                    70  	clrw ax
+00000003                       71  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/section_init.c", 124
+00000003 B800                  72  	movw [sp+0x00], ax
+00000005 EF00                  73  	br $.BB@LABEL@1_8
+00000007                       74  .BB@LABEL@1_1:	; bb
+00000007                       75  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/section_init.c", 126
+00000007 A800                  76  	movw ax, [sp+0x00]
+00000009 320A00                77  	movw bc, #0x000A
+0000000C CEFB02                78  	mulh
+0000000F 040000                79  	addw ax, #SMRLW(_dsec_table)
+00000012 14                    80  	movw de, ax
+00000013 040200                81  	addw ax, #0x0002
+00000016 16                    82  	movw hl, ax
+00000017 A9                    83  	movw ax, [de]
+00000018 B802                  84  	movw [sp+0x02], ax
+0000001A 8B                    85  	mov a, [hl]
+0000001B 9804                  86  	mov [sp+0x04], a
+0000001D                       87  .BB@LABEL@1_2:	; bb.split
+0000001D                       88  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/section_init.c", 127
+0000001D A800                  89  	movw ax, [sp+0x00]
+0000001F 320A00                90  	movw bc, #0x000A
+00000022 CEFB02                91  	mulh
+00000025 040000                92  	addw ax, #SMRLW(_dsec_table+0x00008)
+00000028 14                    93  	movw de, ax
+00000029 A9                    94  	movw ax, [de]
+0000002A B806                  95  	movw [sp+0x06], ax
+0000002C EF00                  96  	br $.BB@LABEL@1_4
+0000002E                       97  .BB@LABEL@1_3:	; bb18
+0000002E                       98  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/section_init.c", 130
+0000002E 8804                  99  	mov a, [sp+0x04]
+00000030 9EFD                 100  	mov es, a
+00000032 A802                 101  	movw ax, [sp+0x02]
+00000034 14                   102  	movw de, ax
+00000035 A806                 103  	movw ax, [sp+0x06]
+00000037 16                   104  	movw hl, ax
+00000038 1189                 105  	mov a, es:[de]
+0000003A 9B                   106  	mov [hl], a
+0000003B A802                 107  	movw ax, [sp+0x02]
+0000003D A1                   108  	incw ax
+0000003E 12                   109  	movw bc, ax
+0000003F 60                   110  	mov a, x
+00000040 9802                 111  	mov [sp+0x02], a
+00000042 13                   112  	movw ax, bc
+00000043 9803                 113  	mov [sp+0x03], a
+00000045 8804                 114  	mov a, [sp+0x04]
+00000047 9804                 115  	mov [sp+0x04], a
+00000049 A806                 116  	movw ax, [sp+0x06]
+0000004B A1                   117  	incw ax
+0000004C B806                 118  	movw [sp+0x06], ax
+0000004E                      119  .BB@LABEL@1_4:	; bb40
+0000004E                      120  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/section_init.c", 128
+0000004E A800                 121  	movw ax, [sp+0x00]
+00000050 320A00               122  	movw bc, #0x000A
+00000053 CEFB02               123  	mulh
+00000056 040000               124  	addw ax, #SMRLW(_dsec_table)
+00000059 12                   125  	movw bc, ax
+0000005A 040400               126  	addw ax, #0x0004
+0000005D 16                   127  	movw hl, ax
+0000005E 13                   128  	movw ax, bc
+0000005F 040600               129  	addw ax, #0x0006
+00000062 14                   130  	movw de, ax
+00000063 89                   131  	mov a, [de]
+00000064 318E                 132  	shrw ax, 8+0x00000
+00000066 12                   133  	movw bc, ax
+00000067 8804                 134  	mov a, [sp+0x04]
+00000069 318E                 135  	shrw ax, 8+0x00000
+0000006B 43                   136  	cmpw ax, bc
+0000006C A802                 137  	movw ax, [sp+0x02]
+0000006E 61F8                 138  	sknz
+00000070                      139  .BB@LABEL@1_5:	; bb40
+00000070 614900               140  	cmpw ax, [hl+0x00]
+00000073                      141  .BB@LABEL@1_6:	; bb40
+00000073 DF00                 142  	bnz $.BB@LABEL@1_3
+00000075                      143  .BB@LABEL@1_7:	; bb67
+00000075 A800                 144  	movw ax, [sp+0x00]
+00000077 A1                   145  	incw ax
+00000078 B800                 146  	movw [sp+0x00], ax
+0000007A                      147  .BB@LABEL@1_8:	; bb70
+0000007A                      148  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/section_init.c", 124
+0000007A A800                 149  	movw ax, [sp+0x00]
+0000007C 440200               150  	cmpw ax, #0x0002
+0000007F DC00                 151  	bc $.BB@LABEL@1_1
+00000081                      152  .BB@LABEL@1_9:	; return
+00000081                      153  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/Application/section_init.c", 133
+00000081 1008                 154  	addw sp, #0x08
+00000083 D7                   155  	ret
+00000084                      156  .LFE1:
+00000000                      157  	.SECTION .const,CONST
+00000000                      158  	.ALIGN 2
+00000000                      159  	.TYPE _dsec_table,object,20
+00000000                      160  _dsec_table:
+00000000 0000                 161  	.DB2 LOWW(STARTOF(.data))
+00000002 00                   162  	.DB LOW(HIGHW(STARTOF(.data)))
+00000003 00                   163  	.DB 0x00
+00000004 0000                 164  	.DB2 LOWW(STARTOF(.data)+SIZEOF(.data))
+00000006 00                   165  	.DB LOW(HIGHW(STARTOF(.data)+SIZEOF(.data)))
+00000007 00                   166  	.DB 0x00
+00000008 0000                 167  	.DB2 LOWW(STARTOF(.dataR))
+0000000A 0000                 168  	.DB2 LOWW(STARTOF(.sdata))
+0000000C 00                   169  	.DB LOW(HIGHW(STARTOF(.sdata)))
+0000000D 00                   170  	.DB 0x00
+0000000E 0000                 171  	.DB2 LOWW(STARTOF(.sdata)+SIZEOF(.sdata))
+00000010 00                   172  	.DB LOW(HIGHW(STARTOF(.sdata)+SIZEOF(.sdata)))
+00000011 00                   173  	.DB 0x00
+00000012 0000                 174  	.DB2 LOWW(STARTOF(.sdataR))
+
+Section List
+Attr     Size                Name
+
+TEXTF               132 (00000084) .textf
+CONST                20 (00000014) .const
+DATA                  0 (00000000) .data
+SDATA                 0 (00000000) .sdata
+DATA                  0 (00000000) .dataR
+DATA                  0 (00000000) .sdataR
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\asrl.exe" @C:\Users\HP\AppData\Local\Temp\$ccrl\section_init.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120100 -cpu=S3 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Release_BQFR -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\physical -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\objects -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app\hash -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app\aes -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms\meter_app -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dlms -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\debug\loadtest -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\services\64bit_process -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\config -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\include -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\powermgmt -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage\meterdata -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage\config -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dataflash\fdl\incrl78 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dataflash -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\services -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsHeaders -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIHandler -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIEng -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIComm -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\interpreter\mlsCIApp -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\driver\mcu -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\calibration -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\debug -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\display&button -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\display&button\lcd -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\eeprom -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\event -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\startup -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\storage -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\middleware\headers -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\middleware\plugin -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\user -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\shared -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\ -character_set=none -goptimize -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -output=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Build\Release_BQFR\section_init.obj C:\Users\HP\AppData\Local\Temp\$ccrl\section_init.asm 
+

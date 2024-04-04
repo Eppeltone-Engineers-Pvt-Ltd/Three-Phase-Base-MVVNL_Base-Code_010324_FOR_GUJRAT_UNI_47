@@ -1,0 +1,310 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  #CC-RL Compiler RL78 Assembler Source
+00000000                        2  #@  CC-RL Version : V1.12.01  [12 Jun 2023]
+00000000                        3  #@  Commmand :
+00000000                        4  #@   MY_ram_vector.c
+00000000                        5  #@   -cpu=S3
+00000000                        6  #@   -o Release_BQFR\MY_ram_vector.obj
+00000000                        7  #@   -dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+00000000                        8  #@   -g
+00000000                        9  #@   -g_line
+00000000                       10  #@   -Onothing
+00000000                       11  #@   -I Release_BQFR
+00000000                       12  #@   -I V2.21\incrl78
+00000000                       13  #@   -I .
+00000000                       14  #@   -asmopt=-prn_path=Release_BQFR
+00000000                       15  #@   -c
+00000000                       16  #@  compiled at Thu Apr 04 17:43:59 2024
+00000000                       17  
+00000000                       18  	.PUBLIC _RAM_INTWDTI_ISR
+00000000                       19  	.PUBLIC _RAM_INTLVI_ISR
+00000000                       20  	.PUBLIC _RAM_INTP0_ISR
+00000000                       21  	.PUBLIC _RAM_INTP1_ISR
+00000000                       22  	.PUBLIC _RAM_INTP2_ISR
+00000000                       23  	.PUBLIC _RAM_INTP3_ISR
+00000000                       24  	.PUBLIC _RAM_INTP4_ISR
+00000000                       25  	.PUBLIC _RAM_INTP5_ISR
+00000000                       26  	.PUBLIC _RAM_INTST2_ISR
+00000000                       27  	.PUBLIC _RAM_INTSR2_ISR
+00000000                       28  	.PUBLIC _RAM_INTSRE2_ISR
+00000000                       29  	.PUBLIC _RAM_INTCR_ISR
+00000000                       30  	.PUBLIC _RAM_INTAES_ISR
+00000000                       31  	.PUBLIC _RAM_INTST0_ISR
+00000000                       32  	.PUBLIC _RAM_INTIICA0_ISR
+00000000                       33  	.PUBLIC _RAM_INTSR0_ISR
+00000000                       34  	.PUBLIC _RAM_INTSRE0_ISR
+00000000                       35  	.PUBLIC _RAM_INTST1_ISR
+00000000                       36  	.PUBLIC _RAM_INTSR1_ISR
+00000000                       37  	.PUBLIC _RAM_INTSRE1_ISR
+00000000                       38  	.PUBLIC _RAM_INTTM00_ISR
+00000000                       39  	.PUBLIC _RAM_INTFM_ISR
+00000000                       40  	.PUBLIC _RAM_INTTM01_ISR
+00000000                       41  	.PUBLIC _RAM_INTTM02_ISR
+00000000                       42  	.PUBLIC _RAM_INTTM03_ISR
+00000000                       43  	.PUBLIC _RAM_INTAD_ISR
+00000000                       44  	.PUBLIC _RAM_INTRTCRPD_ISR
+00000000                       45  	.PUBLIC _RAM_INTIT_ISR
+00000000                       46  	.PUBLIC _RAM_INTKR_ISR
+00000000                       47  	.PUBLIC _RAM_INTST3_ISR
+00000000                       48  	.PUBLIC _RAM_INTSR3_ISR
+00000000                       49  	.PUBLIC _RAM_INTDSAD_ISR
+00000000                       50  	.PUBLIC _RAM_INTTM04_ISR
+00000000                       51  	.PUBLIC _RAM_INTTM05_ISR
+00000000                       52  	.PUBLIC _RAM_INTP6_ISR
+00000000                       53  	.PUBLIC _RAM_INTP7_ISR
+00000000                       54  	.PUBLIC _RAM_INTRTCIC0_ISR
+00000000                       55  	.PUBLIC _RAM_INTRTCIC1_ISR
+00000000                       56  	.PUBLIC _RAM_INTRTCIC2_ISR
+00000000                       57  	.PUBLIC _RAM_INTTM06_ISR
+00000000                       58  	.PUBLIC _RAM_INTTM07_ISR
+00000000                       59  	.PUBLIC _RAM_INTIT00_ISR
+00000000                       60  	.PUBLIC _RAM_INTIT01_ISR
+00000000                       61  	.PUBLIC _RAM_INTSRE3_ISR
+00000000                       62  	.PUBLIC _RAM_INTMACLOF_ISR
+00000000                       63  	.PUBLIC _RAM_INTOSDC_ISR
+00000000                       64  	.PUBLIC _RAM_INTFL_ISR
+00000000                       65  	.PUBLIC _RAM_INTDSADZC0_ISR
+00000000                       66  	.PUBLIC _RAM_INTDSADZC1_ISR
+00000000                       67  	.PUBLIC _RAM_INTIT10_ISR
+00000000                       68  	.PUBLIC _RAM_INTIT11_ISR
+00000000                       69  	.PUBLIC _RAM_INTLVDVDD_ISR
+00000000                       70  	.PUBLIC _RAM_INTLVDVBAT_ISR
+00000000                       71  	.PUBLIC _RAM_INTLVDVRTC_ISR
+00000000                       72  	.PUBLIC _RAM_INTLVDEXLVD_ISR
+00000000                       73  
+00000000                       74  	.SECTION .ramvect_n,BSS
+00000000                       75  	.ALIGN 2
+00000000                       76  	.TYPE _RAM_INTWDTI_ISR,object,4
+00000000                       77  _RAM_INTWDTI_ISR:
+00000000                       78  	.DS (4)
+00000004                       79  	.ALIGN 2
+00000004                       80  	.TYPE _RAM_INTLVI_ISR,object,4
+00000004                       81  _RAM_INTLVI_ISR:
+00000004                       82  	.DS (4)
+00000008                       83  	.ALIGN 2
+00000008                       84  	.TYPE _RAM_INTP0_ISR,object,4
+00000008                       85  _RAM_INTP0_ISR:
+00000008                       86  	.DS (4)
+0000000C                       87  	.ALIGN 2
+0000000C                       88  	.TYPE _RAM_INTP1_ISR,object,4
+0000000C                       89  _RAM_INTP1_ISR:
+0000000C                       90  	.DS (4)
+00000010                       91  	.ALIGN 2
+00000010                       92  	.TYPE _RAM_INTP2_ISR,object,4
+00000010                       93  _RAM_INTP2_ISR:
+00000010                       94  	.DS (4)
+00000014                       95  	.ALIGN 2
+00000014                       96  	.TYPE _RAM_INTP3_ISR,object,4
+00000014                       97  _RAM_INTP3_ISR:
+00000014                       98  	.DS (4)
+00000018                       99  	.ALIGN 2
+00000018                      100  	.TYPE _RAM_INTP4_ISR,object,4
+00000018                      101  _RAM_INTP4_ISR:
+00000018                      102  	.DS (4)
+0000001C                      103  	.ALIGN 2
+0000001C                      104  	.TYPE _RAM_INTP5_ISR,object,4
+0000001C                      105  _RAM_INTP5_ISR:
+0000001C                      106  	.DS (4)
+00000020                      107  	.ALIGN 2
+00000020                      108  	.TYPE _RAM_INTST2_ISR,object,4
+00000020                      109  _RAM_INTST2_ISR:
+00000020                      110  	.DS (4)
+00000024                      111  	.ALIGN 2
+00000024                      112  	.TYPE _RAM_INTSR2_ISR,object,4
+00000024                      113  _RAM_INTSR2_ISR:
+00000024                      114  	.DS (4)
+00000028                      115  	.ALIGN 2
+00000028                      116  	.TYPE _RAM_INTSRE2_ISR,object,4
+00000028                      117  _RAM_INTSRE2_ISR:
+00000028                      118  	.DS (4)
+0000002C                      119  	.ALIGN 2
+0000002C                      120  	.TYPE _RAM_INTCR_ISR,object,4
+0000002C                      121  _RAM_INTCR_ISR:
+0000002C                      122  	.DS (4)
+00000030                      123  	.ALIGN 2
+00000030                      124  	.TYPE _RAM_INTAES_ISR,object,4
+00000030                      125  _RAM_INTAES_ISR:
+00000030                      126  	.DS (4)
+00000034                      127  	.ALIGN 2
+00000034                      128  	.TYPE _RAM_INTST0_ISR,object,4
+00000034                      129  _RAM_INTST0_ISR:
+00000034                      130  	.DS (4)
+00000038                      131  	.ALIGN 2
+00000038                      132  	.TYPE _RAM_INTIICA0_ISR,object,4
+00000038                      133  _RAM_INTIICA0_ISR:
+00000038                      134  	.DS (4)
+0000003C                      135  	.ALIGN 2
+0000003C                      136  	.TYPE _RAM_INTSR0_ISR,object,4
+0000003C                      137  _RAM_INTSR0_ISR:
+0000003C                      138  	.DS (4)
+00000040                      139  	.ALIGN 2
+00000040                      140  	.TYPE _RAM_INTSRE0_ISR,object,4
+00000040                      141  _RAM_INTSRE0_ISR:
+00000040                      142  	.DS (4)
+00000044                      143  	.ALIGN 2
+00000044                      144  	.TYPE _RAM_INTST1_ISR,object,4
+00000044                      145  _RAM_INTST1_ISR:
+00000044                      146  	.DS (4)
+00000048                      147  	.ALIGN 2
+00000048                      148  	.TYPE _RAM_INTSR1_ISR,object,4
+00000048                      149  _RAM_INTSR1_ISR:
+00000048                      150  	.DS (4)
+0000004C                      151  	.ALIGN 2
+0000004C                      152  	.TYPE _RAM_INTSRE1_ISR,object,4
+0000004C                      153  _RAM_INTSRE1_ISR:
+0000004C                      154  	.DS (4)
+00000050                      155  	.ALIGN 2
+00000050                      156  	.TYPE _RAM_INTTM00_ISR,object,4
+00000050                      157  _RAM_INTTM00_ISR:
+00000050                      158  	.DS (4)
+00000054                      159  	.ALIGN 2
+00000054                      160  	.TYPE _RAM_INTFM_ISR,object,4
+00000054                      161  _RAM_INTFM_ISR:
+00000054                      162  	.DS (4)
+00000058                      163  	.ALIGN 2
+00000058                      164  	.TYPE _RAM_INTTM01_ISR,object,4
+00000058                      165  _RAM_INTTM01_ISR:
+00000058                      166  	.DS (4)
+0000005C                      167  	.ALIGN 2
+0000005C                      168  	.TYPE _RAM_INTTM02_ISR,object,4
+0000005C                      169  _RAM_INTTM02_ISR:
+0000005C                      170  	.DS (4)
+00000060                      171  	.ALIGN 2
+00000060                      172  	.TYPE _RAM_INTTM03_ISR,object,4
+00000060                      173  _RAM_INTTM03_ISR:
+00000060                      174  	.DS (4)
+00000064                      175  	.ALIGN 2
+00000064                      176  	.TYPE _RAM_INTAD_ISR,object,4
+00000064                      177  _RAM_INTAD_ISR:
+00000064                      178  	.DS (4)
+00000068                      179  	.ALIGN 2
+00000068                      180  	.TYPE _RAM_INTRTCRPD_ISR,object,4
+00000068                      181  _RAM_INTRTCRPD_ISR:
+00000068                      182  	.DS (4)
+0000006C                      183  	.ALIGN 2
+0000006C                      184  	.TYPE _RAM_INTIT_ISR,object,4
+0000006C                      185  _RAM_INTIT_ISR:
+0000006C                      186  	.DS (4)
+00000070                      187  	.ALIGN 2
+00000070                      188  	.TYPE _RAM_INTKR_ISR,object,4
+00000070                      189  _RAM_INTKR_ISR:
+00000070                      190  	.DS (4)
+00000074                      191  	.ALIGN 2
+00000074                      192  	.TYPE _RAM_INTST3_ISR,object,4
+00000074                      193  _RAM_INTST3_ISR:
+00000074                      194  	.DS (4)
+00000078                      195  	.ALIGN 2
+00000078                      196  	.TYPE _RAM_INTSR3_ISR,object,4
+00000078                      197  _RAM_INTSR3_ISR:
+00000078                      198  	.DS (4)
+0000007C                      199  	.ALIGN 2
+0000007C                      200  	.TYPE _RAM_INTDSAD_ISR,object,4
+0000007C                      201  _RAM_INTDSAD_ISR:
+0000007C                      202  	.DS (4)
+00000080                      203  	.ALIGN 2
+00000080                      204  	.TYPE _RAM_INTTM04_ISR,object,4
+00000080                      205  _RAM_INTTM04_ISR:
+00000080                      206  	.DS (4)
+00000084                      207  	.ALIGN 2
+00000084                      208  	.TYPE _RAM_INTTM05_ISR,object,4
+00000084                      209  _RAM_INTTM05_ISR:
+00000084                      210  	.DS (4)
+00000088                      211  	.ALIGN 2
+00000088                      212  	.TYPE _RAM_INTP6_ISR,object,4
+00000088                      213  _RAM_INTP6_ISR:
+00000088                      214  	.DS (4)
+0000008C                      215  	.ALIGN 2
+0000008C                      216  	.TYPE _RAM_INTP7_ISR,object,4
+0000008C                      217  _RAM_INTP7_ISR:
+0000008C                      218  	.DS (4)
+00000090                      219  	.ALIGN 2
+00000090                      220  	.TYPE _RAM_INTRTCIC0_ISR,object,4
+00000090                      221  _RAM_INTRTCIC0_ISR:
+00000090                      222  	.DS (4)
+00000094                      223  	.ALIGN 2
+00000094                      224  	.TYPE _RAM_INTRTCIC1_ISR,object,4
+00000094                      225  _RAM_INTRTCIC1_ISR:
+00000094                      226  	.DS (4)
+00000098                      227  	.ALIGN 2
+00000098                      228  	.TYPE _RAM_INTRTCIC2_ISR,object,4
+00000098                      229  _RAM_INTRTCIC2_ISR:
+00000098                      230  	.DS (4)
+0000009C                      231  	.ALIGN 2
+0000009C                      232  	.TYPE _RAM_INTTM06_ISR,object,4
+0000009C                      233  _RAM_INTTM06_ISR:
+0000009C                      234  	.DS (4)
+000000A0                      235  	.ALIGN 2
+000000A0                      236  	.TYPE _RAM_INTTM07_ISR,object,4
+000000A0                      237  _RAM_INTTM07_ISR:
+000000A0                      238  	.DS (4)
+000000A4                      239  	.ALIGN 2
+000000A4                      240  	.TYPE _RAM_INTIT00_ISR,object,4
+000000A4                      241  _RAM_INTIT00_ISR:
+000000A4                      242  	.DS (4)
+000000A8                      243  	.ALIGN 2
+000000A8                      244  	.TYPE _RAM_INTIT01_ISR,object,4
+000000A8                      245  _RAM_INTIT01_ISR:
+000000A8                      246  	.DS (4)
+000000AC                      247  	.ALIGN 2
+000000AC                      248  	.TYPE _RAM_INTSRE3_ISR,object,4
+000000AC                      249  _RAM_INTSRE3_ISR:
+000000AC                      250  	.DS (4)
+000000B0                      251  	.ALIGN 2
+000000B0                      252  	.TYPE _RAM_INTMACLOF_ISR,object,4
+000000B0                      253  _RAM_INTMACLOF_ISR:
+000000B0                      254  	.DS (4)
+000000B4                      255  	.ALIGN 2
+000000B4                      256  	.TYPE _RAM_INTOSDC_ISR,object,4
+000000B4                      257  _RAM_INTOSDC_ISR:
+000000B4                      258  	.DS (4)
+000000B8                      259  	.ALIGN 2
+000000B8                      260  	.TYPE _RAM_INTFL_ISR,object,4
+000000B8                      261  _RAM_INTFL_ISR:
+000000B8                      262  	.DS (4)
+000000BC                      263  	.ALIGN 2
+000000BC                      264  	.TYPE _RAM_INTDSADZC0_ISR,object,4
+000000BC                      265  _RAM_INTDSADZC0_ISR:
+000000BC                      266  	.DS (4)
+000000C0                      267  	.ALIGN 2
+000000C0                      268  	.TYPE _RAM_INTDSADZC1_ISR,object,4
+000000C0                      269  _RAM_INTDSADZC1_ISR:
+000000C0                      270  	.DS (4)
+000000C4                      271  	.ALIGN 2
+000000C4                      272  	.TYPE _RAM_INTIT10_ISR,object,4
+000000C4                      273  _RAM_INTIT10_ISR:
+000000C4                      274  	.DS (4)
+000000C8                      275  	.ALIGN 2
+000000C8                      276  	.TYPE _RAM_INTIT11_ISR,object,4
+000000C8                      277  _RAM_INTIT11_ISR:
+000000C8                      278  	.DS (4)
+000000CC                      279  	.ALIGN 2
+000000CC                      280  	.TYPE _RAM_INTLVDVDD_ISR,object,4
+000000CC                      281  _RAM_INTLVDVDD_ISR:
+000000CC                      282  	.DS (4)
+000000D0                      283  	.ALIGN 2
+000000D0                      284  	.TYPE _RAM_INTLVDVBAT_ISR,object,4
+000000D0                      285  _RAM_INTLVDVBAT_ISR:
+000000D0                      286  	.DS (4)
+000000D4                      287  	.ALIGN 2
+000000D4                      288  	.TYPE _RAM_INTLVDVRTC_ISR,object,4
+000000D4                      289  _RAM_INTLVDVRTC_ISR:
+000000D4                      290  	.DS (4)
+000000D8                      291  	.ALIGN 2
+000000D8                      292  	.TYPE _RAM_INTLVDEXLVD_ISR,object,4
+000000D8                      293  _RAM_INTLVDEXLVD_ISR:
+000000D8                      294  	.DS (4)
+
+Section List
+Attr     Size                Name
+
+BSS                 220 (000000DC) .ramvect_n
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\asrl.exe" @C:\Users\HP\AppData\Local\Temp\$ccrl\MY_ram_vector.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120100 -cpu=S3 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode\Release_BQFR -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode\V2.21\incrl78 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode -character_set=none -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -output=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode\Release_BQFR\MY_ram_vector.obj C:\Users\HP\AppData\Local\Temp\$ccrl\MY_ram_vector.asm 
+

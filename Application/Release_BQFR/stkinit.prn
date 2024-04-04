@@ -1,0 +1,76 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  ;---------------------------------------------------------------------
+00000000                        2  ;   _stkinit
+00000000                        3  ;
+00000000                        4  ;   void _stkinit(void __near * stackbss);
+00000000                        5  ;
+00000000                        6  ;   input:
+00000000                        7  ;       stackbss = AX (#LOWW(_stackend))
+00000000                        8  ;   output:
+00000000                        9  ;       NONE
+00000000                       10  ;---------------------------------------------------------------------
+00000000                       11  
+00000000                       12  ;   NOTE       : THIS IS A TYPICAL EXAMPLE.
+00000000                       13  
+00000000                       14      .PUBLIC _stkinit
+00000000                       15  
+00000000                       16  .textf  .CSEG   TEXTF
+00000000                       17  _stkinit:
+00000000 16                    18      MOVW    HL,AX       ; stack_end_addr
+00000001 C80300                19      MOV     [SP+3],#0x00    ; [SP+0]-[SP+2] for return address
+00000004 AEF8                  20      MOVW    AX,SP
+00000006 27                    21      SUBW    AX,HL       ; SUBW  AX,#LOWW _@STEND
+00000007 61D300                22      BNH     $LSTINIT3   ; goto end
+0000000A 315E                  23      SHRW    AX,5        ; loop count for 32 byte transfer
+0000000C 12                    24      MOVW    BC,AX
+0000000D F6                    25      CLRW    AX
+0000000E                       26  LSTINIT1:
+0000000E 43                    27      CMPW    AX,BC
+0000000F DD00                  28      BZ      $LSTINIT2
+00000011 BB                    29      MOVW    [HL],AX
+00000012 BC02                  30      MOVW    [HL+2],AX
+00000014 BC04                  31      MOVW    [HL+4],AX
+00000016 BC06                  32      MOVW    [HL+6],AX
+00000018 BC08                  33      MOVW    [HL+8],AX
+0000001A BC0A                  34      MOVW    [HL+10],AX
+0000001C BC0C                  35      MOVW    [HL+12],AX
+0000001E BC0E                  36      MOVW    [HL+14],AX
+00000020 BC10                  37      MOVW    [HL+16],AX
+00000022 BC12                  38      MOVW    [HL+18],AX
+00000024 BC14                  39      MOVW    [HL+20],AX
+00000026 BC16                  40      MOVW    [HL+22],AX
+00000028 BC18                  41      MOVW    [HL+24],AX
+0000002A BC1A                  42      MOVW    [HL+26],AX
+0000002C BC1C                  43      MOVW    [HL+28],AX
+0000002E BC1E                  44      MOVW    [HL+30],AX
+00000030 37                    45      XCHW    AX,HL
+00000031 042000                46      ADDW    AX,#0x20
+00000034 37                    47      XCHW    AX,HL
+00000035 B3                    48      DECW    BC
+00000036 EF00                  49      BR      $LSTINIT1
+00000038                       50  LSTINIT2:
+00000038 AEF8                  51      MOVW    AX,SP
+0000003A 47                    52      CMPW    AX,HL
+0000003B DD00                  53      BZ      $LSTINIT3   ; goto end
+0000003D F6                    54      CLRW    AX
+0000003E BB                    55      MOVW    [HL],AX
+0000003F A7                    56      INCW    HL
+00000040 A7                    57      INCW    HL
+00000041 EF00                  58      BR      $LSTINIT2
+00000043                       59  LSTINIT3:
+00000043 D7                    60      RET
+
+Section List
+Attr     Size                Name
+
+TEXTF                68 (00000044) .textf
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\asrl.exe" @C:\Users\HP\AppData\Local\Temp\$ccrl\stkinit.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120100 -cpu=S3 -character_set=none -goptimize -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -convert_asm -debug -output=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Build\Release_BQFR\stkinit.obj stkinit.asm 
+
