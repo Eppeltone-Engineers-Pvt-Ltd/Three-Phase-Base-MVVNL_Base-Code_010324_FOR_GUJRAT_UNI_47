@@ -1,4 +1,4 @@
-Renesas Optimizing Linker (V3.05.00 )             04-Apr-2024 17:50:44
+Renesas Optimizing Linker (V3.05.00 )             04-Apr-2024 18:08:28
 
 *** Options ***
 
@@ -117,11 +117,11 @@ Renesas Optimizing Linker (V3.05.00 )             04-Apr-2024 17:50:44
 -SEction_forbid=(.const)
 -SEction_forbid=(.constf)
 -OUtput=Build/Release_BQFR\rl78i1c.lmf
--LIBrary=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dataflash\fdl\librl78\pfdl.lib
--LIBrary=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\lib\r_dscl_iirbiquad_i32_1.lib
--LIBrary=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\lib\r_dscl_iirbiquad_i32_2.lib
--LIBrary=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\lib\rl78i1c_hpf16.lib
--LIBrary=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\middleware\EM3P4W-BQFR.lib
+-LIBrary=D:\Sushmita\3_phase_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\application\dataflash\fdl\librl78\pfdl.lib
+-LIBrary=D:\Sushmita\3_phase_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\lib\r_dscl_iirbiquad_i32_1.lib
+-LIBrary=D:\Sushmita\3_phase_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\lib\r_dscl_iirbiquad_i32_2.lib
+-LIBrary=D:\Sushmita\3_phase_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\wrapper\core\sw\filter\lib\rl78i1c_hpf16.lib
+-LIBrary=D:\Sushmita\3_phase_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\rl78i1c\middleware\EM3P4W-BQFR.lib
 -LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\lib\rl78em4s.lib
 -LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\lib\malloc_n.lib
 -LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\lib\rl78em4r.lib
@@ -2482,9 +2482,9 @@ FILE=Build\Release_BQFR\em_display_common.obj
   _lcd_display_decimal
                                   000211cd        3c   func ,g         5  ch
   _display_long_one_dp
-                                  00021209        21   func ,g         c
+                                  00021209        21   func ,g         b
   _display_long_two_dp
-                                  0002122a        22   func ,g         9
+                                  0002122a        22   func ,g         a
   _display_long_three_dp
                                   0002124c        22   func ,g        11
   _display_long_five_dp
@@ -13606,7 +13606,6 @@ No   Unit Name   Global.Symbol   Location External Infomation
                                           0101(000225c6:.textf)
                                           0101(000225ff:.textf)
                                           0101(0002262c:.textf)
-                                          0101(00022934:.textf)
                  _display_long_two_dp
                                  0002122a 0101(000216ae:.textf)
                                           0101(000216e1:.textf)
@@ -13617,6 +13616,7 @@ No   Unit Name   Global.Symbol   Location External Infomation
                                           0101(00021fbc:.textf)
                                           0101(00021ff1:.textf)
                                           0101(000220bf:.textf)
+                                          0101(00022934:.textf)
                  _display_long_three_dp
                                  0002124c 0101(00021743:.textf)
                                           0101(00021772:.textf)

@@ -17,7 +17,7 @@ OFFSET   CODE                  NO  SOURCE STATEMENT
 00000000                       13  #@   -I .
 00000000                       14  #@   -asmopt=-prn_path=Release_BQFR
 00000000                       15  #@   -c
-00000000                       16  #@  compiled at Thu Apr 04 17:43:57 2024
+00000000                       16  #@  compiled at Thu Apr 04 18:07:46 2024
 00000000                       17  
 00000000                       18  	.PUBLIC _MY_CGC_Create
 00000000                       19  
@@ -25,30 +25,30 @@ OFFSET   CODE                  NO  SOURCE STATEMENT
 00000000                       21  	.TYPE _MY_CGC_Create,function,.LFE1-_MY_CGC_Create
 00000000                       22  _MY_CGC_Create:
 00000000                       23  	.STACK _MY_CGC_Create = 8
-00000000                       24  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 5
+00000000                       24  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 5
 00000000 2004                  25  	subw sp, #0x04
-00000002                       26  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 9
+00000002                       26  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 9
 00000002 CEA011                27  	mov 0xFFFA0, #0x11
 00000005                       28  .BB@LABEL@1_1:	; entry.split
-00000005                       29  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 10
+00000005                       29  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 10
 00000005 717AA1                30  	set1 0xFFFA1.7
 00000008                       31  .BB@LABEL@1_2:	; entry.split1
-00000008                       32  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 11
+00000008                       32  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 11
 00000008 714BA4                33  	clr1 0xFFFA4.4
 0000000B                       34  .BB@LABEL@1_3:	; entry.split2
-0000000B                       35  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 0
+0000000B                       35  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 0
 0000000B 368603                36  	movw hl, #0x0386
-0000000E                       37  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 12
+0000000E                       37  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 12
 0000000E 71E3                  38  	clr1 [hl].6
 00000010                       39  .BB@LABEL@1_4:	; entry.split3
-00000010                       40  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 0
+00000010                       40  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 0
 00000010 F6                    41  	clrw ax
-00000011                       42  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 13
+00000011                       42  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 13
 00000011 B802                  43  	movw [sp+0x02], ax
 00000013 B800                  44  	movw [sp+0x00], ax
 00000015 EF00                  45  	br $.BB@LABEL@1_8
 00000017                       46  .BB@LABEL@1_5:	; bb
-00000017                       47  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 15
+00000017                       47  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 15
 00000017 00                    48  	nop
 00000018 A802                  49  	movw ax, [sp+0x02]
 0000001A 14                    50  	movw de, ax
@@ -64,7 +64,7 @@ OFFSET   CODE                  NO  SOURCE STATEMENT
 00000027 13                    60  	movw ax, bc
 00000028 B800                  61  	movw [sp+0x00], ax
 0000002A                       62  .BB@LABEL@1_8:	; bb3
-0000002A                       63  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 13
+0000002A                       63  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 13
 0000002A A802                  64  	movw ax, [sp+0x02]
 0000002C 440000                65  	cmpw ax, #0x0000
 0000002F A800                  66  	movw ax, [sp+0x00]
@@ -74,28 +74,28 @@ OFFSET   CODE                  NO  SOURCE STATEMENT
 00000036                       70  .BB@LABEL@1_10:	; bb3
 00000036 DC00                  71  	bc $.BB@LABEL@1_5
 00000038                       72  .BB@LABEL@1_11:	; bb7
-00000038                       73  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 18
+00000038                       73  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 18
 00000038 F5F300                74  	clrb !0x00F3
 0000003B                       75  .BB@LABEL@1_12:	; bb7.split
-0000003B                       76  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 19
+0000003B                       76  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 19
 0000003B 716BA4                77  	clr1 0xFFFA4.6
 0000003E                       78  .BB@LABEL@1_13:	; bb7.split4
-0000003E                       79  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 20
+0000003E                       79  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 20
 0000003E 710BA1                80  	clr1 0xFFFA1.0
 00000041                       81  .BB@LABEL@1_14:	; bb7.split5
-00000041                       82  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 21
+00000041                       82  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 21
 00000041 CEA508                83  	mov 0xFFFA5, #0x08
 00000044                       84  .BB@LABEL@1_15:	; bb7.split6
-00000044                       85  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 22
+00000044                       85  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 22
 00000044 5A04F7                86  	and 0xFFF04, #0xF7
 00000047                       87  .BB@LABEL@1_16:	; bb7.split7
-00000047                       88  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 0
+00000047                       88  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 0
 00000047 51F7                  89  	mov a, #0xF7
-00000049                       90  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 23
+00000049                       90  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 23
 00000049 5F24FF                91  	and a, !0xFF24
 0000004C 9E24                  92  	mov 0xFFF24, a
 0000004E                       93  .BB@LABEL@1_17:	; bb7.split8
-0000004E                       94  	.LINE "D:/Sushmita/3_phase_meter/Gujrat_Unidirectional_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 24
+0000004E                       94  	.LINE "D:/Sushmita/3_phase_meter/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47/BootCode/BootCode/my_cgc.c", 24
 0000004E 717AA5                95  	set1 0xFFFA5.7
 00000051 1004                  96  	addw sp, #0x04
 00000053 D7                    97  	ret
@@ -107,8 +107,8 @@ Attr     Size                Name
 TEXTF                84 (00000054) .textf
 
 Command Line Parameter
-Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\asrl.exe" @C:\Users\HP\AppData\Local\Temp\$ccrl\my_cgc.asm.cmd 
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\asrl.exe" @C:\Users\HP\AppData\Local\Temp\$ccrl000\my_cgc.asm.cmd 
 
 Command File Parameter
--define=__RENESAS_VERSION__=0x01120100 -cpu=S3 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode\Release_BQFR -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode\V2.21\incrl78 -include=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode -character_set=none -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -output=D:\Sushmita\3_phase_meter\Gujrat_Unidirectional_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode\Release_BQFR\my_cgc.obj C:\Users\HP\AppData\Local\Temp\$ccrl\my_cgc.asm 
+-define=__RENESAS_VERSION__=0x01120100 -cpu=S3 -include=D:\Sushmita\3_phase_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode\Release_BQFR -include=D:\Sushmita\3_phase_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode\V2.21\incrl78 -include=D:\Sushmita\3_phase_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode -character_set=none -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -output=D:\Sushmita\3_phase_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode\Release_BQFR\my_cgc.obj C:\Users\HP\AppData\Local\Temp\$ccrl000\my_cgc.asm 
 

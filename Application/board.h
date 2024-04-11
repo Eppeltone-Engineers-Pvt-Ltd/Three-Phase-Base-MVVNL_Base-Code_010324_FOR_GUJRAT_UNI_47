@@ -232,7 +232,7 @@
 //  #define LAST_TAMPER_DETAILS_REQUIRED
 	#define CLASS1_METER
 	#define BOARD_ID	36	// Two digits - from pin code
-	#define VERNO			47	// 37 Three digits
+	#define VERNO			48	// 37 Three digits
 	#define METER_CLASS	1	// Class 0.5  or 1
 //	#define SPLCODE	LCD_CHAR_U	// Unidirectional,Bidirectional,C (CT meter),T (test code) - NOT USED
 	#define MAGNET_IMAX_POWER 14400.0

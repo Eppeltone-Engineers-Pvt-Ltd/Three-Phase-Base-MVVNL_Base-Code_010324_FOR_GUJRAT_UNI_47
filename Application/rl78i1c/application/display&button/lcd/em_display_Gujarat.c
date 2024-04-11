@@ -3169,7 +3169,7 @@ void display_onDemand(void)
 
     case 24:		// Meter Version
 			displayPrepare();
-			display_long_one_dp(470);
+			display_long_two_dp(101);
 			LCD_DisplayDigit(1, LCD_CHAR_V);
 			LCD_DisplayDigit(2, LCD_CHAR_E);
 			LCD_DisplayDigit(3, LCD_CHAR_R);
