@@ -1,21 +1,21 @@
 QualityReport
-04 April 2024 18:08:32
+12 April 2024 13:59:34
 
 ------ Start build(BootCode, Release_BQFR) ------
 C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\ccrl.exe Command.c -cpu=S3 -o Release_BQFR\Command.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -msg_lang=english
 C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\ccrl.exe my_cgc.c -cpu=S3 -o Release_BQFR\my_cgc.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -msg_lang=english
 C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\ccrl.exe my_main.c -cpu=S3 -o Release_BQFR\my_main.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -msg_lang=english
 C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\ccrl.exe MY_ram_vector.c -cpu=S3 -o Release_BQFR\MY_ram_vector.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -msg_lang=english
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\ccrl.exe My_cg_timer.c -cpu=S3 -o Release_BQFR\My_cg_timer.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -msg_lang=english
 C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\ccrl.exe my_uartf.c -cpu=S3 -o Release_BQFR\my_uartf.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -msg_lang=english
 C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\ccrl.exe my_cgc_user.c -cpu=S3 -o Release_BQFR\my_cgc_user.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -msg_lang=english
 C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\ccrl.exe my_port.c -cpu=S3 -o Release_BQFR\my_port.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -msg_lang=english
-C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\ccrl.exe My_cg_timer.c -cpu=S3 -o Release_BQFR\My_cg_timer.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -msg_lang=english
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\ccrl.exe My_cg_timer_user.c -cpu=S3 -o Release_BQFR\My_cg_timer_user.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -msg_lang=english
 C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\ccrl.exe xmodem.c -cpu=S3 -o Release_BQFR\xmodem.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -msg_lang=english
 C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\ccrl.exe MY_interrupts.c -cpu=S3 -o Release_BQFR\MY_interrupts.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -msg_lang=english
 C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\ccrl.exe my_port_user.c -cpu=S3 -o Release_BQFR\my_port_user.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -msg_lang=english
-C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\ccrl.exe My_cg_timer_user.c -cpu=S3 -o Release_BQFR\My_cg_timer_user.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -msg_lang=english
-xmodem.c(277):W0520111:Statement is unreachable
 C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\ccrl.exe My_cstart.asm -cpu=S3 -o Release_BQFR\My_cstart.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -I V2.21\incrl78 -asmopt=-prn_path=Release_BQFR -c -msg_lang=english
+xmodem.c(277):W0520111:Statement is unreachable
 C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\ccrl.exe My_hdwinit.asm -cpu=S3 -o Release_BQFR\My_hdwinit.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -I V2.21\incrl78 -asmopt=-prn_path=Release_BQFR -c -msg_lang=english
 C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.01\Bin\rlink.exe -subcommand=Release_BQFR\BootCode.clnk
 W0561520:"on chip debug" in ".option_byte" created by device file
@@ -65,7 +65,7 @@ Release_BQFR\BootCode.clnk :
 
 
 --- SHA1 hash value of output files ---
-D:\Sushmita\3_phase_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode\Release_BQFR\BootCode.abs: 0d0c102321a90c6a5bc09a2e0cb56cf75c978622
+D:\Sushmita\3_phase_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\BootCode\BootCode\Release_BQFR\BootCode.abs: 76991de1ed748bac5f92f274ca0f8172e099b7b2
 D:\Sushmita\3_phase_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47\Application\Release_BQFR\BootCode.hex: dae58cb9408b2dc7586995b95cd8a7cbaa0d1e64
 
 
@@ -92,13 +92,13 @@ D:\Sushmita\3_phase_meter\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI
  C:\Program Files (x86)\Renesas Electronics\CS+\CC
 *Memory Usage
  *Private Working Set
-  289 MB
+  284 MB
  *Number of GDI Objects
-  2137
+  2158
  *Number of USER Objects
-  1026
+  1050
  *Opened Files
-  3 editors, 3 files, 132 KB
+  4 editors, 4 files, 560 KB
 
 --- Build Tool Plug-in Information ---
 RH850 Build tool CC-RH Plug-in

@@ -2552,7 +2552,7 @@ void displayRepeatParameters(void)
     case 0:		// total kwh - Cumulative Forwarded
 		  lcd_display_multiple_chars(0,7,LCD_LAST_POS_DIGIT);
 			LCD_DisplayIntWithPos(myenergydata.kwh/1000, LCD_LAST_POS_DIGIT,0);
-			display_long_one_dp(myenergydata.kwh/100);
+		//	display_long_one_dp(myenergydata.kwh/100);
 			LCD_DisplaykWhSign();
   		LCD_DisplaySpSign(S_T8);	// CUM Sign
 			fast_display_flag=0;
@@ -2561,7 +2561,7 @@ void displayRepeatParameters(void)
     case 1:		// total kvarh - lag
 		  lcd_display_multiple_chars(0,7,LCD_LAST_POS_DIGIT);
 			LCD_DisplayIntWithPos(myenergydata.kvarh_lag/1000, LCD_LAST_POS_DIGIT,0);
-			display_long_one_dp(myenergydata.kvarh_lag/100);
+		//	display_long_one_dp(myenergydata.kvarh_lag/100);
 			LCD_DisplaykVArhSign();
   		LCD_DisplaySpSign(S_T8);	// CUM Sign
   		LCD_DisplaySpSign(S_LAG);
@@ -2793,40 +2793,8 @@ void display_autoScroll(void)
   		LCD_DisplaySpSign(S_T8);	// CUM Sign
 			fast_display_flag=0;
       break;
-
-    case 17:			// TOD1 - kwh - Night Hours (Time Zone 0 and 5), scriptid 1, (scriptid-1)=0 - new script id is 2, (scriptid-1)=1
-			tempchar=1;	// this is now (scriptid-1)
-			if(tempchar==presentZone)
-				tempTodKwh=myenergydata.zone_kwh;
-			else
-				EPR_Read(TOD_CURRENT_BASE_ADDRESS+tempchar*ZONE_PTR_INC, (uint8_t*)&tempTodKwh, sizeof(tempTodKwh));
-			
-		  lcd_display_multiple_chars(0,7,LCD_LAST_POS_DIGIT);
-			display_long_one_dp(tempTodKwh/100);
-			LCD_DisplaykWhSign();
-		  LCD_DisplaySpSign(S_TOD);
-			LCD_DisplayDigit(9, LCD_CHAR_N);
-			LCD_DisplayDigit(8, LCD_CHAR_T);
-			fast_display_flag=1;
-      break;
-
-    case 18:		// TOD2 - kwh - Off Peak Hours	(Time Zone 3), scriptid 4, (scriptid-1)=3 - no change old and new script ids are same
-			tempchar=3;	//this is now (scriptid-1)
-//  		read_alternately(TOD_CURRENT_BASE_ADDRESS+tempchar*ZONE_PTR_INC, ALTERNATE_TOD_CURRENT_BASE_ADDRESS+tempchar*ZONE_PTR_INC, (uint8_t*)&tempLong, sizeof(tempLong));
-			if(tempchar==presentZone)
-				tempTodKwh=myenergydata.zone_kwh;
-			else
-				EPR_Read(TOD_CURRENT_BASE_ADDRESS+tempchar*ZONE_PTR_INC, (uint8_t*)&tempTodKwh, sizeof(tempTodKwh));
-		  lcd_display_multiple_chars(0,7,LCD_LAST_POS_DIGIT);
-			display_long_one_dp(tempTodKwh/100);
-			LCD_DisplaykWhSign();
-		  LCD_DisplaySpSign(S_TOD);
-			LCD_DisplayDigit(9, 0);
-			LCD_DisplayDigit(8, LCD_CHAR_P);
-			fast_display_flag=1;
-     break;
-	
-    case 19:		// TOD3	- kwh	-	Peak hours (Time Zone 2 and 4), scriptid 3, (scriptid-1)=2 - new script id is 1, (scriptid-1)=0
+      
+    case 17:		// TOD3	- kwh	-	Peak hours (Time Zone 2 and 4), scriptid 3, (scriptid-1)=2 - new script id is 1, (scriptid-1)=0
 			tempchar=0;	// this is now (scriptid-1)
 //  		read_alternately(TOD_CURRENT_BASE_ADDRESS+tempchar*ZONE_PTR_INC, ALTERNATE_TOD_CURRENT_BASE_ADDRESS+tempchar*ZONE_PTR_INC, (uint8_t*)&tempTodKwh, sizeof(tempTodKwh));
 			if(tempchar==presentZone)
@@ -2843,7 +2811,58 @@ void display_autoScroll(void)
 			LCD_DisplayDigit(8, LCD_CHAR_H);
 //      disp_state=255;
 			fast_display_flag=1;
-      break;			
+      break;
+
+    case 18:			// TOD1 - kwh - Night Hours (Time Zone 0 and 5), scriptid 1, (scriptid-1)=0 - new script id is 2, (scriptid-1)=1
+			tempchar=1;	// this is now (scriptid-1)
+			if(tempchar==presentZone)
+				tempTodKwh=myenergydata.zone_kwh;
+			else
+				EPR_Read(TOD_CURRENT_BASE_ADDRESS+tempchar*ZONE_PTR_INC, (uint8_t*)&tempTodKwh, sizeof(tempTodKwh));
+			
+		  lcd_display_multiple_chars(0,7,LCD_LAST_POS_DIGIT);
+			display_long_one_dp(tempTodKwh/100);
+			LCD_DisplaykWhSign();
+		  LCD_DisplaySpSign(S_TOD);
+			LCD_DisplayDigit(9, LCD_CHAR_N);
+			LCD_DisplayDigit(8, LCD_CHAR_T);
+			fast_display_flag=1;
+      break;
+
+    case 19:		// TOD2 - kwh - Off Peak Hours	(Time Zone 3), scriptid 4, (scriptid-1)=3 - no change old and new script ids are same
+			tempchar=3;	//this is now (scriptid-1)
+//  		read_alternately(TOD_CURRENT_BASE_ADDRESS+tempchar*ZONE_PTR_INC, ALTERNATE_TOD_CURRENT_BASE_ADDRESS+tempchar*ZONE_PTR_INC, (uint8_t*)&tempLong, sizeof(tempLong));
+			if(tempchar==presentZone)
+				tempTodKwh=myenergydata.zone_kwh;
+			else
+				EPR_Read(TOD_CURRENT_BASE_ADDRESS+tempchar*ZONE_PTR_INC, (uint8_t*)&tempTodKwh, sizeof(tempTodKwh));
+		  lcd_display_multiple_chars(0,7,LCD_LAST_POS_DIGIT);
+			display_long_one_dp(tempTodKwh/100);
+			LCD_DisplaykWhSign();
+		  LCD_DisplaySpSign(S_TOD);
+			LCD_DisplayDigit(9, 0);
+			LCD_DisplayDigit(8, LCD_CHAR_P);
+			fast_display_flag=1;
+     break;
+     
+     case 20:		// kwh - rest Hours	(Time Zone 1) , scriptid 2, (scriptid-1)=1 - new script id is 3, (scriptid-1)=2
+			tempchar=2;	// this is now (scriptide-1)
+//  		read_alternately(TOD_CURRENT_BASE_ADDRESS+tempchar*ZONE_PTR_INC, ALTERNATE_TOD_CURRENT_BASE_ADDRESS+tempchar*ZONE_PTR_INC, (uint8_t*)&tempTodKwh, sizeof(tempTodKwh));
+			if(tempchar==presentZone)
+				tempTodKwh=myenergydata.zone_kwh;
+			else
+				EPR_Read(TOD_CURRENT_BASE_ADDRESS+tempchar*ZONE_PTR_INC, (uint8_t*)&tempTodKwh, sizeof(tempTodKwh));
+		//	displayPrepare();
+		  lcd_display_multiple_chars(0,7,LCD_LAST_POS_DIGIT);
+			display_long_one_dp(tempTodKwh/100);
+			LCD_DisplaykWhSign();
+		  LCD_DisplaySpSign(S_TOD);
+			LCD_DisplayDigit(9, LCD_CHAR_R);
+			LCD_DisplayDigit(8, LCD_CHAR_H);
+			fast_display_flag=1;
+     break;
+	
+   			
 	}
 }
 
@@ -2965,7 +2984,7 @@ void display_onDemand(void)
     case 4:		// kVARH lead
 			displayPrepare();
 		  lcd_display_multiple_chars(0,7,LCD_LAST_POS_DIGIT);
-			display_long_one_dp(myenergydata.kvarh_lead/100);
+	//		display_long_one_dp(myenergydata.kvarh_lead/100);
 			LCD_DisplaykVArhSign();
 	    LCD_DisplaySpSign(S_LEAD);	// show the ulta
 			fast_display_flag=1;
